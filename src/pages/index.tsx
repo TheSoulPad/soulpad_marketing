@@ -3,13 +3,12 @@ import type { HeadFC, PageProps } from "gatsby";
 import { CSSProperties } from "react";
 import BaseLayout from "../BaseLayout";
 import { colors, spacing } from "../styles";
-
 import Typography from "@mui/material/Typography";
 import Grid from "@mui/material/Grid2";
+import Clouds from "../Components/Clouds";
 
 const pageStyles = {
 	color: "#232129",
-	fontFamily: "-apple-system, Roboto, sans-serif, serif",
 	backgroundImage: "url('/images/home-bg.jpg')",
 	backgroundSize: "cover",
 	backgroundRepeat: "no-repeat",
@@ -41,9 +40,19 @@ const subTitle: CSSProperties = {
 	margin: "auto",
 };
 
+const cloudContainer: CSSProperties = {
+	marginTop: spacing.layoutbg,
+};
+
 const pageText = {
 	header: "SoulPad",
 	subHeader: "Unleash your inner universe.",
+};
+
+const cloudTitle = {
+	about: "What is SoulPad?",
+	create: "Create a SoulPad",
+	return: "Return to your SoulPad",
 };
 
 const IndexPage: React.FC<PageProps> = () => {
@@ -58,6 +67,17 @@ const IndexPage: React.FC<PageProps> = () => {
 					<Typography variant="h2" style={subTitle}>
 						{pageText.subHeader}
 					</Typography>
+
+					{/* Add the Clouds component */}
+					<Grid
+						container
+						style={cloudContainer}
+						justifyContent="center"
+						spacing={3}>
+						{Object.entries(cloudTitle).map(([key, title]) => (
+							<Clouds key={key} title={title} />
+						))}
+					</Grid>
 				</Grid>
 			</Grid>
 		</BaseLayout>

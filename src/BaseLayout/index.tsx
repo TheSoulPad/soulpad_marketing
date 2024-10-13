@@ -1,7 +1,8 @@
-import React from "react";
+import React, { CSSProperties } from "react";
 import GlobalStyles from "../GlobalStyles";
 import Grid from "@mui/material/Grid2";
-import { CSSProperties } from "react";
+import Typography from "@mui/material/Typography";
+
 import { spacing, colors } from "../styles";
 
 interface LayoutProps {
@@ -23,10 +24,11 @@ const footerStyles: CSSProperties = {
 	color: "#ffffff",
 	backgroundColor: `rgba(${colors.backgroundRGB}, 0.7)`,
 	textAlign: "left",
-	padding: spacing.xs,
 	position: "absolute",
 	bottom: 0,
 	width: "100%",
+	margin: "0 auto",
+	overflow: "hidden",
 };
 
 const footerText = {
@@ -41,11 +43,13 @@ const BaseLayout: React.FC<LayoutProps> = ({ children }) => {
 		<Grid container direction="column" style={styles}>
 			<GlobalStyles />
 			<main style={mainStyles}>{children}</main>
-			<footer style={footerStyles}>
-				<p>
-					{footerText.text} {copyrightSymbol} {footerText.year}
-				</p>
-			</footer>
+			<Grid size={"auto"}>
+				<footer style={footerStyles}>
+					<Typography variant="body1" sx={{ padding: 2 }}>
+						{footerText.text} {copyrightSymbol} {footerText.year}
+					</Typography>
+				</footer>
+			</Grid>
 		</Grid>
 	);
 };
