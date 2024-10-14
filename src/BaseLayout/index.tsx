@@ -8,6 +8,7 @@ import { colors, spacing } from "../styles";
 interface LayoutProps {
 	children: React.ReactNode;
 	title?: string;
+	height?: string;
 }
 
 const styles: CSSProperties = {
@@ -15,8 +16,6 @@ const styles: CSSProperties = {
 	backgroundSize: "cover",
 	backgroundRepeat: "no-repeat",
 	backgroundPosition: "center",
-	height: "100vh",
-	overflow: "hidden",
 };
 
 const h1Styles: CSSProperties = {
@@ -38,11 +37,10 @@ const footerStyles: CSSProperties = {
 	color: "#ffffff",
 	backgroundColor: `rgba(${colors.backgroundRGB}, 0.7)`,
 	textAlign: "left",
-	position: "absolute",
-	bottom: 0,
+	// position: "absolute",
+	// bottom: 0,
 	width: "100%",
 	margin: "0 auto",
-	overflow: "hidden",
 };
 
 const footerText = {
@@ -52,9 +50,16 @@ const footerText = {
 
 const copyrightSymbol = "\u00A9";
 
-const BaseLayout: React.FC<LayoutProps> = ({ children, title }) => {
+const BaseLayout: React.FC<LayoutProps> = ({ children, title, height }) => {
 	return (
-		<Grid className="base-layout" container direction="column" style={styles}>
+		<Grid
+			className="base-layout"
+			container
+			direction="column"
+			style={styles}
+			sx={{
+				height: height,
+			}}>
 			<GlobalStyles />
 			<Grid>
 				<Typography variant="h1" style={h1Styles}>

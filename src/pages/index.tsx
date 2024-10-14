@@ -1,3 +1,25 @@
+/**
+ * The main index page component for the SoulPad application.
+ *
+ * This component uses a base layout and displays a header, subheader, and a series of cloud components
+ * that link to different parts of the application.
+ *
+ * @component
+ * @example
+ * return (
+ *   <IndexPage />
+ * )
+ *
+ * @returns {React.FC<PageProps>} The rendered index page component.
+ *
+ * @remarks
+ * - The page uses a combination of Material-UI components and custom styles.
+ * - The `cloudTitle` object contains links and titles for the cloud components.
+ * - The `BaseLayout` component is used to wrap the main content of the page.
+ *
+ * @see {@link https://www.gatsbyjs.com/docs/reference/built-in-components/gatsby-link/ | Gatsby Link Documentation}
+ */
+
 import * as React from "react";
 import type { HeadFC, PageProps } from "gatsby";
 import { CSSProperties } from "react";
@@ -9,6 +31,7 @@ import Clouds from "../Components/Clouds";
 
 const pageStyles = {
 	color: "#232129",
+	overflow: "hidden",
 };
 
 const contentStyles: CSSProperties = {
@@ -37,14 +60,23 @@ const pageText = {
 };
 
 const cloudTitle = {
-	about: "What is SoulPad?",
-	create: "Create a SoulPad",
-	return: "Return to your SoulPad",
+	about: {
+		title: "About SoulPad",
+		link: "/About",
+	},
+	create: {
+		title: "Create a new world",
+		link: "/Create",
+	},
+	return: {
+		title: "Return to the main page",
+		link: "/Login",
+	},
 };
 
 const IndexPage: React.FC<PageProps> = () => {
 	return (
-		<BaseLayout title={pageText.header}>
+		<BaseLayout title={pageText.header} height="100vh">
 			<Grid style={pageStyles}>
 				<Grid
 					container
@@ -60,8 +92,8 @@ const IndexPage: React.FC<PageProps> = () => {
 						style={cloudContainer}
 						justifyContent="center"
 						spacing={3}>
-						{Object.entries(cloudTitle).map(([key, title]) => (
-							<Clouds key={key} title={title} />
+						{Object.entries(cloudTitle).map(([key, item]) => (
+							<Clouds key={key} title={item.title} link={item.link} />
 						))}
 					</Grid>
 				</Grid>
