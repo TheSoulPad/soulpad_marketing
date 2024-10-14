@@ -9,25 +9,12 @@ import Clouds from "../Components/Clouds";
 
 const pageStyles = {
 	color: "#232129",
-	backgroundImage: "url('/images/home-bg.jpg')",
-	backgroundSize: "cover",
-	backgroundRepeat: "no-repeat",
-	backgroundPosition: "center",
-	height: "100vh",
-	overflow: "hidden",
 };
 
-const heroStyles: CSSProperties = {
+const contentStyles: CSSProperties = {
 	padding: spacing.lg,
 	textAlign: "center",
-	marginTop: spacing.layout,
 	color: "#ffffff",
-};
-
-const h1Styles: CSSProperties = {
-	margin: 0,
-	fontFamily: "Spicy Rice, serif",
-	fontWeight: "400",
 };
 
 const subTitle: CSSProperties = {
@@ -57,18 +44,17 @@ const cloudTitle = {
 
 const IndexPage: React.FC<PageProps> = () => {
 	return (
-		<BaseLayout>
-			<Grid className="homepage-container" style={pageStyles}>
-				<Grid container direction="column" className="hero" style={heroStyles}>
-					<Typography variant="h1" style={h1Styles}>
-						{pageText.header}
-					</Typography>
-
+		<BaseLayout title={pageText.header}>
+			<Grid style={pageStyles}>
+				<Grid
+					container
+					direction="column"
+					className="content"
+					style={contentStyles}>
 					<Typography variant="h2" style={subTitle}>
 						{pageText.subHeader}
 					</Typography>
 
-					{/* Add the Clouds component */}
 					<Grid
 						container
 						style={cloudContainer}

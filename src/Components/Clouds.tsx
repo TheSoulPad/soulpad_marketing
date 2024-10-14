@@ -1,7 +1,7 @@
 import React from "react";
 import Grid from "@mui/material/Grid2";
 import Typography from "@mui/material/Typography";
-import { colors } from "../styles";
+import { colors, spacing } from "../styles";
 import { CSSProperties } from "react";
 import Box from "@mui/material/Box";
 
@@ -21,8 +21,9 @@ const cloudStyles = {
 	height: "100px",
 	borderRadius: "150px",
 	boxShadow: "10px 10px rgba(0,0,0,0.2)",
-	animation: "move 3s infinite",
+	animation: "move 5s infinite",
 	position: "relative",
+	cursor: "pointer",
 };
 
 const Clouds: React.FC<CloudProps> = ({ title }) => {
@@ -32,6 +33,10 @@ const Clouds: React.FC<CloudProps> = ({ title }) => {
 				className="cloud"
 				sx={{
 					...cloudStyles,
+					"&:hover": {
+						transform: "translateY(-30px)",
+						boxShadow: "15px 15px rgba(0,0,0,0.3)",
+					},
 					"&::after": {
 						content: "''",
 						background: "rgba(255, 255, 255)",

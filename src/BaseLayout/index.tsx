@@ -3,16 +3,30 @@ import GlobalStyles from "../GlobalStyles";
 import Grid from "@mui/material/Grid2";
 import Typography from "@mui/material/Typography";
 
-import { spacing, colors } from "../styles";
+import { colors, spacing } from "../styles";
 
 interface LayoutProps {
 	children: React.ReactNode;
+	title?: string;
 }
 
 const styles: CSSProperties = {
-	display: "flex",
-	flexDirection: "column",
-	minHeight: "100vh",
+	backgroundImage: "url('/images/home-bg.jpg')",
+	backgroundSize: "cover",
+	backgroundRepeat: "no-repeat",
+	backgroundPosition: "center",
+	height: "100vh",
+	overflow: "hidden",
+};
+
+const h1Styles: CSSProperties = {
+	margin: 0,
+	fontFamily: "Spicy Rice, serif",
+	fontWeight: "400",
+	padding: spacing.lg,
+	textAlign: "center",
+	marginTop: spacing.xxl,
+	color: "#ffffff",
 };
 
 const mainStyles: CSSProperties = {
@@ -38,10 +52,15 @@ const footerText = {
 
 const copyrightSymbol = "\u00A9";
 
-const BaseLayout: React.FC<LayoutProps> = ({ children }) => {
+const BaseLayout: React.FC<LayoutProps> = ({ children, title }) => {
 	return (
-		<Grid container direction="column" style={styles}>
+		<Grid className="base-layout" container direction="column" style={styles}>
 			<GlobalStyles />
+			<Grid>
+				<Typography variant="h1" style={h1Styles}>
+					{title}
+				</Typography>
+			</Grid>
 			<main style={mainStyles}>{children}</main>
 			<Grid size={"auto"}>
 				<footer style={footerStyles}>
