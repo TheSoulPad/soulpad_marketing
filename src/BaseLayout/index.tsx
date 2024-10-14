@@ -16,6 +16,8 @@ const styles: CSSProperties = {
   backgroundSize: "cover",
   backgroundRepeat: "no-repeat",
   backgroundPosition: "center",
+  color: "#ffffff",
+  minHeight: "100vh",
 };
 
 const h1Styles: CSSProperties = {
@@ -25,7 +27,6 @@ const h1Styles: CSSProperties = {
   padding: spacing.lg,
   textAlign: "center",
   marginTop: spacing.xxl,
-  color: "#ffffff",
 };
 
 const mainStyles: CSSProperties = {
@@ -50,17 +51,9 @@ const footerText = {
 
 const copyrightSymbol = "\u00A9";
 
-const BaseLayout: React.FC<LayoutProps> = ({ children, title, height }) => {
+const BaseLayout: React.FC<LayoutProps> = ({ children, title }) => {
   return (
-    <Grid
-      className="base-layout"
-      container
-      direction="column"
-      style={styles}
-      sx={{
-        height: height,
-      }}
-    >
+    <Grid className="base-layout" container direction="column" style={styles}>
       <GlobalStyles />
       <Grid>
         <Typography variant="h1" style={h1Styles}>

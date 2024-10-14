@@ -76,7 +76,7 @@ const cloudTitle = {
 
 const IndexPage: React.FC<PageProps> = () => {
   return (
-    <BaseLayout title={pageText.header} height="100vh">
+    <BaseLayout title={pageText.header}>
       <Grid style={pageStyles}>
         <Grid
           container
