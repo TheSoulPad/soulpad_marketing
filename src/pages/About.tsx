@@ -18,11 +18,16 @@ const heroStyles: CSSProperties = {
   color: "#ffffff",
 };
 
-const subTitle: CSSProperties = {
+const fontStyles: CSSProperties = {
   fontFamily: "Courier Prime, monospace",
-  fontWeight: "800",
+  margin: "auto",
+};
+
+const subTitle: CSSProperties = {
+  ...fontStyles,
   fontSize: 32,
-  padding: spacing.xs,
+  fontWeight: "800",
+  padding: spacing.sm,
   margin: "auto",
 };
 
@@ -33,10 +38,22 @@ const pageText = {
 };
 
 const aboutContent = {
-  about:
-    "SoulPad is a platform for creating and sharing your own digital worlds. You can create a world, add characters, and write stories about them. You can also explore other people's worlds, characters, and stories. SoulPad is a place to unleash your creativity and share it with others.",
-  howItWorks:
-    "SoulPad is a platform for creating and sharing your own digital worlds. You can create a world, add characters, and write stories about them. You can also explore other people's worlds, characters, and stories. SoulPad is a place to unleash your creativity and share it with others.",
+  about: {
+    p1: {
+      title: "The most popular social media apps today have 3 major problems:",
+      bullets: [
+        "They keep our attention glued to the timeline or feed rather than on each other’s profiles.",
+        "They highlight celebrity culture by listing the number of followers, followed by, likes, and other reactions.",
+        "They don’t give us the freedom to design our profiles the way we want.",
+      ],
+    },
+    p2: {
+      title: "Let’s explore the first point a little deeper:",
+      highlight:
+        'They keep our attention glued to the timeline or "feed" rather than on each other’s profiles.',
+      p: `When was the last time you spent more than five minutes on your friend's profile page vs scrolling through the feed? Probably not many times because social media account profiles are all the same, which makes them boring. Instead, we spend more of our time going through endless videos, photos, sponsored content, or ads. In fact, TikTok has determined that it takes about 250 videos to get people addicted to the app. We’re hooked on the feed and interact more with content from famous social media stars vs engaging with the profiles of our friends and new people.`,
+    },
+  },
 };
 
 const paperStyles = {
@@ -45,27 +62,56 @@ const paperStyles = {
   backgroundRepeat: "no-repeat",
   backgroundPosition: "center",
   height: "100%",
+  maxWidth: "900px",
+  margin: "auto",
+};
+
+const bodyTextStyles: CSSProperties = {
+  fontFamily: "Afacad Flux, sans-serif",
+  fontWeight: "500",
+  fontSize: "1.2rem",
+  textAlign: "left",
+  padding: spacing.sm,
+};
+
+const blockquoteStyles: CSSProperties = {
+  fontFamily: "Afacad Flux, sans-serif",
+  fontWeight: "500",
+  fontSize: "1.5rem",
+  textAlign: "center",
+  padding: spacing.sm,
 };
 
 const IndexPage: React.FC<PageProps> = () => {
   return (
-    <BaseLayout title={pageText.header} height="100%">
+    <BaseLayout title={pageText.header}>
       <Grid className="homepage-container" style={pageStyles}>
         <Grid container direction="column" className="hero" style={heroStyles}>
           <Paper style={paperStyles} elevation={3}>
             <Typography variant="h2" style={subTitle}>
               {pageText.subHeader}
             </Typography>
-            <Typography variant="body1" style={subTitle}>
-              {aboutContent.about}
-            </Typography>
-
-            <Typography variant="h2" style={subTitle}>
-              {pageText.subHeader2}
-            </Typography>
-            <Typography variant="body1" style={subTitle}>
-              {aboutContent.howItWorks}
-            </Typography>
+            <div className="about-content">
+              <Typography variant="body1" style={bodyTextStyles}>
+                {aboutContent.about.p1.title}
+                <ul>
+                  {aboutContent.about.p1.bullets.map((text) => (
+                    <li>
+                      <strong>{text}</strong>
+                    </li>
+                  ))}
+                </ul>
+              </Typography>
+              <Typography variant="body1" style={bodyTextStyles}>
+                {aboutContent.about.p2.title}
+              </Typography>
+              <blockquote style={blockquoteStyles}>
+                {aboutContent.about.p2.highlight}
+              </blockquote>
+              <Typography variant="body1" style={bodyTextStyles}>
+                {aboutContent.about.p2.p}
+              </Typography>
+            </div>
           </Paper>
         </Grid>
       </Grid>
