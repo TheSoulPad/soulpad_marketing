@@ -83,7 +83,9 @@ const Clouds: React.FC<CloudProps> = ({ title, link }) => {
             zIndex: 100,
           }}
         >
-          <Link to={link}>{title}</Link>
+          <Link style={{ textDecoration: "none" }} to={link}>
+            {title}
+          </Link>
         </Typography>
       </Box>
     </Grid>

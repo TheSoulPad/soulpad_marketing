@@ -65,11 +65,11 @@ const cloudTitle = {
     link: "/About",
   },
   create: {
-    title: "Create a new world",
+    title: "Create a SoulPad",
     link: "/Create",
   },
   return: {
-    title: "Return to the main page",
+    title: "Enter your SoulPad",
     link: "/Login",
   },
 };
