@@ -6,76 +6,77 @@ import Typography from "@mui/material/Typography";
 import { colors, spacing } from "../styles";
 
 interface LayoutProps {
-	children: React.ReactNode;
-	title?: string;
-	height?: string;
+  children: React.ReactNode;
+  title?: string;
+  height?: string;
 }
 
 const styles: CSSProperties = {
-	backgroundImage: "url('/images/home-bg.jpg')",
-	backgroundSize: "cover",
-	backgroundRepeat: "no-repeat",
-	backgroundPosition: "center",
+  backgroundImage: "url('/images/home-bg.jpg')",
+  backgroundSize: "cover",
+  backgroundRepeat: "no-repeat",
+  backgroundPosition: "center",
 };
 
 const h1Styles: CSSProperties = {
-	margin: 0,
-	fontFamily: "Spicy Rice, serif",
-	fontWeight: "400",
-	padding: spacing.lg,
-	textAlign: "center",
-	marginTop: spacing.xxl,
-	color: "#ffffff",
+  margin: 0,
+  fontFamily: "Spicy Rice, serif",
+  fontWeight: "400",
+  padding: spacing.lg,
+  textAlign: "center",
+  marginTop: spacing.xxl,
+  color: "#ffffff",
 };
 
 const mainStyles: CSSProperties = {
-	flex: 1,
-	position: "relative",
+  flex: 1,
+  position: "relative",
 };
 
 const footerStyles: CSSProperties = {
-	color: "#ffffff",
-	backgroundColor: `rgba(${colors.backgroundRGB}, 0.7)`,
-	textAlign: "left",
-	// position: "absolute",
-	// bottom: 0,
-	width: "100%",
-	margin: "0 auto",
+  color: "#ffffff",
+  backgroundColor: `rgba(${colors.backgroundRGB}, 0.7)`,
+  textAlign: "left",
+  // position: "absolute",
+  // bottom: 0,
+  width: "100%",
+  margin: "0 auto",
 };
 
 const footerText = {
-	text: "SoulPad",
-	year: new Date().getFullYear(),
+  text: "SoulPad",
+  year: new Date().getFullYear(),
 };
 
 const copyrightSymbol = "\u00A9";
 
 const BaseLayout: React.FC<LayoutProps> = ({ children, title, height }) => {
-	return (
-		<Grid
-			className="base-layout"
-			container
-			direction="column"
-			style={styles}
-			sx={{
-				height: height,
-			}}>
-			<GlobalStyles />
-			<Grid>
-				<Typography variant="h1" style={h1Styles}>
-					{title}
-				</Typography>
-			</Grid>
-			<main style={mainStyles}>{children}</main>
-			<Grid size={"auto"}>
-				<footer style={footerStyles}>
-					<Typography variant="body1" sx={{ padding: 2 }}>
-						{footerText.text} {copyrightSymbol} {footerText.year}
-					</Typography>
-				</footer>
-			</Grid>
-		</Grid>
-	);
+  return (
+    <Grid
+      className="base-layout"
+      container
+      direction="column"
+      style={styles}
+      sx={{
+        height: height,
+      }}
+    >
+      <GlobalStyles />
+      <Grid>
+        <Typography variant="h1" style={h1Styles}>
+          {title}
+        </Typography>
+      </Grid>
+      <main style={mainStyles}>{children}</main>
+      <Grid size={"auto"}>
+        <footer style={footerStyles}>
+          <Typography variant="body1" sx={{ padding: 2 }}>
+            {footerText.text} {copyrightSymbol} {footerText.year}
+          </Typography>
+        </footer>
+      </Grid>
+    </Grid>
+  );
 };
 
 export default BaseLayout;
