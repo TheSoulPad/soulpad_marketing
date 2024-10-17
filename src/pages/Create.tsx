@@ -4,36 +4,37 @@ import Grid from "@mui/material/Grid2";
 import Typography from "@mui/material/Typography";
 import { spacing, colors } from "../styles";
 import { HeadFC } from "gatsby";
+import { Strings } from "../resources/strings";
+
+const strings = Strings.createPage;
+const headStrings = Strings.metaData.create;
 
 const Create: React.FC = () => {
-	const subTitle: CSSProperties = {
-		fontFamily: "Courier Prime, monospace",
-		fontWeight: "800",
-		backgroundColor: `rgba(${colors.backgroundRGB}, 0.7)`,
-		borderRadius: "5px",
-		fontSize: 32,
-		padding: spacing.xs,
-		margin: "auto",
-	};
+  const subTitle: CSSProperties = {
+    backgroundColor: `rgba(${colors.backgroundRGB}, 0.7)`,
+    borderRadius: "5px",
+    padding: spacing.xs,
+    margin: "auto",
+  };
 
-	const contentStyles: CSSProperties = {
-		padding: spacing.lg,
-		textAlign: "center",
-		color: "#ffffff",
-	};
+  const contentStyles: CSSProperties = {
+    padding: spacing.lg,
+    textAlign: "center",
+    color: "#ffffff",
+  };
 
-	return (
-		<BaseLayout title="Create a SoulPad">
-			<Grid container style={contentStyles}>
-				<Typography variant="h2" style={subTitle}>
-					Coming Soon!
-				</Typography>
-			</Grid>
-			{/* Add your content here */}
-		</BaseLayout>
-	);
+  return (
+    <BaseLayout title={strings.header}>
+      <Grid container style={contentStyles}>
+        <Typography variant="h2" style={subTitle}>
+          {strings.subHeader}
+        </Typography>
+      </Grid>
+      {/* Add your content here */}
+    </BaseLayout>
+  );
 };
 
 export default Create;
 
-export const Head: HeadFC = () => <title>Create a SoulPad</title>;
+export const Head: HeadFC = () => <title>{headStrings}</title>;
