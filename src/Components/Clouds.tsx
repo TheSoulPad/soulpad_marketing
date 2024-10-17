@@ -1,8 +1,7 @@
 import React from "react";
 import Grid from "@mui/material/Grid2";
 import Typography from "@mui/material/Typography";
-import { colors } from "../styles";
-import { CSSProperties } from "react";
+
 import Box from "@mui/material/Box";
 import { Link } from "gatsby";
 
@@ -10,12 +9,6 @@ interface CloudProps {
   title: string;
   link: string;
 }
-
-const styles: CSSProperties = {
-  color: colors.primaryText,
-  fontFamily: "Courier Prime, monospace",
-  fontWeight: "800",
-};
 
 const cloudStyles = {
   background: "rgba(255, 255, 255)",
@@ -30,7 +23,7 @@ const cloudStyles = {
 
 const Clouds: React.FC<CloudProps> = ({ title, link }) => {
   return (
-    <Grid style={styles}>
+    <Grid>
       <Box
         className="cloud"
         sx={{
@@ -73,7 +66,7 @@ const Clouds: React.FC<CloudProps> = ({ title, link }) => {
         }}
       >
         <Typography
-          variant="body1"
+          variant="body2"
           sx={{
             marginBottom: 5,
             fontWeight: 800,
@@ -81,6 +74,7 @@ const Clouds: React.FC<CloudProps> = ({ title, link }) => {
             position: "absolute",
             width: "100%",
             zIndex: 100,
+            fontSize: "1rem",
           }}
         >
           <Link style={{ textDecoration: "none" }} to={link}>

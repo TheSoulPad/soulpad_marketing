@@ -29,67 +29,67 @@ import Typography from "@mui/material/Typography";
 import Grid from "@mui/material/Grid2";
 import Clouds from "../Components/Clouds";
 import { homePageLinks } from "../const";
+import { Strings } from "../resources/strings";
+
+const strings = Strings.homePage;
+const headStrings = Strings.metaData.home;
 
 const pageStyles = {
-	color: "#232129",
-	overflow: "hidden",
+  color: "#232129",
+  overflow: "hidden",
 };
 
 const contentStyles: CSSProperties = {
-	padding: spacing.lg,
-	textAlign: "center",
-	color: "#ffffff",
+  padding: spacing.lg,
+  textAlign: "center",
+  color: "#ffffff",
 };
 
 const subTitle: CSSProperties = {
-	fontFamily: "Courier Prime, monospace",
-	fontWeight: "800",
-	backgroundColor: `rgba(${colors.backgroundRGB}, 0.7)`,
-	borderRadius: "5px",
-	fontSize: 32,
-	padding: spacing.xs,
-	margin: "auto",
+  fontWeight: "800",
+  backgroundColor: `rgba(${colors.backgroundRGB}, 0.7)`,
+  borderRadius: "5px",
+  fontSize: 32,
+  padding: spacing.xs,
+  margin: "auto",
 };
 
 const cloudContainer: CSSProperties = {
-	marginTop: spacing.layoutbg,
-};
-
-const pageText = {
-	header: "SoulPad",
-	subHeader: "Unleash your inner universe.",
+  marginTop: spacing.layoutbg,
 };
 
 const IndexPage: React.FC<PageProps> = () => {
-	return (
-		<BaseLayout title={pageText.header}>
-			<Grid style={pageStyles}>
-				<Grid
-					container
-					direction="column"
-					className="content"
-					style={contentStyles}>
-					<Typography variant="h2" style={subTitle}>
-						{pageText.subHeader}
-					</Typography>
+  return (
+    <BaseLayout title={strings.header}>
+      <Grid style={pageStyles}>
+        <Grid
+          container
+          direction="column"
+          className="content"
+          style={contentStyles}
+        >
+          <Typography variant="h2" style={subTitle}>
+            {strings.subHeader}
+          </Typography>
 
-					<Grid
-						container
-						style={cloudContainer}
-						justifyContent="center"
-						spacing={3}>
-						{Object.entries(homePageLinks)
-							.slice(1)
-							.map(([key, item]) => (
-								<Clouds key={key} title={item.label} link={item.url} />
-							))}
-					</Grid>
-				</Grid>
-			</Grid>
-		</BaseLayout>
-	);
+          <Grid
+            container
+            style={cloudContainer}
+            justifyContent="center"
+            spacing={3}
+          >
+            {Object.entries(homePageLinks)
+              .slice(1)
+              .map(([key, item]) => (
+                <Clouds key={key} title={item.label} link={item.url} />
+              ))}
+          </Grid>
+        </Grid>
+      </Grid>
+    </BaseLayout>
+  );
 };
 
 export default IndexPage;
 
-export const Head: HeadFC = () => <title>Home Page</title>;
+export const Head: HeadFC = () => <title>{headStrings}</title>;
