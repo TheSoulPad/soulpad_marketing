@@ -72,6 +72,10 @@ const config: GatsbyConfig = {
             name: "Afacad Flux",
             file: "https://fonts.googleapis.com/css2?family=Afacad+Flux:wght@100..1000&display=swap",
           },
+          {
+            name: "Barrio",
+            file: "https://fonts.googleapis.com/css2?family=Galindo&display=swap",
+          },
         ],
       },
     },

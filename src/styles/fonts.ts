@@ -18,7 +18,15 @@ const headline2Font: CSSProperties = {
 const body1Styles: CSSProperties = {
   fontFamily: "Afacad Flux, sans-serif",
   fontWeight: "500",
-  fontSize: "1.2rem",
+  fontSize: "1.2rem", // 20px
 };
 
-export { headline1Font, headline2Font, body1Styles };
+const funFont1: CSSProperties = {
+  fontFamily: "Galindo, sans-serif",
+  fontSize: "1.5rem", // 24px
+  lineHeight: "1.5",
+  display: "inline",
+  fontWeight: "800",
+  margin: "0",
+};
+export { headline1Font, headline2Font, body1Styles, funFont1 };

@@ -11,36 +11,45 @@ interface LayoutProps {
   children: React.ReactNode;
   title?: string;
   height?: string;
+  pageStyles: {
+    backgroundImage: string;
+    backgroundSize: string;
+    color: string;
+  };
 }
-
-const styles: CSSProperties = {
-  backgroundImage: "url('/images/home-bg.jpg')",
-  backgroundSize: "cover",
-  backgroundRepeat: "no-repeat",
-  backgroundPosition: "center",
-  color: "#ffffff",
-  minHeight: "100vh",
-};
-
-const h1Styles: CSSProperties = {
-  margin: 0,
-  fontFamily: "Spicy Rice, serif",
-  fontWeight: "400",
-  padding: spacing.lg,
-  textAlign: "center",
-  marginTop: spacing.xxl,
-};
 
 const mainStyles: CSSProperties = {
   flex: 1,
   position: "relative",
 };
 
-const BaseLayout: React.FC<LayoutProps> = ({ children, title }) => {
+const BaseLayout: React.FC<LayoutProps> = ({ children, title, pageStyles }) => {
+  const { backgroundImage, backgroundSize, color } = pageStyles;
+  const baseStyles: CSSProperties = {
+    backgroundImage,
+    backgroundSize,
+    minHeight: "100vh",
+  };
+
+  const h1Styles: CSSProperties = {
+    margin: 0,
+    fontFamily: "Spicy Rice, serif",
+    fontWeight: "400",
+    padding: spacing.lg,
+    textAlign: "center",
+    marginTop: spacing.xxl,
+    color: color,
+  };
+
   return (
     <ThemeProvider theme={theme}>
       <GlobalStyles />
-      <Grid className="base-layout" container direction="column" style={styles}>
+      <Grid
+        className="base-layout"
+        container
+        direction="column"
+        style={baseStyles}
+      >
         <Grid>
           <Typography variant="h1" style={h1Styles}>
             {title}

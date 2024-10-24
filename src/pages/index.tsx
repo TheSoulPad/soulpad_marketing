@@ -58,9 +58,15 @@ const cloudContainer: CSSProperties = {
   marginTop: spacing.layoutbg,
 };
 
+const homeStyles = {
+  backgroundImage: "url('/images/home-bg.jpg')",
+  backgroundSize: "cover",
+  color: "#ffffff",
+};
+
 const IndexPage: React.FC<PageProps> = () => {
   return (
-    <BaseLayout title={strings.header}>
+    <BaseLayout title={strings.header} pageStyles={homeStyles}>
       <Grid style={pageStyles}>
         <Grid
           container

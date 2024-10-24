@@ -1,4 +1,4 @@
-import { body1Styles, headline1Font, headline2Font } from "../styles";
+import { body1Styles, funFont1, headline1Font, headline2Font } from "../styles";
 
 const components = {
   MuiButton: {
@@ -13,6 +13,7 @@ const components = {
         body1: "p",
         h1: "h1",
         h2: "h2",
+        subtitle1: "subtitle1",
       },
     },
     styleOverrides: {
@@ -26,6 +27,9 @@ const components = {
       },
       h2: {
         ...headline2Font,
+      },
+      subtitle1: {
+        ...funFont1,
       },
     },
   },
