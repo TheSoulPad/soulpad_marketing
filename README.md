@@ -1,29 +1,19 @@
-
 <h1 align="center">
   SoulPad Beta
 </h1>
 
 ## 🚀 Quick start
 
-1.  **Create a Gatsby site.**
-
-    Use the Gatsby CLI to create a new site, specifying the minimal TypeScript starter.
-
-    ```shell
-    # create a new Gatsby site using the minimal TypeScript starter
-    npm init gatsby -- -ts
-    ```
-
-2.  **Start developing.**
+1.  **Start developing.**
 
     Navigate into your new site’s directory and start it up.
 
     ```shell
     cd soul-pad-beta/
-    npm run develop
+    npm run dev
     ```
 
-3.  **Open the code and start customizing!**
+2.  **Open the code and start customizing!**
 
     Your site is now running at http://localhost:8000!
 
@@ -32,18 +22,21 @@
 ## **Technology Stack**
 
 - **Front-End:**
-	 React, TypeScript
+  React, TypeScript
 
 - **Back-End:**
-    - Node.js 
-    - Nim
-    - GraphQL for handling communication between front-end and back-end
+
+  - Node.js
+  - Nim
+  - GraphQL for handling communication between front-end and back-end
 
 - **Database:**
-    - SQL to store user information, website data, templates, etc.
+
+  - SQL to store user information, website data, templates, etc.
 
 - **File Storage:**
-	- Linode
-  
+
+  - Linode
+
 - **Hosting & Cloud Infrastructure:**
-    - Linode for cloud infrastructure
+  - Linode for cloud infrastructure
