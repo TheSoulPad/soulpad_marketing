@@ -10,7 +10,6 @@ import theme from "../theme";
 interface LayoutProps {
   children: React.ReactNode;
   title?: string;
-  height?: string;
   pageStyles: {
     backgroundImage: string;
     backgroundSize: string;

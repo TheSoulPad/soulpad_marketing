@@ -23,14 +23,14 @@ const Create: React.FC = () => {
     color: "#ffffff",
   };
 
-  const pageStyles = {
+  const createStyles = {
     backgroundImage: "url('/images/home-bg.jpg')",
     backgroundSize: "cover",
     color: "#ffffff",
   };
 
   return (
-    <BaseLayout title={strings.header} pageStyles={pageStyles}>
+    <BaseLayout title={strings.header} pageStyles={createStyles}>
       <Grid container style={contentStyles}>
         <Typography variant="h2" style={subTitle}>
           {strings.subHeader}
