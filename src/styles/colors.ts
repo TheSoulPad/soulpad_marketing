@@ -10,3 +10,11 @@ export const colors = {
   highlight: "#f1c40f",
   muted: "#7f8c8d",
 };
+
+export const aboutColors = {
+  background1: "rgb(252, 145, 98)", // #fc9162
+  background2: "rgb(252, 235, 124)", // #fdd9b5
+  // rgb(255, 220, 145)
+  paper: "rgb(255, 245, 230)", // light shade for paper
+  menu: "#ff8808",
+};

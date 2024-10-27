@@ -7,8 +7,8 @@ export const Strings = {
   },
 
   about: {
-    header: "About SoulPad",
-    subHeader: "What is SoulPad?",
+    header: "What is SoulPad?",
+    subHeader: "The problem with social media today...",
     subHeader2: "How does it work?",
   },
 
