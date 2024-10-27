@@ -6,14 +6,14 @@
 
 1.  **Start developing.**
 
-    Navigate into your new site’s directory and start it up.
+    Navigate into the site’s directory and start it up.
 
     ```shell
     cd soul-pad-beta/
     npm run dev
     ```
 
-2.  **Open the code and start customizing!**
+2.  **Open the code and start customizin!**
 
     Your site is now running at http://localhost:8000!
 
