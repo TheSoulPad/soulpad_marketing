@@ -76,6 +76,10 @@ const config: GatsbyConfig = {
             name: "Barrio",
             file: "https://fonts.googleapis.com/css2?family=Galindo&display=swap",
           },
+          {
+            name: "Quantico",
+            file: "https://fonts.googleapis.com/css2?family=Quantico:ital,wght@0,400;0,700;1,400;1,700&display=swap",
+          },
         ],
       },
     },

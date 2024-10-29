@@ -7,12 +7,20 @@ export const homePageLinks = {
     label: "About SoulPad",
     url: "/About",
   },
-  create: {
-    label: "Create a SoulPad",
-    url: "/Create",
+  // create: {
+  //   label: "Create a SoulPad",
+  //   url: "/Create",
+  // },
+  // login: {
+  //   label: "Enter your SoulPad",
+  //   url: "/Login",
+  // },
+  gallery: {
+    label: "Gallery of Themes",
+    url: "/Gallery",
   },
-  return: {
-    label: "Enter your SoulPad",
-    url: "/Login",
-  },
+  demo: {
+    label: "Demo",
+    url: "/Demo",
+  }
 };

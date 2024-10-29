@@ -66,7 +66,6 @@ const paperStyles = {
   height: "100%",
   maxWidth: "900px",
   marginBottom: spacing.xl,
-
   border: "6px solid black",
   boxShadow: "9px 9px 0px 0px black",
   borderRadius: "20px",
@@ -92,7 +91,7 @@ const blockquoteStyles: CSSProperties = {
   margin: "auto",
 };
 
-const IndexPage: React.FC<PageProps> = () => {
+const AboutPage: React.FC<PageProps> = () => {
   return (
     <div className="overlay" style={overlayStyles}>
       <BaseLayout title={strings.header} pageStyles={pageStyles}>
@@ -192,6 +191,6 @@ const IndexPage: React.FC<PageProps> = () => {
   );
 };
 
-export default IndexPage;
+export default AboutPage;
 
 export const Head: HeadFC = () => <title>{headStrings}</title>;
