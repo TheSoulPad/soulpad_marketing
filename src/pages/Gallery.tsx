@@ -4,16 +4,20 @@ import Grid from "@mui/material/Grid2";
 import {
   spacing,
   galleryColors,
-  aboutColors,
   retroContentStyles,
   retroMenuHeader,
   retroMenuStyles,
-  retroHeader,
+  RetroHeader,
+  retroButtonStyles,
+  colors,
+  retroPostHeader,
 } from "../styles";
 import { HeadFC } from "gatsby";
 import { Strings } from "../resources/strings";
-import Paper from "@mui/material/Paper";
 import MenuSelection from "../Components/MenuSelection";
+import CustomButton from "../Components/CustomButton";
+import RichTextPost from "../Components/RichTextPost";
+import Typography from "@mui/material/Typography";
 
 const strings = Strings.galleryPage;
 const headStrings = Strings.metaData.gallery;
@@ -37,33 +41,13 @@ const Gallery: React.FC = () => {
     color: "#000000",
   };
 
-  const paperStyles = {
-    backgroundColor: aboutColors.paper,
-    height: "100%",
-    maxWidth: "900px",
-    marginBottom: spacing.xl,
-    border: "6px solid black",
-    boxShadow: "9px 9px 0px 0px black",
-    borderRadius: "20px",
-  };
-
-  const paperStyles2 = {
-    backgroundColor: aboutColors.paper,
-    height: "100%",
-    maxWidth: "600px",
-    marginBottom: spacing.xl,
-    border: "6px solid black",
-    boxShadow: "9px 9px 0px 0px black",
-    borderRadius: "20px",
-  };
-
-  const menuStyles = [retroMenuStyles, retroMenuStyles];
-  const menuHeaderStyles = [retroMenuHeader];
-  interface MenuItem {
-    id: number;
-    name: string;
-    onClick: () => void;
-  }
+  // const menuStyles = [retroMenuStyles, retroMenuStyles];
+  // const menuHeaderStyles = [retroMenuHeader];
+  // interface MenuItem {
+  //   id: number;
+  //   name: string;
+  //   onClick: () => void;
+  // }
 
   const menuItems = {
     items: [
@@ -95,10 +79,20 @@ const Gallery: React.FC = () => {
     hoverColor: galleryColors.headerBG,
   };
 
+  const subTitle: CSSProperties = {
+    fontWeight: "800",
+    backgroundColor: `rgba(${colors.backgroundRGB}, 0.7)`,
+    borderRadius: "5px",
+    fontSize: 32,
+    padding: spacing.xs,
+    margin: "auto",
+    color: "#ffffff",
+  };
+
   return (
     <div className="overlay" style={overlayStyles}>
       <BaseLayout title={strings.header} pageStyles={galleryStyles}>
-        <Grid container justifyContent="space-around">
+        <Grid container mt={4} justifyContent="space-evenly">
           {/************ MENU SECTION ******************/}
 
           <Grid size={2}>
@@ -108,32 +102,31 @@ const Gallery: React.FC = () => {
               menuStyles={menuItems.menuStyles}
               contentStyles={menuItems.contentStyles}
               hoverColor={menuItems.hoverColor}
-              Header={retroHeader}
+              Header={RetroHeader}
             />
           </Grid>
 
           {/********** GALLERY **************/}
           <Grid flexDirection="column">
-            <Grid size={8} flexDirection="column">
-              <Paper style={paperStyles} elevation={2}>
+            <Grid size={10} flexDirection="column">
+              <RichTextPost
+                subHeader="Post Title"
+                paperStyles={retroContentStyles}
+                menuStyles={retroPostHeader}
+              >
                 <div className="loren">
                   lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed
                   do eiusmod tempor incididunt ut labore et dolore magna aliqua.
                 </div>
-              </Paper>
-            </Grid>
-
-            <Grid size={8}>
-              <Paper style={paperStyles2} elevation={2}>
-                <div className="loren">
-                  lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed
-                  do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                </div>
-              </Paper>
+                <CustomButton
+                  onClick={() => console.log("Button Clicked")}
+                  label="Click Me!"
+                  btnStyles={retroButtonStyles}
+                />
+              </RichTextPost>
             </Grid>
           </Grid>
         </Grid>
-        {/* Add your content here */}
       </BaseLayout>
     </div>
   );

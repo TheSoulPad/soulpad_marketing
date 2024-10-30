@@ -2,14 +2,18 @@ import * as React from "react";
 import type { HeadFC, PageProps } from "gatsby";
 import { CSSProperties } from "react";
 import BaseLayout from "../BaseLayout";
-import { spacing, aboutColors } from "../styles";
+import {
+  spacing,
+  aboutColors,
+  aboutPaperStyles,
+  aboutMenuStyles,
+} from "../styles";
 import Typography from "@mui/material/Typography";
 import Grid from "@mui/material/Grid2";
-import Paper from "@mui/material/Paper";
+
 import { Strings } from "../resources/strings";
-import CloseIcon from "@mui/icons-material/Close";
-import CropSquareIcon from "@mui/icons-material/CropSquare";
-import MinimizeIcon from "@mui/icons-material/Minimize";
+
+import RichTextPost from "../Components/RichTextPost";
 
 //use the retro web style for the about section
 
@@ -61,19 +65,8 @@ const containerStyles = {
   color: "#232129",
 };
 
-const paperStyles = {
-  backgroundColor: aboutColors.paper,
-  height: "100%",
-  maxWidth: "900px",
-  marginBottom: spacing.xl,
-  border: "6px solid black",
-  boxShadow: "9px 9px 0px 0px black",
-  borderRadius: "20px",
-};
-
 const contentStyles: CSSProperties = {
   marginTop: spacing.lg,
-  padding: ` 0 ${spacing.xl}px ${spacing.xl}px ${spacing.xl}px`,
 };
 
 const bodyTextStyles: CSSProperties = {
@@ -102,35 +95,11 @@ const AboutPage: React.FC<PageProps> = () => {
           style={containerStyles}
         >
           {/* THE PAPER */}
-          <Paper style={paperStyles} elevation={6}>
-            {/* THE MENU BAR */}
-            <Grid
-              container
-              style={{
-                borderBottom: "3px solid black",
-                paddingLeft: spacing.sm,
-                paddingRight: spacing.sm,
-                backgroundColor: aboutColors.menu,
-                borderRadius: "14px 14px 0 0",
-              }}
-            >
-              <Typography variant="h6" sx={{ marginTop: 1 }}>
-                {" "}
-                <strong>{strings.subHeader}</strong>
-              </Typography>
-              <Grid
-                display={"flex"}
-                justifyContent="flex-end"
-                alignItems="center"
-                style={{ marginLeft: "auto", fontWeight: "bold" }}
-              >
-                <MinimizeIcon
-                  style={{ marginRight: "2px", marginTop: "-3px" }}
-                />
-                <CropSquareIcon style={{ marginRight: "2px" }} />
-                <CloseIcon />
-              </Grid>
-            </Grid>
+          <RichTextPost
+            subHeader={strings.header}
+            paperStyles={aboutPaperStyles}
+            menuStyles={aboutMenuStyles}
+          >
             {/* THE CONTENT */}
             <Grid
               container
@@ -184,7 +153,7 @@ const AboutPage: React.FC<PageProps> = () => {
                 {aboutContent.about.p2.p}
               </Typography>
             </Grid>
-          </Paper>
+          </RichTextPost>
         </Grid>
       </BaseLayout>
     </div>

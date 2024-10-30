@@ -32,18 +32,7 @@ export const galleryColors = {
   contentBorder: "2px inset #137574",
 };
 
-export const retroColors = {
-  mainBg: "#92bdbc", //light olive green
-  shine: "#f0f0f0", //light grey
-  headerBorderColor: "#3db5d9", //light blue
-  headerBorder: "2px solid #3db5d9",
-  headerBg: "#781acd", //purple
-  contentBorderColor: "#137574", //dark green
-  contentBorder: "2px inset #137574",
-  mainBG2: "#00d5d5", //light greenish-blue
-  buttonColor: "#bee9e9", //pale white blue
-  hoverColor: "#781acd", //purple
-};
+
 
 // const retroColors2 = {
 //   mainBg: "#fbf087", //light yellow

@@ -30,8 +30,8 @@ export const Strings = {
   },
 
   galleryPage: {
-    header: "Gallery",
-    subHeader: "Explore the SoulPad themes.",
+    header: "Gallery of Themes",
+    subHeader: "Explore SoulPad themes.",
   },
 
   demoPage: {

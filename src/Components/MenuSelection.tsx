@@ -35,6 +35,11 @@ const MenuSelection: React.FC<MenuSelectionProps> = ({
     }
   `;
 
+  const List = styled.ul`
+    list-style-type: none;
+    padding: 0;
+  `;
+
   return (
     <Card
       sx={{
@@ -45,13 +50,13 @@ const MenuSelection: React.FC<MenuSelectionProps> = ({
     >
       <Header className="card-header">{title}</Header>
       <CardContent sx={contentStyles}>
-        <ul>
+        <List>
           {items.map((item) => (
             <Selection key={item.id} onClick={item.onClick}>
               {item.name}
             </Selection>
           ))}
-        </ul>
+        </List>
       </CardContent>
     </Card>
   );
