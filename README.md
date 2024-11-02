@@ -15,9 +15,9 @@
 
 2.  **Open the code and start customizin!**
 
-    Your site is now running at http://localhost:8000!
+    The site is now running at http://localhost:8000
 
-    Edit `src/pages/index.tsx` to see your site update in real-time!
+    Edit `src/pages/index.tsx` to real-time updates
 
 ## **Technology Stack**
 

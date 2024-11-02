@@ -4,6 +4,8 @@ export const Strings = {
     create: "SoulPad - Create",
     login: "SoulPad - Enter",
     about: "SoulPad - About",
+    gallery: "SoulPad - Gallery",
+    demo: "SoulPad - Demo",
   },
 
   about: {
@@ -25,5 +27,15 @@ export const Strings = {
   loginPage: {
     header: "Enter your SoulPad",
     subHeader: "Welcome back.",
+  },
+
+  galleryPage: {
+    header: "Gallery of Themes",
+    subHeader: "Explore SoulPad themes.",
+  },
+
+  demoPage: {
+    header: "Demo",
+    subHeader: "See SoulPad in action.",
   },
 };

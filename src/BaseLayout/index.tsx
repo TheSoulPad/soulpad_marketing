@@ -36,7 +36,6 @@ const BaseLayout: React.FC<LayoutProps> = ({ children, title, pageStyles }) => {
     fontWeight: "400",
     padding: spacing.lg,
     textAlign: "center",
-    marginTop: spacing.xxl,
     color: color,
   };
 

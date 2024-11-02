@@ -24,7 +24,7 @@ import * as React from "react";
 import type { HeadFC, PageProps } from "gatsby";
 import { CSSProperties } from "react";
 import BaseLayout from "../BaseLayout";
-import { colors, spacing } from "../styles";
+import { aboutColors, colors, spacing } from "../styles";
 import Typography from "@mui/material/Typography";
 import Grid from "@mui/material/Grid2";
 import Clouds from "../Components/Clouds";
@@ -33,7 +33,6 @@ import { Strings } from "../resources/strings";
 
 const strings = Strings.homePage;
 const headStrings = Strings.metaData.home;
-
 const pageStyles = {
   color: "#232129",
   overflow: "hidden",
