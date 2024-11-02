@@ -10,10 +10,13 @@ const retroColors = {
   headerBg: "#781acd", //purple
   contentBorderColor: "#137574", //dark green
   contentBorder: "2px inset #137574",
+  contentBgColor: "#bfebec", //light blue
+  cardBg: "#00d5d5", //light greenish-blue
   mainBG2: "#00d5d5", //light greenish-blue
   buttonColor: "#bee9e9", //pale white blue
   buttonTextColor: "#781acd", //purple
   hoverColor: "#781acd", //purple
+  iconColor: "#beecea", //lightest blue
 };
 
 const RetroHeader = styled.div`
@@ -27,13 +30,13 @@ const RetroHeader = styled.div`
 const retroPostHeader: CSSProperties = {
   display: "flex",
   backgroundColor: retroColors.headerBg,
-  padding: `${spacing.xs}px ${spacing.xs}px`,
+  padding: `${spacing.xs}px`,
   fontSize: "14px",
-  borderTop: `2px solid ${retroColors.shine}`,
-  borderLeft: `2px solid ${retroColors.shine}`,
-  borderBottom: `2px inset ${retroColors.contentBorderColor}`,
+  borderTop: `2px solid ${retroColors.headerBorderColor}`,
+  borderLeft: `2px solid ${retroColors.headerBorderColor}`,
+  borderBottom: `2px inset ${retroColors.headerBorderColor}`,
   borderRight: `2px inset ${retroColors.contentBorderColor}`,
-  borderRadius: "1px",
+  borderRadius: "0px",
   color: "#ffffff",
   fontFamily: `Quantico, sans-serif`,
   fontWeight: 400,
@@ -50,6 +53,7 @@ const retroMenuStyles: CSSProperties = {
   textAlign: `left`,
   fontFamily: `Quantico, sans-serif`,
   fontWeight: 400,
+  borderRadius: "0px",
 };
 
 const retroMenuHeader: CSSProperties = {
@@ -61,12 +65,31 @@ const retroMenuHeader: CSSProperties = {
   color: "#ffffff",
 };
 
-const retroContentStyles: CSSProperties = {
-  borderTop: `2px inset ${retroColors.contentBorderColor}`,
-  borderLeft: `2px inset ${retroColors.contentBorderColor}`,
-  borderRight: `2px solid ${retroColors.headerBorderColor}`,
+const retroPaperStyles: CSSProperties = {
+  borderTop: `2px solid ${retroColors.shine}`,
+  borderLeft: `2px solid ${retroColors.shine}`,
+  borderRight: `2px inset ${retroColors.headerBorderColor}`,
   borderBottom: `2px inset ${retroColors.headerBorderColor}`,
-  height: "100%",
+  borderRadius: "0px",
+};
+
+const retroContentStyles: CSSProperties = {
+  backgroundColor: retroColors.contentBgColor,
+  borderTop: `2px solid ${retroColors.contentBorderColor}`,
+  borderLeft: `2px solid ${retroColors.contentBorderColor}`,
+  borderRight: `2px inset ${retroColors.headerBorderColor}`,
+  borderBottom: `2px inset ${retroColors.contentBorderColor}`,
+  borderRadius: "0px",
+  padding: `${spacing.md}px`,
+};
+
+const retroCardStyles: CSSProperties = {
+  backgroundColor: retroColors.cardBg,
+  borderTop: `2px solid ${retroColors.contentBorderColor}`,
+  borderLeft: `2px solid ${retroColors.contentBorderColor}`,
+  borderRight: `2px inset ${retroColors.headerBorderColor}`,
+  borderBottom: `2px inset ${retroColors.contentBorderColor}`,
+  borderRadius: "0px",
 };
 
 const retroButtonStyles: CSSProperties = {
@@ -83,12 +106,24 @@ const retroButtonStyles: CSSProperties = {
   borderRadius: "0px",
 };
 
+const retroMenuIcons = {
+  color: "#000000",
+  backgroundColor: retroColors.iconColor,
+  borderTop: `2px solid ${retroColors.shine}`,
+  borderLeft: `2px inset ${retroColors.shine}`,
+  borderBottom: `2px inset ${retroColors.contentBorderColor}`,
+  borderRight: `2px inset ${retroColors.contentBorderColor}`,
+};
+
 export {
   retroMenuStyles,
   retroMenuHeader,
-  retroContentStyles,
+  retroPaperStyles,
   RetroHeader,
   retroColors,
+  retroCardStyles,
   retroButtonStyles,
   retroPostHeader,
+  retroContentStyles,
+  retroMenuIcons,
 };

@@ -80,6 +80,10 @@ const config: GatsbyConfig = {
             name: "Quantico",
             file: "https://fonts.googleapis.com/css2?family=Quantico:ital,wght@0,400;0,700;1,400;1,700&display=swap",
           },
+          {
+            name:"Gaegu",
+            file: "https://fonts.googleapis.com/css2?family=Gaegu&display=swap"
+          }
         ],
       },
     },

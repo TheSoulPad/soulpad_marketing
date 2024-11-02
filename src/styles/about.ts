@@ -6,12 +6,16 @@ const aboutPaperStyles: CSSProperties = {
   border: "6px solid black",
   boxShadow: "9px 9px 0px 0px black",
   borderRadius: "20px",
+  marginBottom: `${spacing.md}`,
 };
 
 const aboutMenuStyles: CSSProperties = {
   backgroundColor: aboutColors.menu,
   borderBottom: "3px solid black",
   borderRadius: "14px 14px 0 0",
+  display: "flex",
+  padding: `${spacing.sm}px`,
+  alignContent: "center",
 };
 
 const aboutContentStyles: CSSProperties = {

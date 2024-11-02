@@ -1,28 +1,47 @@
-import React, { CSSProperties } from "react";
+import React, { CSSProperties, useState } from "react";
 import BaseLayout from "../BaseLayout";
 import Grid from "@mui/material/Grid2";
 import {
   spacing,
   galleryColors,
-  retroContentStyles,
+  retroPaperStyles,
   retroMenuHeader,
   retroMenuStyles,
   RetroHeader,
   retroButtonStyles,
+  retroContentStyles,
+  retroCardStyles,
   colors,
   retroPostHeader,
+  retroMenuIcons,
+  diaryMenuStyles,
+  diaryHeader,
+  diaryButtonStyles,
+  diaryCardStyles,
+  diaryContentStyles,
 } from "../styles";
 import { HeadFC } from "gatsby";
 import { Strings } from "../resources/strings";
 import MenuSelection from "../Components/MenuSelection";
 import CustomButton from "../Components/CustomButton";
 import RichTextPost from "../Components/RichTextPost";
-import Typography from "@mui/material/Typography";
 
 const strings = Strings.galleryPage;
 const headStrings = Strings.metaData.gallery;
 
 const Gallery: React.FC = () => {
+  const themeSelection = {
+    title: "Theme Selection",
+    menuStyles: retroMenuStyles,
+    menuHeaderStyles: retroMenuHeader,
+    cardStyles: retroCardStyles,
+    contentStyles: retroContentStyles,
+    buttonStyles: retroButtonStyles,
+    hoverColor: galleryColors.headerBG,
+  };
+
+  const [theme, setTheme] = useState(themeSelection);
+
   const overlayStyles: CSSProperties = {
     position: "absolute",
     top: 0,
@@ -41,14 +60,6 @@ const Gallery: React.FC = () => {
     color: "#000000",
   };
 
-  // const menuStyles = [retroMenuStyles, retroMenuStyles];
-  // const menuHeaderStyles = [retroMenuHeader];
-  // interface MenuItem {
-  //   id: number;
-  //   name: string;
-  //   onClick: () => void;
-  // }
-
   const menuItems = {
     items: [
       {
@@ -59,71 +70,149 @@ const Gallery: React.FC = () => {
       {
         id: 2,
         name: "Diary",
-        onClick: () => console.log("Diary"),
-      },
-      {
-        id: 3,
-        name: "Newspaper",
-        onClick: () => console.log("Newspaper"),
-      },
-      {
-        id: 4,
-        name: "Pixel Dreams",
-        onClick: () => console.log("Pixel Dreams"),
+        onClick: () =>
+          setTheme({
+            title: "Diary",
+            menuStyles: diaryMenuStyles,
+            menuHeaderStyles: diaryHeader,
+            cardStyles: diaryCardStyles,
+            contentStyles: diaryContentStyles,
+            buttonStyles: diaryButtonStyles,
+            hoverColor: galleryColors.headerBG,
+          }),
       },
     ],
-    title: "Theme Selection",
-    menuStyles: retroMenuStyles,
-    headerStyles: retroMenuHeader,
-    contentStyles: retroContentStyles,
-    hoverColor: galleryColors.headerBG,
   };
 
-  const subTitle: CSSProperties = {
-    fontWeight: "800",
-    backgroundColor: `rgba(${colors.backgroundRGB}, 0.7)`,
-    borderRadius: "5px",
-    fontSize: 32,
-    padding: spacing.xs,
-    margin: "auto",
-    color: "#ffffff",
-  };
+  // const subTitle: CSSProperties = {
+  //   fontWeight: "800",
+  //   backgroundColor: `rgba(${colors.backgroundRGB}, 0.7)`,
+  //   borderRadius: "5px",
+  //   fontSize: 32,
+  //   padding: spacing.xs,
+  //   margin: "auto",
+  //   color: "#ffffff",
+  // };
+
+  //create the gallery components and import them
+  // stack the components; so position absolute
+  // reveal the appropriate theme on click selection
 
   return (
     <div className="overlay" style={overlayStyles}>
       <BaseLayout title={strings.header} pageStyles={galleryStyles}>
-        <Grid container mt={4} justifyContent="space-evenly">
+        <Grid container mt={2} mb={4} flexDirection="row" columnSpacing={2}>
           {/************ MENU SECTION ******************/}
-
-          <Grid size={2}>
+          <Grid ml={2} size={2}>
             <MenuSelection
               items={menuItems.items}
-              title={menuItems.title}
-              menuStyles={menuItems.menuStyles}
-              contentStyles={menuItems.contentStyles}
-              hoverColor={menuItems.hoverColor}
+              title={theme.title}
+              menuStyles={theme.menuStyles}
+              contentStyles={theme.cardStyles}
+              hoverColor={theme.hoverColor}
               Header={RetroHeader}
             />
           </Grid>
 
           {/********** GALLERY **************/}
-          <Grid flexDirection="column">
-            <Grid size={10} flexDirection="column">
+          <Grid
+            container
+            className="gallery-wrapper"
+            display="flex"
+            flexDirection="column"
+            rowSpacing={2}
+            width="80%"
+          >
+            <Grid
+              className="gallery-row"
+              display="flex"
+              justifyContent="space-between"
+              alignItems="start"
+            >
               <RichTextPost
                 subHeader="Post Title"
-                paperStyles={retroContentStyles}
+                paperStyles={retroPaperStyles}
                 menuStyles={retroPostHeader}
+                contentStyles={retroContentStyles}
+                iconStyles={retroMenuIcons}
+                size="small"
               >
                 <div className="loren">
                   lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed
                   do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                  lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed
+                  do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                  lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed
+                  do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                  lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed
+                  do eiusmod tempor incididunt ut labore et dolore magna aliqua.
                 </div>
-                <CustomButton
-                  onClick={() => console.log("Button Clicked")}
-                  label="Click Me!"
-                  btnStyles={retroButtonStyles}
-                />
               </RichTextPost>
+              <div
+                style={{
+                  maxWidth: "400px",
+                  backgroundColor: "green",
+                  border: "3px solid black",
+                  height: "100%",
+                }}
+                className="placein"
+              >
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                Consequatur obcaecati enim autem numquam, explicabo aperiam,
+                ipsam aliquid animi distinctio maxime maiores cum deleniti
+                eaque? Accusantium ab reprehenderit unde autem? Provident.
+              </div>
+              <CustomButton
+                onClick={() => console.log("Button Clicked")}
+                label="Click Me!"
+                btnStyles={retroButtonStyles}
+              />
+            </Grid>
+
+            <Grid
+              className="gallery-row"
+              display="flex"
+              justifyContent="space-between"
+              alignItems="start"
+            >
+              <RichTextPost
+                subHeader="Post Title"
+                paperStyles={retroPaperStyles}
+                menuStyles={retroPostHeader}
+                contentStyles={retroContentStyles}
+                iconStyles={retroMenuIcons}
+                size="small"
+              >
+                <div className="loren">
+                  lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed
+                  do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                  lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed
+                  do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                  lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed
+                  do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                  lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed
+                  do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                </div>
+              </RichTextPost>
+              <div
+                style={{
+                  maxWidth: "400px",
+                  backgroundColor: "green",
+                  border: "3px solid black",
+                  height: "100%",
+                }}
+                className="placein"
+              >
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                Consequatur obcaecati enim autem numquam, explicabo aperiam,
+                ipsam aliquid animi distinctio maxime maiores cum deleniti
+                eaque? Accusantium ab reprehenderit unde autem? Provident.
+              </div>
+              <CustomButton
+                onClick={() => console.log("Button Clicked")}
+                label="Click Me!"
+                btnStyles={retroButtonStyles}
+              />
             </Grid>
           </Grid>
         </Grid>

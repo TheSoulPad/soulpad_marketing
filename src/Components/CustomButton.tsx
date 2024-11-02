@@ -14,8 +14,14 @@ const CustomButton: React.FC<ButtonProps> = ({
   disabled = false,
   btnStyles,
 }) => {
+  const buttonSize = "32px";
+
+  const sxStyles = {
+    ...btnStyles,
+    maxHeight: buttonSize,
+  };
   return (
-    <Button sx={btnStyles} onClick={onClick} disabled={disabled}>
+    <Button sx={sxStyles} onClick={onClick} disabled={disabled}>
       {label}
     </Button>
   );
