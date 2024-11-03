@@ -19,6 +19,12 @@ interface MenuSelectionProps {
   hoverColor: string;
 }
 
+//change this to MuiList
+const List = styled.ul`
+  list-style-type: none;
+  padding: 0;
+`;
+
 const MenuSelection: React.FC<MenuSelectionProps> = ({
   items,
   title,
@@ -27,17 +33,13 @@ const MenuSelection: React.FC<MenuSelectionProps> = ({
   hoverColor,
   Header,
 }) => {
+  //change this to MuiList Item
   const Selection = styled.li`
     padding: ${spacing.xs}px;
     cursor: pointer;
     &:hover {
       background-color: ${hoverColor};
     }
-  `;
-
-  const List = styled.ul`
-    list-style-type: none;
-    padding: 0;
   `;
 
   return (

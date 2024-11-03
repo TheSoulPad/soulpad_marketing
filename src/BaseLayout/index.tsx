@@ -6,6 +6,7 @@ import { spacing } from "../styles";
 import Footer from "./Footer";
 import { ThemeProvider } from "@mui/material/styles";
 import theme from "../theme";
+import useMediaQuery from "@mui/material/useMediaQuery";
 
 interface LayoutProps {
   children: React.ReactNode;
@@ -17,13 +18,17 @@ interface LayoutProps {
   };
 }
 
-const mainStyles: CSSProperties = {
-  flex: 1,
-  position: "relative",
-};
-
 const BaseLayout: React.FC<LayoutProps> = ({ children, title, pageStyles }) => {
+  const isMobile = useMediaQuery("(max-width:600px)");
   const { backgroundImage, backgroundSize, color } = pageStyles;
+
+  const mainStyles: CSSProperties = {
+    flex: 1,
+    position: "relative",
+    marginBottom: spacing.md,
+    padding: isMobile ? spacing.sm : 0,
+  };
+
   const baseStyles: CSSProperties = {
     backgroundImage,
     backgroundSize,
@@ -32,11 +37,8 @@ const BaseLayout: React.FC<LayoutProps> = ({ children, title, pageStyles }) => {
 
   const h1Styles: CSSProperties = {
     margin: 0,
-    fontFamily: "Spicy Rice, serif",
-    fontWeight: "400",
-    padding: spacing.lg,
-    textAlign: "center",
-    color: color,
+    padding: isMobile ? 0 : spacing.md,
+    color,
   };
 
   return (

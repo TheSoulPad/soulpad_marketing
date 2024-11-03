@@ -2,7 +2,6 @@ import React, { CSSProperties, useState } from "react";
 import BaseLayout from "../BaseLayout";
 import Grid from "@mui/material/Grid2";
 import {
-  spacing,
   galleryColors,
   retroPaperStyles,
   retroMenuHeader,
@@ -11,7 +10,6 @@ import {
   retroButtonStyles,
   retroContentStyles,
   retroCardStyles,
-  colors,
   retroPostHeader,
   retroMenuIcons,
   diaryMenuStyles,
@@ -25,11 +23,14 @@ import { Strings } from "../resources/strings";
 import MenuSelection from "../Components/MenuSelection";
 import CustomButton from "../Components/CustomButton";
 import RichTextPost from "../Components/RichTextPost";
+import useMediaQuery from "@mui/material/useMediaQuery";
 
 const strings = Strings.galleryPage;
 const headStrings = Strings.metaData.gallery;
 
 const Gallery: React.FC = () => {
+  const isMobile = useMediaQuery("(max-width:600px)");
+
   const themeSelection = {
     title: "Theme Selection",
     menuStyles: retroMenuStyles,
@@ -98,12 +99,24 @@ const Gallery: React.FC = () => {
   // stack the components; so position absolute
   // reveal the appropriate theme on click selection
 
+  const mobileGridStyles: CSSProperties = {
+    width: "100%",
+    margin: "auto",
+  };
+
   return (
     <div className="overlay" style={overlayStyles}>
       <BaseLayout title={strings.header} pageStyles={galleryStyles}>
-        <Grid container mt={2} mb={4} flexDirection="row" columnSpacing={2}>
+        <Grid
+          container
+          mt={2}
+          mb={4}
+          flexDirection="row"
+          columnSpacing={2}
+          rowSpacing={2}
+        >
           {/************ MENU SECTION ******************/}
-          <Grid ml={2} size={2}>
+          <Grid ml={2} size={2} sx={isMobile ? mobileGridStyles : {}}>
             <MenuSelection
               items={menuItems.items}
               title={theme.title}
@@ -121,13 +134,18 @@ const Gallery: React.FC = () => {
             display="flex"
             flexDirection="column"
             rowSpacing={2}
-            width="80%"
+            columnSpacing={2}
+            sx={isMobile ? mobileGridStyles : { width: "80%" }}
           >
             <Grid
               className="gallery-row"
               display="flex"
               justifyContent="space-between"
               alignItems="start"
+              sx={isMobile ? mobileGridStyles : {}}
+              flexDirection={isMobile ? "column" : "row"}
+              columnSpacing={2}
+              rowSpacing={2}
             >
               <RichTextPost
                 subHeader="Post Title"
@@ -174,6 +192,10 @@ const Gallery: React.FC = () => {
               display="flex"
               justifyContent="space-between"
               alignItems="start"
+              sx={isMobile ? mobileGridStyles : {}}
+              flexDirection={isMobile ? "column" : "row"}
+              columnSpacing={2}
+              rowSpacing={2}
             >
               <RichTextPost
                 subHeader="Post Title"
