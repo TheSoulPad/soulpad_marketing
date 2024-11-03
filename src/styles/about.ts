@@ -6,7 +6,7 @@ const aboutPaperStyles: CSSProperties = {
   border: "6px solid black",
   boxShadow: "9px 9px 0px 0px black",
   borderRadius: "20px",
-  marginBottom: `${spacing.md}`,
+  marginBottom: `${spacing.md}px`,
 };
 
 const aboutMenuStyles: CSSProperties = {

@@ -5,7 +5,7 @@ import CropSquareIcon from "@mui/icons-material/CropSquare";
 import MinimizeIcon from "@mui/icons-material/Minimize";
 import { spacing } from "../styles";
 import styled from "styled-components";
-import { MarginRounded } from "@mui/icons-material";
+import useMediaQuery from "@mui/material/useMediaQuery";
 
 interface RichTextPostProps {
   children: React.ReactNode;
@@ -19,6 +19,25 @@ interface RichTextPostProps {
   iconStyles?: CSSProperties;
 }
 
+const ActionMenuWrapper = styled.div`
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  margin-left: auto;
+  font-weight: bold;
+  cursor: pointer;
+`;
+
+const Content = styled.div`
+  display: flex;
+  flex-direction: column;
+`;
+
+const PostTitle = styled.h3`
+  padding: 0;
+  margin: 0;
+`;
+
 const RichTextPost: React.FC<RichTextPostProps> = ({
   paperStyles,
   subHeader,
@@ -28,27 +47,12 @@ const RichTextPost: React.FC<RichTextPostProps> = ({
   iconStyles,
   size,
 }) => {
+  const isMobile = useMediaQuery("(max-width:600px)");
   const postSize = size === "small" ? "600px" : "900px";
+  const mobileSpacing = spacing.xs * 0.5;
 
-  const PostTitle = styled.h3`
-    padding: 0;
-    margin: 0;
-  `;
-
-  const ActionMenuWrapper = styled.div`
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
-    margin-left: auto;
-    font-weight: bold;
-    cursor: pointer;
-  `;
-
-  const Content = styled.div`
-    display: flex;
-    flex-direction: column;
-    padding: 0 ${spacing.xl}px ${spacing.xl}px ${spacing.xl}px;
-  `;
+  const mobilePadding = ` 0 ${mobileSpacing}px ${spacing.lg}px`;
+  const desktopPadding = ` 0 ${spacing.md}px ${spacing.xl}px`;
 
   const allPaperStyles = {
     ...paperStyles,
@@ -66,6 +70,11 @@ const RichTextPost: React.FC<RichTextPostProps> = ({
     marginRight: "4px",
   };
 
+  const contentStylesResponsive = {
+    ...contentStyles,
+    padding: isMobile ? mobilePadding : desktopPadding,
+  };
+
   return (
     <Paper elevation={1} sx={allPaperStyles}>
       <Box sx={BoxStyles}>
@@ -76,7 +85,7 @@ const RichTextPost: React.FC<RichTextPostProps> = ({
           <CloseIcon sx={iconsStyles} />
         </ActionMenuWrapper>
       </Box>
-      <Content style={contentStyles}>{children}</Content>
+      <Content style={contentStylesResponsive}>{children}</Content>
     </Paper>
   );
 };

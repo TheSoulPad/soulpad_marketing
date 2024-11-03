@@ -1,15 +1,23 @@
 import { CSSProperties } from "react";
 
+const mobileHeadline1Font: CSSProperties = {
+  fontSize: "1.3125rem", // 21px
+};
+
+const mobileHeadline2Font: CSSProperties = {
+  fontSize: "1.125rem", // 18px
+};
+
 const headline1Font: CSSProperties = {
   fontFamily: "Spicy Rice, serif",
-  fontWeight: "800",
+  fontWeight: "400",
   textAlign: "center",
 };
 const headline2Font: CSSProperties = {
   fontFamily: "Afacad Flux, sans-serif",
   margin: "auto",
-  fontSize: "32px",
-  fontWeight: "800",
+  fontSize: "2rem", // 32px
+  fontWeight: "600",
   textAlign: "center",
   maxWidth: "400px",
   width: "100%",
@@ -18,7 +26,7 @@ const headline2Font: CSSProperties = {
 const body1Styles: CSSProperties = {
   fontFamily: "Afacad Flux, sans-serif",
   fontWeight: "500",
-  fontSize: "1.2rem", // 20px
+  fontSize: "1rem", // 16px
 };
 
 const funFont1: CSSProperties = {
@@ -29,4 +37,12 @@ const funFont1: CSSProperties = {
   fontWeight: "800",
   margin: "0",
 };
-export { headline1Font, headline2Font, body1Styles, funFont1 };
+
+export {
+  headline1Font,
+  headline2Font,
+  body1Styles,
+  funFont1,
+  mobileHeadline1Font,
+  mobileHeadline2Font,
+};

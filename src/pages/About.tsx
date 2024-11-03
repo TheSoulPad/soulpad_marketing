@@ -10,13 +10,11 @@ import {
 } from "../styles";
 import Typography from "@mui/material/Typography";
 import Grid from "@mui/material/Grid2";
-
 import { Strings } from "../resources/strings";
-
 import RichTextPost from "../Components/RichTextPost";
+import useMediaQuery from "@mui/material/useMediaQuery";
 
 //use the retro web style for the about section
-
 const strings = Strings.about;
 const headStrings = Strings.metaData.about;
 
@@ -43,48 +41,58 @@ const aboutContent = {
     },
   },
 };
-const overlayStyles: CSSProperties = {
-  position: "absolute",
-  top: 0,
-  left: 0,
-  width: "100%",
-  minHeight: "100vh",
-  background: `linear-gradient(to bottom, ${aboutColors.background1}, ${aboutColors.background2})`,
-  opacity: 1,
-  zIndex: 1,
-};
-
-const pageStyles = {
-  backgroundImage: `linear-gradient(to right, grey 1px, transparent 1px),
-  linear-gradient(to bottom, grey 1px, transparent 1px)`,
-  backgroundSize: "40px 40px",
-  color: "#000000",
-};
-
-const containerStyles = {
-  color: "#232129",
-};
-
-const contentStyles: CSSProperties = {
-  marginTop: spacing.lg,
-};
-
-const bodyTextStyles: CSSProperties = {
-  textAlign: "left",
-  paddingLeft: spacing.sm,
-};
-
-const blockquoteStyles: CSSProperties = {
-  fontFamily: "Galindo, sans-serif",
-  fontWeight: "500",
-  fontSize: "1.5rem",
-  textAlign: "center",
-  padding: spacing.sm,
-  width: "50%",
-  margin: "auto",
-};
 
 const AboutPage: React.FC<PageProps> = () => {
+  const isMobile = useMediaQuery("(max-width:600px)");
+
+  const mobileStyles = {
+    container: {
+      padding: spacing.sm,
+    },
+  };
+
+  const overlayStyles: CSSProperties = {
+    position: "absolute",
+    top: 0,
+    left: 0,
+    width: "100%",
+    minHeight: "100vh",
+    background: `linear-gradient(to bottom, ${aboutColors.background1}, ${aboutColors.background2})`,
+    opacity: 1,
+    zIndex: 1,
+  };
+
+  const pageStyles = {
+    backgroundImage: `linear-gradient(to right, grey 1px, transparent 1px),
+    linear-gradient(to bottom, grey 1px, transparent 1px)`,
+    backgroundSize: "40px 40px",
+    color: "#ffffff",
+  };
+
+  const containerStyles = {
+    color: "#232129",
+    padding: isMobile ? spacing.sm : 0,
+  };
+
+  const contentStyles: CSSProperties = {
+    marginTop: spacing.lg,
+  };
+
+  const bodyTextStyles: CSSProperties = {
+    textAlign: "left",
+    paddingLeft: spacing.sm,
+  };
+
+  const blockquoteStyles: CSSProperties = {
+    fontFamily: "Galindo, sans-serif",
+    fontWeight: "500",
+    fontSize: "1.5rem",
+    textAlign: "center",
+    padding: spacing.sm,
+    width: isMobile ? "unset" : "50%",
+    margin: "auto",
+  };
+
   return (
     <div className="overlay" style={overlayStyles}>
       <BaseLayout title={strings.header} pageStyles={pageStyles}>
