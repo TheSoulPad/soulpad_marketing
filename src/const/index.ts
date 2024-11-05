@@ -22,5 +22,5 @@ export const homePageLinks = {
   demo: {
     label: "Demo",
     url: "/Demo",
-  }
+  },
 };

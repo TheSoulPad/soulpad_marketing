@@ -42,14 +42,8 @@ const aboutContent = {
   },
 };
 
-const AboutPage: React.FC<PageProps> = () => {
+const AboutPage = () => {
   const isMobile = useMediaQuery("(max-width:600px)");
-
-  const mobileStyles = {
-    container: {
-      padding: spacing.sm,
-    },
-  };
 
   const overlayStyles: CSSProperties = {
     position: "absolute",

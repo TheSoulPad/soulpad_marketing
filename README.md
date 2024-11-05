@@ -19,6 +19,9 @@
 
     Edit `src/pages/index.tsx` to real-time updates
 
+3.  **Run linting and test before creating PR\***
+    cmd: `npm run fix`
+
 ## **Technology Stack**
 
 - **Front-End:**
