@@ -7,6 +7,7 @@ import {
   aboutColors,
   aboutPaperStyles,
   aboutMenuStyles,
+  funFont1,
 } from "../styles";
 import Typography from "@mui/material/Typography";
 import Grid from "@mui/material/Grid2";
@@ -111,9 +112,7 @@ const AboutPage = () => {
             >
               <Typography variant="body1" style={bodyTextStyles}>
                 {aboutContent.about.p1.title}
-                <Typography variant="subtitle1" gutterBottom>
-                  {aboutContent.about.p1.three}
-                </Typography>
+                <span style={funFont1}>{aboutContent.about.p1.three}</span>
                 {aboutContent.about.p1.title2}
               </Typography>
 
@@ -132,9 +131,9 @@ const AboutPage = () => {
                       display: "flex",
                     }}
                   >
-                    <Typography variant="subtitle1" gutterBottom>
+                    <div style={funFont1}>
                       {aboutContent.about.p1.numbers[index]}
-                    </Typography>
+                    </div>
                     <Typography variant="body1" style={bodyTextStyles}>
                       {bullet}
                     </Typography>
@@ -143,9 +142,7 @@ const AboutPage = () => {
               </ul>
               <Typography variant="body1" style={bodyTextStyles}>
                 {aboutContent.about.p2.title}
-                <Typography variant="subtitle1" gutterBottom>
-                  {aboutContent.about.p2.first}
-                </Typography>
+                <span style={funFont1}>{aboutContent.about.p2.first}</span>
                 {aboutContent.about.p2.title2}
               </Typography>
               <blockquote style={blockquoteStyles}>
