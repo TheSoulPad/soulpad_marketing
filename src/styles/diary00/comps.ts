@@ -1,6 +1,3 @@
-//copy and paste this template for styling theme components
-//always import font and colors from their respective files
-
 export const styles = {
   richTextPost: {
     content: {},

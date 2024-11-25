@@ -1,5 +1,3 @@
-import { text } from "stream/consumers";
-
 export const colors = {
   mainBg00: "#92bdbc", //light olive green
   mainBg1: "#00d5d5", //light greenish-blue

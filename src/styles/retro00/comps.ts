@@ -3,7 +3,15 @@ import { postHeaderText as text } from "./fonts";
 import { spacing } from "../spacing";
 
 export const styles = {
+  button: {},
+  card: {},
+  menuSelection: {
+    content: {},
+    header: {},
+    icons: {},
+  },
   richTextPost: {
+    content: {},
     header: {
       ...text,
       display: "flex",
@@ -16,14 +24,6 @@ export const styles = {
       borderRight: `2px inset ${c.contentBorder}`,
       borderRadius: "0px",
     },
-    content: {},
   },
-  menuSelection : {
-    header: {},
-    cotent: {},
-    icons : {},
-  },
-  button : {},
-  card : {},
 };
 
