@@ -2,6 +2,7 @@ import { CSSProperties } from "react";
 import { spacing, galleryColors } from "../styles";
 import styled from "styled-components";
 
+
 const retroColors = {
   mainBg: "#92bdbc", //light olive green
   shine: "#f0f0f0", //light grey
@@ -30,7 +31,7 @@ const RetroHeader = styled.div`
 const retroPostHeader: CSSProperties = {
   display: "flex",
   backgroundColor: retroColors.headerBg,
-  padding: `${spacing.xs}px`,
+  padding: `${spacing.xs / 2}px`,
   fontSize: "14px",
   borderTop: `2px solid ${retroColors.headerBorderColor}`,
   borderLeft: `2px solid ${retroColors.headerBorderColor}`,

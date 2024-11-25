@@ -32,6 +32,4 @@ export const galleryColors = {
   contentBorder: "2px inset #137574",
 };
 
-// const retroColors2 = {
-//   mainBg: "#fbf087", //light yellow
-// };
+

@@ -4,6 +4,7 @@ interface CardProps {
   title: string;
   content: string;
   imageUrl?: string;
+  videoUrl?: string;
 }
 
 const Card: React.FC<CardProps> = ({ title, content, imageUrl }) => {
