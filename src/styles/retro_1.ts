@@ -95,16 +95,16 @@ const retroCardStyles: CSSProperties = {
 
 const retroButtonStyles: CSSProperties = {
   backgroundColor: retroColors.buttonColor,
-  color: retroColors.buttonTextColor,
-  borderTop: `2px solid ${retroColors.shine}`,
-  borderLeft: `2px inset ${retroColors.shine}`,
   borderBottom: `2px inset ${retroColors.contentBorderColor}`,
+  borderLeft: `2px inset ${retroColors.shine}`,
+  borderRadius: "0px",
   borderRight: `2px inset ${retroColors.contentBorderColor}`,
-  padding: "5px",
-  margin: "5px",
+  borderTop: `2px solid ${retroColors.shine}`,
+  color: retroColors.buttonTextColor,
   cursor: "pointer",
   fontWeight: "bold",
-  borderRadius: "0px",
+  margin: "5px",
+  padding: "5px",
 };
 
 const retroMenuIcons = {

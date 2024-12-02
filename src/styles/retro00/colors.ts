@@ -1,19 +1,21 @@
 export const colors = {
-  mainBg00: "#92bdbc", //light olive green
-  mainBg1: "#00d5d5", //light greenish-blue
-  mainBg02: "#781acd", //purple
-  headerBg00: "#781acd", //purple
-  headerBg01: "#00d5d5", //light greenish-blue
-  contentBg: "#bfebec", //light blue
-  headerBorder: "#3db5d9", //light blue
-  contentBorder: "#137574", //dark green
-  text00: "#ffffff", //white
-  text01: "#781acd", //purple
-  text02: "#000080", //navy blue
-  shine: "#f0f0f0", //light grey
-  button: "#bee9e9", //pale white blue
-  buttonBorder: "#781acd", //purple
-  buttonText: "#781acd", //purple
-  buttonHover: "#781acd", //purple
-  iconColor: "#beecea", //lightest blue
+  mainBg00: "#92bdbc", //light olive green a
+  mainBg1: "#00d5d5", //light greenish-blue b
+  mainBg02: "#781acd", //purple c
+  headerBg00: "#781acd", //purple c
+  headerBg01: "#00d5d5", //light greenish-blue b
+  contentBg: "#bfebec", //light blue d
+  headerBorder: "#3db5d9", //light blue e
+  contentBorder: "#137574", //dark green f
+  text01: "#781acd", //purple c
+  text02: "#000080", //navy blue g
+  shine: "#f0f0f0", //light grey h
+  button: "#bee9e9", //pale white blue i
+  buttonBorder: "#781acd", //purple c
+  buttonText: "#781acd", //purple  c
+  buttonHover: "#781acd", //purple c
+  icon: "#beecea", //lightest blue j
 };
+
+// 10 colors for the theme palette
+
