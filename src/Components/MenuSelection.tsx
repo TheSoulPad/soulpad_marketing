@@ -1,8 +1,11 @@
-import React, { CSSProperties } from "react";
+import React from "react";
 import { spacing } from "../styles";
 import Card from "@mui/material/Card";
-import CardContent from "@mui/material/CardContent";
+import Paper from "@mui/material/Paper";
 import styled from "styled-components";
+import Box from "@mui/material/Box";
+import ListItem from "@mui/material/ListItem";
+import { Header, Paper as P, ContentType } from "../styles/types";
 
 interface MenuItem {
   id: number;
@@ -11,11 +14,11 @@ interface MenuItem {
 }
 
 interface MenuSelectionProps {
-  Header: React.ElementType;
+  header: Header;
   items: MenuItem[];
   title: string;
-  menuStyles: CSSProperties;
-  contentStyles: CSSProperties;
+  content: ContentType;
+  paper: P;
   hoverColor: string;
 }
 
@@ -28,39 +31,45 @@ const List = styled.ul`
 const MenuSelection: React.FC<MenuSelectionProps> = ({
   items,
   title,
-  menuStyles,
-  contentStyles,
+  content,
   hoverColor,
-  Header,
+  header,
+  paper,
 }) => {
-  //change this to MuiList Item
-  const Selection = styled.li`
-    padding: ${spacing.xs}px;
-    cursor: pointer;
-    &:hover {
-      background-color: ${hoverColor};
-    }
-  `;
+  const listItemStyles = {
+    padding: `${spacing.xs}px`,
+    cursor: "pointer",
+    "&:hover": {
+      backgroundColor: hoverColor,
+    },
+  };
 
   return (
-    <Card
-      sx={{
-        width: "100%",
-        borderRadius: "0px",
-        ...menuStyles,
-      }}
-    >
-      <Header className="card-header">{title}</Header>
-      <CardContent sx={contentStyles}>
-        <List>
-          {items.map((item) => (
-            <Selection key={item.id} onClick={item.onClick}>
-              {item.name}
-            </Selection>
-          ))}
-        </List>
-      </CardContent>
-    </Card>
+    <Paper sx={paper}>
+      <Card
+        sx={{
+          width: "100%",
+          borderRadius: "0px",
+        }}
+      >
+        <Box className="menuselection-card-header" sx={header}>
+          {title}
+        </Box>
+        <Box sx={content}>
+          <List>
+            {items.map((item) => (
+              <ListItem
+                key={item.id}
+                onClick={item.onClick}
+                sx={listItemStyles}
+              >
+                {item.name}
+              </ListItem>
+            ))}
+          </List>
+        </Box>
+      </Card>
+    </Paper>
   );
 };
 

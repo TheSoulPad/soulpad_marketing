@@ -50,9 +50,8 @@ const RichTextPost: React.FC<RichTextPostProps> = ({
   const isMobile = useMediaQuery("(max-width:600px)");
   const postSize = size === "small" ? "600px" : "900px";
   const mobileSpacing = spacing.xs * 0.5;
-
   const mobilePadding = ` 0 ${mobileSpacing}px ${spacing.lg}px`;
-  const desktopPadding = ` 0 ${spacing.md}px ${spacing.xl}px`;
+  const desktopPadding = ` ${spacing.sm}px ${spacing.md}px ${spacing.xl}px`;
 
   const allPaperStyles = {
     ...paperStyles,

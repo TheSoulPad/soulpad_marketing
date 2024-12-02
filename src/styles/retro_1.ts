@@ -2,6 +2,7 @@ import { CSSProperties } from "react";
 import { spacing, galleryColors } from "../styles";
 import styled from "styled-components";
 
+
 const retroColors = {
   mainBg: "#92bdbc", //light olive green
   shine: "#f0f0f0", //light grey
@@ -30,7 +31,7 @@ const RetroHeader = styled.div`
 const retroPostHeader: CSSProperties = {
   display: "flex",
   backgroundColor: retroColors.headerBg,
-  padding: `${spacing.xs}px`,
+  padding: `${spacing.xs / 2}px`,
   fontSize: "14px",
   borderTop: `2px solid ${retroColors.headerBorderColor}`,
   borderLeft: `2px solid ${retroColors.headerBorderColor}`,
@@ -94,16 +95,16 @@ const retroCardStyles: CSSProperties = {
 
 const retroButtonStyles: CSSProperties = {
   backgroundColor: retroColors.buttonColor,
-  color: retroColors.buttonTextColor,
-  borderTop: `2px solid ${retroColors.shine}`,
-  borderLeft: `2px inset ${retroColors.shine}`,
   borderBottom: `2px inset ${retroColors.contentBorderColor}`,
+  borderLeft: `2px inset ${retroColors.shine}`,
+  borderRadius: "0px",
   borderRight: `2px inset ${retroColors.contentBorderColor}`,
-  padding: "5px",
-  margin: "5px",
+  borderTop: `2px solid ${retroColors.shine}`,
+  color: retroColors.buttonTextColor,
   cursor: "pointer",
   fontWeight: "bold",
-  borderRadius: "0px",
+  margin: "5px",
+  padding: "5px",
 };
 
 const retroMenuIcons = {

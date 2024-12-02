@@ -4,9 +4,6 @@ import Grid from "@mui/material/Grid2";
 import {
   galleryColors,
   retroPaperStyles,
-  retroMenuHeader,
-  retroMenuStyles,
-  RetroHeader,
   retroButtonStyles,
   retroContentStyles,
   retroCardStyles,
@@ -23,7 +20,9 @@ import { Strings } from "../resources/strings";
 import MenuSelection from "../Components/MenuSelection";
 import CustomButton from "../Components/CustomButton";
 import RichTextPost from "../Components/RichTextPost";
+import CustomCard from "../Components/CustomCard";
 import useMediaQuery from "@mui/material/useMediaQuery";
+import { retroComps } from "../styles/retro00/comps";
 
 const strings = Strings.galleryPage;
 const headStrings = Strings.metaData.gallery;
@@ -33,11 +32,10 @@ const Gallery: React.FC = () => {
 
   const themeSelection = {
     title: "Theme Selection",
-    menuStyles: retroMenuStyles,
-    menuHeaderStyles: retroMenuHeader,
-    cardStyles: retroCardStyles,
-    contentStyles: retroContentStyles,
-    buttonStyles: retroButtonStyles,
+    menuStyles: retroComps.menuSelection,
+    cardStyles: retroComps.card,
+    richTextStyles: retroComps.richTextPost,
+    buttonStyles: retroComps.button,
     hoverColor: galleryColors.headerBG,
   };
 
@@ -68,20 +66,20 @@ const Gallery: React.FC = () => {
         name: "Retro & Vaporwave",
         onClick: () => console.log("Retro & Vaporwave"),
       },
-      {
-        id: 2,
-        name: "Diary",
-        onClick: () =>
-          setTheme({
-            title: "Diary",
-            menuStyles: diaryMenuStyles,
-            menuHeaderStyles: diaryHeader,
-            cardStyles: diaryCardStyles,
-            contentStyles: diaryContentStyles,
-            buttonStyles: diaryButtonStyles,
-            hoverColor: galleryColors.headerBG,
-          }),
-      },
+      // {
+      //   id: 2,
+      //   name: "Diary",
+      //   onClick: () =>
+      //     setTheme({
+      //       title: "Diary",
+      //       menuStyles: diaryMenuStyles,
+      //       menuHeaderStyles: diaryHeader,
+      //       cardStyles: diaryCardStyles,
+      //       contentStyles: diaryContentStyles,
+      //       buttonStyles: diaryButtonStyles,
+      //       hoverColor: galleryColors.headerBG,
+      //     }),
+      // },
     ],
   };
 
@@ -120,10 +118,10 @@ const Gallery: React.FC = () => {
             <MenuSelection
               items={menuItems.items}
               title={theme.title}
-              menuStyles={theme.menuStyles}
-              contentStyles={theme.cardStyles}
+              content={theme.menuStyles.content}
               hoverColor={theme.hoverColor}
-              Header={RetroHeader}
+              header={theme.menuStyles.header}
+              paper={theme.menuStyles.paper}
             />
           </Grid>
 
@@ -166,20 +164,13 @@ const Gallery: React.FC = () => {
                   do eiusmod tempor incididunt ut labore et dolore magna aliqua.
                 </div>
               </RichTextPost>
-              <div
-                style={{
-                  maxWidth: "400px",
-                  backgroundColor: "green",
-                  border: "3px solid black",
-                  height: "100%",
-                }}
-                className="placein"
-              >
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                Consequatur obcaecati enim autem numquam, explicabo aperiam,
-                ipsam aliquid animi distinctio maxime maiores cum deleniti
-                eaque? Accusantium ab reprehenderit unde autem? Provident.
-              </div>
+              {/* <CustomCard
+                cardStyles={retroCardStyles}
+                contentStyles={retroContentStyles}
+                buttonStyles={retroButtonStyles}
+                hoverColor={galleryColors.headerBG}
+              /> */}
+
               <CustomButton
                 onClick={() => console.log("Button Clicked")}
                 label="Click Me!"
