@@ -3,6 +3,9 @@
 
 //so the accept an array of 10 colors
 
+
+//10 template colors
+
 //create a colors.ts file in the theme folder
 export const colors = {
   mainBg00: "color1",
@@ -50,5 +53,4 @@ export const styles = {
       padding: "",
     },
   },
-  wordSticker: {},
 };

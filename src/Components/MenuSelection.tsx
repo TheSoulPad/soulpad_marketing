@@ -5,21 +5,22 @@ import Paper from "@mui/material/Paper";
 import styled from "styled-components";
 import Box from "@mui/material/Box";
 import ListItem from "@mui/material/ListItem";
-import { Header, Paper as P, ContentType } from "../styles/types";
+import { HeaderStyle, PaperStyle, ContentStyle } from "../styles/types";
 
 interface MenuItem {
-  id: number;
-  name: string;
-  onClick: () => void;
+  themeID: number;
+  galleryName: string;
+  themeType: string;
 }
 
 interface MenuSelectionProps {
-  header: Header;
+  header: HeaderStyle;
   items: MenuItem[];
   title: string;
-  content: ContentType;
-  paper: P;
+  content: ContentStyle | undefined;
+  paper: PaperStyle;
   hoverColor: string;
+  onThemeChange: (themeType: string) => void;
 }
 
 //change this to MuiList
@@ -32,9 +33,10 @@ const MenuSelection: React.FC<MenuSelectionProps> = ({
   items,
   title,
   content,
-  hoverColor,
   header,
   paper,
+  hoverColor,
+  onThemeChange,
 }) => {
   const listItemStyles = {
     padding: `${spacing.xs}px`,
@@ -59,11 +61,11 @@ const MenuSelection: React.FC<MenuSelectionProps> = ({
           <List>
             {items.map((item) => (
               <ListItem
-                key={item.id}
-                onClick={item.onClick}
+                key={item.themeID}
+                onClick={() => onThemeChange(item.themeType)}
                 sx={listItemStyles}
               >
-                {item.name}
+                {item.galleryName}
               </ListItem>
             ))}
           </List>

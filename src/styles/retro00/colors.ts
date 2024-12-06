@@ -1,6 +1,6 @@
 export const colors = {
   mainBg00: "#92bdbc", //light olive green a
-  mainBg1: "#00d5d5", //light greenish-blue b
+  mainBg01: "#00d5d5", //light greenish-blue b
   mainBg02: "#781acd", //purple c
   headerBg00: "#781acd", //purple c
   headerBg01: "#00d5d5", //light greenish-blue b
@@ -18,4 +18,3 @@ export const colors = {
 };
 
 // 10 colors for the theme palette
-

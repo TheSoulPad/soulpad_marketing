@@ -1,4 +1,4 @@
-import React, { CSSProperties } from "react";
+import React from "react";
 import { Box, Paper } from "@mui/material";
 import CloseIcon from "@mui/icons-material/Close";
 import CropSquareIcon from "@mui/icons-material/CropSquare";
@@ -6,17 +6,23 @@ import MinimizeIcon from "@mui/icons-material/Minimize";
 import { spacing } from "../styles";
 import styled from "styled-components";
 import useMediaQuery from "@mui/material/useMediaQuery";
+import {
+  HeaderStyle,
+  PaperStyle,
+  ContentStyle,
+  IconStyle,
+} from "../styles/types";
 
 interface RichTextPostProps {
   children: React.ReactNode;
-  menuStyles?: CSSProperties;
-  paperStyles?: CSSProperties;
-  contentStyles?: CSSProperties;
+  header: HeaderStyle;
+  paper: PaperStyle;
+  content: ContentStyle;
   subHeader: string;
+  icon: IconStyle;
   addDate?: boolean;
   addWeather?: boolean;
   size?: "small" | "large";
-  iconStyles?: CSSProperties;
 }
 
 const ActionMenuWrapper = styled.div`
@@ -28,49 +34,40 @@ const ActionMenuWrapper = styled.div`
   cursor: pointer;
 `;
 
-const Content = styled.div`
-  display: flex;
-  flex-direction: column;
-`;
-
 const PostTitle = styled.h3`
   padding: 0;
   margin: 0;
 `;
 
 const RichTextPost: React.FC<RichTextPostProps> = ({
-  paperStyles,
+  paper,
   subHeader,
   children,
-  menuStyles,
-  contentStyles,
-  iconStyles,
+  header,
+  content,
+  icon,
   size,
 }) => {
   const isMobile = useMediaQuery("(max-width:600px)");
   const postSize = size === "small" ? "600px" : "900px";
   const mobileSpacing = spacing.xs * 0.5;
   const mobilePadding = ` 0 ${mobileSpacing}px ${spacing.lg}px`;
-  const desktopPadding = ` ${spacing.sm}px ${spacing.md}px ${spacing.xl}px`;
+  const desktopPadding = ` ${spacing.sm}px ${spacing.xs}px`;
 
   const allPaperStyles = {
-    ...paperStyles,
+    ...paper,
     maxWidth: postSize,
   };
 
   const BoxStyles = {
-    ...menuStyles,
+    ...header,
     display: "flex",
     alignItems: "center",
-  };
-
-  const iconsStyles = {
-    ...iconStyles,
-    marginRight: "4px",
+    color: "#ffffff",
   };
 
   const contentStylesResponsive = {
-    ...contentStyles,
+    ...content,
     padding: isMobile ? mobilePadding : desktopPadding,
   };
 
@@ -79,12 +76,14 @@ const RichTextPost: React.FC<RichTextPostProps> = ({
       <Box sx={BoxStyles}>
         <PostTitle>{subHeader}</PostTitle>
         <ActionMenuWrapper>
-          <MinimizeIcon sx={iconsStyles} />
-          <CropSquareIcon sx={iconsStyles} />
-          <CloseIcon sx={iconsStyles} />
+          <MinimizeIcon sx={{ ...icon, marginRight: 0.5 }} />
+          <CropSquareIcon sx={{ ...icon, marginRight: 0.5 }} />
+          <CloseIcon sx={icon} />
         </ActionMenuWrapper>
       </Box>
-      <Content style={contentStylesResponsive}>{children}</Content>
+      <Box display="flex" flexDirection="column" sx={contentStylesResponsive}>
+        {children}
+      </Box>
     </Paper>
   );
 };
