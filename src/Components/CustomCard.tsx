@@ -68,7 +68,9 @@ const CustomCard: React.FC<CardProps> = ({
           </Typography>
         )}
 
-        <Box sx={{ textAlign: "center" }}>{children}</Box>
+        <Box display="flex" flexDirection="column" sx={{ textAlign: "center" }}>
+          {children}
+        </Box>
       </Card>
     </Paper>
   );

@@ -176,11 +176,14 @@ const Gallery: React.FC = () => {
               size="large"
               titleFont={theme.titleFont}
             >
-              <CustomButton
-                onClick={() => console.log("Button Clicked")}
-                label="Click Me!"
-                btnStyles={theme.buttonStyles}
-              />
+              {Array.from({ length: 3 }).map((_, index) => (
+                <CustomButton
+                  key={index}
+                  onClick={() => console.log("Button Clicked")}
+                  label="Click Me!"
+                  btnStyles={theme.buttonStyles}
+                />
+              ))}
             </CustomCard>
           </Box>
           {/*
