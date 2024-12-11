@@ -1,20 +1,7 @@
 import React, { CSSProperties, useState } from "react";
 import BaseLayout from "../BaseLayout";
 import Grid from "@mui/material/Grid2";
-import {
-  galleryColors,
-  retroPaperStyles,
-  retroButtonStyles,
-  retroContentStyles,
-  retroCardStyles,
-  retroPostHeader,
-  retroMenuIcons,
-  diaryMenuStyles,
-  diaryHeader,
-  diaryButtonStyles,
-  diaryCardStyles,
-  diaryContentStyles,
-} from "../styles";
+import { galleryColors } from "../styles";
 import { HeadFC } from "gatsby";
 import { Strings } from "../resources/strings";
 import MenuSelection from "../Components/MenuSelection";
@@ -23,6 +10,7 @@ import RichTextPost from "../Components/RichTextPost";
 import CustomCard from "../Components/CustomCard";
 import useMediaQuery from "@mui/material/useMediaQuery";
 import { retroComps } from "../styles/retro00/comps";
+import Box from "@mui/material/Box";
 
 const strings = Strings.galleryPage;
 const headStrings = Strings.metaData.gallery;
@@ -30,16 +18,50 @@ const headStrings = Strings.metaData.gallery;
 const Gallery: React.FC = () => {
   const isMobile = useMediaQuery("(max-width:600px)");
 
+  //default
   const themeSelection = {
-    title: "Theme Selection",
-    menuStyles: retroComps.menuSelection,
+    menuSelection: retroComps.menuSelection,
     cardStyles: retroComps.card,
-    richTextStyles: retroComps.richTextPost,
+    richTextPostStyles: retroComps.richTextPost,
     buttonStyles: retroComps.button,
-    hoverColor: galleryColors.headerBG,
+    hoverColor: retroComps.hover,
+    paper: retroComps.paper,
+    titleFont: retroComps.text,
   };
 
   const [theme, setTheme] = useState(themeSelection);
+
+  const createSelectedTheme = (theme: any) => {
+    let selectedTheme = {
+      menuSelection: theme.menuSelection,
+      cardStyles: theme.card,
+      richTextPostStyles: theme.richTextPost,
+      buttonStyles: theme.button,
+      hoverColor: theme.hover,
+      paper: theme.paper,
+      titleFont: theme.text,
+    };
+    setTheme(selectedTheme);
+  };
+
+  const useThemeStyles = (themeType: string) => {
+    switch (themeType) {
+      case "DIARY":
+        // createSelectedTheme(diaryComps);
+        break;
+      case "RETRO":
+        createSelectedTheme(retroComps);
+        break;
+      case "VIDEO_GAME":
+        //createSelectedTheme(vgComps);;
+        break;
+      case "SCRAPBOOK":
+        //createSelectedTheme(scrapbookComps);
+        break;
+      default:
+        console.log("Default");
+    }
+  };
 
   const overlayStyles: CSSProperties = {
     position: "absolute",
@@ -59,43 +81,28 @@ const Gallery: React.FC = () => {
     color: "#000000",
   };
 
-  const menuItems = {
-    items: [
-      {
-        id: 1,
-        name: "Retro & Vaporwave",
-        onClick: () => console.log("Retro & Vaporwave"),
-      },
-      // {
-      //   id: 2,
-      //   name: "Diary",
-      //   onClick: () =>
-      //     setTheme({
-      //       title: "Diary",
-      //       menuStyles: diaryMenuStyles,
-      //       menuHeaderStyles: diaryHeader,
-      //       cardStyles: diaryCardStyles,
-      //       contentStyles: diaryContentStyles,
-      //       buttonStyles: diaryButtonStyles,
-      //       hoverColor: galleryColors.headerBG,
-      //     }),
-      // },
-    ],
-  };
-
-  // const subTitle: CSSProperties = {
-  //   fontWeight: "800",
-  //   backgroundColor: `rgba(${colors.backgroundRGB}, 0.7)`,
-  //   borderRadius: "5px",
-  //   fontSize: 32,
-  //   padding: spacing.xs,
-  //   margin: "auto",
-  //   color: "#ffffff",
-  // };
-
-  //create the gallery components and import them
-  // stack the components; so position absolute
-  // reveal the appropriate theme on click selection
+  const menuItems = [
+    {
+      themeID: 1,
+      galleryName: "Retro & Vaporwave",
+      themeType: "RETRO",
+    },
+    {
+      themeID: 2,
+      galleryName: "Diary",
+      themeType: "DIARY",
+    },
+    {
+      themeID: 3,
+      galleryName: "Video game",
+      themeType: "VIDEO_GAME",
+    },
+    {
+      themeID: 4,
+      galleryName: "Scrapbook",
+      themeType: "SCRAPBOOK",
+    },
+  ];
 
   const mobileGridStyles: CSSProperties = {
     width: "100%",
@@ -106,133 +113,102 @@ const Gallery: React.FC = () => {
     <div className="overlay" style={overlayStyles}>
       <BaseLayout title={strings.header} pageStyles={galleryStyles}>
         <Grid
+          className="gallery-wrapper"
           container
           mt={2}
           mb={4}
           flexDirection="row"
-          columnSpacing={2}
-          rowSpacing={2}
+          columnGap={5}
         >
           {/************ MENU SECTION ******************/}
           <Grid ml={2} size={2} sx={isMobile ? mobileGridStyles : {}}>
             <MenuSelection
-              items={menuItems.items}
-              title={theme.title}
-              content={theme.menuStyles.content}
+              items={menuItems}
+              title={"Theme Selection"}
+              content={theme.menuSelection.content}
               hoverColor={theme.hoverColor}
-              header={theme.menuStyles.header}
-              paper={theme.menuStyles.paper}
+              header={theme.menuSelection.header}
+              paper={theme.paper}
+              onThemeChange={useThemeStyles}
             />
           </Grid>
 
           {/********** GALLERY **************/}
-          <Grid
-            container
-            className="gallery-wrapper"
-            display="flex"
-            flexDirection="column"
-            rowSpacing={2}
-            columnSpacing={2}
-            sx={isMobile ? mobileGridStyles : { width: "80%" }}
+
+          <Box
+            className="gallery-row"
+            sx={
+              isMobile
+                ? mobileGridStyles
+                : {
+                    display: "flex",
+                    justifyContent: "space-between",
+                    alignItems: "start",
+                    width: "65%",
+                  }
+            }
           >
-            <Grid
-              className="gallery-row"
-              display="flex"
-              justifyContent="space-between"
-              alignItems="start"
-              sx={isMobile ? mobileGridStyles : {}}
-              flexDirection={isMobile ? "column" : "row"}
-              columnSpacing={2}
-              rowSpacing={2}
+            <RichTextPost
+              header={theme.richTextPostStyles.header}
+              subHeader="This is my first post!"
+              paper={theme.paper}
+              content={theme.richTextPostStyles.content}
+              icon={theme.richTextPostStyles.icons}
+              size="small"
             >
-              <RichTextPost
-                subHeader="Post Title"
-                paperStyles={retroPaperStyles}
-                menuStyles={retroPostHeader}
-                contentStyles={retroContentStyles}
-                iconStyles={retroMenuIcons}
-                size="small"
-              >
-                <div className="loren">
-                  lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed
-                  do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                  lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed
-                  do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                  lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed
-                  do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                  lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed
-                  do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                </div>
-              </RichTextPost>
-              {/* <CustomCard
-                cardStyles={retroCardStyles}
-                contentStyles={retroContentStyles}
-                buttonStyles={retroButtonStyles}
-                hoverColor={galleryColors.headerBG}
-              /> */}
-
-              <CustomButton
-                onClick={() => console.log("Button Clicked")}
-                label="Click Me!"
-                btnStyles={retroButtonStyles}
-              />
-            </Grid>
-
-            <Grid
-              className="gallery-row"
-              display="flex"
-              justifyContent="space-between"
-              alignItems="start"
-              sx={isMobile ? mobileGridStyles : {}}
-              flexDirection={isMobile ? "column" : "row"}
-              columnSpacing={2}
-              rowSpacing={2}
-            >
-              <RichTextPost
-                subHeader="Post Title"
-                paperStyles={retroPaperStyles}
-                menuStyles={retroPostHeader}
-                contentStyles={retroContentStyles}
-                iconStyles={retroMenuIcons}
-                size="small"
-              >
-                <div className="loren">
-                  lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed
-                  do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                  lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed
-                  do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                  lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed
-                  do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                  lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed
-                  do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                </div>
-              </RichTextPost>
-              <div
-                style={{
-                  maxWidth: "400px",
-                  backgroundColor: "green",
-                  border: "3px solid black",
-                  height: "100%",
-                }}
-                className="placein"
-              >
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                Consequatur obcaecati enim autem numquam, explicabo aperiam,
-                ipsam aliquid animi distinctio maxime maiores cum deleniti
-                eaque? Accusantium ab reprehenderit unde autem? Provident.
+              <div className="loren">
+                Welcome to SoulPad! I hope you enjoy your stay. This is a test
+                of the post component. Lorem ipsum dolor sit amet, consectetur
+                adipiscing elit. Sed do eiusmod tempor incididunt ut labore et
+                dolore magna aliqua. Welcome to SoulPad! I hope you enjoy your
+                stay. This is a test of the post component. Lorem ipsum dolor
+                sit amet, consectetur adipiscing elit. Sed do eiusmod tempor
+                incididunt ut labore et dolore magna aliqua. Welcome to SoulPad!
+                I hope you enjoy your stay. This is a test of the post
+                component. Lorem ipsum dolor sit amet, consectetur
               </div>
-              <CustomButton
-                onClick={() => console.log("Button Clicked")}
-                label="Click Me!"
-                btnStyles={retroButtonStyles}
+            </RichTextPost>
+
+            <CustomCard
+              title="This is a cool card"
+              paper={theme.paper}
+              contentStyles={theme.cardStyles.content}
+              size="large"
+              titleFont={theme.titleFont}
+            >
+              {Array.from({ length: 3 }).map((_, index) => (
+                <CustomButton
+                  key={index}
+                  onClick={() => console.log("Button Clicked")}
+                  label="Click Me!"
+                  btnStyles={theme.buttonStyles}
+                />
+              ))}
+            </CustomCard>
+          </Box>
+          {/*
+            <Grid
+              className="gallery-row"
+              display="flex"
+              justifyContent="space-between"
+              alignItems="start"
+              sx={isMobile ? mobileGridStyles : {}}
+              flexDirection={isMobile ? "column" : "row"}
+              columnSpacing={1}
+              rowSpacing={1}
+            >
+              <CustomCard
+                title="This is a cool card"
+                paper={theme.paper}
+                contentStyles={theme.cardStyles.content}
+                size="large"
               />
-            </Grid>
-          </Grid>
+            </Grid> */}
         </Grid>
       </BaseLayout>
     </div>
   );
 };
 
-export default Gallery;
 export const Head: HeadFC = () => <title>{headStrings}</title>;
+export default Gallery;

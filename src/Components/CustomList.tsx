@@ -7,15 +7,15 @@ import Box from "@mui/material/Box";
 import ListItem from "@mui/material/ListItem";
 import { HeaderStyle, PaperStyle, ContentStyle } from "../styles/types";
 
-interface MenuItem {
+interface CustomListItem {
   themeID: number;
   galleryName: string;
   themeType: string;
 }
 
-interface MenuSelectionProps {
+interface CustomListProps {
   header: HeaderStyle;
-  items: MenuItem[];
+  items: CustomListItem[];
   title: string;
   content: ContentStyle | undefined;
   paper: PaperStyle;
@@ -29,7 +29,7 @@ const List = styled.ul`
   padding: 0;
 `;
 
-const MenuSelection: React.FC<MenuSelectionProps> = ({
+const CustomList: React.FC<CustomListProps> = ({
   items,
   title,
   content,
@@ -75,4 +75,4 @@ const MenuSelection: React.FC<MenuSelectionProps> = ({
   );
 };
 
-export default MenuSelection;
+export default CustomList;

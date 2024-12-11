@@ -55,7 +55,18 @@ const menuContentBorder = getBorder(
   "solid" //bottom
 );
 
-const menuIconBorder = getBorder(
+const menuHeaderBorder = getBorder(
+  c.headerBorder,
+  c.headerBorder,
+  c.contentBorder,
+  c.headerBorder,
+  "solid",
+  "solid",
+  "inset",
+  "inset"
+);
+
+const headerIconBorder = getBorder(
   c.shine,
   c.shine,
   c.contentBorder,
@@ -67,10 +78,10 @@ const menuIconBorder = getBorder(
 );
 
 const paperBorder = getBorder(
-  c.shine,
-  c.shine,
-  c.headerBorder,
-  c.contentBorder,
+  c.shine, //top
+  c.shine, //left
+  c.contentBorder, //right
+  c.contentBorder, //bottom
   "solid",
   "solid",
   "inset",
@@ -105,15 +116,33 @@ const purpleHeader = {
   backgroundColor: c.mainBg02,
   display: "flex",
   fontSize: "14px",
-  padding: `${spacing.xs / 2}px`,
+  padding: `${spacing.xs * 0.5}px`,
 };
 
 const greenHeader = {
   ...purpleHeader,
-  backgroundColor: c.mainBg1,
+  backgroundColor: c.mainBg01,
+};
+
+const icons = {
+  ...headerIconBorder,
+  backgroundColor: c.icon,
+  color: "#000000",
+};
+
+const contentText = {
+  ...text,
+  fontSize: "14px",
+  padding: `${spacing.xs}px`,
 };
 
 export const retroComps = {
+  text: {
+    ...text,
+    color: c.text01,
+  },
+  hover: c.mainBg02,
+  paper: { ...paperBorder, backgroundColor: c.mainBg01 },
   button: {
     ...buttonBorder,
     backgroundColor: c.button,
@@ -124,49 +153,44 @@ export const retroComps = {
     padding: "5px",
   },
   card: {
-    ...text,
-    ...cardBorder,
-    paper: paperBorder,
-    backgroundColor: c.mainBg00,
+    content: {
+      ...cardBorder,
+      ...contentText,
+      backgroundColor: c.mainBg01,
+    },
   },
   listBox: {
-    paper: paperBorder,
     header: purpleHeader,
     content: {
-      ...text,
+      ...contentText,
       ...richTextContentBorder,
       backgroundColor: c.icon,
     },
   },
   mediaPlayer: {
-    paper: paperBorder,
     header: purpleHeader,
     content: {
-      ...text,
+      ...contentText,
       ...richTextContentBorder,
-      backgroundColor: c.mainBg1,
+      backgroundColor: c.mainBg01,
     },
   },
   menuSelection: {
-    paper: paperBorder,
     content: {
-      ...text,
+      ...contentText,
       ...menuContentBorder,
       backgroundColor: c.mainBg02,
       margin: `auto`,
       color: `#ffffff`,
       textAlign: `left`,
       fontWeight: "400",
-      fontSize: "14px",
-      padding: `${spacing.xs}px`,
-      display: "block",
     },
     header: {
       ...greenHeader,
-      color: "#ffffff",
+      color: c.mainBg02,
     },
     icons: {
-      ...menuIconBorder,
+      ...headerIconBorder,
       backgroundColor: c.icon,
       color: "#000000",
     },
@@ -181,23 +205,24 @@ export const retroComps = {
       ...purpleHeader,
     },
     content: {
-      ...text,
+      ...contentText,
       ...richTextContentBorder,
-      backgroundColor: c.mainBg1,
+      backgroundColor: c.mainBg01,
       fontSize: "14px",
       padding: `${spacing.xs}px`,
     },
   },
   richTextPost: {
-    paper: paperBorder,
     content: {
       ...richTextContentBorder,
+      ...contentText,
       backgroundColor: c.contentBg,
-      padding: `${spacing.md}px`,
+      padding: `${spacing.sm}px ${spacing.xs}px`,
     },
     header: {
       ...purpleHeader,
     },
+    icons,
   },
   wordSticker: {
     ...text,

@@ -1,22 +1,79 @@
 import React from "react";
+import Paper from "@mui/material/Paper";
+import Card from "@mui/material/Card";
+import Box from "@mui/material/Box";
+import Typography from "@mui/material/Typography";
+import { PaperStyle, ContentStyle, TitleFont } from "../styles/types";
+import { Margin } from "@mui/icons-material";
 
 interface CardProps {
+  children?: React.ReactNode;
   title: string;
-  content: string;
+  text?: string;
+  contentStyles: ContentStyle;
+  paper: PaperStyle;
   imageUrl?: string;
-  videoUrl?: string;
+  size: "small" | "large";
+  titleFont: TitleFont;
 }
+//create styled components for video and image if necessary
 
-const Card: React.FC<CardProps> = ({ title, content, imageUrl }) => {
+const CustomCard: React.FC<CardProps> = ({
+  title,
+  text,
+  paper,
+  contentStyles,
+  imageUrl,
+  size,
+  titleFont,
+  children,
+}) => {
+  const smallSize = {
+    minWidth: "150px",
+    minHeight: "150px",
+  };
+
+  const largeSize = {
+    minWidth: "300px",
+    minHeight: "200px",
+  };
+
+  const titleStyles = {
+    ...titleFont,
+    fontSize: "1.5rem",
+    fontWeight: "bold",
+    textAlign: "center",
+  };
+
+  const cardSize = size === "small" ? smallSize : largeSize;
   return (
-    <div className="card">
-      {imageUrl && <img src={imageUrl} alt={title} className="card-image" />}
-      <div className="card-content">
-        <h2 className="card-title">{title}</h2>
-        <p className="card-text">{content}</p>
-      </div>
-    </div>
+    <Paper className="custom-paper-card" sx={{ ...paper, ...cardSize }}>
+      <Card
+        className="custom-card-body"
+        sx={{ ...contentStyles, minHeight: cardSize.minHeight }}
+      >
+        <Typography variant="body1" className="card-title" sx={titleStyles}>
+          {title}
+        </Typography>
+
+        {imageUrl && (
+          <Box className="card-image">
+            <img src={imageUrl} alt={title} className="card-image" />
+          </Box>
+        )}
+
+        {text && (
+          <Typography variant="h4" className="card-text">
+            {text}
+          </Typography>
+        )}
+
+        <Box display="flex" flexDirection="column" sx={{ textAlign: "center" }}>
+          {children}
+        </Box>
+      </Card>
+    </Paper>
   );
 };
 
-export default Card;
+export default CustomCard;
