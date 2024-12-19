@@ -1,28 +1,33 @@
+import { colors as c } from "./colors";
+
 export const styles = {
-  richTextPost: {
-    content: {},
-    header: {
-      display: "",
-      backgroundColor: "",
-      padding: "",
-      fontSize: "",
-      borderTop: "",
-      borderLeft: "",
-      borderBottom: "",
-      borderRight: "",
-      borderRadius: "",
-    },
-  },
-  menuSelection: {
-    header: {},
-    cotent: {},
-    icons: {},
-  },
   button: {},
   card: {},
   listBox: {},
   mediaPlayer: {},
+  menuSelection: {
+    cotent: {},
+    header: {},
+    icons: {},
+  },
   poll: {},
+  paper:{
+
+  },
   progressBar: {},
+  richTextPost: {
+    content: {},
+    header: {
+      backgroundColor: "",
+      borderBottom: "",
+      borderLeft: "",
+      borderRadius: "",
+      borderRight: "",
+      borderTop: "",
+      display: "",
+      fontSize: "",
+      padding: "",
+    },
+  },
   wordSticker: {},
 };

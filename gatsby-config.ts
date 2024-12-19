@@ -82,8 +82,8 @@ const config: GatsbyConfig = {
           },
           {
             name:"Gaegu",
-            file: "https://fonts.googleapis.com/css2?family=Gaegu&display=swap"
-          }
+            file: "https://fonts.googleapis.com/css2?family=Gaegu&family=Quicksand:wght@300..700&display=swap"
+          },
         ],
       },
     },
