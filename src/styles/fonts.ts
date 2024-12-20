@@ -9,22 +9,20 @@ const mobileHeadline2Font: CSSProperties = {
 };
 
 const headline1Font: CSSProperties = {
-  fontFamily: "Spicy Rice, serif",
+  // fontFamily: "Spicy Rice, serif",
   fontWeight: "400",
   textAlign: "center",
 };
 const headline2Font: CSSProperties = {
-  fontFamily: "Afacad Flux, sans-serif",
   margin: "auto",
-  fontSize: "2rem", // 32px
-  fontWeight: "600",
+  fontSize: "1.5rem",
+  fontWeight: "700",
   textAlign: "center",
   maxWidth: "400px",
   width: "100%",
 };
 
 const body1Styles: CSSProperties = {
-  fontFamily: "Afacad Flux, sans-serif",
   fontWeight: "500",
   fontSize: "1rem", // 16px
 };

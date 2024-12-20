@@ -111,12 +111,15 @@ const richTextHeaderBorder = getBorder(
 );
 
 const purpleHeader = {
-  ...text,
   ...richTextHeaderBorder,
   backgroundColor: c.mainBg02,
   display: "flex",
   fontSize: "14px",
-  padding: `${spacing.xs * 0.5}px`,
+  padding: `${spacing.xs * 0.5}em`,
+  text: {
+    ...text,
+    textAlign: "left",
+  },
 };
 
 const greenHeader = {
@@ -133,16 +136,10 @@ const icons = {
 const contentText = {
   ...text,
   fontSize: "14px",
-  padding: `${spacing.xs}px`,
+  padding: `${spacing.xs}em`,
 };
 
 export const retroComps = {
-  text: {
-    ...text,
-    color: c.text01,
-  },
-  hover: c.mainBg02,
-  paper: { ...paperBorder, backgroundColor: c.mainBg01 },
   button: {
     ...buttonBorder,
     backgroundColor: c.button,
@@ -153,12 +150,20 @@ export const retroComps = {
     padding: "5px",
   },
   card: {
-    content: {
-      ...cardBorder,
-      ...contentText,
-      backgroundColor: c.mainBg01,
-    },
+    ...cardBorder,
+    ...contentText,
+    backgroundColor: c.mainBg01,
   },
+
+  content: {
+    ...contentText,
+    backgroundColor: c.mainBg00,
+    border: `1px solid ${c.contentBorder}`,
+    borderRadius: `${spacing.xs}em`,
+    padding: `${spacing.xs}em`,
+    color: c.text02,
+  },
+  hover: c.mainBg02,
   listBox: {
     header: purpleHeader,
     content: {
@@ -195,6 +200,14 @@ export const retroComps = {
       color: "#000000",
     },
   },
+  paper: {
+    ...paperBorder,
+    backgroundColor: c.mainBg01,
+    text: {
+      textShadow: contentText.textShadow,
+      fontFamily: contentText.fontFamily,
+    },
+  },
   poll: {
     ...text,
     ...cardBorder,
@@ -209,7 +222,7 @@ export const retroComps = {
       ...richTextContentBorder,
       backgroundColor: c.mainBg01,
       fontSize: "14px",
-      padding: `${spacing.xs}px`,
+      padding: `${spacing.xs}em`,
     },
   },
   richTextPost: {
@@ -217,12 +230,16 @@ export const retroComps = {
       ...richTextContentBorder,
       ...contentText,
       backgroundColor: c.contentBg,
-      padding: `${spacing.sm}px ${spacing.xs}px`,
+      padding: `${spacing.sm}em ${spacing.xs}em`,
     },
     header: {
       ...purpleHeader,
     },
     icons,
+  },
+  text: {
+    ...text,
+    color: c.text01,
   },
   wordSticker: {
     ...text,

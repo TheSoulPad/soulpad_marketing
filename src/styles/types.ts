@@ -1,4 +1,14 @@
-import { Card } from "@mui/material";
+export interface TextStyle {
+  fontFamily: string;
+  textShadow: string;
+  color: string;
+  textAlign: string;
+  fontSize: string;
+  "&:hover": {
+    backgroundColor: string;
+    color: string;
+  };
+}
 
 export interface CardStyle {
   borderTop: string;
@@ -22,11 +32,28 @@ export interface HeaderStyle {
   borderRadius: string;
   padding: string;
   fontSize: string;
-  color: string;
   backgroundColor: string;
   display: string;
-  fontFamily: string;
-  textShadow: string;
+  text: {
+    fontFamily: string;
+    textShadow: string;
+    color: string;
+    textAlign: string;
+  };
+}
+
+export interface Simple {
+  border: string;
+  backgroundColor: string;
+  borderRadius: string;
+  display: string;
+  padding: string;
+  text: {
+    fontFamily: string;
+    textShadow: string;
+    color: string;
+    textAlign: string;
+  };
 }
 
 export interface PaperStyle {
@@ -36,11 +63,16 @@ export interface PaperStyle {
   borderBottom: string;
   borderRadius: string;
   backgroundColor: string;
+  text: {
+    fontFamily: string;
+    textShadow: string;
+  };
 }
+
+export interface SimplePaper {}
 
 export interface ContentStyle {
   padding: string;
-  fontSize: string;
   borderRadius: string;
   color: string;
   backgroundColor: string;
@@ -48,8 +80,24 @@ export interface ContentStyle {
   borderLeft: string;
   borderRight: string;
   borderBottom: string;
-  fontFamily: string;
-  textShadow: string;
+  text: {
+    fontFamily: string;
+    fontSize: string;
+    textShadow: string;
+  };
+}
+
+export interface SimpleContent {
+  backgroundColor: string;
+  border: string;
+  borderRadius: string;
+  padding: string;
+  text: {
+    color: string;
+    fontFamily: string;
+    textShadow: string;
+    fontSize: string;
+  };
 }
 
 export interface IconStyle {

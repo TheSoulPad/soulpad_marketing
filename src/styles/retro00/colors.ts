@@ -25,22 +25,22 @@ const {
 } = keyColors;
 
 export const colors = {
-  button: paleWhiteBlue, //pale white blue i
-  buttonBorder: purple, //purple c
-  buttonHover: purple, //purple c
-  buttonText: purple, //purple c
-  contentBg: lightBlue, //light blue d
-  contentBorder: darkGreen, //dark green f
-  headerBg00: purple, //purple c
-  headerBg01: lightGreenishBlue, //light greenish-blue b
-  headerBorder: lightBlue2, //light blue 2 e
-  icon: lightestBlue, //lightest blue j
-  mainBg00: lightOliveGreen, //light olive green a
-  mainBg01: lightGreenishBlue, //light greenish-blue b
-  mainBg02: purple, //purple c
-  shine: lightGrey, //light grey h
-  text01: purple, //purple c
-  text02: navyBlue, //navy blue g
+  button: paleWhiteBlue,
+  buttonBorder: purple,
+  buttonHover: purple,
+  buttonText: purple,
+  contentBg: lightBlue,
+  contentBorder: darkGreen,
+  headerBg00: purple,
+  headerBg01: lightGreenishBlue,
+  headerBorder: lightBlue2,
+  icon: lightestBlue,
+  mainBg00: lightOliveGreen,
+  mainBg01: lightGreenishBlue,
+  mainBg02: purple,
+  shine: lightGrey,
+  text01: purple,
+  text02: navyBlue,
 };
 
 // 10 colors for the theme palette

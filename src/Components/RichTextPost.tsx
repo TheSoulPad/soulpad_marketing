@@ -11,12 +11,13 @@ import {
   PaperStyle,
   ContentStyle,
   IconStyle,
+  Simple,
 } from "../styles/types";
 
 interface RichTextPostProps {
   children: React.ReactNode;
-  header: HeaderStyle;
-  paper: PaperStyle;
+  header: HeaderStyle | Simple;
+  paper: PaperStyle | Simple;
   content: ContentStyle;
   subHeader: string;
   icon: IconStyle;
@@ -51,8 +52,8 @@ const RichTextPost: React.FC<RichTextPostProps> = ({
   const isMobile = useMediaQuery("(max-width:600px)");
   const postSize = size === "small" ? "600px" : "900px";
   const mobileSpacing = spacing.xs * 0.5;
-  const mobilePadding = ` 0 ${mobileSpacing}px ${spacing.lg}px`;
-  const desktopPadding = ` ${spacing.sm}px ${spacing.xs}px`;
+  const mobilePadding = ` 0 ${mobileSpacing}em ${spacing.lg}em`;
+  const desktopPadding = ` ${spacing.sm}em ${spacing.xs}em`;
 
   const allPaperStyles = {
     ...paper,

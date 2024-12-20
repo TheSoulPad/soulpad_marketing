@@ -10,6 +10,7 @@ import RichTextPost from "../Components/RichTextPost";
 import CustomCard from "../Components/CustomCard";
 import useMediaQuery from "@mui/material/useMediaQuery";
 import { retroComps } from "../styles/retro00/comps";
+import { diary } from "../styles/diary00/comps";
 import Box from "@mui/material/Box";
 
 const strings = Strings.galleryPage;
@@ -19,27 +20,25 @@ const Gallery: React.FC = () => {
   const isMobile = useMediaQuery("(max-width:600px)");
 
   //default
-  const themeSelection = {
-    menuSelection: retroComps.menuSelection,
-    cardStyles: retroComps.card,
-    richTextPostStyles: retroComps.richTextPost,
-    buttonStyles: retroComps.button,
-    hoverColor: retroComps.hover,
-    paper: retroComps.paper,
-    titleFont: retroComps.text,
+  const menuThemeSelection = {
+    menuSelection: diary.menuSelection,
+    card: diary.card,
+    content: diary.content,
+    richTextPostStyles: diary.richTextPost,
+    buttonStyles: diary.button,
+    paper: diary.paper,
   };
 
-  const [theme, setTheme] = useState(themeSelection);
+  const [theme, setTheme] = useState(menuThemeSelection);
 
   const createSelectedTheme = (theme: any) => {
     let selectedTheme = {
       menuSelection: theme.menuSelection,
-      cardStyles: theme.card,
+      card: theme.card,
+      content: theme.content,
       richTextPostStyles: theme.richTextPost,
       buttonStyles: theme.button,
-      hoverColor: theme.hover,
       paper: theme.paper,
-      titleFont: theme.text,
     };
     setTheme(selectedTheme);
   };
@@ -47,10 +46,10 @@ const Gallery: React.FC = () => {
   const useThemeStyles = (themeType: string) => {
     switch (themeType) {
       case "DIARY":
-        // createSelectedTheme(diaryComps);
+        createSelectedTheme(diary);
         break;
       case "RETRO":
-        createSelectedTheme(retroComps);
+        // createSelectedTheme(retroComps);
         break;
       case "VIDEO_GAME":
         //createSelectedTheme(vgComps);;
@@ -84,14 +83,15 @@ const Gallery: React.FC = () => {
   const menuItems = [
     {
       themeID: 1,
-      galleryName: "Retro & Vaporwave",
-      themeType: "RETRO",
-    },
-    {
-      themeID: 2,
       galleryName: "Diary",
       themeType: "DIARY",
     },
+    {
+      themeID: 2,
+      galleryName: "Retro & Vaporwave",
+      themeType: "RETRO",
+    },
+
     {
       themeID: 3,
       galleryName: "Video game",
@@ -126,10 +126,11 @@ const Gallery: React.FC = () => {
               items={menuItems}
               title={"Theme Selection"}
               content={theme.menuSelection.content}
-              hoverColor={theme.hoverColor}
               header={theme.menuSelection.header}
               paper={theme.paper}
+              card={theme.card}
               onThemeChange={useThemeStyles}
+              itemText={theme.menuSelection.text}
             />
           </Grid>
 
@@ -172,7 +173,7 @@ const Gallery: React.FC = () => {
             <CustomCard
               title="This is a cool card"
               paper={theme.paper}
-              contentStyles={theme.cardStyles.content}
+              contentStyles={theme.card}
               size="large"
               titleFont={theme.titleFont}
             >
