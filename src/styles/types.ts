@@ -8,6 +8,11 @@ export interface TextStyle {
     backgroundColor: string;
     color: string;
   };
+  sx: {
+    color: string;
+    textAlign: string;
+    fontFamily: string;
+  };
 }
 
 export interface CardStyle {
@@ -80,11 +85,6 @@ export interface ContentStyle {
   borderLeft: string;
   borderRight: string;
   borderBottom: string;
-  text: {
-    fontFamily: string;
-    fontSize: string;
-    textShadow: string;
-  };
 }
 
 export interface SimpleContent {
@@ -92,12 +92,6 @@ export interface SimpleContent {
   border: string;
   borderRadius: string;
   padding: string;
-  text: {
-    color: string;
-    fontFamily: string;
-    textShadow: string;
-    fontSize: string;
-  };
 }
 
 export interface IconStyle {

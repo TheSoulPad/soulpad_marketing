@@ -1,6 +1,7 @@
 import { colors as c } from "./colors";
 import { spacing as s } from "../spacing";
 import { bodyText as f } from "./fonts";
+import { text } from "stream/consumers";
 
 const purpleShadow = `1px 1px 1px ${c.text02}`;
 const pinkShadow = `1px 1px 1px ${c.text03}`;
@@ -34,6 +35,7 @@ const purpleHeader = {
 // };
 
 export const diary = {
+  ID: 1,
   button: {
     borderRadius: `${s.xs}em`,
     color: c.text01,
@@ -65,7 +67,6 @@ export const diary = {
     },
   },
   hover: c.mainBg02,
-
   icons: {
     backgroundColor: c.mainBg02,
     color: c.icon,
@@ -82,23 +83,29 @@ export const diary = {
       ...content,
       backgroundColor: c.mainBg00,
       border: `1px solid ${c.contentBorder}`,
-      text: {
-        ...f,
-        color: c.text02,
-        textShadow: "none",
-        fontSize: "1.25rem", // 20px
-        "&:hover": {
-          color: c.text01,
-        },
-      },
+      fontWeight: "400",
     },
     text: {
       ...f,
+      color: c.text02,
       fontSize: "1.25rem", // 20px
-      textShadow: pinkShadow,
+      textShadow: whiteShadow,
+      backgroundColor: c.mainBg00,
+      borderRadius: `${s.xs}em`,
       "&:hover": {
         backgroundColor: c.buttonHover,
         color: `${c.text01} !important`,
+        textShadow: whiteShadow,
+      },
+      sx: {
+        ...f,
+        fontSize: "1.25rem", // 20px
+        color: c.text02,
+        width: "100%",
+        "&:hover": {
+          backgroundColor: c.buttonHover,
+          color: `${c.text01} !important`,
+        },
       },
     },
   },

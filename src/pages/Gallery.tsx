@@ -27,6 +27,8 @@ const Gallery: React.FC = () => {
     richTextPostStyles: diary.richTextPost,
     buttonStyles: diary.button,
     paper: diary.paper,
+    hover: diary.hover,
+    id: diary.ID,
   };
 
   const [theme, setTheme] = useState(menuThemeSelection);
@@ -39,6 +41,8 @@ const Gallery: React.FC = () => {
       richTextPostStyles: theme.richTextPost,
       buttonStyles: theme.button,
       paper: theme.paper,
+      hover: theme.hover,
+      id: theme.ID,
     };
     setTheme(selectedTheme);
   };
@@ -49,7 +53,7 @@ const Gallery: React.FC = () => {
         createSelectedTheme(diary);
         break;
       case "RETRO":
-        // createSelectedTheme(retroComps);
+        createSelectedTheme(retroComps);
         break;
       case "VIDEO_GAME":
         //createSelectedTheme(vgComps);;
@@ -92,16 +96,16 @@ const Gallery: React.FC = () => {
       themeType: "RETRO",
     },
 
-    {
-      themeID: 3,
-      galleryName: "Video game",
-      themeType: "VIDEO_GAME",
-    },
-    {
-      themeID: 4,
-      galleryName: "Scrapbook",
-      themeType: "SCRAPBOOK",
-    },
+    // {
+    //   themeID: 3,
+    //   galleryName: "Video game",
+    //   themeType: "VIDEO_GAME",
+    // },
+    // {
+    //   themeID: 4,
+    //   galleryName: "Scrapbook",
+    //   themeType: "SCRAPBOOK",
+    // },
   ];
 
   const mobileGridStyles: CSSProperties = {
@@ -123,6 +127,7 @@ const Gallery: React.FC = () => {
           {/************ MENU SECTION ******************/}
           <Grid ml={2} size={2} sx={isMobile ? mobileGridStyles : {}}>
             <MenuSelection
+              menuID={theme.id}
               items={menuItems}
               title={"Theme Selection"}
               content={theme.menuSelection.content}
@@ -131,6 +136,7 @@ const Gallery: React.FC = () => {
               card={theme.card}
               onThemeChange={useThemeStyles}
               itemText={theme.menuSelection.text}
+              hover={theme.hover}
             />
           </Grid>
 

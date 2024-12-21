@@ -140,6 +140,7 @@ const contentText = {
 };
 
 export const retroComps = {
+  ID: 2,
   button: {
     ...buttonBorder,
     backgroundColor: c.button,
@@ -194,10 +195,25 @@ export const retroComps = {
       ...greenHeader,
       color: c.mainBg02,
     },
-    icons: {
-      ...headerIconBorder,
-      backgroundColor: c.icon,
-      color: "#000000",
+    text: {
+      ...text,
+      color: c.text02,
+      fontSize: "1.25rem", // 20px
+      textShadow: c.shine,
+      backgroundColor: c.mainBg00,
+      "&:hover": {
+        backgroundColor: c.buttonHover,
+        color: `${c.text01} !important`,
+      },
+      sx: {
+        ...text,
+        fontSize: "1.25rem", // 20px
+        color: c.text02,
+        "&:hover": {
+          backgroundColor: c.buttonHover,
+          color: `${c.text01} !important`,
+        },
+      },
     },
   },
   paper: {

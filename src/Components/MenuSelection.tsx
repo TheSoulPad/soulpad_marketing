@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { spacing } from "../styles";
 import Paper from "@mui/material/Paper";
 import List from "@mui/material/List";
@@ -29,6 +29,8 @@ interface MenuSelectionProps {
   content: ContentStyle | SimpleContent;
   paper: PaperStyle | Simple;
   card: CardStyle | Simple;
+  hover: string;
+  menuID: number;
   onThemeChange: (themeType: string) => void;
 }
 
@@ -40,12 +42,31 @@ const MenuSelection: React.FC<MenuSelectionProps> = ({
   header,
   paper,
   card,
+  hover,
+  menuID,
   onThemeChange,
 }) => {
+  const [bg, setBg] = useState("transparent");
+
+  useEffect(() => {
+    setBg(hover);
+  }, [hover]);
+
   const listItemStyles = {
+    ...itemText,
     padding: `${spacing.xs}em`,
     cursor: "pointer",
+  };
+
+  const activeStyles = {
     ...itemText,
+    color: "#ffffff !important",
+    backgroundColor: `${bg} !important`,
+  };
+
+  const activeFont = {
+    ...itemText.sx,
+    color: "#ffffff",
   };
 
   return (
@@ -56,16 +77,22 @@ const MenuSelection: React.FC<MenuSelectionProps> = ({
             {title}
           </Typography>
         </Box>
-        <Box className="menu-selection-content" sx={content}>
-          <List>
+        <Box className="menu-selection-content" sx={{ ...content }}>
+          <List className="menu-selection-list">
             {items.map((item) => (
               <ListItem
                 className="menu-selection-list-item"
                 key={item.themeID}
-                onClick={() => onThemeChange(item.themeType)}
-                sx={listItemStyles}
+                onClick={() => {
+                  onThemeChange(item.themeType);
+                  setBg(hover);
+                }}
+                sx={menuID === item.themeID ? activeStyles : listItemStyles}
               >
-                <Typography variant="body1" sx={content.text}>
+                <Typography
+                  variant="body1"
+                  sx={menuID === item.themeID ? activeFont : itemText.sx}
+                >
                   <strong>{item.galleryName}</strong>
                 </Typography>
               </ListItem>
