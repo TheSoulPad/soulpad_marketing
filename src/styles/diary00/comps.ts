@@ -1,7 +1,6 @@
 import { colors as c } from "./colors";
 import { spacing as s } from "../spacing";
 import { bodyText as f } from "./fonts";
-import { text } from "stream/consumers";
 
 const purpleShadow = `1px 1px 1px ${c.text02}`;
 const pinkShadow = `1px 1px 1px ${c.text03}`;
@@ -13,12 +12,15 @@ const content = {
 };
 
 const header = {
-  borderRadius: `${s.xs * 0.5}em`,
+  borderRadius: `${s.xs}em`,
   display: "flex",
+  justifyContent: "space-between",
   padding: `${s.xs}em`,
+  textAlign: "left",
   text: {
     ...f,
     textShadow: purpleShadow,
+    margin: 0,
   },
 };
 
@@ -28,11 +30,11 @@ const purpleHeader = {
   backgroundColor: c.headerBg01,
 };
 
-// const pinkHeader = {
-//   ...header,
-//   border: `1px solid ${c.headerBorder00}`,
-//   backgroundColor: c.headerBg00,
-// };
+const pinkHeader = {
+  ...header,
+  border: `1px solid ${c.headerBorder00}`,
+  backgroundColor: c.headerBg00,
+};
 
 export const diary = {
   ID: 1,
@@ -68,8 +70,9 @@ export const diary = {
   },
   hover: c.mainBg02,
   icons: {
-    backgroundColor: c.mainBg02,
+    backgroundColor: c.mainBg01,
     color: c.icon,
+    borderRadius: `${s.xs * 0.5}em`,
   },
   listBox: {},
   mediaPlayer: {},
@@ -89,13 +92,13 @@ export const diary = {
       ...f,
       color: c.text02,
       fontSize: "1.25rem", // 20px
-      textShadow: whiteShadow,
+      textShadow: pinkShadow,
       backgroundColor: c.mainBg00,
       borderRadius: `${s.xs}em`,
       "&:hover": {
         backgroundColor: c.buttonHover,
         color: `${c.text01} !important`,
-        textShadow: whiteShadow,
+        textShadow: pinkShadow,
       },
       sx: {
         ...f,
@@ -111,7 +114,6 @@ export const diary = {
   },
   poll: {},
   paper: {
-    backgroundColor: c.mainBg02,
     border: `1px solid ${c.contentBorder}`,
     borderRadius: `${s.xs}em`,
     display: "block",
@@ -125,9 +127,19 @@ export const diary = {
   richTextPost: {
     content: {
       ...content,
+      backgroundColor: c.mainBg00,
+      border: `1px solid ${c.contentBorder}`,
+      fontWeight: "400",
     },
-    header: {
-      ...purpleHeader,
+    header: pinkHeader,
+    text: {
+      ...f,
+      color: c.text01,
+      fontSize: "1.25rem", // 20px
+      textShadow: whiteShadow,
+      backgroundColor: c.mainBg00,
+      borderRadius: `${s.xs}em`,
+      margin: "unset",
     },
   },
   wordSticker: {},

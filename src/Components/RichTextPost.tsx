@@ -6,19 +6,22 @@ import MinimizeIcon from "@mui/icons-material/Minimize";
 import { spacing } from "../styles";
 import styled from "styled-components";
 import useMediaQuery from "@mui/material/useMediaQuery";
+import Typography from "@mui/material/Typography";
 import {
   HeaderStyle,
   PaperStyle,
   ContentStyle,
   IconStyle,
   Simple,
+  SimpleContent,
+  SimplePaper,
 } from "../styles/types";
 
 interface RichTextPostProps {
   children: React.ReactNode;
   header: HeaderStyle | Simple;
-  paper: PaperStyle | Simple;
-  content: ContentStyle;
+  paper: PaperStyle | SimplePaper;
+  content: ContentStyle | SimpleContent;
   subHeader: string;
   icon: IconStyle;
   addDate?: boolean;
@@ -60,11 +63,10 @@ const RichTextPost: React.FC<RichTextPostProps> = ({
     maxWidth: postSize,
   };
 
-  const BoxStyles = {
+  const HeaderStyles = {
     ...header,
     display: "flex",
-    alignItems: "center",
-    color: "#ffffff",
+    alignItems: "space-between",
   };
 
   const contentStylesResponsive = {
@@ -73,17 +75,26 @@ const RichTextPost: React.FC<RichTextPostProps> = ({
   };
 
   return (
-    <Paper elevation={1} sx={allPaperStyles}>
-      <Box sx={BoxStyles}>
-        <PostTitle>{subHeader}</PostTitle>
-        <ActionMenuWrapper>
-          <MinimizeIcon sx={{ ...icon, marginRight: 0.5 }} />
-          <CropSquareIcon sx={{ ...icon, marginRight: 0.5 }} />
-          <CloseIcon sx={icon} />
-        </ActionMenuWrapper>
-      </Box>
-      <Box display="flex" flexDirection="column" sx={contentStylesResponsive}>
-        {children}
+    <Paper className="rich-text-post-paper" elevation={2} sx={allPaperStyles}>
+      <Box className="rich-text-post-card">
+        <Box className="rich-text-post-header" sx={HeaderStyles}>
+          <Typography variant="h2" sx={header.text}>
+            {subHeader}
+          </Typography>
+          <ActionMenuWrapper>
+            <MinimizeIcon sx={{ ...icon, marginRight: 0.5 }} />
+            <CropSquareIcon sx={{ ...icon, marginRight: 0.5 }} />
+            <CloseIcon sx={icon} />
+          </ActionMenuWrapper>
+        </Box>
+        <Box
+          className="rich-text-post-content"
+          display="flex"
+          flexDirection="column"
+          sx={contentStylesResponsive}
+        >
+          <Typography variant="body1">{children}</Typography>
+        </Box>
       </Box>
     </Paper>
   );

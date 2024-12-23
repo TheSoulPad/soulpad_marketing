@@ -12,6 +12,7 @@ import {
   SimpleContent,
   Simple,
   TextStyle,
+  SimplePaper,
 } from "../styles/types";
 import Typography from "@mui/material/Typography";
 
@@ -27,7 +28,7 @@ interface MenuSelectionProps {
   itemText: TextStyle;
   title: string;
   content: ContentStyle | SimpleContent;
-  paper: PaperStyle | Simple;
+  paper: PaperStyle | SimplePaper;
   card: CardStyle | Simple;
   hover: string;
   menuID: number;
@@ -66,7 +67,7 @@ const MenuSelection: React.FC<MenuSelectionProps> = ({
 
   const activeFont = {
     ...itemText.sx,
-    color: "#ffffff",
+    color: "#ffffff !important",
   };
 
   return (

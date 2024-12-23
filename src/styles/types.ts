@@ -67,7 +67,15 @@ export interface PaperStyle {
   borderRight: string;
   borderBottom: string;
   borderRadius: string;
-  backgroundColor: string;
+  text: {
+    fontFamily: string;
+    textShadow: string;
+  };
+}
+
+export interface SimplePaper {
+  border: string;
+  borderRadius: string;
   text: {
     fontFamily: string;
     textShadow: string;
@@ -97,11 +105,6 @@ export interface SimpleContent {
 export interface IconStyle {
   backgroundColor: string;
   color: string;
-  borderTop: string;
-  borderLeft: string;
-  borderRight: string;
-  borderBottom: string;
-  borderRadius: string;
 }
 
 export interface TitleFont {

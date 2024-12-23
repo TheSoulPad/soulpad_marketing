@@ -29,6 +29,7 @@ const Gallery: React.FC = () => {
     paper: diary.paper,
     hover: diary.hover,
     id: diary.ID,
+    icons: diary.icons,
   };
 
   const [theme, setTheme] = useState(menuThemeSelection);
@@ -43,6 +44,7 @@ const Gallery: React.FC = () => {
       paper: theme.paper,
       hover: theme.hover,
       id: theme.ID,
+      icons: theme.icons,
     };
     setTheme(selectedTheme);
   };
@@ -90,11 +92,11 @@ const Gallery: React.FC = () => {
       galleryName: "Diary",
       themeType: "DIARY",
     },
-    {
-      themeID: 2,
-      galleryName: "Retro & Vaporwave",
-      themeType: "RETRO",
-    },
+    // {
+    //   themeID: 2,
+    //   galleryName: "Retro & Vaporwave",
+    //   themeType: "RETRO",
+    // },
 
     // {
     //   themeID: 3,
@@ -160,7 +162,8 @@ const Gallery: React.FC = () => {
               subHeader="This is my first post!"
               paper={theme.paper}
               content={theme.richTextPostStyles.content}
-              icon={theme.richTextPostStyles.icons}
+              icon={theme.icons}
+              // bodyText={theme.richTextPostStyles.text}
               size="small"
             >
               <div className="loren">
@@ -176,7 +179,7 @@ const Gallery: React.FC = () => {
               </div>
             </RichTextPost>
 
-            <CustomCard
+            {/* <CustomCard
               title="This is a cool card"
               paper={theme.paper}
               contentStyles={theme.card}
@@ -191,7 +194,7 @@ const Gallery: React.FC = () => {
                   btnStyles={theme.buttonStyles}
                 />
               ))}
-            </CustomCard>
+            </CustomCard> */}
           </Box>
           {/*
             <Grid
