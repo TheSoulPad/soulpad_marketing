@@ -125,7 +125,7 @@ export const diary = {
   },
   progressBar: {},
   richTextPost: {
-    card:{
+    card: {
       ...content,
       display: "block",
       backgroundColor: c.mainBg03,

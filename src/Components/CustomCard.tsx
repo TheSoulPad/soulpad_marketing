@@ -3,7 +3,13 @@ import Paper from "@mui/material/Paper";
 import Card from "@mui/material/Card";
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
-import { PaperStyle, ContentStyle, TitleFont, Simple } from "../styles/types";
+import {
+  PaperStyle,
+  ContentStyle,
+  TitleFont,
+  Simple,
+  SimplePaper,
+} from "../styles/types";
 
 //hardcode thes styles for now
 interface CardProps {
@@ -11,7 +17,7 @@ interface CardProps {
   title: string;
   text?: string;
   contentStyles: ContentStyle | Simple;
-  paper: PaperStyle | Simple;
+  paper: PaperStyle | SimplePaper;
   imageUrl?: string;
   size: "small" | "large";
   titleFont: TitleFont;

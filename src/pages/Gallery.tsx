@@ -180,12 +180,12 @@ const Gallery: React.FC = () => {
               </div>
             </RichTextPost>
 
-            {/* <CustomCard
+            <CustomCard
               title="This is a cool card"
               paper={theme.paper}
               contentStyles={theme.card}
               size="large"
-              titleFont={theme.titleFont}
+              titleFont={theme.card.text}
             >
               {Array.from({ length: 3 }).map((_, index) => (
                 <CustomButton
@@ -195,7 +195,7 @@ const Gallery: React.FC = () => {
                   btnStyles={theme.buttonStyles}
                 />
               ))}
-            </CustomCard> */}
+            </CustomCard>
           </Box>
           {/*
             <Grid
