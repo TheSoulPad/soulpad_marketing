@@ -1,11 +1,20 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { spacing } from "../styles";
-import Card from "@mui/material/Card";
 import Paper from "@mui/material/Paper";
-import styled from "styled-components";
+import List from "@mui/material/List";
 import Box from "@mui/material/Box";
 import ListItem from "@mui/material/ListItem";
-import { HeaderStyle, PaperStyle, ContentStyle } from "../styles/types";
+import {
+  HeaderStyle,
+  PaperStyle,
+  ContentStyle,
+  CardStyle,
+  SimpleContent,
+  Simple,
+  TextStyle,
+  SimplePaper,
+} from "../styles/types";
+import Typography from "@mui/material/Typography";
 
 interface MenuItem {
   themeID: number;
@@ -14,63 +23,84 @@ interface MenuItem {
 }
 
 interface MenuSelectionProps {
-  header: HeaderStyle;
+  header: HeaderStyle | Simple;
   items: MenuItem[];
+  itemText: TextStyle;
   title: string;
-  content: ContentStyle | undefined;
-  paper: PaperStyle;
-  hoverColor: string;
+  content: ContentStyle | SimpleContent;
+  paper: PaperStyle | SimplePaper;
+  card: CardStyle | Simple;
+  hover: string;
+  menuID: number;
   onThemeChange: (themeType: string) => void;
 }
 
-//change this to MuiList
-const List = styled.ul`
-  list-style-type: none;
-  padding: 0;
-`;
-
 const MenuSelection: React.FC<MenuSelectionProps> = ({
   items,
+  itemText,
   title,
   content,
   header,
   paper,
-  hoverColor,
+  card,
+  hover,
+  menuID,
   onThemeChange,
 }) => {
+  const [bg, setBg] = useState("transparent");
+
+  useEffect(() => {
+    setBg(hover);
+  }, [hover]);
+
   const listItemStyles = {
-    padding: `${spacing.xs}px`,
+    ...itemText,
+    padding: `${spacing.xs}em`,
     cursor: "pointer",
-    "&:hover": {
-      backgroundColor: hoverColor,
-    },
+  };
+
+  const activeStyles = {
+    ...itemText,
+    color: "#ffffff !important",
+    backgroundColor: `${bg} !important`,
+  };
+
+  const activeFont = {
+    ...itemText.sx,
+    color: "#ffffff !important",
   };
 
   return (
-    <Paper sx={paper}>
-      <Card
-        sx={{
-          width: "100%",
-          borderRadius: "0px",
-        }}
-      >
-        <Box className="menuselection-card-header" sx={header}>
-          {title}
+    <Paper elevation={1} className="menu-selection-paper" sx={paper}>
+      <Box className="menu-selection-card" sx={card}>
+        <Box className="menu-selection-card-header" sx={header}>
+          <Typography variant="h2" sx={header.text}>
+            {title}
+          </Typography>
         </Box>
-        <Box sx={content}>
-          <List>
+        <Box className="menu-selection-content" sx={{ ...content }}>
+          <List className="menu-selection-list">
             {items.map((item) => (
               <ListItem
+                className="menu-selection-list-item"
                 key={item.themeID}
-                onClick={() => onThemeChange(item.themeType)}
-                sx={listItemStyles}
+                onClick={() => {
+                  onThemeChange(item.themeType);
+                  setBg(hover);
+                }}
+                sx={menuID === item.themeID ? activeStyles : listItemStyles}
               >
-                {item.galleryName}
+                <Typography
+                  variant="body1"
+                  sx={menuID === item.themeID ? activeFont : itemText.sx}
+                >
+                  <strong>{item.galleryName}</strong>
+                </Typography>
               </ListItem>
             ))}
           </List>
         </Box>
-      </Card>
+      </Box>
     </Paper>
   );
 };

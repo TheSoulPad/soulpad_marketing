@@ -3,15 +3,15 @@ import Paper from "@mui/material/Paper";
 import Card from "@mui/material/Card";
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
-import { PaperStyle, ContentStyle, TitleFont } from "../styles/types";
-import { Margin } from "@mui/icons-material";
+import { PaperStyle, ContentStyle, TitleFont, Simple } from "../styles/types";
 
+//hardcode thes styles for now
 interface CardProps {
   children?: React.ReactNode;
   title: string;
   text?: string;
-  contentStyles: ContentStyle;
-  paper: PaperStyle;
+  contentStyles: ContentStyle | Simple;
+  paper: PaperStyle | Simple;
   imageUrl?: string;
   size: "small" | "large";
   titleFont: TitleFont;

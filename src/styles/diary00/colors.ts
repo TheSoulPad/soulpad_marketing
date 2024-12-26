@@ -1,9 +1,33 @@
-const diaryColors = {
-  mainBg: "#bbbcee", // light blue
-  cardBg: "#eeb9b3", // light pink
-  headerBg: "#f9ecdc", // light pink
-  contentBg: "#fdfaf5", // light yellow
-  iconColor: "#f9ecdc", // light pink
-  buttonTextColor: "#e8beae", // light pink
-  hoverColor: "#f9ecdc", // light pink
+const keyColors = {
+  salmon: "#eeb9b3",
+  beige: "#f9ecdc",
+  lightPurple: "#babfe7",
+  purple: "#9c92e9",
+  softWhite: "#fefaf6",
+  babyBlue: "#c4d4e3",
+};
+
+const { salmon, beige, lightPurple, purple, softWhite, babyBlue } = keyColors;
+
+export const colors = {
+  button: salmon,
+  buttonBorder: salmon,
+  buttonHover: lightPurple,
+  buttonText: softWhite,
+  contentBg: softWhite,
+  contentBorder: softWhite,
+  headerBg00: salmon,
+  headerBg01: purple,
+  headerBg02: lightPurple,
+  headerBorder00: salmon,
+  headerBorder01: purple,
+  icon: salmon,
+  mainBg00: softWhite,
+  mainBg01: beige,
+  mainBg02: lightPurple,
+  mainBg03: salmon,
+  shine: softWhite,
+  text01: softWhite,
+  text02: purple,
+  text03: salmon,
 };

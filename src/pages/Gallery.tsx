@@ -10,6 +10,7 @@ import RichTextPost from "../Components/RichTextPost";
 import CustomCard from "../Components/CustomCard";
 import useMediaQuery from "@mui/material/useMediaQuery";
 import { retroComps } from "../styles/retro00/comps";
+import { diary } from "../styles/diary00/comps";
 import Box from "@mui/material/Box";
 
 const strings = Strings.galleryPage;
@@ -19,27 +20,31 @@ const Gallery: React.FC = () => {
   const isMobile = useMediaQuery("(max-width:600px)");
 
   //default
-  const themeSelection = {
-    menuSelection: retroComps.menuSelection,
-    cardStyles: retroComps.card,
-    richTextPostStyles: retroComps.richTextPost,
-    buttonStyles: retroComps.button,
-    hoverColor: retroComps.hover,
-    paper: retroComps.paper,
-    titleFont: retroComps.text,
+  const menuThemeSelection = {
+    menuSelection: diary.menuSelection,
+    card: diary.card,
+    content: diary.content,
+    richTextPostStyles: diary.richTextPost,
+    buttonStyles: diary.button,
+    paper: diary.paper,
+    hover: diary.hover,
+    id: diary.ID,
+    icons: diary.icons,
   };
 
-  const [theme, setTheme] = useState(themeSelection);
+  const [theme, setTheme] = useState(menuThemeSelection);
 
   const createSelectedTheme = (theme: any) => {
     let selectedTheme = {
       menuSelection: theme.menuSelection,
-      cardStyles: theme.card,
+      card: theme.card,
+      content: theme.content,
       richTextPostStyles: theme.richTextPost,
       buttonStyles: theme.button,
-      hoverColor: theme.hover,
       paper: theme.paper,
-      titleFont: theme.text,
+      hover: theme.hover,
+      id: theme.ID,
+      icons: theme.icons,
     };
     setTheme(selectedTheme);
   };
@@ -47,7 +52,7 @@ const Gallery: React.FC = () => {
   const useThemeStyles = (themeType: string) => {
     switch (themeType) {
       case "DIARY":
-        // createSelectedTheme(diaryComps);
+        createSelectedTheme(diary);
         break;
       case "RETRO":
         createSelectedTheme(retroComps);
@@ -84,24 +89,25 @@ const Gallery: React.FC = () => {
   const menuItems = [
     {
       themeID: 1,
-      galleryName: "Retro & Vaporwave",
-      themeType: "RETRO",
-    },
-    {
-      themeID: 2,
       galleryName: "Diary",
       themeType: "DIARY",
     },
-    {
-      themeID: 3,
-      galleryName: "Video game",
-      themeType: "VIDEO_GAME",
-    },
-    {
-      themeID: 4,
-      galleryName: "Scrapbook",
-      themeType: "SCRAPBOOK",
-    },
+    // {
+    //   themeID: 2,
+    //   galleryName: "Retro & Vaporwave",
+    //   themeType: "RETRO",
+    // },
+
+    // {
+    //   themeID: 3,
+    //   galleryName: "Video game",
+    //   themeType: "VIDEO_GAME",
+    // },
+    // {
+    //   themeID: 4,
+    //   galleryName: "Scrapbook",
+    //   themeType: "SCRAPBOOK",
+    // },
   ];
 
   const mobileGridStyles: CSSProperties = {
@@ -123,13 +129,16 @@ const Gallery: React.FC = () => {
           {/************ MENU SECTION ******************/}
           <Grid ml={2} size={2} sx={isMobile ? mobileGridStyles : {}}>
             <MenuSelection
+              menuID={theme.id}
               items={menuItems}
               title={"Theme Selection"}
               content={theme.menuSelection.content}
-              hoverColor={theme.hoverColor}
               header={theme.menuSelection.header}
               paper={theme.paper}
+              card={theme.card}
               onThemeChange={useThemeStyles}
+              itemText={theme.menuSelection.text}
+              hover={theme.hover}
             />
           </Grid>
 
@@ -152,8 +161,10 @@ const Gallery: React.FC = () => {
               header={theme.richTextPostStyles.header}
               subHeader="This is my first post!"
               paper={theme.paper}
+              card={theme.richTextPostStyles.card}
               content={theme.richTextPostStyles.content}
-              icon={theme.richTextPostStyles.icons}
+              icon={theme.icons}
+              // bodyText={theme.richTextPostStyles.text}
               size="small"
             >
               <div className="loren">
@@ -169,10 +180,10 @@ const Gallery: React.FC = () => {
               </div>
             </RichTextPost>
 
-            <CustomCard
+            {/* <CustomCard
               title="This is a cool card"
               paper={theme.paper}
-              contentStyles={theme.cardStyles.content}
+              contentStyles={theme.card}
               size="large"
               titleFont={theme.titleFont}
             >
@@ -184,7 +195,7 @@ const Gallery: React.FC = () => {
                   btnStyles={theme.buttonStyles}
                 />
               ))}
-            </CustomCard>
+            </CustomCard> */}
           </Box>
           {/*
             <Grid
