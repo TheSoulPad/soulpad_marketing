@@ -161,6 +161,7 @@ const Gallery: React.FC = () => {
               header={theme.richTextPostStyles.header}
               subHeader="This is my first post!"
               paper={theme.paper}
+              card={theme.richTextPostStyles.card}
               content={theme.richTextPostStyles.content}
               icon={theme.icons}
               // bodyText={theme.richTextPostStyles.text}

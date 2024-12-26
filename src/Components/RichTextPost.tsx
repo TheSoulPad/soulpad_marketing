@@ -9,6 +9,7 @@ import useMediaQuery from "@mui/material/useMediaQuery";
 import Typography from "@mui/material/Typography";
 import {
   HeaderStyle,
+  CardStyle,
   PaperStyle,
   ContentStyle,
   IconStyle,
@@ -20,6 +21,7 @@ import {
 interface RichTextPostProps {
   children: React.ReactNode;
   header: HeaderStyle | Simple;
+  card: CardStyle | Simple;
   paper: PaperStyle | SimplePaper;
   content: ContentStyle | SimpleContent;
   subHeader: string;
@@ -38,12 +40,8 @@ const ActionMenuWrapper = styled.div`
   cursor: pointer;
 `;
 
-const PostTitle = styled.h3`
-  padding: 0;
-  margin: 0;
-`;
-
 const RichTextPost: React.FC<RichTextPostProps> = ({
+  card,
   paper,
   subHeader,
   children,
@@ -76,7 +74,7 @@ const RichTextPost: React.FC<RichTextPostProps> = ({
 
   return (
     <Paper className="rich-text-post-paper" elevation={2} sx={allPaperStyles}>
-      <Box className="rich-text-post-card">
+      <Box className="rich-text-post-card" sx={card}>
         <Box className="rich-text-post-header" sx={HeaderStyles}>
           <Typography variant="h2" sx={header.text}>
             {subHeader}

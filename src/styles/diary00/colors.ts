@@ -25,6 +25,7 @@ export const colors = {
   mainBg00: softWhite,
   mainBg01: beige,
   mainBg02: lightPurple,
+  mainBg03: salmon,
   shine: softWhite,
   text01: softWhite,
   text02: purple,
