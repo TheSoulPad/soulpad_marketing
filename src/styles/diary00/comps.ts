@@ -45,7 +45,7 @@ export const diary = {
     border: `1px solid ${c.buttonBorder}`,
     "&:hover": {
       backgroundColor: c.buttonHover,
-      color: c.text01,
+      color: c.text02,
     },
   },
   card: {

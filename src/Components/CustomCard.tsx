@@ -5,7 +5,7 @@ import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import {
   PaperStyle,
-  ContentStyle,
+  CardStyle,
   TitleFont,
   Simple,
   SimplePaper,
@@ -16,7 +16,7 @@ interface CardProps {
   children?: React.ReactNode;
   title: string;
   text?: string;
-  contentStyles: ContentStyle | Simple;
+  card: CardStyle | Simple;
   paper: PaperStyle | SimplePaper;
   imageUrl?: string;
   size: "small" | "large";
@@ -28,7 +28,7 @@ const CustomCard: React.FC<CardProps> = ({
   title,
   text,
   paper,
-  contentStyles,
+  card,
   imageUrl,
   size,
   titleFont,
@@ -56,7 +56,7 @@ const CustomCard: React.FC<CardProps> = ({
     <Paper className="custom-paper-card" sx={{ ...paper, ...cardSize }}>
       <Card
         className="custom-card-body"
-        sx={{ ...contentStyles, minHeight: cardSize.minHeight }}
+        sx={{ ...card, minHeight: cardSize.minHeight }}
       >
         <Typography variant="body1" className="card-title" sx={titleStyles}>
           {title}
