@@ -167,7 +167,7 @@ const Gallery: React.FC = () => {
               // bodyText={theme.richTextPostStyles.text}
               size="small"
             >
-              <div className="loren">
+              <span className="loren">
                 Welcome to SoulPad! I hope you enjoy your stay. This is a test
                 of the post component. Lorem ipsum dolor sit amet, consectetur
                 adipiscing elit. Sed do eiusmod tempor incididunt ut labore et
@@ -177,13 +177,13 @@ const Gallery: React.FC = () => {
                 incididunt ut labore et dolore magna aliqua. Welcome to SoulPad!
                 I hope you enjoy your stay. This is a test of the post
                 component. Lorem ipsum dolor sit amet, consectetur
-              </div>
+              </span>
             </RichTextPost>
 
             <CustomCard
               title="This is a cool card"
               paper={theme.paper}
-              contentStyles={theme.card}
+              card={theme.card}
               size="large"
               titleFont={theme.card.text}
             >
