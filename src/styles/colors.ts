@@ -31,5 +31,3 @@ export const galleryColors = {
   contentBorderColor: "#137574",
   contentBorder: "2px inset #137574",
 };
-
-

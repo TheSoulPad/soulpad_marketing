@@ -28,7 +28,6 @@ interface PollProps {
 // radio buttons and select
 // two view - select option and show results
 
-
 const CustomPoll: React.FC<PollProps> = ({
   title,
   text,
