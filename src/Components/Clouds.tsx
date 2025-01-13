@@ -29,7 +29,6 @@ const Clouds: React.FC<CloudProps> = ({ title, link }) => {
         sx={{
           ...cloudStyles,
           "&:hover": {
-            transform: "translateY(-30px)",
             boxShadow: "15px 15px rgba(0,0,0,0.3)",
           },
           "&::after": {
@@ -51,17 +50,6 @@ const Clouds: React.FC<CloudProps> = ({ title, link }) => {
             borderRadius: "50%",
             top: "-90px",
             right: "40px",
-            "@keyframes move": {
-              "0%": {
-                transform: "translateX(0)",
-              },
-              "50%": {
-                transform: "translateX(-40px)",
-              },
-              "100%": {
-                transform: "translateX(0)",
-              },
-            },
           },
         }}
       >

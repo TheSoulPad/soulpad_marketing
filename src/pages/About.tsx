@@ -14,6 +14,7 @@ import Grid from "@mui/material/Grid2";
 import { Strings } from "../resources/strings";
 import RichTextPost from "../Components/RichTextPost";
 import useMediaQuery from "@mui/material/useMediaQuery";
+import { diary } from "../styles/diary00/comps";
 
 //use the retro web style for the about section
 const strings = Strings.about;
@@ -100,8 +101,12 @@ const AboutPage = () => {
           {/* THE PAPER */}
           <RichTextPost
             subHeader={strings.header}
-            paperStyles={aboutPaperStyles}
-            menuStyles={aboutMenuStyles}
+            paper={diary.paper}
+            card={diary.card}
+            content={diary.content}
+            header={diary.richTextPost.header}
+            icon={diary.icons}
+            size="large"
           >
             {/* THE CONTENT */}
             <Grid
