@@ -9,7 +9,7 @@ const mobileHeadline2Font: CSSProperties = {
 };
 
 const headline1Font: CSSProperties = {
-  // fontFamily: "Spicy Rice, serif",
+  fontFamily: "Spicy Rice, serif",
   fontWeight: "400",
   textAlign: "center",
 };

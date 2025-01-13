@@ -39,7 +39,7 @@ const pageStyles = {
 };
 
 const contentStyles: CSSProperties = {
-  padding: spacing.lg,
+  padding: `${spacing.lg}em`,
   textAlign: "center",
   color: "#ffffff",
 };
@@ -49,12 +49,12 @@ const subTitle: CSSProperties = {
   backgroundColor: `rgba(${colors.backgroundRGB}, 0.7)`,
   borderRadius: "5px",
   fontSize: 32,
-  padding: spacing.xs,
+  padding: `${spacing.xs}em`,
   margin: "auto",
 };
 
 const cloudContainer: CSSProperties = {
-  marginTop: spacing.layoutbg,
+  marginTop: `${spacing.layoutbg}em`,
 };
 
 const homeStyles = {
@@ -82,6 +82,7 @@ const Home = () => {
             style={cloudContainer}
             justifyContent="center"
             spacing={3}
+            className="cloud-container"
           >
             {Object.entries(homePageLinks)
               .slice(1)
