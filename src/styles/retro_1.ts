@@ -2,7 +2,6 @@ import { CSSProperties } from "react";
 import { spacing, galleryColors } from "../styles";
 import styled from "styled-components";
 
-
 const retroColors = {
   mainBg: "#92bdbc", //light olive green
   shine: "#f0f0f0", //light grey

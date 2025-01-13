@@ -82,8 +82,6 @@ export interface SimplePaper {
   };
 }
 
-export interface SimplePaper {}
-
 export interface ContentStyle {
   padding: string;
   borderRadius: string;

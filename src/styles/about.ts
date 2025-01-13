@@ -4,7 +4,7 @@ import { spacing, aboutColors } from "../styles";
 const aboutPaperStyles: CSSProperties = {
   backgroundColor: aboutColors.paper,
   border: "6px solid black",
-  boxShadow: "9px 9px 0px 0px black",
+  // boxShadow: "9px 9px 0px 0px black",
   borderRadius: "20px",
   marginBottom: `${spacing.md}px`,
 };

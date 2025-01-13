@@ -91,7 +91,7 @@ const RichTextPost: React.FC<RichTextPostProps> = ({
           flexDirection="column"
           sx={contentStylesResponsive}
         >
-          <Typography variant="body1">{children}</Typography>
+          {children}
         </Box>
       </Box>
     </Paper>
