@@ -103,6 +103,13 @@ export interface SimpleContent {
 export interface IconStyle {
   backgroundColor: string;
   color: string;
+  borderRadius: string;
+}
+
+export interface Icons {
+  primary: IconStyle;
+  secondary: IconStyle;
+  iconClose: IconStyle;
 }
 
 export interface TitleFont {

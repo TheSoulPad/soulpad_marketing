@@ -7,7 +7,8 @@ const keyColors = {
   babyBlue: "#c4d4e3",
 };
 
-const { salmon, beige, lightPurple, purple, softWhite, babyBlue } = keyColors;
+export const { salmon, beige, lightPurple, purple, softWhite, babyBlue } =
+  keyColors;
 
 export const colors = {
   button: salmon,

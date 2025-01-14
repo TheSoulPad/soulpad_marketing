@@ -15,6 +15,7 @@ import { Strings } from "../resources/strings";
 import RichTextPost from "../Components/RichTextPost";
 import useMediaQuery from "@mui/material/useMediaQuery";
 import { diary } from "../styles/diary00/comps";
+import { about } from "../styles/about/comps";
 
 //use the retro web style for the about section
 const strings = Strings.about;
@@ -101,11 +102,11 @@ const AboutPage = () => {
           {/* THE PAPER */}
           <RichTextPost
             subHeader={strings.header}
-            paper={diary.paper}
-            card={diary.card}
-            content={diary.content}
-            header={diary.richTextPost.header}
-            icon={diary.icons}
+            paper={about.paper}
+            card={about.card}
+            content={about.content}
+            header={about.richTextPost.header}
+            icons={about.icons}
             size="large"
           >
             {/* THE CONTENT */}

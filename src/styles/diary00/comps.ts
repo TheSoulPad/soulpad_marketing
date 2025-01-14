@@ -24,6 +24,12 @@ const header = {
   },
 };
 
+const icons = {
+  backgroundColor: c.mainBg01,
+  color: c.icon,
+  borderRadius: `${s.xs * 0.5}em`,
+};
+
 const purpleHeader = {
   ...header,
   border: `1px solid ${c.headerBorder01}`,
@@ -70,9 +76,9 @@ export const diary = {
   },
   hover: c.mainBg02,
   icons: {
-    backgroundColor: c.mainBg01,
-    color: c.icon,
-    borderRadius: `${s.xs * 0.5}em`,
+    primary: icons,
+    secondary: icons,
+    iconClose: icons,
   },
   listBox: {},
   mediaPlayer: {},

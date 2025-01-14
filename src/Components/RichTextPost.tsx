@@ -13,6 +13,7 @@ import {
   PaperStyle,
   ContentStyle,
   IconStyle,
+  Icons,
   Simple,
   SimpleContent,
   SimplePaper,
@@ -25,7 +26,7 @@ interface RichTextPostProps {
   paper: PaperStyle | SimplePaper;
   content: ContentStyle | SimpleContent;
   subHeader: string;
-  icon: IconStyle;
+  icons: Icons;
   addDate?: boolean;
   addWeather?: boolean;
   size?: "small" | "large";
@@ -47,7 +48,7 @@ const RichTextPost: React.FC<RichTextPostProps> = ({
   children,
   header,
   content,
-  icon,
+  icons,
   size,
 }) => {
   const isMobile = useMediaQuery("(max-width:600px)");
@@ -80,9 +81,9 @@ const RichTextPost: React.FC<RichTextPostProps> = ({
             {subHeader}
           </Typography>
           <ActionMenuWrapper>
-            <MinimizeIcon sx={{ ...icon, marginRight: 0.5 }} />
-            <CropSquareIcon sx={{ ...icon, marginRight: 0.5 }} />
-            <CloseIcon sx={icon} />
+            <MinimizeIcon sx={{ ...icons.primary, marginRight: 0.5 }} />
+            <CropSquareIcon sx={{ ...icons.secondary, marginRight: 0.5 }} />
+            <CloseIcon sx={icons.iconClose} />
           </ActionMenuWrapper>
         </Box>
         <Box

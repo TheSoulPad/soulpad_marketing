@@ -163,7 +163,7 @@ const Gallery: React.FC = () => {
               paper={theme.paper}
               card={theme.richTextPostStyles.card}
               content={theme.richTextPostStyles.content}
-              icon={theme.icons}
+              icons={theme.icons}
               // bodyText={theme.richTextPostStyles.text}
               size="small"
             >
