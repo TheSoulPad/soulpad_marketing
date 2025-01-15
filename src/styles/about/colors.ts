@@ -1,3 +1,5 @@
+//About Colors
+
 const keyColors = {
   orange: "#ef8216",
   beige: "#e8d8a7",
@@ -29,6 +31,7 @@ export const colors = {
   contentBg: beige,
   contentBorder: beige,
   paperShadow: redOrange,
+  paperBorder: darkBrown,
   headerBg00: brown,
   headerBg01: "",
   headerBg02: "",

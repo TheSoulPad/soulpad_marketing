@@ -1,3 +1,5 @@
+//About Theme
+
 import { colors as c, redOrange, darkBrown } from "./colors";
 import { spacing as s } from "../spacing";
 import { bodyText as f } from "./fonts";
@@ -6,13 +8,19 @@ const redOrangeShadow = `1px 1px 1px ${redOrange}`;
 const darkBrownShadow = `1px 1px 1px ${darkBrown}`;
 
 const content = {
-  borderRadius: `${s.xs}em`,
+  borderRadius: `${s.sm}em`,
   padding: `${s.xs}em`,
+};
+
+const iconsClass = {
+  color: c.text00,
+  fontSize: "1.25rem", // 20px
+  borderRadius: `${s.sm}em`,
 };
 
 const header = {
   backgroundColor: c.headerBg00,
-  borderRadius: `${s.xs}em`,
+  borderRadius: `${s.sm}em`,
   display: "flex",
   justifyContent: "space-between",
   padding: `${s.xs}em`,
@@ -20,6 +28,7 @@ const header = {
   border: "none",
   text: {
     ...f,
+    margin: "0",
     color: c.text01,
     textShadow: "",
   },
@@ -39,7 +48,8 @@ export const about = {
     },
   },
   card: {
-    ...content,
+    borderRadius: `${s.sm}em`,
+    padding: `${s.xs}em`,
     display: "block",
     backgroundColor: c.mainBg00,
     border: "unset",
@@ -50,6 +60,7 @@ export const about = {
   },
   content: {
     ...content,
+
     backgroundColor: c.mainBg00,
     border: `1px solid ${c.contentBorder}`,
     text: {
@@ -60,19 +71,16 @@ export const about = {
   },
   icons: {
     primary: {
+      ...iconsClass,
       backgroundColor: c.iconPrimary,
-      color: c.text01,
-      borderRadius: `${s.xs * 0.5}em`,
     },
     secondary: {
+      ...iconsClass,
       backgroundColor: c.iconSecondary,
-      color: c.text01,
-      borderRadius: `${s.xs * 0.5}em`,
     },
     iconClose: {
+      ...iconsClass,
       backgroundColor: c.iconClose,
-      color: c.text01,
-      borderRadius: `${s.xs * 0.5}em`,
     },
   },
   listBox: {},
@@ -110,11 +118,11 @@ export const about = {
   },
   poll: {},
   paper: {
-    border: `1px solid ${c.contentBorder}`,
-    borderRadius: `${s.xs}em`,
+    border: `1px solid ${c.paperBorder}`,
+    borderRadius: `${s.sm}em`,
     display: "block",
     padding: "unset",
-    boxShadow: `9px 9px 0px 0px ${c.paperShadow}`,
+    boxShadow: `17px 21px 0px 0px ${c.paperShadow}`,
     text: {
       ...f,
       textShadow: "",

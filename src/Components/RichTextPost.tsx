@@ -12,7 +12,6 @@ import {
   CardStyle,
   PaperStyle,
   ContentStyle,
-  IconStyle,
   Icons,
   Simple,
   SimpleContent,
