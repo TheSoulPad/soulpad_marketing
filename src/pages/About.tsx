@@ -2,21 +2,15 @@ import * as React from "react";
 import type { HeadFC, PageProps } from "gatsby";
 import { CSSProperties } from "react";
 import BaseLayout from "../BaseLayout";
-import {
-  spacing,
-  aboutColors,
-  aboutPaperStyles,
-  aboutMenuStyles,
-  funFont1,
-} from "../styles";
+import { spacing, aboutColors, funFont1 } from "../styles";
 import Typography from "@mui/material/Typography";
 import Grid from "@mui/material/Grid2";
 import { Strings } from "../resources/strings";
 import RichTextPost from "../Components/RichTextPost";
 import useMediaQuery from "@mui/material/useMediaQuery";
-import { diary } from "../styles/diary00/comps";
+import { about } from "../styles/about/comps";
+import Box from "@mui/material/Box";
 
-//use the retro web style for the about section
 const strings = Strings.about;
 const headStrings = Strings.metaData.about;
 
@@ -89,6 +83,10 @@ const AboutPage = () => {
     margin: "auto",
   };
 
+  const numberStyles: CSSProperties = {
+    paddingRight: `${spacing.sm / 2}em`,
+  };
+
   return (
     <div className="overlay" style={overlayStyles}>
       <BaseLayout title={strings.header} pageStyles={pageStyles}>
@@ -100,12 +98,12 @@ const AboutPage = () => {
         >
           {/* THE PAPER */}
           <RichTextPost
-            subHeader={strings.header}
-            paper={diary.paper}
-            card={diary.card}
-            content={diary.content}
-            header={diary.richTextPost.header}
-            icon={diary.icons}
+            subHeader={strings.subHeader}
+            paper={about.paper}
+            card={about.card}
+            content={about.content}
+            header={about.richTextPost.header}
+            icons={about.icons}
             size="large"
           >
             {/* THE CONTENT */}
@@ -136,9 +134,11 @@ const AboutPage = () => {
                       display: "flex",
                     }}
                   >
-                    <div style={funFont1}>
-                      {aboutContent.about.p1.numbers[index]}
-                    </div>
+                    <Box className="number" sx={funFont1}>
+                      <div style={numberStyles}>
+                        {aboutContent.about.p1.numbers[index]}
+                      </div>
+                    </Box>
                     <Typography variant="body1" style={bodyTextStyles}>
                       {bullet}
                     </Typography>

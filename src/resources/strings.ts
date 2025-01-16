@@ -9,8 +9,8 @@ export const Strings = {
   },
 
   about: {
-    header: "What is SoulPad?",
-    subHeader: "The problem with social media today...",
+    header: "About",
+    subHeader: "What is SoulPad?",
     subHeader2: "How does it work?",
   },
 

@@ -5,3 +5,7 @@ export const bodyText = {
   textAlign: "left",
   color: c.text01,
 };
+export const headerText = {
+  ...bodyText,
+  color: c.text02,
+};
