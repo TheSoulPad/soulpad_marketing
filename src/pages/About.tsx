@@ -13,6 +13,7 @@ import Box from "@mui/material/Box";
 
 const strings = Strings.about;
 const headStrings = Strings.metaData.about;
+const content = Strings.about.content;
 
 const aboutContent = {
   about: {
@@ -62,6 +63,9 @@ const AboutPage = () => {
   const containerStyles = {
     color: "#232129",
     padding: isMobile ? spacing.sm : 0,
+    maxWidth: "900px",
+    width: "100%",
+    margin: "auto",
   };
 
   const contentStyles: CSSProperties = {
@@ -92,6 +96,7 @@ const AboutPage = () => {
       <BaseLayout title={strings.header} pageStyles={pageStyles}>
         <Grid
           display="flex"
+          flexDirection="column"
           justifyContent="center"
           className="about-container"
           style={containerStyles}
@@ -158,6 +163,15 @@ const AboutPage = () => {
               </Typography>
             </Grid>
           </RichTextPost>
+          {/* <RichTextPost
+            subHeader={strings.subHeader2}
+            paper={about.paper}
+            card={about.card}
+            content={about.content}
+            header={about.richTextPost.header}
+            icons={about.icons}
+            >
+          </RichTextPost> */}
         </Grid>
       </BaseLayout>
     </div>
