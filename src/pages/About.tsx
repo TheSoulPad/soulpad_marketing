@@ -11,7 +11,6 @@ import useMediaQuery from "@mui/material/useMediaQuery";
 import { about } from "../styles/about/comps";
 import Box from "@mui/material/Box";
 
-//use the retro web style for the about section
 const strings = Strings.about;
 const headStrings = Strings.metaData.about;
 
