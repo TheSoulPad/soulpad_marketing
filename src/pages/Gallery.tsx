@@ -35,7 +35,7 @@ const Gallery: React.FC = () => {
   const [theme, setTheme] = useState(menuThemeSelection);
 
   const createSelectedTheme = (theme: any) => {
-    let selectedTheme = {
+    const selectedTheme = {
       menuSelection: theme.menuSelection,
       card: theme.card,
       content: theme.content,

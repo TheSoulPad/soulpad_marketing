@@ -15,7 +15,7 @@ export const Strings = {
     content: {
       point1: {
         title: `The most popular social media apps today have `,
-        three: "three",
+        number: "three",
         title2: ` major problems:`,
         numbers: ["1", "2", "3"],
         bullets: [
@@ -26,15 +26,15 @@ export const Strings = {
       },
       point2: {
         title: "Let’s explore the ",
-        first: "first",
+        number: "first",
         title2: " point a little deeper:",
         highlight:
           'They keep our attention glued to the timeline or "feed" rather than on each other’s profiles.',
-        p: `When was the last time you spent more than five minutes on the profile page of a friend or a loved one vs scrolling or swiping through the feed? Let’s be honest. We spend more time going through endless videos, photos, sponsored content, or ads than we do individual profiles. In fact, TikTok has determined that it takes about 260 videos to get people addicted to the app (https://www.npr.org/2024/10/12/g-s1-28040/teens-tiktok-addiction-lawsuit-investigation-documents). Social media creators want us to stay hooked to the feed. Their algorithms make us interact more with content from famous social media stars instead of engaging with the profiles of our friends or new people. Which leads to the second point:`,
+        p: `When was the last time you spent more than five minutes on the profile page of a friend or a loved one vs scrolling or swiping through the feed? Let’s be honest. We spend more time going through endless videos, photos, sponsored content, or ads than we do individual profiles. In fact, TikTok has determined that it takes about 260 videos to get people addicted to the app (https://www.npr.org/2024/10/12/g-s1-28040/teens-tiktok-addiction-lawsuit-investigation-documents). Social media creators want us to stay hooked to the feed. Their algorithms make us interact more with content from famous social media stars instead of engaging with the profiles of our friends or new people.`,
       },
       point3: {
         title: "Which leads to the ",
-        second: "second",
+        number: "second",
         title2: " point:",
         highlight:
           "Social media apps highlight celebrity culture by showing the number of followers, followed by, likes, and other reactions.",
@@ -42,15 +42,15 @@ export const Strings = {
         p1: `Sometimes it feels like we’re all in a race or under pressure to be more popular, engaging, or have higher numbers – it’s like a second job! That’s because if we **go viral** on social media, we might become millionaires like all the other social media celebrities. But trying to go viral can be tiring or maybe we become too embarrassed by our low likes or views that we give up on sharing after a time.`,
         p2: `That could be why some of us become “lurkers” – people who share little to nothing on social media but instead lurk on the feed of popular folks or mindlessly react to content with a heart or other emoji. The popular social media apps want us to gobble up popular content because ads instead of expressing ourselves or connecting with our friends and new people in unique ways.`,
       },
-    },
-    point4: {
-      title: "Which leads to ",
-      third: "third",
-      title2: " point:",
-      highlight:
-        "Social media apps don’t give us the freedom to design our profiles the way we want.",
-      p: `Giving everyone the same design for profile pages may have worked in the early days of social media apps, but now, in the age of generative AI, we need to showcase our human creativity more than ever. Our profiles need more attention than the timelines and feeds.`,
-      p1: `Where is the focus on our individuality vs “content creators” for the feed?  We are a universe of thoughts, interests, hobbies, talents and so much more. SoulPad’s mission is to restore this balance by giving you the freedom to express your point of view online in the easiest way possible. `,
+      point4: {
+        title: "Which leads to ",
+        number: "third",
+        title2: " point:",
+        highlight:
+          "Social media apps don’t give us the freedom to design our profiles the way we want.",
+        p: `Giving everyone the same design for profile pages may have worked in the early days of social media apps, but now, in the age of generative AI, we need to showcase our human creativity more than ever. Our profiles need more attention than the timelines and feeds.`,
+        p1: `Where is the focus on our individuality vs “content creators” for the feed?  We are a universe of thoughts, interests, hobbies, talents and so much more. SoulPad’s mission is to restore this balance by giving you the freedom to express your point of view online in the easiest way possible. `,
+      },
     },
   },
 

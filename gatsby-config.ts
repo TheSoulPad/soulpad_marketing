@@ -3,7 +3,7 @@ import type { GatsbyConfig } from "gatsby";
 const config: GatsbyConfig = {
   siteMetadata: {
     title: `SoulPadBeta`,
-    siteUrl: `https://www.yourdomain.tld`,
+    siteUrl: `https://www.thesoulpad.com`,
   },
   // More easily incorporate content into your pages through automatic TypeScript type generation and better GraphQL IntelliSense.
   // If you use VSCode you can also use the GraphQL plugin
@@ -81,8 +81,8 @@ const config: GatsbyConfig = {
             file: "https://fonts.googleapis.com/css2?family=Quantico:ital,wght@0,400;0,700;1,400;1,700&display=swap",
           },
           {
-            name:"Gaegu",
-            file: "https://fonts.googleapis.com/css2?family=Gaegu&family=Quicksand:wght@300..700&display=swap"
+            name: "Gaegu",
+            file: "https://fonts.googleapis.com/css2?family=Gaegu&family=Quicksand:wght@300..700&display=swap",
           },
         ],
       },
