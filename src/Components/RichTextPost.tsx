@@ -24,7 +24,7 @@ interface RichTextPostProps {
   card: CardStyle | Simple;
   paper: PaperStyle | SimplePaper;
   content: ContentStyle | SimpleContent;
-  subHeader: string;
+  title: string;
   icons: Icons;
   addDate?: boolean;
   addWeather?: boolean;
@@ -43,7 +43,7 @@ const ActionMenuWrapper = styled.div`
 const RichTextPost: React.FC<RichTextPostProps> = ({
   card,
   paper,
-  subHeader,
+  title,
   children,
   header,
   content,
@@ -77,7 +77,7 @@ const RichTextPost: React.FC<RichTextPostProps> = ({
       <Box className="rich-text-post-card" sx={card}>
         <Box className="rich-text-post-header" sx={HeaderStyles}>
           <Typography variant="h2" sx={header.text}>
-            {subHeader}
+            {title}
           </Typography>
           <ActionMenuWrapper>
             <MinimizeIcon sx={{ ...icons.primary, marginRight: 0.5 }} />

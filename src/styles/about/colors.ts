@@ -31,7 +31,7 @@ export const colors = {
   contentBg: beige,
   contentBorder: beige,
   paperShadow: redOrange,
-  paperBorder: darkBrown,
+  paperBorder: beige,
   headerBg00: brown,
   headerBg01: "",
   headerBg02: "",

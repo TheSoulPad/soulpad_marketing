@@ -25,8 +25,8 @@ const BaseLayout: React.FC<LayoutProps> = ({ children, title, pageStyles }) => {
   const mainStyles: CSSProperties = {
     flex: 1,
     position: "relative",
-    marginBottom: spacing.md,
-    padding: isMobile ? spacing.sm : 0,
+    marginBottom: `${spacing.xxl}em`,
+    padding: `${isMobile ? spacing.sm : 0}em`,
   };
 
   const baseStyles: CSSProperties = {
@@ -37,7 +37,7 @@ const BaseLayout: React.FC<LayoutProps> = ({ children, title, pageStyles }) => {
 
   const h1Styles: CSSProperties = {
     margin: 0,
-    padding: isMobile ? 0 : spacing.md,
+    padding: `${isMobile ? 0 : spacing.xs}em`,
     color,
   };
 

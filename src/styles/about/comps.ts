@@ -60,7 +60,6 @@ export const about = {
   },
   content: {
     ...content,
-
     backgroundColor: c.mainBg00,
     border: `1px solid ${c.contentBorder}`,
     text: {
