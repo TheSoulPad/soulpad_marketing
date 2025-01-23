@@ -83,7 +83,11 @@ export const about = {
     },
   },
   listBox: {},
-  mediaPlayer: {},
+  mediaPlayer: {
+    header: {
+      ...header,
+      backgroundColor: c.headerBg00,    }
+  },
   menuSelection: {
     header,
     content: {

@@ -8,6 +8,7 @@ import MenuSelection from "../Components/MenuSelection";
 import CustomButton from "../Components/CustomButton";
 import RichTextPost from "../Components/RichTextPost";
 import CustomCard from "../Components/CustomCard";
+import CustomMediaPlayer from "../Components/CustomMediaPlayer";
 import useMediaQuery from "@mui/material/useMediaQuery";
 import { retroComps } from "../styles/retro00/comps";
 import { diary } from "../styles/diary00/comps";
@@ -30,6 +31,7 @@ const Gallery: React.FC = () => {
     hover: diary.hover,
     id: diary.ID,
     icons: diary.icons,
+    mediaPlayer: diary.mediaPlayer,
   };
 
   const [theme, setTheme] = useState(menuThemeSelection);
@@ -45,6 +47,7 @@ const Gallery: React.FC = () => {
       hover: theme.hover,
       id: theme.ID,
       icons: theme.icons,
+      mediaPlayer: theme.mediaPlayer,
     };
     setTheme(selectedTheme);
   };
@@ -124,7 +127,8 @@ const Gallery: React.FC = () => {
           mt={2}
           mb={4}
           flexDirection="row"
-          columnGap={5}
+          spacing={5}
+          height="100%"
         >
           {/************ MENU SECTION ******************/}
           <Grid ml={2} size={2} sx={isMobile ? mobileGridStyles : {}}>
@@ -143,28 +147,28 @@ const Gallery: React.FC = () => {
           </Grid>
 
           {/********** GALLERY **************/}
-
-          <Box
+          <Grid
+            container
+            size={9}
             className="gallery-row"
+            flexWrap="wrap"
+            spacing={2}
             sx={
               isMobile
                 ? mobileGridStyles
                 : {
                     display: "flex",
-                    justifyContent: "space-between",
                     alignItems: "start",
-                    width: "65%",
                   }
             }
           >
             <RichTextPost
               header={theme.richTextPostStyles.header}
-              subHeader="This is my first post!"
+              title="This is my first post!"
               paper={theme.paper}
               card={theme.richTextPostStyles.card}
               content={theme.richTextPostStyles.content}
               icons={theme.icons}
-              // bodyText={theme.richTextPostStyles.text}
               size="small"
             >
               <span className="loren">
@@ -196,25 +200,19 @@ const Gallery: React.FC = () => {
                 />
               ))}
             </CustomCard>
-          </Box>
-          {/*
-            <Grid
-              className="gallery-row"
-              display="flex"
-              justifyContent="space-between"
-              alignItems="start"
-              sx={isMobile ? mobileGridStyles : {}}
-              flexDirection={isMobile ? "column" : "row"}
-              columnSpacing={1}
-              rowSpacing={1}
-            >
-              <CustomCard
-                title="This is a cool card"
-                paper={theme.paper}
-                contentStyles={theme.cardStyles.content}
-                size="large"
-              />
-            </Grid> */}
+
+            <CustomMediaPlayer
+              title="This is a cat video"
+              textLocation="top"
+              cardStyles={theme.card}
+              icons={theme.icons}
+              paper={theme.paper}
+              contentStyles={theme.content}
+              headerStyles={theme.mediaPlayer.header}
+              videoUrl="https://www.w3schools.com/html/m"
+              size="small"
+            />
+          </Grid>
         </Grid>
       </BaseLayout>
     </div>

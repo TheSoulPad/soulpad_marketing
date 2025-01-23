@@ -70,7 +70,7 @@ export const Strings = {
   },
 
   galleryPage: {
-    header: "Themes Gallery",
+    header: "Gallery of Themes",
     subHeader: "Explore SoulPad themes.",
   },
 

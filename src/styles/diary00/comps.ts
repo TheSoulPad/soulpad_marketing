@@ -81,11 +81,17 @@ export const diary = {
     iconClose: icons,
   },
   listBox: {},
-  mediaPlayer: {},
+  mediaPlayer: {
+    header: {
+      ...header,
+      backgroundColor: c.headerBg02,
+      border: "none",
+    },
+  },
   menuSelection: {
     header: {
       ...purpleHeader,
-      backgroundColor: "transparent",
+      backgroundColor: c.headerBg02,
       border: "none",
     },
     content: {
