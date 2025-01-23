@@ -9,10 +9,11 @@ import CustomButton from "../Components/CustomButton";
 import RichTextPost from "../Components/RichTextPost";
 import CustomCard from "../Components/CustomCard";
 import CustomMediaPlayer from "../Components/CustomMediaPlayer";
+import CustomList from "../Components/CustomList";
+import CustomProgress from "../Components/CustomProgress";
 import useMediaQuery from "@mui/material/useMediaQuery";
 import { retroComps } from "../styles/retro00/comps";
 import { diary } from "../styles/diary00/comps";
-import Box from "@mui/material/Box";
 
 const strings = Strings.galleryPage;
 const headStrings = Strings.metaData.gallery;
@@ -32,6 +33,7 @@ const Gallery: React.FC = () => {
     id: diary.ID,
     icons: diary.icons,
     mediaPlayer: diary.mediaPlayer,
+    list: diary.listBox,
   };
 
   const [theme, setTheme] = useState(menuThemeSelection);
@@ -48,6 +50,7 @@ const Gallery: React.FC = () => {
       id: theme.ID,
       icons: theme.icons,
       mediaPlayer: theme.mediaPlayer,
+      list: theme.listBox,
     };
     setTheme(selectedTheme);
   };
@@ -149,7 +152,7 @@ const Gallery: React.FC = () => {
           {/********** GALLERY **************/}
           <Grid
             container
-            size={9}
+            size={10}
             className="gallery-row"
             flexWrap="wrap"
             spacing={2}
@@ -159,17 +162,18 @@ const Gallery: React.FC = () => {
                 : {
                     display: "flex",
                     alignItems: "start",
+                    margin: "auto",
                   }
             }
           >
             <RichTextPost
-              header={theme.richTextPostStyles.header}
-              title="This is my first post!"
-              paper={theme.paper}
               card={theme.richTextPostStyles.card}
               content={theme.richTextPostStyles.content}
+              header={theme.richTextPostStyles.header}
               icons={theme.icons}
+              paper={theme.paper}
               size="small"
+              title="This is my first post!"
             >
               <span className="loren">
                 Welcome to SoulPad! I hope you enjoy your stay. This is a test
@@ -183,34 +187,50 @@ const Gallery: React.FC = () => {
                 component. Lorem ipsum dolor sit amet, consectetur
               </span>
             </RichTextPost>
-
             <CustomCard
-              title="This is a cool card"
-              paper={theme.paper}
               card={theme.card}
+              paper={theme.paper}
               size="large"
+              title="This is a cool card"
               titleFont={theme.card.text}
             >
               {Array.from({ length: 3 }).map((_, index) => (
                 <CustomButton
                   key={index}
-                  onClick={() => console.log("Button Clicked")}
-                  label="Click Me!"
                   btnStyles={theme.buttonStyles}
+                  label="Click Me!"
+                  onClick={() => console.log("Button Clicked")}
                 />
               ))}
             </CustomCard>
-
-            <CustomMediaPlayer
-              title="This is a cat video"
-              textLocation="top"
-              cardStyles={theme.card}
-              icons={theme.icons}
+            <CustomProgress
+              card={theme.card}
+              circular={true}
               paper={theme.paper}
+              progressValues={[{ item: 50, item2: 50 }]}
+              size="small"
+              title="My goal progress !"
+              titleFont={theme.card.text}
+            />
+            <CustomMediaPlayer
+              cardStyles={theme.card}
               contentStyles={theme.content}
               headerStyles={theme.mediaPlayer.header}
-              videoUrl="https://www.w3schools.com/html/m"
+              icons={theme.icons}
+              paper={theme.paper}
               size="small"
+              textLocation="top"
+              title="This is a cat video"
+              videoUrl="https://www.w3schools.com/html/m"
+            />
+
+            <CustomList
+              card={theme.list}
+              items={[{ item1: "Item 1", item2: "Item 2", item3: "Item 3" }]}
+              paper={theme.paper}
+              size="large"
+              title="Check out my list"
+              titleFont={theme.card.text}
             />
           </Grid>
         </Grid>

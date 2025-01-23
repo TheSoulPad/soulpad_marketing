@@ -80,7 +80,16 @@ export const diary = {
     secondary: icons,
     iconClose: icons,
   },
-  listBox: {},
+  listBox: {
+    ...content,
+    display: "block",
+    border: "unset",
+    backgroundColor: c.mainBg03,
+    text: {
+      ...f,
+      textShadow: purpleShadow,
+    },
+  },
   mediaPlayer: {
     header: {
       ...header,

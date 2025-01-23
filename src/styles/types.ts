@@ -117,3 +117,9 @@ export interface TitleFont {
   fontFamily: string;
   textShadow: string;
 }
+
+export interface ListStyle {
+  backgroundColor: string;
+  border: string;
+  padding: string;
+}

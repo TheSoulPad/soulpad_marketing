@@ -5,6 +5,7 @@ import Typography from "@mui/material/Typography";
 import CloseIcon from "@mui/icons-material/Close";
 import CropSquareIcon from "@mui/icons-material/CropSquare";
 import MinimizeIcon from "@mui/icons-material/Minimize";
+import RichTextPost from "./RichTextPost";
 import styled from "styled-components";
 import {
   PaperStyle,
@@ -62,25 +63,20 @@ const CustomMediaPlayer: React.FC<CardProps> = ({
     alignItems: "space-between",
   };
   return (
-    <Paper className="media-player-paper" sx={allPaperStyles}>
-      <Box className="media-player-box" sx={cardStyles}>
-        <Box className="rich-text-post-header" sx={HeaderStyles}>
-          <Typography variant="h2" sx={headerStyles.text}>
-            {title}
-          </Typography>
-          <ActionMenuWrapper>
-            <MinimizeIcon sx={{ ...icons.primary, marginRight: 0.5 }} />
-            <CropSquareIcon sx={{ ...icons.secondary, marginRight: 0.5 }} />
-            <CloseIcon sx={icons.iconClose} />
-          </ActionMenuWrapper>
-        </Box>
-        <Box className="media-player-content" sx={contentStyles}>
-          <Box className="card-video">
-            <video width="100%" src={videoUrl} controls />
-          </Box>
-        </Box>
-      </Box>
-    </Paper>
+    <RichTextPost
+      header={HeaderStyles}
+      title={title}
+      paper={allPaperStyles}
+      card={cardStyles}
+      content={contentStyles}
+      icons={icons}
+      size={size}
+    >
+      <video width="100%" height="100%" controls>
+        <source src={videoUrl} type="video/mp4" />
+        Your browser does not support the video tag.
+      </video>
+    </RichTextPost>
   );
 };
 
