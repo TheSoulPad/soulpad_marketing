@@ -56,7 +56,7 @@ export const Strings = {
 
   homePage: {
     header: "SoulPad",
-    subHeader: "Unleash your inner universe.",
+    subHeader: "Unleash your inner universe online.",
   },
 
   createPage: {

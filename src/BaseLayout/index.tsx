@@ -25,8 +25,8 @@ const BaseLayout: React.FC<LayoutProps> = ({ children, title, pageStyles }) => {
   const mainStyles: CSSProperties = {
     flex: 1,
     position: "relative",
-    marginBottom: `${spacing.xxl}em`,
-    padding: `${isMobile ? spacing.sm : 0}em`,
+    margin: `${spacing.lg}rem  0`,
+    padding: `${isMobile ? spacing.sm : 0}rem`,
   };
 
   const baseStyles: CSSProperties = {
@@ -37,7 +37,7 @@ const BaseLayout: React.FC<LayoutProps> = ({ children, title, pageStyles }) => {
 
   const h1Styles: CSSProperties = {
     margin: 0,
-    padding: `${isMobile ? 0 : spacing.xs}em`,
+    padding: `${isMobile ? 0 : spacing.xs}rem`,
     color,
   };
 
@@ -51,7 +51,7 @@ const BaseLayout: React.FC<LayoutProps> = ({ children, title, pageStyles }) => {
         style={baseStyles}
       >
         <Grid>
-          <Typography variant="h1" style={h1Styles}>
+          <Typography className="page-title" variant="h1" style={h1Styles}>
             {title}
           </Typography>
         </Grid>

@@ -2,7 +2,6 @@ import React, { CSSProperties } from "react";
 import Grid from "@mui/material/Grid2";
 import { spacing, funFont1 } from "../styles";
 import Typography from "@mui/material/Typography";
-import type { AboutContent } from "../types/types";
 import useMediaQuery from "@mui/material/useMediaQuery";
 import Box from "@mui/material/Box";
 

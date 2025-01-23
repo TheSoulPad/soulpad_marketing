@@ -39,7 +39,7 @@ const pageStyles = {
 };
 
 const contentStyles: CSSProperties = {
-  padding: `${spacing.lg}em`,
+  padding: `${spacing.md}rem`,
   textAlign: "center",
   color: "#ffffff",
 };
@@ -48,13 +48,13 @@ const subTitle: CSSProperties = {
   fontWeight: "800",
   backgroundColor: `rgba(${colors.backgroundRGB}, 0.7)`,
   borderRadius: "5px",
-  fontSize: 32,
-  padding: `${spacing.xs}em`,
+  fontSize: "32px",
+  padding: `${spacing.xs}rem`,
   margin: "auto",
 };
 
 const cloudContainer: CSSProperties = {
-  marginTop: `${spacing.layoutbg}em`,
+  marginTop: `${spacing.layoutbg}rem`,
 };
 
 const homeStyles = {
@@ -70,10 +70,14 @@ const Home = () => {
         <Grid
           container
           direction="column"
-          className="content"
+          className="home-page--content"
           style={contentStyles}
         >
-          <Typography variant="h2" style={subTitle}>
+          <Typography
+            className="home-page--subtitle"
+            variant="h2"
+            style={subTitle}
+          >
             {strings.subHeader}
           </Typography>
 

@@ -18,7 +18,7 @@ const headline2Font: CSSProperties = {
   fontSize: "1.5rem",
   fontWeight: "700",
   textAlign: "center",
-  maxWidth: "400px",
+  maxWidth: "550px",
   width: "100%",
 };
 
