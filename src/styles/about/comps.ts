@@ -36,6 +36,7 @@ const header = {
 
 export const about = {
   ID: 0,
+  themeID: "ABOUT",
   buttonPrimary: {
     borderRadius: `${s.xs}em`,
     color: c.text00,
@@ -86,7 +87,8 @@ export const about = {
   mediaPlayer: {
     header: {
       ...header,
-      backgroundColor: c.headerBg00,    }
+      backgroundColor: c.headerBg00,
+    },
   },
   menuSelection: {
     header,

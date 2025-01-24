@@ -6,6 +6,7 @@ import Box from "@mui/material/Box";
 import ListItem from "@mui/material/ListItem";
 import Typography from "@mui/material/Typography";
 import { diary } from "../styles/diary00/comps";
+import { about } from "../styles/about/comps";
 // import { retro } from "../styles/retro00/comps";
 
 //this a temporary interface
@@ -31,7 +32,7 @@ const MenuSelection: React.FC<MenuSelectionProps> = ({
 }) => {
   const [bg, setBg] = useState("transparent");
 
-  //replace with a default SoulPad theme 
+  //replace with a default SoulPad theme
   const menuThemeSelection = {
     menuSelection: diary.menuSelection,
     themeID: diary.themeID,

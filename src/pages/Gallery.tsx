@@ -21,19 +21,19 @@ const Gallery: React.FC = () => {
   const [themeType, setThemeType] = useState("DIARY");
   const useThemeStyles = (themeType: string) => {
     switch (themeType) {
+      case "About":
+        setThemeType("About");
+        break;
       case "DIARY":
         setThemeType("DIARY");
         break;
       case "RETRO":
-        console.log("retro");
         setThemeType("RETRO");
         break;
       case "VIDEO_GAME":
-        console.log("video game");
         setThemeType("VIDEO_GAME");
         break;
       case "SCRAPBOOK":
-        console.log("scrapbook");
         setThemeType("SCRAPBOOK");
         break;
       default:
@@ -60,6 +60,11 @@ const Gallery: React.FC = () => {
   };
 
   const menuItems = [
+    //make the about theme the SoulPad theme
+    {
+      galleryName: "SoulPad",
+      themeType: "SOULPAD",
+    },
     {
       galleryName: "Diary",
       themeType: "DIARY",
