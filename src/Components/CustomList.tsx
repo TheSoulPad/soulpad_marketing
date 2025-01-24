@@ -28,6 +28,7 @@ interface CustomListProps {
   size: "small" | "large";
   title: string;
   titleFont: TitleFont;
+  themeType?: string;
 }
 
 const CustomList: React.FC<CustomListProps> = ({

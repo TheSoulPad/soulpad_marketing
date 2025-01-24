@@ -28,16 +28,9 @@ interface CardProps {
   paper: PaperStyle | SimplePaper;
   videoUrl: string;
   size?: "small" | "large";
+  themeType?: string;
 }
 
-const ActionMenuWrapper = styled.div`
-  display: flex;
-  justify-content: flex-end;
-  align-items: center;
-  margin-left: auto;
-  font-weight: bold;
-  cursor: pointer;
-`;
 //create styled components for video necessary
 
 const CustomMediaPlayer: React.FC<CardProps> = ({
@@ -49,6 +42,7 @@ const CustomMediaPlayer: React.FC<CardProps> = ({
   videoUrl,
   icons,
   size,
+  themeType,
 }) => {
   const postSize = size === "small" ? "600px" : "900px";
 

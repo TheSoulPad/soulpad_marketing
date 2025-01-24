@@ -22,6 +22,7 @@ interface CardProps {
   text?: string;
   title: string;
   titleFont: TitleFont;
+  themeType?: string;
 }
 //create styled components for video and image if necessary
 

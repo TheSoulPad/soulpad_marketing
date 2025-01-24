@@ -23,6 +23,7 @@ interface CustomListProps {
   circular: boolean;
   multi?: boolean;
   progressValues: { item: number; item2: number }[];
+  themeType?: string;
 }
 //learn how to do dynamic types
 

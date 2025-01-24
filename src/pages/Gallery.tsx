@@ -12,65 +12,29 @@ import CustomMediaPlayer from "../Components/CustomMediaPlayer";
 import CustomList from "../Components/CustomList";
 import CustomProgress from "../Components/CustomProgress";
 import useMediaQuery from "@mui/material/useMediaQuery";
-import { retroComps } from "../styles/retro00/comps";
-import { diary } from "../styles/diary00/comps";
 
 const strings = Strings.galleryPage;
 const headStrings = Strings.metaData.gallery;
 
 const Gallery: React.FC = () => {
   const isMobile = useMediaQuery("(max-width:600px)");
-
-  //default
-  const menuThemeSelection = {
-    menuSelection: diary.menuSelection,
-    card: diary.card,
-    content: diary.content,
-    richTextPostStyles: diary.richTextPost,
-    buttonStyles: diary.button,
-    paper: diary.paper,
-    hover: diary.hover,
-    id: diary.ID,
-    icons: diary.icons,
-    mediaPlayer: diary.mediaPlayer,
-    list: diary.listBox,
-  };
-
-  const [theme, setTheme] = useState(menuThemeSelection);
-
-  const createSelectedTheme = (theme: any) => {
-    const selectedTheme = {
-      menuSelection: theme.menuSelection,
-      card: theme.card,
-      content: theme.content,
-      richTextPostStyles: theme.richTextPost,
-      buttonStyles: theme.button,
-      paper: theme.paper,
-      hover: theme.hover,
-      id: theme.ID,
-      icons: theme.icons,
-      mediaPlayer: theme.mediaPlayer,
-      list: theme.listBox,
-    };
-    setTheme(selectedTheme);
-  };
-
+  const [themeType, setThemeType] = useState("DIARY");
   const useThemeStyles = (themeType: string) => {
     switch (themeType) {
       case "DIARY":
-        createSelectedTheme(diary);
+        setThemeType("DIARY");
         break;
       case "RETRO":
         console.log("retro");
-        // createSelectedTheme(retroComps);
+        setThemeType("RETRO");
         break;
       case "VIDEO_GAME":
         console.log("video game");
-        //createSelectedTheme(vgComps);;
+        setThemeType("VIDEO_GAME");
         break;
       case "SCRAPBOOK":
         console.log("scrapbook");
-        //createSelectedTheme(scrapbookComps);
+        setThemeType("SCRAPBOOK");
         break;
       default:
         console.log("Default");
@@ -97,23 +61,19 @@ const Gallery: React.FC = () => {
 
   const menuItems = [
     {
-      themeID: 1,
       galleryName: "Diary",
       themeType: "DIARY",
     },
     {
-      themeID: 2,
       galleryName: "Retrowave",
       themeType: "RETRO",
     },
 
     {
-      themeID: 3,
       galleryName: "Video game",
       themeType: "VIDEO_GAME",
     },
     {
-      themeID: 4,
       galleryName: "Scrapbook",
       themeType: "SCRAPBOOK",
     },
@@ -145,23 +105,16 @@ const Gallery: React.FC = () => {
             sx={isMobile ? mobileGridStyles : { margin: "auto" }}
           >
             <MenuSelection
-              menuID={theme.id}
-              items={menuItems}
-              title={"Theme Selection"}
-              content={theme.menuSelection.content}
-              header={theme.menuSelection.header}
-              paper={theme.paper}
-              card={theme.card}
+              themeType={themeType}
               onThemeChange={useThemeStyles}
-              itemText={theme.menuSelection.text}
-              activeColor={theme.menuSelection.list.backgroundColor}
-              activeColorShadow={theme.menuSelection.list.textShadow}
               horizontal={true}
+              title="Theme Selection"
+              items={menuItems}
             />
           </Grid>
 
           {/********** GALLERY **************/}
-          <Grid
+          {/* <Grid
             container
             size={10}
             className="gallery-row"
@@ -243,7 +196,7 @@ const Gallery: React.FC = () => {
               title="Check out my list"
               titleFont={theme.card.text}
             />
-          </Grid>
+          </Grid> */}
         </Grid>
       </BaseLayout>
     </div>

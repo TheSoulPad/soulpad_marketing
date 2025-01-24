@@ -29,6 +29,7 @@ interface RichTextPostProps {
   addDate?: boolean;
   addWeather?: boolean;
   size?: "small" | "large";
+  themeType?: string;
 }
 
 const ActionMenuWrapper = styled.div`

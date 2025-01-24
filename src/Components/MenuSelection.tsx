@@ -4,59 +4,87 @@ import Paper from "@mui/material/Paper";
 import List from "@mui/material/List";
 import Box from "@mui/material/Box";
 import ListItem from "@mui/material/ListItem";
-import {
-  HeaderStyle,
-  PaperStyle,
-  ContentStyle,
-  CardStyle,
-  SimpleContent,
-  Simple,
-  TextStyle,
-  SimplePaper,
-} from "../styles/types";
 import Typography from "@mui/material/Typography";
-import { Widgets } from "@mui/icons-material";
+import { diary } from "../styles/diary00/comps";
+// import { retro } from "../styles/retro00/comps";
 
+//this a temporary interface
 interface MenuItem {
-  themeID: number;
   galleryName: string;
   themeType: string;
 }
 
 interface MenuSelectionProps {
-  header: HeaderStyle | Simple;
+  themeType: string;
   items: MenuItem[];
-  itemText: TextStyle;
   title: string;
-  content: ContentStyle | SimpleContent;
-  paper: PaperStyle | SimplePaper;
-  card: CardStyle | Simple;
-  activeColor: string;
-  menuID: number;
   horizontal?: boolean;
-  activeColorShadow?: string;
   onThemeChange: (themeType: string) => void;
 }
 
 const MenuSelection: React.FC<MenuSelectionProps> = ({
   items,
-  itemText,
-  title,
-  content,
-  header,
-  paper,
-  card,
-  activeColor,
-  menuID,
   horizontal,
-  activeColorShadow,
+  themeType,
+  title,
   onThemeChange,
 }) => {
   const [bg, setBg] = useState("transparent");
 
+  //replace with a default SoulPad theme 
+  const menuThemeSelection = {
+    menuSelection: diary.menuSelection,
+    themeID: diary.themeID,
+    card: diary.card,
+    content: diary.content,
+    paper: diary.paper,
+    activeColor: diary.menuSelection.list.backgroundColor,
+  };
+
+  const [theme, setTheme] = useState(menuThemeSelection);
+
+  const createSelectedTheme = (theme: any) => {
+    const selectedTheme = {
+      menuSelection: theme.menuSelection,
+      themeID: theme.themeID,
+      card: theme.card,
+      content: theme.content,
+      paper: theme.paper,
+      activeColor: theme.menuSelection.list.backgroundColor,
+    };
+    setTheme(selectedTheme);
+  };
+
   useEffect(() => {
-    setBg(activeColor);
-  }, [activeColor]);
+    switch (themeType) {
+      case "DIARY":
+        createSelectedTheme(diary);
+        break;
+      case "RETRO":
+        console.log("retro");
+        // createSelectedTheme(retroComps);
+        break;
+      case "VIDEO_GAME":
+        console.log("video game");
+        //createSelectedTheme(vgComps);;
+        break;
+      case "SCRAPBOOK":
+        console.log("scrapbook");
+        //createSelectedTheme(scrapbookComps);
+        break;
+      default:
+        console.log("Default");
+    }
+  }, [themeType]);
+
+  const { content, paper, card, activeColor, themeID } = theme;
+  const { header, text } = theme.menuSelection;
+
+  const activeColorShadow = theme.menuSelection.list.backgroundColor;
+
+  useEffect(() => {
+    setBg(theme.activeColor);
+  }, [theme.activeColor]);
 
   const listStyles = {
     display: `${horizontal ? "flex" : "block"}`,
@@ -65,21 +93,21 @@ const MenuSelection: React.FC<MenuSelectionProps> = ({
   };
 
   const listItemStyles = {
-    ...itemText,
+    ...text,
     padding: `${spacing.xs}em`,
     cursor: "pointer",
     maxWidth: "200px",
   };
 
   const activeStyles = {
-    ...itemText,
+    ...text,
     textAlign: "center",
     color: "#ffffff",
     backgroundColor: `${bg}`,
   };
 
   const activeFont = {
-    ...itemText.sx,
+    ...text.sx,
     textAlign: "center",
     color: "#ffffff",
     textShadow: activeColorShadow,
@@ -113,16 +141,16 @@ const MenuSelection: React.FC<MenuSelectionProps> = ({
             {items.map((item) => (
               <ListItem
                 className="menu-selection-list-item"
-                key={item.themeID}
+                key={item.themeType}
                 onClick={() => {
                   onThemeChange(item.themeType);
                   setBg(activeColor);
                 }}
-                sx={menuID === item.themeID ? activeStyles : listItemStyles}
+                sx={themeID === item.themeType ? activeStyles : listItemStyles}
               >
                 <Typography
                   variant="body1"
-                  sx={menuID === item.themeID ? activeFont : itemText.sx}
+                  sx={themeID === item.themeType ? activeFont : text.sx}
                 >
                   <strong>{item.galleryName}</strong>
                 </Typography>

@@ -45,6 +45,7 @@ const pinkHeader = {
 
 export const diary = {
   ID: 1,
+  themeID: "DIARY",
   button: {
     borderRadius: `${s.xs}em`,
     color: c.text01,
