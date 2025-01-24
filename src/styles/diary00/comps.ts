@@ -1,6 +1,7 @@
 import { colors as c } from "./colors";
 import { spacing as s } from "../spacing";
 import { bodyText as f } from "./fonts";
+import { text } from "stream/consumers";
 
 const purpleShadow = `1px 1px 1px ${c.text02}`;
 const pinkShadow = `1px 1px 1px ${c.text03}`;
@@ -74,7 +75,7 @@ export const diary = {
       textShadow: purpleShadow,
     },
   },
-  hover: c.mainBg02,
+  hover: c.mainBg03,
   icons: {
     primary: icons,
     secondary: icons,
@@ -109,8 +110,13 @@ export const diary = {
       border: `1px solid ${c.contentBorder}`,
       fontWeight: "400",
     },
+    list: {
+      backgroundColor: c.button,
+      textShadow: purpleShadow,
+    },
     text: {
       ...f,
+      textAlign: "center",
       color: c.text02,
       fontSize: "1.25rem", // 20px
       textShadow: pinkShadow,
@@ -118,7 +124,7 @@ export const diary = {
       borderRadius: `${s.xs}em`,
       "&:hover": {
         backgroundColor: c.buttonHover,
-        color: `${c.text01} !important`,
+        color: `${c.text02} !important`,
         textShadow: pinkShadow,
       },
       sx: {
@@ -126,9 +132,10 @@ export const diary = {
         fontSize: "1.25rem", // 20px
         color: c.text02,
         width: "100%",
+        textAlign: "center !important",
         "&:hover": {
           backgroundColor: c.buttonHover,
-          color: `${c.text01} !important`,
+          color: `${c.text02} !important`,
         },
       },
     },

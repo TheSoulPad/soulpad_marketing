@@ -61,12 +61,15 @@ const Gallery: React.FC = () => {
         createSelectedTheme(diary);
         break;
       case "RETRO":
-        createSelectedTheme(retroComps);
+        console.log("retro");
+        // createSelectedTheme(retroComps);
         break;
       case "VIDEO_GAME":
+        console.log("video game");
         //createSelectedTheme(vgComps);;
         break;
       case "SCRAPBOOK":
+        console.log("scrapbook");
         //createSelectedTheme(scrapbookComps);
         break;
       default:
@@ -98,22 +101,22 @@ const Gallery: React.FC = () => {
       galleryName: "Diary",
       themeType: "DIARY",
     },
-    // {
-    //   themeID: 2,
-    //   galleryName: "Retro & Vaporwave",
-    //   themeType: "RETRO",
-    // },
+    {
+      themeID: 2,
+      galleryName: "Retrowave",
+      themeType: "RETRO",
+    },
 
-    // {
-    //   themeID: 3,
-    //   galleryName: "Video game",
-    //   themeType: "VIDEO_GAME",
-    // },
-    // {
-    //   themeID: 4,
-    //   galleryName: "Scrapbook",
-    //   themeType: "SCRAPBOOK",
-    // },
+    {
+      themeID: 3,
+      galleryName: "Video game",
+      themeType: "VIDEO_GAME",
+    },
+    {
+      themeID: 4,
+      galleryName: "Scrapbook",
+      themeType: "SCRAPBOOK",
+    },
   ];
 
   const mobileGridStyles: CSSProperties = {
@@ -134,7 +137,13 @@ const Gallery: React.FC = () => {
           height="100%"
         >
           {/************ MENU SECTION ******************/}
-          <Grid ml={2} size={2} sx={isMobile ? mobileGridStyles : {}}>
+          <Grid
+            ml={2}
+            size={8}
+            display="flex"
+            justifyContent="center"
+            sx={isMobile ? mobileGridStyles : { margin: "auto" }}
+          >
             <MenuSelection
               menuID={theme.id}
               items={menuItems}
@@ -145,7 +154,9 @@ const Gallery: React.FC = () => {
               card={theme.card}
               onThemeChange={useThemeStyles}
               itemText={theme.menuSelection.text}
-              hover={theme.hover}
+              activeColor={theme.menuSelection.list.backgroundColor}
+              activeColorShadow={theme.menuSelection.list.textShadow}
+              horizontal={true}
             />
           </Grid>
 

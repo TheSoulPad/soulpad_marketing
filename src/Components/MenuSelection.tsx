@@ -15,6 +15,7 @@ import {
   SimplePaper,
 } from "../styles/types";
 import Typography from "@mui/material/Typography";
+import { Widgets } from "@mui/icons-material";
 
 interface MenuItem {
   themeID: number;
@@ -30,8 +31,10 @@ interface MenuSelectionProps {
   content: ContentStyle | SimpleContent;
   paper: PaperStyle | SimplePaper;
   card: CardStyle | Simple;
-  hover: string;
+  activeColor: string;
   menuID: number;
+  horizontal?: boolean;
+  activeColorShadow?: string;
   onThemeChange: (themeType: string) => void;
 }
 
@@ -43,35 +46,57 @@ const MenuSelection: React.FC<MenuSelectionProps> = ({
   header,
   paper,
   card,
-  hover,
+  activeColor,
   menuID,
+  horizontal,
+  activeColorShadow,
   onThemeChange,
 }) => {
   const [bg, setBg] = useState("transparent");
 
   useEffect(() => {
-    setBg(hover);
-  }, [hover]);
+    setBg(activeColor);
+  }, [activeColor]);
+
+  const listStyles = {
+    display: `${horizontal ? "flex" : "block"}`,
+    justifyContent: "center",
+    alignItems: "center",
+  };
 
   const listItemStyles = {
     ...itemText,
     padding: `${spacing.xs}em`,
     cursor: "pointer",
+    maxWidth: "200px",
   };
 
   const activeStyles = {
     ...itemText,
-    color: "#ffffff !important",
-    backgroundColor: `${bg} !important`,
+    textAlign: "center",
+    color: "#ffffff",
+    backgroundColor: `${bg}`,
   };
 
   const activeFont = {
     ...itemText.sx,
-    color: "#ffffff !important",
+    textAlign: "center",
+    color: "#ffffff",
+    textShadow: activeColorShadow,
+  };
+
+  const containerStyles = {
+    ...paper,
+    maxWidth: "600px",
+    width: "100%",
   };
 
   return (
-    <Paper elevation={1} className="menu-selection-paper" sx={paper}>
+    <Paper
+      elevation={1}
+      className="menu-selection-paper menu-selection-container"
+      sx={containerStyles}
+    >
       <Box className="menu-selection-card" sx={card}>
         <Box className="menu-selection-card-header" sx={header}>
           <Typography variant="h2" sx={header.text}>
@@ -79,14 +104,19 @@ const MenuSelection: React.FC<MenuSelectionProps> = ({
           </Typography>
         </Box>
         <Box className="menu-selection-content" sx={{ ...content }}>
-          <List className="menu-selection-list">
+          <List
+            disablePadding={horizontal ? true : false}
+            dense={true}
+            sx={listStyles}
+            className="menu-selection-list"
+          >
             {items.map((item) => (
               <ListItem
                 className="menu-selection-list-item"
                 key={item.themeID}
                 onClick={() => {
                   onThemeChange(item.themeType);
-                  setBg(hover);
+                  setBg(activeColor);
                 }}
                 sx={menuID === item.themeID ? activeStyles : listItemStyles}
               >
