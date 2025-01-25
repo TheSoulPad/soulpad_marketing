@@ -6,6 +6,7 @@ interface ButtonProps {
   label: string;
   disabled?: boolean;
   btnStyles: React.CSSProperties;
+  themeType?: string;
 }
 
 const CustomButton: React.FC<ButtonProps> = ({

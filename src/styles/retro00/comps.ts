@@ -1,5 +1,6 @@
 import { colors as c } from "./colors";
-import { postHeaderText as text } from "./fonts";
+import { headerText as f } from "./fonts";
+import { bodyText as f2 } from "./fonts";
 import { spacing } from "../spacing";
 
 const getBorder = (
@@ -10,7 +11,7 @@ const getBorder = (
   opt: string,
   opt2: string,
   opt3: string,
-  opt4: string,
+  opt4: string
 ) => {
   const borderStyles = {
     borderTop: `2px ${opt} ${color}`,
@@ -30,7 +31,7 @@ const buttonBorder = getBorder(
   "solid", //top
   "solid", //left
   "inset", //right
-  "inset", //bottom
+  "inset" //bottom
 );
 
 const cardBorder = getBorder(
@@ -41,7 +42,7 @@ const cardBorder = getBorder(
   "solid",
   "solid",
   "inset",
-  "inset",
+  "inset"
 );
 
 const menuContentBorder = getBorder(
@@ -52,7 +53,7 @@ const menuContentBorder = getBorder(
   "inset", //top
   "inset", //left
   "inset", //right
-  "solid", //bottom
+  "solid" //bottom
 );
 
 const menuHeaderBorder = getBorder(
@@ -63,7 +64,7 @@ const menuHeaderBorder = getBorder(
   "solid",
   "solid",
   "inset",
-  "inset",
+  "inset"
 );
 
 const headerIconBorder = getBorder(
@@ -74,7 +75,7 @@ const headerIconBorder = getBorder(
   "solid", //top
   "inset", //left
   "inset", //right
-  "inset", //bottom
+  "inset" //bottom
 );
 
 const paperBorder = getBorder(
@@ -85,7 +86,7 @@ const paperBorder = getBorder(
   "solid",
   "solid",
   "inset",
-  "inset",
+  "inset"
 );
 
 const richTextContentBorder = getBorder(
@@ -96,7 +97,7 @@ const richTextContentBorder = getBorder(
   "solid",
   "solid",
   "inset",
-  "inset",
+  "inset"
 );
 
 const richTextHeaderBorder = getBorder(
@@ -107,19 +108,19 @@ const richTextHeaderBorder = getBorder(
   "solid", //top
   "solid", //left
   "inset", //right
-  "inset", //bottom
+  "inset" //bottom
 );
 
 const purpleHeader = {
-  ...richTextHeaderBorder,
+  ...f,
   backgroundColor: c.mainBg02,
+  color: c.text02,
   display: "flex",
   fontSize: "14px",
   padding: `${spacing.xs * 0.5}em`,
-  text: {
-    ...text,
-    textAlign: "left",
-  },
+  textAlign: "left",
+  margin: 0,
+  width: "100%",
 };
 
 const greenHeader = {
@@ -134,13 +135,26 @@ const icons = {
 };
 
 const contentText = {
-  ...text,
-  fontSize: "14px",
+  ...f2,
   padding: `${spacing.xs}em`,
 };
 
-export const retroComps = {
+const defaultPaper = {
+  ...paperBorder,
+  backgroundColor: c.mainBg01,
+  padding: `${spacing.xs * 0.5}rem`,
+};
+
+const defaultContent = {
+  ...cardBorder,
+  ...contentText,
+  backgroundColor: c.mainBg00,
+  padding: `0 ${spacing.xs}rem 0 0`,
+};
+
+export const retro = {
   ID: 2,
+  themeID: "RETRO",
   button: {
     ...buttonBorder,
     backgroundColor: c.button,
@@ -153,18 +167,16 @@ export const retroComps = {
   card: {
     ...cardBorder,
     ...contentText,
-    backgroundColor: c.mainBg01,
-  },
-
-  content: {
-    ...contentText,
     backgroundColor: c.mainBg00,
-    border: `1px solid ${c.contentBorder}`,
-    borderRadius: `${spacing.xs}em`,
-    padding: `${spacing.xs}em`,
-    color: c.text02,
+    padding: `0 ${spacing.xs}rem 0 0`,
   },
+  content: defaultContent,
   hover: c.mainBg02,
+  icons: {
+    iconClose: icons,
+    primary: icons,
+    secondary: icons,
+  },
   listBox: {
     header: purpleHeader,
     content: {
@@ -182,36 +194,54 @@ export const retroComps = {
     },
   },
   menuSelection: {
+    activeText: {
+      color: c.text01,
+      textShadow: `0px 0px 1px ${c.text01}`,
+      border: `2px dashed ${c.buttonHover}`,
+    },
     content: {
       ...contentText,
-      ...menuContentBorder,
-      backgroundColor: c.mainBg02,
-      margin: `auto`,
-      color: `#ffffff`,
-      textAlign: `left`,
+      backgroundColor: c.mainBg00,
       fontWeight: "400",
+      borderRadius: "0px",
+      padding: `${spacing.xs}rem 0 ${spacing.xs}rem 0`,
     },
+    list: {
+      backgroundColor: c.button,
+      textShadow: "unset",
+    },
+    paper: defaultPaper,
     header: {
-      ...greenHeader,
-      color: c.mainBg02,
+      styles: purpleHeader,
+      text: f,
     },
     text: {
-      ...text,
-      color: c.text02,
-      fontSize: "1.25rem", // 20px
-      textShadow: c.shine,
-      backgroundColor: c.mainBg00,
-      "&:hover": {
-        backgroundColor: c.buttonHover,
-        color: `${c.text01} !important`,
+      styles: {
+        ...f2,
+        fontSize: "1rem", // 20px
+        backgroundColor: c.mainBg00,
+        margin: 0,
+        textAlign: "center",
+        justifyContent: "center",
+        padding: `0 ${spacing.xs}rem 0 ${spacing.xs}rem`,
       },
+
       sx: {
-        ...text,
-        fontSize: "1.25rem", // 20px
-        color: c.text02,
+        ...f2,
+        ...buttonBorder,
+        textShadow: `0px 0px 1px ${c.shine}`,
+        backgroundColor: c.button,
+        color: c.buttonText,
+        fontWeight: "bold",
+        margin: 0,
+        padding: `${spacing.xs * 0.5}rem`,
+        fontSize: "1rem", // 20px
+        textAlign: "center",
+        width: "100%",
+        justifyContent: "center",
         "&:hover": {
-          backgroundColor: c.buttonHover,
-          color: `${c.text01} !important`,
+          border: `2px dashed ${c.buttonHover}`,
+          textShadow: `0px 0px 1px ${c.text01}`,
         },
       },
     },
@@ -225,7 +255,7 @@ export const retroComps = {
     },
   },
   poll: {
-    ...text,
+    ...f,
     ...cardBorder,
     backgroundColor: c.mainBg00,
   },
@@ -242,23 +272,31 @@ export const retroComps = {
     },
   },
   richTextPost: {
+    card: {
+      styles: {
+        ...cardBorder,
+        ...contentText,
+        backgroundColor: c.contentBg,
+        padding: `0 ${spacing.xs}rem 0 0`,
+      },
+      text: f2,
+    },
     content: {
-      ...richTextContentBorder,
       ...contentText,
       backgroundColor: c.contentBg,
-      padding: `${spacing.sm}em ${spacing.xs}em`,
+      padding: `${spacing.md}rem ${spacing.md}rem`,
     },
     header: {
-      ...purpleHeader,
+      styles: purpleHeader,
+      text: f,
     },
-    icons,
   },
   text: {
-    ...text,
+    ...f2,
     color: c.text01,
   },
   wordSticker: {
-    ...text,
+    ...f2,
     ...cardBorder,
     backgroundColor: c.mainBg00,
   },

@@ -1,51 +1,52 @@
 import { colors as c } from "./colors";
 import { spacing as s } from "../spacing";
-import { bodyText as f } from "./fonts";
+import { headerText as f } from "./fonts";
+import { bodyText as f2 } from "./fonts";
 
 const purpleShadow = `1px 1px 1px ${c.text02}`;
 const pinkShadow = `1px 1px 1px ${c.text03}`;
 const whiteShadow = `1px 1px 1px ${c.text01}`;
+const borderRadius = `${s.xs * 0.5}rem`;
 
 const content = {
-  borderRadius: `${s.xs}em`,
-  padding: `${s.xs}em`,
+  ...f2,
+  borderRadius,
+  padding: `${s.xs}rem`,
+  backgroundColor: c.mainBg00,
+  border: `1px solid ${c.contentBorder}`,
+  textShadow: whiteShadow,
 };
 
 const header = {
-  borderRadius: `${s.xs}em`,
+  ...f,
+  borderRadius,
   display: "flex",
   justifyContent: "space-between",
-  padding: `${s.xs}em`,
+  padding: `${s.xs}rem`,
   textAlign: "left",
-  text: {
-    ...f,
-    textShadow: purpleShadow,
-    margin: 0,
-  },
 };
 
 const icons = {
   backgroundColor: c.mainBg01,
   color: c.icon,
-  borderRadius: `${s.xs * 0.5}em`,
+  borderRadius: `${s.xs * 0.5}rem`,
 };
 
 const purpleHeader = {
   ...header,
-  border: `1px solid ${c.headerBorder01}`,
-  backgroundColor: c.headerBg01,
+  backgroundColor: c.headerBg02,
 };
 
 const pinkHeader = {
   ...header,
-  border: `1px solid ${c.headerBorder00}`,
   backgroundColor: c.headerBg00,
 };
 
 export const diary = {
   ID: 1,
+  themeID: "DIARY",
   button: {
-    borderRadius: `${s.xs}em`,
+    borderRadius,
     color: c.text01,
     backgroundColor: c.button,
     border: `1px solid ${c.buttonBorder}`,
@@ -59,85 +60,109 @@ export const diary = {
     display: "block",
     backgroundColor: c.mainBg02,
     border: "unset",
-    text: {
-      ...f,
-      textShadow: purpleShadow,
-    },
   },
   content: {
     ...content,
-    backgroundColor: c.mainBg00,
-    border: `1px solid ${c.contentBorder}`,
-    text: {
-      ...f,
-      fontSize: "1rem", // 16px
-      textShadow: purpleShadow,
-    },
   },
-  hover: c.mainBg02,
+  hover: c.mainBg03,
   icons: {
+    iconClose: icons,
     primary: icons,
     secondary: icons,
-    iconClose: icons,
   },
-  listBox: {},
-  mediaPlayer: {},
-  menuSelection: {
+  listBox: {
+    ...content,
+    ...f,
+    display: "block",
+    border: "unset",
+    backgroundColor: c.mainBg03,
+    textShadow: purpleShadow,
+  },
+  mediaPlayer: {
     header: {
-      ...purpleHeader,
-      backgroundColor: "transparent",
+      ...header,
+      backgroundColor: c.headerBg02,
+      border: "none",
+    },
+  },
+  menuSelection: {
+    activeText: {
+      color: c.text01,
       border: "none",
     },
     content: {
       ...content,
       backgroundColor: c.mainBg00,
+      padding: `${s.xs}rem`,
       border: `1px solid ${c.contentBorder}`,
       fontWeight: "400",
     },
+    header: {
+      styles: {
+        ...purpleHeader,
+        backgroundColor: "transparent",
+        border: "none",
+        padding: 0,
+      },
+
+      text: {
+        ...f,
+        textShadow: purpleShadow,
+        margin: 0,
+      },
+    },
+    list: {
+      backgroundColor: c.button,
+      textShadow: purpleShadow,
+    },
     text: {
-      ...f,
-      color: c.text02,
-      fontSize: "1.25rem", // 20px
-      textShadow: pinkShadow,
-      backgroundColor: c.mainBg00,
-      borderRadius: `${s.xs}em`,
-      "&:hover": {
-        backgroundColor: c.buttonHover,
-        color: `${c.text01} !important`,
+      styles: {
+        ...f,
+        textAlign: "center",
+        color: c.text02,
+        fontSize: "1.25rem", // 20px
         textShadow: pinkShadow,
+        backgroundColor: c.mainBg00,
+        borderRadius,
+        padding: `0 ${s.xs}rem 0 0`,
+        "&:hover": {
+          borderRadius,
+        },
       },
       sx: {
         ...f,
+        borderRadius,
         fontSize: "1.25rem", // 20px
         color: c.text02,
         width: "100%",
+        textAlign: "center !important",
         "&:hover": {
-          backgroundColor: c.buttonHover,
+          borderRadius,
+          backgroundColor: c.button,
           color: `${c.text01} !important`,
+          textShadow: purpleShadow,
         },
       },
     },
   },
-  poll: {},
   paper: {
     border: `1px solid ${c.contentBorder}`,
-    borderRadius: `${s.xs}em`,
+    borderRadius,
     display: "block",
     padding: "unset",
-    text: {
-      ...f,
-      textShadow: purpleShadow,
-    },
   },
+  poll: {},
   progressBar: {},
   richTextPost: {
     card: {
-      ...content,
-      display: "block",
-      backgroundColor: c.mainBg03,
-      border: "unset",
+      styles: {
+        ...content,
+        display: "block",
+        backgroundColor: c.mainBg03,
+        border: "unset",
+      },
       text: {
-        ...f,
+        ...f2,
         textShadow: purpleShadow,
       },
     },
@@ -147,15 +172,12 @@ export const diary = {
       border: `1px solid ${c.contentBorder}`,
       fontWeight: "400",
     },
-    header: pinkHeader,
-    text: {
-      ...f,
-      color: c.text01,
-      fontSize: "1.25rem", // 20px
-      textShadow: whiteShadow,
-      backgroundColor: c.mainBg00,
-      borderRadius: `${s.xs}em`,
-      margin: "unset",
+    header: {
+      styles: pinkHeader,
+      text: {
+        ...f,
+        textShadow: purpleShadow,
+      },
     },
   },
   wordSticker: {},

@@ -8,60 +8,33 @@ import MenuSelection from "../Components/MenuSelection";
 import CustomButton from "../Components/CustomButton";
 import RichTextPost from "../Components/RichTextPost";
 import CustomCard from "../Components/CustomCard";
+import CustomMediaPlayer from "../Components/CustomMediaPlayer";
+import CustomList from "../Components/CustomList";
+import CustomProgress from "../Components/CustomProgress";
 import useMediaQuery from "@mui/material/useMediaQuery";
-import { retroComps } from "../styles/retro00/comps";
-import { diary } from "../styles/diary00/comps";
-import Box from "@mui/material/Box";
 
 const strings = Strings.galleryPage;
 const headStrings = Strings.metaData.gallery;
 
 const Gallery: React.FC = () => {
   const isMobile = useMediaQuery("(max-width:600px)");
-
-  //default
-  const menuThemeSelection = {
-    menuSelection: diary.menuSelection,
-    card: diary.card,
-    content: diary.content,
-    richTextPostStyles: diary.richTextPost,
-    buttonStyles: diary.button,
-    paper: diary.paper,
-    hover: diary.hover,
-    id: diary.ID,
-    icons: diary.icons,
-  };
-
-  const [theme, setTheme] = useState(menuThemeSelection);
-
-  const createSelectedTheme = (theme: any) => {
-    const selectedTheme = {
-      menuSelection: theme.menuSelection,
-      card: theme.card,
-      content: theme.content,
-      richTextPostStyles: theme.richTextPost,
-      buttonStyles: theme.button,
-      paper: theme.paper,
-      hover: theme.hover,
-      id: theme.ID,
-      icons: theme.icons,
-    };
-    setTheme(selectedTheme);
-  };
-
+  const [themeType, setThemeType] = useState("SOULPAD");
   const useThemeStyles = (themeType: string) => {
     switch (themeType) {
+      case "SOULPAD":
+        setThemeType("SOULPAD");
+        break;
       case "DIARY":
-        createSelectedTheme(diary);
+        setThemeType("DIARY");
         break;
       case "RETRO":
-        createSelectedTheme(retroComps);
+        setThemeType("RETRO");
         break;
       case "VIDEO_GAME":
-        //createSelectedTheme(vgComps);;
+        setThemeType("VIDEO_GAME");
         break;
       case "SCRAPBOOK":
-        //createSelectedTheme(scrapbookComps);
+        setThemeType("SCRAPBOOK");
         break;
       default:
         console.log("Default");
@@ -86,28 +59,26 @@ const Gallery: React.FC = () => {
     color: "#000000",
   };
 
+
   const menuItems = [
+    //make the about theme the SoulPad theme
     {
-      themeID: 1,
+      galleryName: "SoulPad",
+      themeType: "SOULPAD",
+    },
+    {
       galleryName: "Diary",
       themeType: "DIARY",
     },
-    // {
-    //   themeID: 2,
-    //   galleryName: "Retro & Vaporwave",
-    //   themeType: "RETRO",
-    // },
+    {
+      galleryName: "Retrowave",
+      themeType: "RETRO",
+    },
 
-    // {
-    //   themeID: 3,
-    //   galleryName: "Video game",
-    //   themeType: "VIDEO_GAME",
-    // },
-    // {
-    //   themeID: 4,
-    //   galleryName: "Scrapbook",
-    //   themeType: "SCRAPBOOK",
-    // },
+    {
+      galleryName: "Video game",
+      themeType: "VIDEO_GAME",
+    },
   ];
 
   const mobileGridStyles: CSSProperties = {
@@ -124,48 +95,47 @@ const Gallery: React.FC = () => {
           mt={2}
           mb={4}
           flexDirection="row"
-          columnGap={5}
+          spacing={5}
+          height="100%"
         >
           {/************ MENU SECTION ******************/}
-          <Grid ml={2} size={2} sx={isMobile ? mobileGridStyles : {}}>
+          <Grid
+            ml={2}
+            size={8}
+            display="flex"
+            justifyContent="center"
+            sx={isMobile ? mobileGridStyles : { margin: "auto" }}
+          >
             <MenuSelection
-              menuID={theme.id}
-              items={menuItems}
-              title={"Theme Selection"}
-              content={theme.menuSelection.content}
-              header={theme.menuSelection.header}
-              paper={theme.paper}
-              card={theme.card}
+              themeType={themeType}
               onThemeChange={useThemeStyles}
-              itemText={theme.menuSelection.text}
-              hover={theme.hover}
+              horizontal={true}
+              title="Theme Selection"
+              items={menuItems}
             />
           </Grid>
 
           {/********** GALLERY **************/}
-
-          <Box
+          <Grid
+            container
+            size={10}
             className="gallery-row"
+            flexWrap="wrap"
+            spacing={2}
             sx={
               isMobile
                 ? mobileGridStyles
                 : {
                     display: "flex",
-                    justifyContent: "space-between",
                     alignItems: "start",
-                    width: "65%",
+                    margin: "auto",
                   }
             }
           >
             <RichTextPost
-              header={theme.richTextPostStyles.header}
-              subHeader="This is my first post!"
-              paper={theme.paper}
-              card={theme.richTextPostStyles.card}
-              content={theme.richTextPostStyles.content}
-              icons={theme.icons}
-              // bodyText={theme.richTextPostStyles.text}
               size="small"
+              title="This is my first post!"
+              themeType={themeType}
             >
               <span className="loren">
                 Welcome to SoulPad! I hope you enjoy your stay. This is a test
@@ -179,42 +149,53 @@ const Gallery: React.FC = () => {
                 component. Lorem ipsum dolor sit amet, consectetur
               </span>
             </RichTextPost>
-
-            <CustomCard
-              title="This is a cool card"
-              paper={theme.paper}
+            {/* <CustomCard
               card={theme.card}
+              paper={theme.paper}
               size="large"
+              title="This is a cool card"
               titleFont={theme.card.text}
             >
               {Array.from({ length: 3 }).map((_, index) => (
                 <CustomButton
                   key={index}
-                  onClick={() => console.log("Button Clicked")}
-                  label="Click Me!"
                   btnStyles={theme.buttonStyles}
+                  label="Click Me!"
+                  onClick={() => console.log("Button Clicked")}
                 />
               ))}
             </CustomCard>
-          </Box>
-          {/*
-            <Grid
-              className="gallery-row"
-              display="flex"
-              justifyContent="space-between"
-              alignItems="start"
-              sx={isMobile ? mobileGridStyles : {}}
-              flexDirection={isMobile ? "column" : "row"}
-              columnSpacing={1}
-              rowSpacing={1}
-            >
-              <CustomCard
-                title="This is a cool card"
-                paper={theme.paper}
-                contentStyles={theme.cardStyles.content}
-                size="large"
-              />
-            </Grid> */}
+            <CustomProgress
+              card={theme.card}
+              circular={true}
+              paper={theme.paper}
+              progressValues={[{ item: 50, item2: 50 }]}
+              size="small"
+              title="My goal progress !"
+              titleFont={theme.card.text}
+            />
+            <CustomMediaPlayer
+              cardStyles={theme.card}
+              contentStyles={theme.content}
+              headerStyles={theme.mediaPlayer.header}
+              icons={theme.icons}
+              paper={theme.paper}
+              size="small"
+              textLocation="top"
+              title="This is a cat video"
+              videoUrl="https://www.w3schools.com/html/m"
+            />
+
+            <CustomList
+              card={theme.list}
+              items={[{ item1: "Item 1", item2: "Item 2", item3: "Item 3" }]}
+              paper={theme.paper}
+              size="large"
+              title="Check out my list"
+              titleFont={theme.card.text}
+            />
+            */}
+          </Grid>
         </Grid>
       </BaseLayout>
     </div>

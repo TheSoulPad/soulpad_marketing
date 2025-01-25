@@ -9,18 +9,20 @@ import {
   TitleFont,
   Simple,
   SimplePaper,
+  ListStyle,
 } from "../styles/types";
 
 //hardcode thes styles for now
 interface CardProps {
+  card: CardStyle | Simple | ListStyle;
   children?: React.ReactNode;
-  title: string;
-  text?: string;
-  card: CardStyle | Simple;
-  paper: PaperStyle | SimplePaper;
   imageUrl?: string;
+  paper: PaperStyle | SimplePaper;
   size: "small" | "large";
+  text?: string;
+  title: string;
   titleFont: TitleFont;
+  themeType?: string;
 }
 //create styled components for video and image if necessary
 

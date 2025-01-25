@@ -21,6 +21,7 @@ interface PollProps {
   imageUrl?: string;
   size: "small" | "large";
   titleFont: TitleFont;
+  themeType?: string;
 }
 
 //need one button - show results

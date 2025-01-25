@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { Box, Paper } from "@mui/material";
 import CloseIcon from "@mui/icons-material/Close";
 import CropSquareIcon from "@mui/icons-material/CropSquare";
@@ -7,19 +7,28 @@ import { spacing } from "../styles";
 import styled from "styled-components";
 import useMediaQuery from "@mui/material/useMediaQuery";
 import Typography from "@mui/material/Typography";
-import { about } from "../styles/about/comps";
-import { diary } from "../styles/diary00/comps";
-import { retro } from "../styles/retro00/comps";
-
-// in the future
-// addDate?: boolean;
-// addWeather?: boolean;
+import {
+  HeaderStyle,
+  CardStyle,
+  PaperStyle,
+  ContentStyle,
+  Icons,
+  Simple,
+  SimpleContent,
+  SimplePaper,
+} from "../styles/types";
 
 interface RichTextPostProps {
   children: React.ReactNode;
-  size: "small" | "large";
+  header: HeaderStyle | Simple;
+  card: CardStyle | Simple;
+  paper: PaperStyle | SimplePaper;
+  content: ContentStyle | SimpleContent;
   title: string;
-  themeType: string;
+  icons: Icons;
+  addDate?: boolean;
+  addWeather?: boolean;
+  size?: "small" | "large";
 }
 
 const ActionMenuWrapper = styled.div`
@@ -32,57 +41,15 @@ const ActionMenuWrapper = styled.div`
 `;
 
 const RichTextPost: React.FC<RichTextPostProps> = ({
-  themeType,
+  card,
+  paper,
   title,
   children,
+  header,
+  content,
+  icons,
   size,
 }) => {
-  const menuThemeSelection = {
-    card: about.richTextPost.card,
-    content: about.richTextPost.content,
-    header: about.richTextPost.header,
-    icons: about.icons,
-    paper: about.paper,
-    themeID: about.themeID,
-  };
-
-  const [theme, setTheme] = useState(menuThemeSelection);
-
-  const createSelectedTheme = (theme: any) => {
-    const selectedTheme = {
-      themeID: theme.themeID,
-      card: theme.richTextPost.card,
-      content: theme.richTextPost.content,
-      header: theme.richTextPost.header,
-      paper: theme.paper,
-      icons: theme.icons,
-    };
-    setTheme(selectedTheme);
-  };
-
-  useEffect(() => {
-    switch (themeType) {
-      case "DIARY":
-        createSelectedTheme(diary);
-        break;
-      case "SOULPAD":
-        createSelectedTheme(about);
-        break;
-      case "RETRO":
-        console.log("retro");
-        createSelectedTheme(retro);
-        break;
-      case "VIDEOGAME":
-        console.log("video game");
-        //createSelectedTheme(scrapbookComps);
-        break;
-      default:
-        console.log("Default");
-    }
-  }, [themeType]);
-
-  const { content, card, header, paper, icons } = theme;
-
   const isMobile = useMediaQuery("(max-width:600px)");
   const postSize = size === "small" ? "600px" : "900px";
   const mobileSpacing = spacing.xs * 0.5;
@@ -95,7 +62,7 @@ const RichTextPost: React.FC<RichTextPostProps> = ({
   };
 
   const HeaderStyles = {
-    ...header.styles,
+    ...header,
     display: "flex",
     alignItems: "space-between",
   };
@@ -107,7 +74,7 @@ const RichTextPost: React.FC<RichTextPostProps> = ({
 
   return (
     <Paper className="rich-text-post-paper" elevation={2} sx={allPaperStyles}>
-      <Box className="rich-text-post-card" sx={card.styles}>
+      <Box className="rich-text-post-card" sx={card}>
         <Box className="rich-text-post-header" sx={HeaderStyles}>
           <Typography variant="h2" sx={header.text}>
             {title}
@@ -119,7 +86,7 @@ const RichTextPost: React.FC<RichTextPostProps> = ({
           </ActionMenuWrapper>
         </Box>
         <Box
-          className="rich-text-post-content"
+          className="box-content"
           display="flex"
           flexDirection="column"
           sx={contentStylesResponsive}
@@ -132,3 +99,4 @@ const RichTextPost: React.FC<RichTextPostProps> = ({
 };
 
 export default RichTextPost;
+

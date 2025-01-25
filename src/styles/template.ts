@@ -31,9 +31,25 @@ export const styles = {
   listBox: {},
   mediaPlayer: {},
   menuSelection: {
+    activeText: {
+      color: "",
+      textShadow: "",
+      border: "",
+    },
     content: {},
-    header: {},
-    icons: {},
+    list: {
+      backgroundColor: "",
+      textShadow: "",
+    },
+    paper: {},
+    header: {
+      styles: {},
+      text: {},
+    },
+    text: {
+      styles: {},
+      sx: {},
+    },
   },
   poll: {},
   progressBar: {},

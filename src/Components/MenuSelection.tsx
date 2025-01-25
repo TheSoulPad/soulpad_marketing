@@ -4,97 +4,165 @@ import Paper from "@mui/material/Paper";
 import List from "@mui/material/List";
 import Box from "@mui/material/Box";
 import ListItem from "@mui/material/ListItem";
-import {
-  HeaderStyle,
-  PaperStyle,
-  ContentStyle,
-  CardStyle,
-  SimpleContent,
-  Simple,
-  TextStyle,
-  SimplePaper,
-} from "../styles/types";
 import Typography from "@mui/material/Typography";
+import { diary } from "../styles/diary00/comps";
+import { about } from "../styles/about/comps";
+import { retro } from "../styles/retro00/comps";
 
+//this a temporary interface
 interface MenuItem {
-  themeID: number;
   galleryName: string;
   themeType: string;
 }
 
 interface MenuSelectionProps {
-  header: HeaderStyle | Simple;
+  themeType: string;
   items: MenuItem[];
-  itemText: TextStyle;
   title: string;
-  content: ContentStyle | SimpleContent;
-  paper: PaperStyle | SimplePaper;
-  card: CardStyle | Simple;
-  hover: string;
-  menuID: number;
+  horizontal?: boolean;
   onThemeChange: (themeType: string) => void;
 }
 
 const MenuSelection: React.FC<MenuSelectionProps> = ({
   items,
-  itemText,
+  horizontal,
+  themeType,
   title,
-  content,
-  header,
-  paper,
-  card,
-  hover,
-  menuID,
   onThemeChange,
 }) => {
-  const [bg, setBg] = useState("transparent");
+  const menuThemeSelection = {
+    themeID: about.themeID,
+    activeText: about.menuSelection.activeText,
+    card: about.card,
+    content: about.menuSelection.content,
+    header: about.menuSelection.header,
+    text: about.menuSelection.text,
+    paper: about.paper,
+    activeColor: about.menuSelection.list.backgroundColor,
+    activeColorShadow: about.menuSelection.list.textShadow,
+  };
+
+  const [theme, setTheme] = useState(menuThemeSelection);
+
+  const createSelectedTheme = (theme: any) => {
+    const selectedTheme = {
+      activeText: theme.menuSelection.activeText,
+      themeID: theme.themeID,
+      card: theme.card,
+      content: theme.menuSelection.content,
+      header: theme.menuSelection.header,
+      paper: theme.paper,
+      text: theme.menuSelection.text,
+      activeColor: theme.menuSelection.list.backgroundColor,
+      activeColorShadow: theme.menuSelection.list.textShadow,
+    };
+    setTheme(selectedTheme);
+  };
 
   useEffect(() => {
-    setBg(hover);
-  }, [hover]);
+    switch (themeType) {
+      case "DIARY":
+        createSelectedTheme(diary);
+        break;
+      case "SOULPAD":
+        createSelectedTheme(about);
+        break;
+      case "RETRO":
+        console.log("retro");
+        createSelectedTheme(retro);
+        break;
+      case "VIDEOGAME":
+        console.log("video game");
+        //createSelectedTheme(scrapbookComps);
+        break;
+      default:
+        console.log("Default");
+    }
+  }, [themeType]);
+
+  const {
+    activeText,
+    content,
+    card,
+    activeColor,
+    activeColorShadow,
+    themeID,
+    header,
+    paper,
+    text,
+  } = theme;
+
+  const listStyles = {
+    display: `${horizontal ? "flex" : "block"}`,
+    justifyContent: "center",
+    alignItems: "center",
+  };
 
   const listItemStyles = {
-    ...itemText,
-    padding: `${spacing.xs}em`,
+    ...text.styles,
     cursor: "pointer",
+    maxWidth: "200px",
   };
 
   const activeStyles = {
-    ...itemText,
-    color: "#ffffff !important",
-    backgroundColor: `${bg} !important`,
+    ...text.styles,
+    color: activeText.color,
   };
 
   const activeFont = {
-    ...itemText.sx,
-    color: "#ffffff !important",
+    ...text.sx,
+    backgroundColor: `${activeColor}`,
+    color: activeText.color,
+    border: activeText.border,
+    textShadow: activeColorShadow,
+    cursor: "pointer",
+  };
+
+  const containerStyles = {
+    ...paper,
+    maxWidth: "800px",
+    width: "100%",
   };
 
   return (
-    <Paper elevation={1} className="menu-selection-paper" sx={paper}>
-      <Box className="menu-selection-card" sx={card}>
-        <Box className="menu-selection-card-header" sx={header}>
+    <Paper
+      elevation={1}
+      className={`menu-selection-paper menu-selection-container ${themeID}`}
+      sx={containerStyles}
+    >
+      <Box className={`menu-selection-card ${themeID}`} sx={card}>
+        <Box
+          className={`menu-selection-card-header ${themeID}`}
+          sx={header.styles}
+        >
           <Typography variant="h2" sx={header.text}>
             {title}
           </Typography>
         </Box>
-        <Box className="menu-selection-content" sx={{ ...content }}>
-          <List className="menu-selection-list">
+        <Box
+          className={`menu-selection-content ${themeID}`}
+          sx={{ ...content }}
+        >
+          <List
+            disablePadding={horizontal ? true : false}
+            dense={true}
+            sx={listStyles}
+            className={`menu-selection-list ${themeID}`}
+          >
             {items.map((item) => (
               <ListItem
-                className="menu-selection-list-item"
-                key={item.themeID}
+                className={`menu-selection-list-item ${themeID}`}
+                key={item.themeType}
                 onClick={() => {
                   onThemeChange(item.themeType);
-                  setBg(hover);
                 }}
-                sx={menuID === item.themeID ? activeStyles : listItemStyles}
+                sx={themeID === item.themeType ? activeStyles : listItemStyles}
               >
                 <Typography
                   variant="body1"
-                  sx={menuID === item.themeID ? activeFont : itemText.sx}
+                  sx={themeID === item.themeType ? activeFont : text.sx}
                 >
-                  <strong>{item.galleryName}</strong>
+                  {item.galleryName}
                 </Typography>
               </ListItem>
             ))}
