@@ -1,6 +1,7 @@
 import { colors as c } from "./colors";
 import { postHeaderText as text } from "./fonts";
 import { spacing } from "../spacing";
+import { WidthFull } from "@mui/icons-material";
 
 const getBorder = (
   color: string,
@@ -10,7 +11,7 @@ const getBorder = (
   opt: string,
   opt2: string,
   opt3: string,
-  opt4: string,
+  opt4: string
 ) => {
   const borderStyles = {
     borderTop: `2px ${opt} ${color}`,
@@ -30,7 +31,7 @@ const buttonBorder = getBorder(
   "solid", //top
   "solid", //left
   "inset", //right
-  "inset", //bottom
+  "inset" //bottom
 );
 
 const cardBorder = getBorder(
@@ -41,7 +42,7 @@ const cardBorder = getBorder(
   "solid",
   "solid",
   "inset",
-  "inset",
+  "inset"
 );
 
 const menuContentBorder = getBorder(
@@ -52,7 +53,7 @@ const menuContentBorder = getBorder(
   "inset", //top
   "inset", //left
   "inset", //right
-  "solid", //bottom
+  "solid" //bottom
 );
 
 const menuHeaderBorder = getBorder(
@@ -63,7 +64,7 @@ const menuHeaderBorder = getBorder(
   "solid",
   "solid",
   "inset",
-  "inset",
+  "inset"
 );
 
 const headerIconBorder = getBorder(
@@ -74,7 +75,7 @@ const headerIconBorder = getBorder(
   "solid", //top
   "inset", //left
   "inset", //right
-  "inset", //bottom
+  "inset" //bottom
 );
 
 const paperBorder = getBorder(
@@ -85,7 +86,7 @@ const paperBorder = getBorder(
   "solid",
   "solid",
   "inset",
-  "inset",
+  "inset"
 );
 
 const richTextContentBorder = getBorder(
@@ -96,7 +97,7 @@ const richTextContentBorder = getBorder(
   "solid",
   "solid",
   "inset",
-  "inset",
+  "inset"
 );
 
 const richTextHeaderBorder = getBorder(
@@ -107,7 +108,7 @@ const richTextHeaderBorder = getBorder(
   "solid", //top
   "solid", //left
   "inset", //right
-  "inset", //bottom
+  "inset" //bottom
 );
 
 const purpleHeader = {
@@ -139,8 +140,18 @@ const contentText = {
   padding: `${spacing.xs}em`,
 };
 
-export const retroComps = {
+const defaultPaper = {
+  ...paperBorder,
+  backgroundColor: c.mainBg01,
+  text: {
+    textShadow: contentText.textShadow,
+    fontFamily: contentText.fontFamily,
+  },
+};
+
+export const retro = {
   ID: 2,
+  themeID: "RETRO",
   button: {
     ...buttonBorder,
     backgroundColor: c.button,
@@ -155,7 +166,6 @@ export const retroComps = {
     ...contentText,
     backgroundColor: c.mainBg01,
   },
-
   content: {
     ...contentText,
     backgroundColor: c.mainBg00,
@@ -182,6 +192,11 @@ export const retroComps = {
     },
   },
   menuSelection: {
+    activeText: {
+      color: c.text01,
+      textShadow: `0px 0px 1px ${c.text01}`,
+      border: `2px dashed ${c.buttonHover}`,
+    },
     content: {
       ...contentText,
       ...menuContentBorder,
@@ -190,28 +205,44 @@ export const retroComps = {
       color: `#ffffff`,
       textAlign: `left`,
       fontWeight: "400",
+      borderRadius: "0px",
     },
+    list: {
+      backgroundColor: c.button,
+      textShadow: "unset",
+    },
+    paper: defaultPaper,
     header: {
       ...greenHeader,
       color: c.mainBg02,
     },
     text: {
-      ...text,
-      color: c.text02,
-      fontSize: "1.25rem", // 20px
-      textShadow: c.shine,
-      backgroundColor: c.mainBg00,
-      "&:hover": {
-        backgroundColor: c.buttonHover,
-        color: `${c.text01} !important`,
+      styles: {
+        ...text,
+        fontSize: "1rem", // 20px
+        backgroundColor: c.mainBg00,
+        padding: 0,
+        margin: 0,
+        textAlign: "center",
+        justifyContent: "center",
       },
+
       sx: {
         ...text,
-        fontSize: "1.25rem", // 20px
-        color: c.text02,
+        ...buttonBorder,
+        textShadow: `0px 0px 1px ${c.shine}`,
+        backgroundColor: c.button,
+        color: c.buttonText,
+        fontWeight: "bold",
+        margin: 0,
+        padding: `${spacing.xs}rem`,
+        fontSize: "1rem", // 20px
+        textAlign: "center",
+        width: "80%",
+        justifyContent: "center",
         "&:hover": {
-          backgroundColor: c.buttonHover,
-          color: `${c.text01} !important`,
+          border: `2px dashed ${c.buttonHover}`,
+          textShadow: `0px 0px 1px ${c.text01}`,
         },
       },
     },

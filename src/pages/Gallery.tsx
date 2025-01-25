@@ -18,11 +18,11 @@ const headStrings = Strings.metaData.gallery;
 
 const Gallery: React.FC = () => {
   const isMobile = useMediaQuery("(max-width:600px)");
-  const [themeType, setThemeType] = useState("DIARY");
+  const [themeType, setThemeType] = useState("SOULPAD");
   const useThemeStyles = (themeType: string) => {
     switch (themeType) {
-      case "About":
-        setThemeType("About");
+      case "SOULPAD":
+        setThemeType("SOULPAD");
         break;
       case "DIARY":
         setThemeType("DIARY");
@@ -77,10 +77,6 @@ const Gallery: React.FC = () => {
     {
       galleryName: "Video game",
       themeType: "VIDEO_GAME",
-    },
-    {
-      galleryName: "Scrapbook",
-      themeType: "SCRAPBOOK",
     },
   ];
 

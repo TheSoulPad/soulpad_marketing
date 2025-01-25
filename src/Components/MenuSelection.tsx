@@ -7,7 +7,7 @@ import ListItem from "@mui/material/ListItem";
 import Typography from "@mui/material/Typography";
 import { diary } from "../styles/diary00/comps";
 import { about } from "../styles/about/comps";
-// import { retro } from "../styles/retro00/comps";
+import { retro } from "../styles/retro00/comps";
 
 //this a temporary interface
 interface MenuItem {
@@ -30,28 +30,31 @@ const MenuSelection: React.FC<MenuSelectionProps> = ({
   title,
   onThemeChange,
 }) => {
-  const [bg, setBg] = useState("transparent");
-
-  //replace with a default SoulPad theme
   const menuThemeSelection = {
-    menuSelection: diary.menuSelection,
-    themeID: diary.themeID,
-    card: diary.card,
-    content: diary.content,
-    paper: diary.paper,
-    activeColor: diary.menuSelection.list.backgroundColor,
+    themeID: about.themeID,
+    activeText: about.menuSelection.activeText,
+    card: about.card,
+    content: about.content,
+    header: about.menuSelection.header,
+    text: about.menuSelection.text,
+    paper: about.menuSelection.paper,
+    activeColor: about.menuSelection.list.backgroundColor,
+    activeColorShadow: about.menuSelection.list.textShadow,
   };
 
   const [theme, setTheme] = useState(menuThemeSelection);
 
   const createSelectedTheme = (theme: any) => {
     const selectedTheme = {
-      menuSelection: theme.menuSelection,
+      activeText: theme.menuSelection.activeText,
       themeID: theme.themeID,
       card: theme.card,
       content: theme.content,
-      paper: theme.paper,
+      header: theme.menuSelection.header,
+      paper: theme.menuSelection.paper,
+      text: theme.menuSelection.text,
       activeColor: theme.menuSelection.list.backgroundColor,
+      activeColorShadow: theme.menuSelection.list.textShadow,
     };
     setTheme(selectedTheme);
   };
@@ -61,16 +64,15 @@ const MenuSelection: React.FC<MenuSelectionProps> = ({
       case "DIARY":
         createSelectedTheme(diary);
         break;
+      case "SOULPAD":
+        createSelectedTheme(about);
+        break;
       case "RETRO":
         console.log("retro");
-        // createSelectedTheme(retroComps);
+        createSelectedTheme(retro);
         break;
-      case "VIDEO_GAME":
+      case "VIDEOGAME":
         console.log("video game");
-        //createSelectedTheme(vgComps);;
-        break;
-      case "SCRAPBOOK":
-        console.log("scrapbook");
         //createSelectedTheme(scrapbookComps);
         break;
       default:
@@ -78,14 +80,17 @@ const MenuSelection: React.FC<MenuSelectionProps> = ({
     }
   }, [themeType]);
 
-  const { content, paper, card, activeColor, themeID } = theme;
-  const { header, text } = theme.menuSelection;
-
-  const activeColorShadow = theme.menuSelection.list.backgroundColor;
-
-  useEffect(() => {
-    setBg(theme.activeColor);
-  }, [theme.activeColor]);
+  const {
+    activeText,
+    content,
+    card,
+    activeColor,
+    activeColorShadow,
+    themeID,
+    header,
+    paper,
+    text,
+  } = theme;
 
   const listStyles = {
     display: `${horizontal ? "flex" : "block"}`,
@@ -94,58 +99,59 @@ const MenuSelection: React.FC<MenuSelectionProps> = ({
   };
 
   const listItemStyles = {
-    ...text,
-    padding: `${spacing.xs}em`,
+    ...text.styles,
     cursor: "pointer",
     maxWidth: "200px",
   };
 
   const activeStyles = {
-    ...text,
-    textAlign: "center",
-    color: "#ffffff",
-    backgroundColor: `${bg}`,
+    ...text.styles,
+    color: activeText.color,
   };
 
   const activeFont = {
     ...text.sx,
-    textAlign: "center",
-    color: "#ffffff",
+    backgroundColor: `${activeColor}`,
+    color: activeText.color,
+    border: activeText.border,
     textShadow: activeColorShadow,
+    cursor: "pointer",
   };
 
   const containerStyles = {
     ...paper,
-    maxWidth: "600px",
+    maxWidth: "800px",
     width: "100%",
   };
 
   return (
     <Paper
       elevation={1}
-      className="menu-selection-paper menu-selection-container"
+      className={`menu-selection-paper menu-selection-container ${themeID}`}
       sx={containerStyles}
     >
-      <Box className="menu-selection-card" sx={card}>
-        <Box className="menu-selection-card-header" sx={header}>
+      <Box className={`menu-selection-card ${themeID}`} sx={card}>
+        <Box className={`menu-selection-card-header ${themeID}`} sx={header}>
           <Typography variant="h2" sx={header.text}>
             {title}
           </Typography>
         </Box>
-        <Box className="menu-selection-content" sx={{ ...content }}>
+        <Box
+          className={`menu-selection-content ${themeID}`}
+          sx={{ ...content }}
+        >
           <List
             disablePadding={horizontal ? true : false}
             dense={true}
             sx={listStyles}
-            className="menu-selection-list"
+            className={`menu-selection-list ${themeID}`}
           >
             {items.map((item) => (
               <ListItem
-                className="menu-selection-list-item"
+                className={`menu-selection-list-item ${themeID}`}
                 key={item.themeType}
                 onClick={() => {
                   onThemeChange(item.themeType);
-                  setBg(activeColor);
                 }}
                 sx={themeID === item.themeType ? activeStyles : listItemStyles}
               >
@@ -153,7 +159,7 @@ const MenuSelection: React.FC<MenuSelectionProps> = ({
                   variant="body1"
                   sx={themeID === item.themeType ? activeFont : text.sx}
                 >
-                  <strong>{item.galleryName}</strong>
+                  {item.galleryName}
                 </Typography>
               </ListItem>
             ))}

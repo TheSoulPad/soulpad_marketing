@@ -6,17 +6,31 @@ import { text } from "stream/consumers";
 const purpleShadow = `1px 1px 1px ${c.text02}`;
 const pinkShadow = `1px 1px 1px ${c.text03}`;
 const whiteShadow = `1px 1px 1px ${c.text01}`;
+const borderRadius = `${s.xs * 0.5}rem`;
+
+const defaultPaper = {
+  paper: {
+    border: `1px solid ${c.contentBorder}`,
+    borderRadius,
+    display: "block",
+    padding: "unset",
+    text: {
+      ...f,
+      textShadow: purpleShadow,
+    },
+  },
+};
 
 const content = {
-  borderRadius: `${s.xs}em`,
-  padding: `${s.xs}em`,
+  borderRadius,
+  padding: `${s.xs}rem`,
 };
 
 const header = {
-  borderRadius: `${s.xs}em`,
+  borderRadius,
   display: "flex",
   justifyContent: "space-between",
-  padding: `${s.xs}em`,
+  padding: `${s.xs}rem`,
   textAlign: "left",
   text: {
     ...f,
@@ -28,7 +42,7 @@ const header = {
 const icons = {
   backgroundColor: c.mainBg01,
   color: c.icon,
-  borderRadius: `${s.xs * 0.5}em`,
+  borderRadius: `${s.xs * 0.5}rem`,
 };
 
 const purpleHeader = {
@@ -47,7 +61,7 @@ export const diary = {
   ID: 1,
   themeID: "DIARY",
   button: {
-    borderRadius: `${s.xs}em`,
+    borderRadius,
     color: c.text01,
     backgroundColor: c.button,
     border: `1px solid ${c.buttonBorder}`,
@@ -78,9 +92,9 @@ export const diary = {
   },
   hover: c.mainBg03,
   icons: {
+    iconClose: icons,
     primary: icons,
     secondary: icons,
-    iconClose: icons,
   },
   listBox: {
     ...content,
@@ -100,9 +114,8 @@ export const diary = {
     },
   },
   menuSelection: {
-    header: {
-      ...purpleHeader,
-      backgroundColor: c.headerBg02,
+    activeText: {
+      color: c.text01,
       border: "none",
     },
     content: {
@@ -111,47 +124,62 @@ export const diary = {
       border: `1px solid ${c.contentBorder}`,
       fontWeight: "400",
     },
+    header: {
+      ...purpleHeader,
+      backgroundColor: "transparent",
+      border: "none",
+      padding: 0,
+    },
     list: {
       backgroundColor: c.button,
       textShadow: purpleShadow,
     },
+    paper: {
+      ...defaultPaper,
+      backgroundColor: c.mainBg02,
+      border: `1px solid ${c.mainBg00}`,
+    },
     text: {
-      ...f,
-      textAlign: "center",
-      color: c.text02,
-      fontSize: "1.25rem", // 20px
-      textShadow: pinkShadow,
-      backgroundColor: c.mainBg00,
-      borderRadius: `${s.xs}em`,
-      "&:hover": {
-        backgroundColor: c.buttonHover,
-        color: `${c.text02} !important`,
+      styles: {
+        ...f,
+        textAlign: "center",
+        color: c.text02,
+        fontSize: "1.25rem", // 20px
         textShadow: pinkShadow,
+        backgroundColor: c.mainBg00,
+        borderRadius,
+        "&:hover": {
+          borderRadius,
+        },
       },
       sx: {
         ...f,
+        borderRadius,
         fontSize: "1.25rem", // 20px
         color: c.text02,
         width: "100%",
         textAlign: "center !important",
         "&:hover": {
-          backgroundColor: c.buttonHover,
-          color: `${c.text02} !important`,
+          borderRadius,
+          backgroundColor: c.button,
+          color: `${c.text01} !important`,
+          textShadow: purpleShadow,
         },
       },
     },
   },
-  poll: {},
   paper: {
     border: `1px solid ${c.contentBorder}`,
-    borderRadius: `${s.xs}em`,
+    borderRadius,
     display: "block",
     padding: "unset",
+    boxShadow: `10px 10px 0px 0px ${c.mainBg00}`,
     text: {
       ...f,
       textShadow: purpleShadow,
     },
   },
+  poll: {},
   progressBar: {},
   richTextPost: {
     card: {
@@ -177,7 +205,7 @@ export const diary = {
       fontSize: "1.25rem", // 20px
       textShadow: whiteShadow,
       backgroundColor: c.mainBg00,
-      borderRadius: `${s.xs}em`,
+      borderRadius,
       margin: "unset",
     },
   },

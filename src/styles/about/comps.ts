@@ -3,27 +3,43 @@
 import { colors as c, redOrange, darkBrown } from "./colors";
 import { spacing as s } from "../spacing";
 import { bodyText as f } from "./fonts";
+import { text } from "stream/consumers";
 
+const borderRadiusSm = `${s.sm}rem`;
+const borderRadiusXs = `${s.xs}rem`;
 const redOrangeShadow = `1px 1px 1px ${redOrange}`;
-const darkBrownShadow = `1px 1px 1px ${darkBrown}`;
+// const darkBrownShadow = `1px 1px 1px ${darkBrown}`;
+// const beigeShadow = `1px 1px 1px ${c.text01}`;
+
+const defaultPaper = {
+  border: `1px solid ${c.paperBorder}`,
+  borderRadius: borderRadiusSm,
+  display: "block",
+  padding: "unset",
+  boxShadow: `17px 21px 0px 0px ${c.paperShadow}`,
+  text: {
+    ...f,
+    textShadow: "",
+  },
+};
 
 const content = {
-  borderRadius: `${s.sm}em`,
-  padding: `${s.xs}em`,
+  borderRadius: borderRadiusSm,
+  padding: `${s.xs}rem`,
 };
 
 const iconsClass = {
   color: c.text00,
   fontSize: "1.25rem", // 20px
-  borderRadius: `${s.sm}em`,
+  borderRadius: borderRadiusSm,
 };
 
 const header = {
   backgroundColor: c.headerBg00,
-  borderRadius: `${s.sm}em`,
+  borderRadius: borderRadiusSm,
   display: "flex",
   justifyContent: "space-between",
-  padding: `${s.xs}em`,
+  padding: `${s.xs}rem`,
   textAlign: "left",
   border: "none",
   text: {
@@ -36,12 +52,12 @@ const header = {
 
 export const about = {
   ID: 0,
-  themeID: "ABOUT",
+  themeID: "SOULPAD",
   buttonPrimary: {
-    borderRadius: `${s.xs}em`,
+    borderRadius: `${s.xs}rem`,
     color: c.text00,
     backgroundColor: c.buttonPrimary,
-    padding: `${s.xs}em ${s.xs * 2}em`,
+    padding: `${s.xs}rem ${s.xs * 2}rem`,
     boxShadow: `1px 1px 1px ${c.buttonShadow}`,
     "&:hover": {
       backgroundColor: c.buttonPrimaryHover,
@@ -49,8 +65,8 @@ export const about = {
     },
   },
   card: {
-    borderRadius: `${s.sm}em`,
-    padding: `${s.xs}em`,
+    borderRadius: borderRadiusSm,
+    padding: `${s.xs}rem`,
     display: "block",
     backgroundColor: c.mainBg00,
     border: "unset",
@@ -91,6 +107,10 @@ export const about = {
     },
   },
   menuSelection: {
+    activeText: {
+      color: c.text01,
+      border: "none",
+    },
     header,
     content: {
       ...content,
@@ -98,41 +118,43 @@ export const about = {
       border: `1px solid ${c.mainBg01}`,
       fontWeight: "400",
     },
+    list: {
+      backgroundColor: c.buttonPrimary,
+      textShadow: redOrangeShadow,
+    },
+    paper: {
+      ...defaultPaper,
+      backgroundColor: "transparent",
+      boxShadow: `10px 10px 0px 0px ${c.paperShadow}`,
+    },
     text: {
-      ...f,
-      fontSize: "1.25rem", // 20px
-      textShadow: darkBrownShadow,
-      backgroundColor: c.mainBg01,
-      borderRadius: `${s.xs}em`,
-      "&:hover": {
-        backgroundColor: c.buttonPrimaryHover,
-        color: `${c.text01} !important`,
-        textShadow: "",
+      styles: {
+        ...f,
+        fontSize: "1.25rem", // 20px
+        backgroundColor: "transparent",
+        borderRadius: `${s.xs}rem`,
+        "&:hover": {
+          borderRadius: `${s.xs}rem`,
+        },
       },
       sx: {
         ...f,
+        borderRadius: borderRadiusSm,
+        padding: `${s.xs * 0.5}rem`,
         fontSize: "1.25rem", // 20px
         color: c.text02,
         width: "100%",
+        textAlign: "center",
         "&:hover": {
-          backgroundColor: c.buttonPrimaryHover,
+          backgroundColor: c.buttonPrimary,
           color: `${c.text01} !important`,
+          textShadow: redOrangeShadow,
         },
       },
     },
   },
   poll: {},
-  paper: {
-    border: `1px solid ${c.paperBorder}`,
-    borderRadius: `${s.sm}em`,
-    display: "block",
-    padding: "unset",
-    boxShadow: `17px 21px 0px 0px ${c.paperShadow}`,
-    text: {
-      ...f,
-      textShadow: "",
-    },
-  },
+  paper: defaultPaper,
   progressBar: {},
   richTextPost: {
     card: {
@@ -158,7 +180,7 @@ export const about = {
       fontSize: "1.25rem", // 20px
       textShadow: "none",
       backgroundColor: c.mainBg00,
-      borderRadius: `${s.xs}em`,
+      borderRadius: `${s.xs}rem`,
       margin: "unset",
     },
   },
