@@ -1,7 +1,6 @@
 import { colors as c } from "./colors";
 import { postHeaderText as text } from "./fonts";
 import { spacing } from "../spacing";
-import { WidthFull } from "@mui/icons-material";
 
 const getBorder = (
   color: string,
@@ -112,15 +111,14 @@ const richTextHeaderBorder = getBorder(
 );
 
 const purpleHeader = {
-  ...richTextHeaderBorder,
   backgroundColor: c.mainBg02,
+  color: c.text02,
   display: "flex",
   fontSize: "14px",
   padding: `${spacing.xs * 0.5}em`,
-  text: {
-    ...text,
-    textAlign: "left",
-  },
+  textAlign: "left",
+  margin: 0,
+  width: "100%",
 };
 
 const greenHeader = {
@@ -143,10 +141,7 @@ const contentText = {
 const defaultPaper = {
   ...paperBorder,
   backgroundColor: c.mainBg01,
-  text: {
-    textShadow: contentText.textShadow,
-    fontFamily: contentText.fontFamily,
-  },
+  padding: `${spacing.xs * 0.5}rem`,
 };
 
 export const retro = {
@@ -164,14 +159,14 @@ export const retro = {
   card: {
     ...cardBorder,
     ...contentText,
-    backgroundColor: c.mainBg01,
+    backgroundColor: c.mainBg00,
+    padding: `0 ${spacing.xs}rem 0 0`,
   },
   content: {
     ...contentText,
     backgroundColor: c.mainBg00,
     border: `1px solid ${c.contentBorder}`,
     borderRadius: `${spacing.xs}em`,
-    padding: `${spacing.xs}em`,
     color: c.text02,
   },
   hover: c.mainBg02,
@@ -199,13 +194,10 @@ export const retro = {
     },
     content: {
       ...contentText,
-      ...menuContentBorder,
-      backgroundColor: c.mainBg02,
-      margin: `auto`,
-      color: `#ffffff`,
-      textAlign: `left`,
+      backgroundColor: c.mainBg00,
       fontWeight: "400",
       borderRadius: "0px",
+      padding: `${spacing.xs}rem 0 ${spacing.xs}rem 0`,
     },
     list: {
       backgroundColor: c.button,
@@ -213,18 +205,24 @@ export const retro = {
     },
     paper: defaultPaper,
     header: {
-      ...greenHeader,
-      color: c.mainBg02,
+      styles: {
+        ...purpleHeader,
+      },
+      text: {
+        ...text,
+        textAlign: "left",
+        color: c.text02,
+      },
     },
     text: {
       styles: {
         ...text,
         fontSize: "1rem", // 20px
         backgroundColor: c.mainBg00,
-        padding: 0,
         margin: 0,
         textAlign: "center",
         justifyContent: "center",
+        padding: `0 ${spacing.xs}rem 0 ${spacing.xs}rem`,
       },
 
       sx: {
@@ -235,10 +233,10 @@ export const retro = {
         color: c.buttonText,
         fontWeight: "bold",
         margin: 0,
-        padding: `${spacing.xs}rem`,
+        padding: `${spacing.xs * 0.5}rem`,
         fontSize: "1rem", // 20px
         textAlign: "center",
-        width: "80%",
+        width: "100%",
         justifyContent: "center",
         "&:hover": {
           border: `2px dashed ${c.buttonHover}`,

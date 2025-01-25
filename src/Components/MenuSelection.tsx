@@ -34,7 +34,7 @@ const MenuSelection: React.FC<MenuSelectionProps> = ({
     themeID: about.themeID,
     activeText: about.menuSelection.activeText,
     card: about.card,
-    content: about.content,
+    content: about.menuSelection.content,
     header: about.menuSelection.header,
     text: about.menuSelection.text,
     paper: about.menuSelection.paper,
@@ -49,7 +49,7 @@ const MenuSelection: React.FC<MenuSelectionProps> = ({
       activeText: theme.menuSelection.activeText,
       themeID: theme.themeID,
       card: theme.card,
-      content: theme.content,
+      content: theme.menuSelection.content,
       header: theme.menuSelection.header,
       paper: theme.menuSelection.paper,
       text: theme.menuSelection.text,
@@ -131,7 +131,10 @@ const MenuSelection: React.FC<MenuSelectionProps> = ({
       sx={containerStyles}
     >
       <Box className={`menu-selection-card ${themeID}`} sx={card}>
-        <Box className={`menu-selection-card-header ${themeID}`} sx={header}>
+        <Box
+          className={`menu-selection-card-header ${themeID}`}
+          sx={header.styles}
+        >
           <Typography variant="h2" sx={header.text}>
             {title}
           </Typography>

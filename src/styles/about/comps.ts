@@ -36,18 +36,19 @@ const iconsClass = {
 
 const header = {
   backgroundColor: c.headerBg00,
-  borderRadius: borderRadiusSm,
+  borderRadius: borderRadiusXs,
   display: "flex",
   justifyContent: "space-between",
   padding: `${s.xs}rem`,
   textAlign: "left",
   border: "none",
-  text: {
-    ...f,
-    margin: "0",
-    color: c.text01,
-    textShadow: "",
-  },
+};
+
+const headerText = {
+  ...f,
+  margin: "0",
+  color: c.text01,
+  textShadow: "",
 };
 
 export const about = {
@@ -111,11 +112,17 @@ export const about = {
       color: c.text01,
       border: "none",
     },
-    header,
+    header: {
+      styles: {
+        ...header,
+      },
+
+      text: headerText,
+    },
     content: {
       ...content,
-      backgroundColor: c.mainBg01,
-      border: `1px solid ${c.mainBg01}`,
+      padding: `${s.xs}rem 0 0 0`,
+      border: "unset",
       fontWeight: "400",
     },
     list: {
@@ -133,6 +140,7 @@ export const about = {
         fontSize: "1.25rem", // 20px
         backgroundColor: "transparent",
         borderRadius: `${s.xs}rem`,
+        padding: `0 ${s.xs}rem 0 0`,
         "&:hover": {
           borderRadius: `${s.xs}rem`,
         },

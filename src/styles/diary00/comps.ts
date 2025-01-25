@@ -32,11 +32,6 @@ const header = {
   justifyContent: "space-between",
   padding: `${s.xs}rem`,
   textAlign: "left",
-  text: {
-    ...f,
-    textShadow: purpleShadow,
-    margin: 0,
-  },
 };
 
 const icons = {
@@ -121,14 +116,23 @@ export const diary = {
     content: {
       ...content,
       backgroundColor: c.mainBg00,
+      padding: `${s.xs}rem`,
       border: `1px solid ${c.contentBorder}`,
       fontWeight: "400",
     },
     header: {
-      ...purpleHeader,
-      backgroundColor: "transparent",
-      border: "none",
-      padding: 0,
+      styles: {
+        ...purpleHeader,
+        backgroundColor: "transparent",
+        border: "none",
+        padding: 0,
+      },
+
+      text: {
+        ...f,
+        textShadow: purpleShadow,
+        margin: 0,
+      },
     },
     list: {
       backgroundColor: c.button,
@@ -148,6 +152,7 @@ export const diary = {
         textShadow: pinkShadow,
         backgroundColor: c.mainBg00,
         borderRadius,
+        padding: `0 ${s.xs}rem 0 0`,
         "&:hover": {
           borderRadius,
         },
