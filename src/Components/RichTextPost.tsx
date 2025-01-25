@@ -38,7 +38,7 @@ const RichTextPost: React.FC<RichTextPostProps> = ({
   size,
 }) => {
   const menuThemeSelection = {
-    card: about.card,
+    card: about.richTextPost.card,
     content: about.richTextPost.content,
     header: about.richTextPost.header,
     icons: about.icons,
@@ -51,7 +51,7 @@ const RichTextPost: React.FC<RichTextPostProps> = ({
   const createSelectedTheme = (theme: any) => {
     const selectedTheme = {
       themeID: theme.themeID,
-      card: theme.card,
+      card: theme.richTextPost.card,
       content: theme.richTextPost.content,
       header: theme.richTextPost.header,
       paper: theme.paper,
@@ -107,7 +107,7 @@ const RichTextPost: React.FC<RichTextPostProps> = ({
 
   return (
     <Paper className="rich-text-post-paper" elevation={2} sx={allPaperStyles}>
-      <Box className="rich-text-post-card" sx={card}>
+      <Box className="rich-text-post-card" sx={card.styles}>
         <Box className="rich-text-post-header" sx={HeaderStyles}>
           <Typography variant="h2" sx={header.text}>
             {title}

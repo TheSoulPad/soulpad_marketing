@@ -1,5 +1,6 @@
 import { colors as c } from "./colors";
-import { postHeaderText as text } from "./fonts";
+import { headerText as f } from "./fonts";
+import { bodyText as f2 } from "./fonts";
 import { spacing } from "../spacing";
 
 const getBorder = (
@@ -111,6 +112,7 @@ const richTextHeaderBorder = getBorder(
 );
 
 const purpleHeader = {
+  ...f,
   backgroundColor: c.mainBg02,
   color: c.text02,
   display: "flex",
@@ -133,8 +135,7 @@ const icons = {
 };
 
 const contentText = {
-  ...text,
-  fontSize: "14px",
+  ...f2,
   padding: `${spacing.xs}em`,
 };
 
@@ -142,6 +143,13 @@ const defaultPaper = {
   ...paperBorder,
   backgroundColor: c.mainBg01,
   padding: `${spacing.xs * 0.5}rem`,
+};
+
+const defaultContent = {
+  ...cardBorder,
+  ...contentText,
+  backgroundColor: c.mainBg00,
+  padding: `0 ${spacing.xs}rem 0 0`,
 };
 
 export const retro = {
@@ -162,14 +170,13 @@ export const retro = {
     backgroundColor: c.mainBg00,
     padding: `0 ${spacing.xs}rem 0 0`,
   },
-  content: {
-    ...contentText,
-    backgroundColor: c.mainBg00,
-    border: `1px solid ${c.contentBorder}`,
-    borderRadius: `${spacing.xs}em`,
-    color: c.text02,
-  },
+  content: defaultContent,
   hover: c.mainBg02,
+  icons: {
+    iconClose: icons,
+    primary: icons,
+    secondary: icons,
+  },
   listBox: {
     header: purpleHeader,
     content: {
@@ -205,18 +212,12 @@ export const retro = {
     },
     paper: defaultPaper,
     header: {
-      styles: {
-        ...purpleHeader,
-      },
-      text: {
-        ...text,
-        textAlign: "left",
-        color: c.text02,
-      },
+      styles: purpleHeader,
+      text: f,
     },
     text: {
       styles: {
-        ...text,
+        ...f2,
         fontSize: "1rem", // 20px
         backgroundColor: c.mainBg00,
         margin: 0,
@@ -226,7 +227,7 @@ export const retro = {
       },
 
       sx: {
-        ...text,
+        ...f2,
         ...buttonBorder,
         textShadow: `0px 0px 1px ${c.shine}`,
         backgroundColor: c.button,
@@ -254,7 +255,7 @@ export const retro = {
     },
   },
   poll: {
-    ...text,
+    ...f,
     ...cardBorder,
     backgroundColor: c.mainBg00,
   },
@@ -271,23 +272,31 @@ export const retro = {
     },
   },
   richTextPost: {
+    card: {
+      styles: {
+        ...cardBorder,
+        ...contentText,
+        backgroundColor: c.contentBg,
+        padding: `0 ${spacing.xs}rem 0 0`,
+      },
+      text: f2,
+    },
     content: {
-      ...richTextContentBorder,
       ...contentText,
       backgroundColor: c.contentBg,
-      padding: `${spacing.sm}em ${spacing.xs}em`,
+      padding: `${spacing.md}rem ${spacing.md}rem`,
     },
     header: {
-      ...purpleHeader,
+      styles: purpleHeader,
+      text: f,
     },
-    icons,
   },
   text: {
-    ...text,
+    ...f2,
     color: c.text01,
   },
   wordSticker: {
-    ...text,
+    ...f2,
     ...cardBorder,
     backgroundColor: c.mainBg00,
   },

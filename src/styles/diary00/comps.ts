@@ -162,7 +162,7 @@ export const diary = {
         border: "unset",
       },
       text: {
-        ...f,
+        ...f2,
         textShadow: purpleShadow,
       },
     },
@@ -173,7 +173,7 @@ export const diary = {
       fontWeight: "400",
     },
     header: {
-      styles: purpleHeader,
+      styles: pinkHeader,
       text: {
         ...f,
         textShadow: purpleShadow,

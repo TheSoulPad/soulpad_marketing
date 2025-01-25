@@ -8,9 +8,7 @@ import Grid from "@mui/material/Grid2";
 import { Strings } from "../resources/strings";
 import RichTextPost from "../Components/RichTextPost";
 import useMediaQuery from "@mui/material/useMediaQuery";
-import { about } from "../styles/about/comps";
 import AboutPageContent from "../Components/AboutPageContent";
-import { markAsUntransferable } from "worker_threads";
 
 const strings = Strings.about;
 const headStrings = Strings.metaData.about;
@@ -61,15 +59,12 @@ const AboutPage = () => {
           <RichTextPost
             title={"The problem with modern social media"}
             size="large"
-            themeType = "SOULPAD"
+            themeType="SOULPAD"
           >
             {/* THE CONTENT */}
             <AboutPageContent point={content.point1} />
-
             <AboutPageContent point={content.point2} />
-
             <AboutPageContent point={content.point3} />
-
             <AboutPageContent point={content.point4} />
           </RichTextPost>
         </Grid>
