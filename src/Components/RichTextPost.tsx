@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Box, Paper } from "@mui/material";
 import CloseIcon from "@mui/icons-material/Close";
 import CropSquareIcon from "@mui/icons-material/CropSquare";
@@ -7,29 +7,19 @@ import { spacing } from "../styles";
 import styled from "styled-components";
 import useMediaQuery from "@mui/material/useMediaQuery";
 import Typography from "@mui/material/Typography";
-import {
-  HeaderStyle,
-  CardStyle,
-  PaperStyle,
-  ContentStyle,
-  Icons,
-  Simple,
-  SimpleContent,
-  SimplePaper,
-} from "../styles/types";
+import { about } from "../styles/about/comps";
+import { diary } from "../styles/diary00/comps";
+import { retro } from "../styles/retro00/comps";
+
+// in the future
+// addDate?: boolean;
+// addWeather?: boolean;
 
 interface RichTextPostProps {
   children: React.ReactNode;
-  header: HeaderStyle | Simple;
-  card: CardStyle | Simple;
-  paper: PaperStyle | SimplePaper;
-  content: ContentStyle | SimpleContent;
+  size: "small" | "large";
   title: string;
-  icons: Icons;
-  addDate?: boolean;
-  addWeather?: boolean;
-  size?: "small" | "large";
-  themeType?: string;
+  themeType: string;
 }
 
 const ActionMenuWrapper = styled.div`
@@ -42,15 +32,57 @@ const ActionMenuWrapper = styled.div`
 `;
 
 const RichTextPost: React.FC<RichTextPostProps> = ({
-  card,
-  paper,
+  themeType,
   title,
   children,
-  header,
-  content,
-  icons,
   size,
 }) => {
+  const menuThemeSelection = {
+    card: about.card,
+    content: about.richTextPost.content,
+    header: about.richTextPost.header,
+    icons: about.icons,
+    paper: about.paper,
+    themeID: about.themeID,
+  };
+
+  const [theme, setTheme] = useState(menuThemeSelection);
+
+  const createSelectedTheme = (theme: any) => {
+    const selectedTheme = {
+      themeID: theme.themeID,
+      card: theme.card,
+      content: theme.richTextPost.content,
+      header: theme.richTextPost.header,
+      paper: theme.paper,
+      icons: theme.icons,
+    };
+    setTheme(selectedTheme);
+  };
+
+  useEffect(() => {
+    switch (themeType) {
+      case "DIARY":
+        createSelectedTheme(diary);
+        break;
+      case "SOULPAD":
+        createSelectedTheme(about);
+        break;
+      case "RETRO":
+        console.log("retro");
+        createSelectedTheme(retro);
+        break;
+      case "VIDEOGAME":
+        console.log("video game");
+        //createSelectedTheme(scrapbookComps);
+        break;
+      default:
+        console.log("Default");
+    }
+  }, [themeType]);
+
+  const { content, card, header, paper, icons } = theme;
+
   const isMobile = useMediaQuery("(max-width:600px)");
   const postSize = size === "small" ? "600px" : "900px";
   const mobileSpacing = spacing.xs * 0.5;
@@ -63,7 +95,7 @@ const RichTextPost: React.FC<RichTextPostProps> = ({
   };
 
   const HeaderStyles = {
-    ...header,
+    ...header.styles,
     display: "flex",
     alignItems: "space-between",
   };

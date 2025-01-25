@@ -2,8 +2,8 @@
 
 import { colors as c, redOrange, darkBrown } from "./colors";
 import { spacing as s } from "../spacing";
-import { bodyText as f } from "./fonts";
-import { text } from "stream/consumers";
+import { titleText as f } from "./fonts";
+import { bodyText as f2 } from "./fonts";
 
 const borderRadiusSm = `${s.sm}rem`;
 const borderRadiusXs = `${s.xs}rem`;
@@ -16,11 +16,8 @@ const defaultPaper = {
   borderRadius: borderRadiusSm,
   display: "block",
   padding: "unset",
-  boxShadow: `17px 21px 0px 0px ${c.paperShadow}`,
-  text: {
-    ...f,
-    textShadow: "",
-  },
+  boxShadow: `10px 10px 0px 0px ${c.paperShadow}`,
+  backgroundColor: c.mainBg00,
 };
 
 const content = {
@@ -66,25 +63,20 @@ export const about = {
     },
   },
   card: {
+    ...f2,
     borderRadius: borderRadiusSm,
     padding: `${s.xs}rem`,
     display: "block",
     backgroundColor: c.mainBg00,
     border: "unset",
-    text: {
-      ...f,
-      textShadow: "",
-    },
+    textShadow: "",
   },
   content: {
     ...content,
+    ...f2,
+    fontSize: "1rem", // 16px
     backgroundColor: c.mainBg00,
     border: `1px solid ${c.contentBorder}`,
-    text: {
-      ...f,
-      fontSize: "1rem", // 16px
-      textShadow: redOrangeShadow,
-    },
   },
   icons: {
     primary: {
@@ -102,10 +94,7 @@ export const about = {
   },
   listBox: {},
   mediaPlayer: {
-    header: {
-      ...header,
-      backgroundColor: c.headerBg00,
-    },
+    header,
   },
   menuSelection: {
     activeText: {
@@ -128,11 +117,6 @@ export const about = {
     list: {
       backgroundColor: c.buttonPrimary,
       textShadow: redOrangeShadow,
-    },
-    paper: {
-      ...defaultPaper,
-      backgroundColor: "transparent",
-      boxShadow: `10px 10px 0px 0px ${c.paperShadow}`,
     },
     text: {
       styles: {
@@ -166,10 +150,12 @@ export const about = {
   progressBar: {},
   richTextPost: {
     card: {
-      ...content,
-      display: "block",
-      backgroundColor: c.mainBg00,
-      border: "unset",
+      styles: {
+        ...content,
+        display: "block",
+        backgroundColor: c.mainBg00,
+        border: "unset",
+      },
       text: {
         ...f,
         textShadow: "",
@@ -177,19 +163,20 @@ export const about = {
     },
     content: {
       ...content,
+      ...f2,
       backgroundColor: c.mainBg00,
       border: `1px solid ${c.contentBorder}`,
       fontWeight: "400",
-    },
-    header,
-    text: {
-      ...f,
-      color: c.text00,
       fontSize: "1.25rem", // 20px
       textShadow: "none",
-      backgroundColor: c.mainBg00,
       borderRadius: `${s.xs}rem`,
       margin: "unset",
+    },
+    header: {
+      styles: {
+        ...header,
+      },
+      text: headerText,
     },
   },
   wordSticker: {},

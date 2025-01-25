@@ -37,7 +37,7 @@ const MenuSelection: React.FC<MenuSelectionProps> = ({
     content: about.menuSelection.content,
     header: about.menuSelection.header,
     text: about.menuSelection.text,
-    paper: about.menuSelection.paper,
+    paper: about.paper,
     activeColor: about.menuSelection.list.backgroundColor,
     activeColorShadow: about.menuSelection.list.textShadow,
   };
@@ -51,7 +51,7 @@ const MenuSelection: React.FC<MenuSelectionProps> = ({
       card: theme.card,
       content: theme.menuSelection.content,
       header: theme.menuSelection.header,
-      paper: theme.menuSelection.paper,
+      paper: theme.paper,
       text: theme.menuSelection.text,
       activeColor: theme.menuSelection.list.backgroundColor,
       activeColorShadow: theme.menuSelection.list.textShadow,

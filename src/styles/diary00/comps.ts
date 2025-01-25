@@ -1,32 +1,24 @@
 import { colors as c } from "./colors";
 import { spacing as s } from "../spacing";
-import { bodyText as f } from "./fonts";
-import { text } from "stream/consumers";
+import { headerText as f } from "./fonts";
+import { bodyText as f2 } from "./fonts";
 
 const purpleShadow = `1px 1px 1px ${c.text02}`;
 const pinkShadow = `1px 1px 1px ${c.text03}`;
 const whiteShadow = `1px 1px 1px ${c.text01}`;
 const borderRadius = `${s.xs * 0.5}rem`;
 
-const defaultPaper = {
-  paper: {
-    border: `1px solid ${c.contentBorder}`,
-    borderRadius,
-    display: "block",
-    padding: "unset",
-    text: {
-      ...f,
-      textShadow: purpleShadow,
-    },
-  },
-};
-
 const content = {
+  ...f2,
   borderRadius,
   padding: `${s.xs}rem`,
+  backgroundColor: c.mainBg00,
+  border: `1px solid ${c.contentBorder}`,
+  textShadow: whiteShadow,
 };
 
 const header = {
+  ...f,
   borderRadius,
   display: "flex",
   justifyContent: "space-between",
@@ -42,13 +34,11 @@ const icons = {
 
 const purpleHeader = {
   ...header,
-  border: `1px solid ${c.headerBorder01}`,
-  backgroundColor: c.headerBg01,
+  backgroundColor: c.headerBg02,
 };
 
 const pinkHeader = {
   ...header,
-  border: `1px solid ${c.headerBorder00}`,
   backgroundColor: c.headerBg00,
 };
 
@@ -70,20 +60,9 @@ export const diary = {
     display: "block",
     backgroundColor: c.mainBg02,
     border: "unset",
-    text: {
-      ...f,
-      textShadow: purpleShadow,
-    },
   },
   content: {
     ...content,
-    backgroundColor: c.mainBg00,
-    border: `1px solid ${c.contentBorder}`,
-    text: {
-      ...f,
-      fontSize: "1rem", // 16px
-      textShadow: purpleShadow,
-    },
   },
   hover: c.mainBg03,
   icons: {
@@ -93,13 +72,11 @@ export const diary = {
   },
   listBox: {
     ...content,
+    ...f,
     display: "block",
     border: "unset",
     backgroundColor: c.mainBg03,
-    text: {
-      ...f,
-      textShadow: purpleShadow,
-    },
+    textShadow: purpleShadow,
   },
   mediaPlayer: {
     header: {
@@ -138,11 +115,6 @@ export const diary = {
       backgroundColor: c.button,
       textShadow: purpleShadow,
     },
-    paper: {
-      ...defaultPaper,
-      backgroundColor: c.mainBg02,
-      border: `1px solid ${c.mainBg00}`,
-    },
     text: {
       styles: {
         ...f,
@@ -178,20 +150,17 @@ export const diary = {
     borderRadius,
     display: "block",
     padding: "unset",
-    boxShadow: `10px 10px 0px 0px ${c.mainBg00}`,
-    text: {
-      ...f,
-      textShadow: purpleShadow,
-    },
   },
   poll: {},
   progressBar: {},
   richTextPost: {
     card: {
-      ...content,
-      display: "block",
-      backgroundColor: c.mainBg03,
-      border: "unset",
+      styles: {
+        ...content,
+        display: "block",
+        backgroundColor: c.mainBg03,
+        border: "unset",
+      },
       text: {
         ...f,
         textShadow: purpleShadow,
@@ -203,15 +172,12 @@ export const diary = {
       border: `1px solid ${c.contentBorder}`,
       fontWeight: "400",
     },
-    header: pinkHeader,
-    text: {
-      ...f,
-      color: c.text01,
-      fontSize: "1.25rem", // 20px
-      textShadow: whiteShadow,
-      backgroundColor: c.mainBg00,
-      borderRadius,
-      margin: "unset",
+    header: {
+      styles: purpleHeader,
+      text: {
+        ...f,
+        textShadow: purpleShadow,
+      },
     },
   },
   wordSticker: {},

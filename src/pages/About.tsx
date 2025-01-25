@@ -60,12 +60,8 @@ const AboutPage = () => {
         >
           <RichTextPost
             title={"The problem with modern social media"}
-            paper={about.paper}
-            card={about.card}
-            content={about.content}
-            header={about.richTextPost.header}
-            icons={about.icons}
             size="large"
+            themeType = "SOULPAD"
           >
             {/* THE CONTENT */}
             <AboutPageContent point={content.point1} />

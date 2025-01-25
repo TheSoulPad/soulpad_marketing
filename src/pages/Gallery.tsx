@@ -59,6 +59,7 @@ const Gallery: React.FC = () => {
     color: "#000000",
   };
 
+
   const menuItems = [
     //make the about theme the SoulPad theme
     {
@@ -115,7 +116,7 @@ const Gallery: React.FC = () => {
           </Grid>
 
           {/********** GALLERY **************/}
-          {/* <Grid
+          <Grid
             container
             size={10}
             className="gallery-row"
@@ -132,13 +133,9 @@ const Gallery: React.FC = () => {
             }
           >
             <RichTextPost
-              card={theme.richTextPostStyles.card}
-              content={theme.richTextPostStyles.content}
-              header={theme.richTextPostStyles.header}
-              icons={theme.icons}
-              paper={theme.paper}
               size="small"
               title="This is my first post!"
+              themeType={themeType}
             >
               <span className="loren">
                 Welcome to SoulPad! I hope you enjoy your stay. This is a test
@@ -152,7 +149,7 @@ const Gallery: React.FC = () => {
                 component. Lorem ipsum dolor sit amet, consectetur
               </span>
             </RichTextPost>
-            <CustomCard
+            {/* <CustomCard
               card={theme.card}
               paper={theme.paper}
               size="large"
@@ -197,7 +194,8 @@ const Gallery: React.FC = () => {
               title="Check out my list"
               titleFont={theme.card.text}
             />
-          </Grid> */}
+            */}
+          </Grid>
         </Grid>
       </BaseLayout>
     </div>
