@@ -45,12 +45,10 @@ const headerText = {
   ...f,
   margin: "0",
   color: c.text01,
-  textShadow: "",
 };
 
 export const about = {
   ID: 0,
-  themeID: "SOULPAD",
   buttonPrimary: {
     borderRadius: `${s.xs}rem`,
     color: c.text00,
@@ -101,18 +99,17 @@ export const about = {
       color: c.text01,
       border: "none",
     },
-    header: {
-      styles: {
-        ...header,
-      },
-
-      text: headerText,
-    },
     content: {
       ...content,
       padding: `${s.xs}rem 0 0 0`,
       border: "unset",
       fontWeight: "400",
+    },
+    header: {
+      styles: {
+        ...header,
+      },
+      text: headerText,
     },
     list: {
       backgroundColor: c.buttonPrimary,
@@ -121,9 +118,9 @@ export const about = {
     text: {
       styles: {
         ...f,
-        fontSize: "1.25rem", // 20px
         backgroundColor: "transparent",
         borderRadius: `${s.xs}rem`,
+        fontSize: "1.25rem", // 20px
         padding: `0 ${s.xs}rem 0 0`,
         "&:hover": {
           borderRadius: `${s.xs}rem`,
@@ -132,11 +129,11 @@ export const about = {
       sx: {
         ...f,
         borderRadius: borderRadiusSm,
-        padding: `${s.xs * 0.5}rem`,
-        fontSize: "1.25rem", // 20px
         color: c.text02,
-        width: "100%",
+        fontSize: "1.25rem", // 20px
+        padding: `${s.xs * 0.5}rem`,
         textAlign: "center",
+        width: "100%",
         "&:hover": {
           backgroundColor: c.buttonPrimary,
           color: `${c.text01} !important`,
@@ -145,16 +142,16 @@ export const about = {
       },
     },
   },
-  poll: {},
   paper: defaultPaper,
+  poll: {},
   progressBar: {},
   richTextPost: {
     card: {
       styles: {
         ...content,
-        display: "block",
         backgroundColor: c.mainBg00,
         border: "unset",
+        display: "block",
       },
       text: {
         ...f,
@@ -166,8 +163,8 @@ export const about = {
       ...f2,
       backgroundColor: c.mainBg00,
       border: `1px solid ${c.contentBorder}`,
-      fontWeight: "400",
       fontSize: "1.25rem", // 20px
+      fontWeight: "400",
       textShadow: "none",
       borderRadius: `${s.xs}rem`,
       margin: "unset",
@@ -179,5 +176,6 @@ export const about = {
       text: headerText,
     },
   },
+  themeID: "SOULPAD",
   wordSticker: {},
 };

@@ -8,6 +8,7 @@ import Typography from "@mui/material/Typography";
 import { diary } from "../styles/diary00/comps";
 import { about } from "../styles/about/comps";
 import { retro } from "../styles/retro00/comps";
+import { useTheme} from "../hooks/useTheme";
 
 //this a temporary interface
 interface MenuItem {
@@ -30,67 +31,35 @@ const MenuSelection: React.FC<MenuSelectionProps> = ({
   title,
   onThemeChange,
 }) => {
-  const menuThemeSelection = {
-    themeID: about.themeID,
-    activeText: about.menuSelection.activeText,
-    card: about.card,
-    content: about.menuSelection.content,
-    header: about.menuSelection.header,
-    text: about.menuSelection.text,
-    paper: about.paper,
-    activeColor: about.menuSelection.list.backgroundColor,
-    activeColorShadow: about.menuSelection.list.textShadow,
-  };
+  // use the the default about.menuSelection
+  // set the state to [compTheme, setCompTheme]
+  const [compTheme, setCompTheme] = useState(about);
 
-  const [theme, setTheme] = useState(menuThemeSelection);
-
-  const createSelectedTheme = (theme: any) => {
-    const selectedTheme = {
-      activeText: theme.menuSelection.activeText,
-      themeID: theme.themeID,
-      card: theme.card,
-      content: theme.menuSelection.content,
-      header: theme.menuSelection.header,
-      paper: theme.paper,
-      text: theme.menuSelection.text,
-      activeColor: theme.menuSelection.list.backgroundColor,
-      activeColorShadow: theme.menuSelection.list.textShadow,
-    };
-    setTheme(selectedTheme);
-  };
-
+  // set the type for the compTheme here
+  // get theme.menuSelection
+  // on mount the useEffect will call the theme based on the themeType
   useEffect(() => {
     switch (themeType) {
-      case "DIARY":
-        createSelectedTheme(diary);
-        break;
       case "SOULPAD":
-        createSelectedTheme(about);
+        const getCompTheme = useTheme('menu', "soulpad");
+        setCompTheme(getCompTheme);
+        break;
+      case "DIARY":
+        useTheme('menu', "diary");
         break;
       case "RETRO":
-        console.log("retro");
-        createSelectedTheme(retro);
-        break;
-      case "VIDEOGAME":
-        console.log("video game");
-        //createSelectedTheme(scrapbookComps);
+        useTheme('menu', "retro");
         break;
       default:
-        console.log("Default");
+        break;
     }
   }, [themeType]);
 
-  const {
-    activeText,
-    content,
-    card,
-    activeColor,
-    activeColorShadow,
-    themeID,
-    header,
-    paper,
-    text,
-  } = theme;
+  const { content, card, themeID, paper } = compTheme;
+  const { list, header, text } = compTheme.menuSelection;
+  const activeText = compTheme.menuSelection.activeText;
+  const activeColor = list.backgroundColor;
+  const activeColorShadow = list.textShadow;
 
   const listStyles = {
     display: `${horizontal ? "flex" : "block"}`,
@@ -174,3 +143,44 @@ const MenuSelection: React.FC<MenuSelectionProps> = ({
 };
 
 export default MenuSelection;
+
+// delete this
+// const [theme, setTheme] = useState(menuThemeSelection);
+
+//delete this
+// const createSelectedTheme = (theme: any) => {
+//   const selectedTheme = {
+//     activeText: theme.menuSelection.activeText,
+//     themeID: theme.themeID,
+//     card: theme.card,
+//     content: theme.menuSelection.content,
+//     header: theme.menuSelection.header,
+//     paper: theme.paper,
+//     text: theme.menuSelection.text,
+//     activeColor: theme.menuSelection.list.backgroundColor,
+//     activeColorShadow: theme.menuSelection.list.textShadow,
+//   };
+//   setTheme(selectedTheme);
+// };
+
+//delete this
+// useEffect(() => {
+//   switch (themeType) {
+//     case "DIARY":
+//       createSelectedTheme(diary);
+//       break;
+//     case "SOULPAD":
+//       createSelectedTheme(about);
+//       break;
+//     case "RETRO":
+//       console.log("retro");
+//       createSelectedTheme(retro);
+//       break;
+//     case "VIDEOGAME":
+//       console.log("video game");
+//       //createSelectedTheme(scrapbookComps);
+//       break;
+//     default:
+//       console.log("Default");
+//   }
+// }, [themeType]);

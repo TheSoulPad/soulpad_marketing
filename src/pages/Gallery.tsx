@@ -59,7 +59,6 @@ const Gallery: React.FC = () => {
     color: "#000000",
   };
 
-
   const menuItems = [
     //make the about theme the SoulPad theme
     {
@@ -106,13 +105,13 @@ const Gallery: React.FC = () => {
             justifyContent="center"
             sx={isMobile ? mobileGridStyles : { margin: "auto" }}
           >
-            <MenuSelection
+            {/* <MenuSelection
               themeType={themeType}
               onThemeChange={useThemeStyles}
               horizontal={true}
               title="Theme Selection"
               items={menuItems}
-            />
+            /> */}
           </Grid>
 
           {/********** GALLERY **************/}

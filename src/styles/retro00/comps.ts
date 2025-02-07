@@ -45,27 +45,27 @@ const cardBorder = getBorder(
   "inset"
 );
 
-const menuContentBorder = getBorder(
-  c.mainBg02,
-  c.mainBg02,
-  c.mainBg02,
-  c.mainBg02,
-  "inset", //top
-  "inset", //left
-  "inset", //right
-  "solid" //bottom
-);
+// const menuContentBorder = getBorder(
+//   c.mainBg02,
+//   c.mainBg02,
+//   c.mainBg02,
+//   c.mainBg02,
+//   "inset", //top
+//   "inset", //left
+//   "inset", //right
+//   "solid" //bottom
+// );
 
-const menuHeaderBorder = getBorder(
-  c.headerBorder,
-  c.headerBorder,
-  c.contentBorder,
-  c.headerBorder,
-  "solid",
-  "solid",
-  "inset",
-  "inset"
-);
+// const menuHeaderBorder = getBorder(
+//   c.headerBorder,
+//   c.headerBorder,
+//   c.contentBorder,
+//   c.headerBorder,
+//   "solid",
+//   "solid",
+//   "inset",
+//   "inset"
+// );
 
 const headerIconBorder = getBorder(
   c.shine,
@@ -100,16 +100,16 @@ const richTextContentBorder = getBorder(
   "inset"
 );
 
-const richTextHeaderBorder = getBorder(
-  c.headerBorder, //top
-  c.headerBorder, //left
-  c.contentBorder, //right
-  c.headerBorder, //bottom
-  "solid", //top
-  "solid", //left
-  "inset", //right
-  "inset" //bottom
-);
+// const richTextHeaderBorder = getBorder(
+//   c.headerBorder, //top
+//   c.headerBorder, //left
+//   c.contentBorder, //right
+//   c.headerBorder, //bottom
+//   "solid", //top
+//   "solid", //left
+//   "inset", //right
+//   "inset" //bottom
+// );
 
 const purpleHeader = {
   ...f,
@@ -117,16 +117,16 @@ const purpleHeader = {
   color: c.text02,
   display: "flex",
   fontSize: "14px",
+  margin: 0,
   padding: `${spacing.xs * 0.5}em`,
   textAlign: "left",
-  margin: 0,
   width: "100%",
 };
 
-const greenHeader = {
-  ...purpleHeader,
-  backgroundColor: c.mainBg01,
-};
+// const greenHeader = {
+//   ...purpleHeader,
+//   backgroundColor: c.mainBg01,
+// };
 
 const icons = {
   ...headerIconBorder,
@@ -210,7 +210,7 @@ export const retro = {
       backgroundColor: c.button,
       textShadow: "unset",
     },
-    paper: defaultPaper,
+
     header: {
       styles: purpleHeader,
       text: f,

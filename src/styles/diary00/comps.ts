@@ -10,10 +10,10 @@ const borderRadius = `${s.xs * 0.5}rem`;
 
 const content = {
   ...f2,
-  borderRadius,
-  padding: `${s.xs}rem`,
   backgroundColor: c.mainBg00,
   border: `1px solid ${c.contentBorder}`,
+  borderRadius,
+  padding: `${s.xs}rem`,
   textShadow: whiteShadow,
 };
 
@@ -101,7 +101,6 @@ export const diary = {
       styles: {
         ...purpleHeader,
         backgroundColor: "transparent",
-        border: "none",
         padding: 0,
       },
 
