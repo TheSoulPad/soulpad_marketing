@@ -1,14 +1,12 @@
 import React, { useEffect, useState } from "react";
-import { spacing } from "../styles";
 import Paper from "@mui/material/Paper";
 import List from "@mui/material/List";
 import Box from "@mui/material/Box";
 import ListItem from "@mui/material/ListItem";
 import Typography from "@mui/material/Typography";
-import { diary } from "../styles/diary00/comps";
 import { about } from "../styles/about/comps";
-import { retro } from "../styles/retro00/comps";
-import { useTheme} from "../hooks/useTheme";
+import { useTheme } from "../hooks/useTheme";
+import { MenuType } from "./types";
 
 //this a temporary interface
 interface MenuItem {
@@ -32,32 +30,45 @@ const MenuSelection: React.FC<MenuSelectionProps> = ({
   onThemeChange,
 }) => {
   // use the the default about.menuSelection
-  // set the state to [compTheme, setCompTheme]
-  const [compTheme, setCompTheme] = useState(about);
+  const [compTheme, setCompTheme] = useState<MenuType>(about.menuSelection);
+  const [card, setCardTheme] = useState(about.card);
+  const [paper, setPaperTheme] = useState(about.paper);
 
-  // set the type for the compTheme here
-  // get theme.menuSelection
-  // on mount the useEffect will call the theme based on the themeType
+  const setDefault = () => {
+    setCompTheme(about.menuSelection);
+    setCardTheme(about.card);
+    setPaperTheme(about.paper);
+  };
+
+  const getAndSetComp = (theme: string) => {
+    const { paper, card, comp } = useTheme("menuSelection", themeType);
+    if (paper && card && comp) {
+      setCompTheme(comp);
+      setCardTheme(card);
+      setPaperTheme(paper);
+    } else {
+      setDefault();
+    }
+  };
+
   useEffect(() => {
     switch (themeType) {
       case "SOULPAD":
-        const getCompTheme = useTheme('menu', "soulpad");
-        setCompTheme(getCompTheme);
+        getAndSetComp("SOULPAD");
         break;
       case "DIARY":
-        useTheme('menu', "diary");
+        getAndSetComp("DIARY");
         break;
       case "RETRO":
-        useTheme('menu', "retro");
+        getAndSetComp("RETRO");
         break;
       default:
         break;
     }
-  }, [themeType]);
+  }, [themeType, compTheme, card, paper]);
 
-  const { content, card, themeID, paper } = compTheme;
-  const { list, header, text } = compTheme.menuSelection;
-  const activeText = compTheme.menuSelection.activeText;
+  const { list, header, text, content } = compTheme;
+  const activeText = compTheme.activeText;
   const activeColor = list.backgroundColor;
   const activeColorShadow = list.textShadow;
 
@@ -96,12 +107,12 @@ const MenuSelection: React.FC<MenuSelectionProps> = ({
   return (
     <Paper
       elevation={1}
-      className={`menu-selection-paper menu-selection-container ${themeID}`}
+      className={`menu-selection-paper menu-selection-container ${themeType}`}
       sx={containerStyles}
     >
-      <Box className={`menu-selection-card ${themeID}`} sx={card}>
+      <Box className={`menu-selection-card ${themeType}`} sx={card}>
         <Box
-          className={`menu-selection-card-header ${themeID}`}
+          className={`menu-selection-card-header ${themeType}`}
           sx={header.styles}
         >
           <Typography variant="h2" sx={header.text}>
@@ -109,27 +120,29 @@ const MenuSelection: React.FC<MenuSelectionProps> = ({
           </Typography>
         </Box>
         <Box
-          className={`menu-selection-content ${themeID}`}
+          className={`menu-selection-content ${themeType}`}
           sx={{ ...content }}
         >
           <List
             disablePadding={horizontal ? true : false}
             dense={true}
             sx={listStyles}
-            className={`menu-selection-list ${themeID}`}
+            className={`menu-selection-list ${themeType}`}
           >
             {items.map((item) => (
               <ListItem
-                className={`menu-selection-list-item ${themeID}`}
+                className={`menu-selection-list-item ${themeType}`}
                 key={item.themeType}
                 onClick={() => {
                   onThemeChange(item.themeType);
                 }}
-                sx={themeID === item.themeType ? activeStyles : listItemStyles}
+                sx={
+                  themeType === item.themeType ? activeStyles : listItemStyles
+                }
               >
                 <Typography
                   variant="body1"
-                  sx={themeID === item.themeType ? activeFont : text.sx}
+                  sx={themeType === item.themeType ? activeFont : text.sx}
                 >
                   {item.galleryName}
                 </Typography>
@@ -143,44 +156,3 @@ const MenuSelection: React.FC<MenuSelectionProps> = ({
 };
 
 export default MenuSelection;
-
-// delete this
-// const [theme, setTheme] = useState(menuThemeSelection);
-
-//delete this
-// const createSelectedTheme = (theme: any) => {
-//   const selectedTheme = {
-//     activeText: theme.menuSelection.activeText,
-//     themeID: theme.themeID,
-//     card: theme.card,
-//     content: theme.menuSelection.content,
-//     header: theme.menuSelection.header,
-//     paper: theme.paper,
-//     text: theme.menuSelection.text,
-//     activeColor: theme.menuSelection.list.backgroundColor,
-//     activeColorShadow: theme.menuSelection.list.textShadow,
-//   };
-//   setTheme(selectedTheme);
-// };
-
-//delete this
-// useEffect(() => {
-//   switch (themeType) {
-//     case "DIARY":
-//       createSelectedTheme(diary);
-//       break;
-//     case "SOULPAD":
-//       createSelectedTheme(about);
-//       break;
-//     case "RETRO":
-//       console.log("retro");
-//       createSelectedTheme(retro);
-//       break;
-//     case "VIDEOGAME":
-//       console.log("video game");
-//       //createSelectedTheme(scrapbookComps);
-//       break;
-//     default:
-//       console.log("Default");
-//   }
-// }, [themeType]);

@@ -106,9 +106,7 @@ export const about = {
       fontWeight: "400",
     },
     header: {
-      styles: {
-        ...header,
-      },
+      styles: header,
       text: headerText,
     },
     list: {

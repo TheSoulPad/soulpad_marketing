@@ -105,13 +105,13 @@ const Gallery: React.FC = () => {
             justifyContent="center"
             sx={isMobile ? mobileGridStyles : { margin: "auto" }}
           >
-            {/* <MenuSelection
+            <MenuSelection
               themeType={themeType}
               onThemeChange={useThemeStyles}
               horizontal={true}
               title="Theme Selection"
               items={menuItems}
-            /> */}
+            />
           </Grid>
 
           {/********** GALLERY **************/}

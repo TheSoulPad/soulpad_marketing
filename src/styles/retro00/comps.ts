@@ -155,7 +155,7 @@ const defaultContent = {
 export const retro = {
   ID: 2,
   themeID: "RETRO",
-  button: {
+  buttonPrimary: {
     ...buttonBorder,
     backgroundColor: c.button,
     color: c.buttonText,

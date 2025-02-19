@@ -50,3 +50,43 @@ export interface CompType {
     };
   };
 }
+
+export interface MenuType {
+  activeText: {
+    color: string;
+    border: string;
+  };
+  content: {};
+  header: {
+    styles: {};
+    text: {};
+  };
+  list: {
+    backgroundColor: string;
+    textShadow: string;
+  };
+  text: {
+    styles: {};
+    sx: {};
+  };
+}
+
+export interface CardType {
+  borderRadius: string;
+  padding: string;
+  display: string;
+  backgroundColor: string;
+  border: string;
+  textShadow: string;
+  fontfamily: string;
+  color: string;
+}
+
+export interface PaperType {
+  border: string;
+  borderRadius: string;
+  display: string;
+  padding: string;
+  boxShadow: string;
+  backgroundColor: string;
+}
