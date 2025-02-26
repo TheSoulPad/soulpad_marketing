@@ -2,6 +2,7 @@ import { colors as c } from "./colors";
 import { headerText as f } from "./fonts";
 import { bodyText as f2 } from "./fonts";
 import { spacing } from "../spacing";
+import { PaperType, CardType, CompType } from "../../Components/types";
 
 const getBorder = (
   color: string,
@@ -45,28 +46,6 @@ const cardBorder = getBorder(
   "inset"
 );
 
-// const menuContentBorder = getBorder(
-//   c.mainBg02,
-//   c.mainBg02,
-//   c.mainBg02,
-//   c.mainBg02,
-//   "inset", //top
-//   "inset", //left
-//   "inset", //right
-//   "solid" //bottom
-// );
-
-// const menuHeaderBorder = getBorder(
-//   c.headerBorder,
-//   c.headerBorder,
-//   c.contentBorder,
-//   c.headerBorder,
-//   "solid",
-//   "solid",
-//   "inset",
-//   "inset"
-// );
-
 const headerIconBorder = getBorder(
   c.shine,
   c.shine,
@@ -100,17 +79,6 @@ const richTextContentBorder = getBorder(
   "inset"
 );
 
-// const richTextHeaderBorder = getBorder(
-//   c.headerBorder, //top
-//   c.headerBorder, //left
-//   c.contentBorder, //right
-//   c.headerBorder, //bottom
-//   "solid", //top
-//   "solid", //left
-//   "inset", //right
-//   "inset" //bottom
-// );
-
 const purpleHeader = {
   ...f,
   backgroundColor: c.mainBg02,
@@ -123,11 +91,6 @@ const purpleHeader = {
   width: "100%",
 };
 
-// const greenHeader = {
-//   ...purpleHeader,
-//   backgroundColor: c.mainBg01,
-// };
-
 const icons = {
   ...headerIconBorder,
   backgroundColor: c.icon,
@@ -139,17 +102,78 @@ const contentText = {
   padding: `${spacing.xs}em`,
 };
 
-const defaultPaper = {
-  ...paperBorder,
-  backgroundColor: c.mainBg01,
-  padding: `${spacing.xs * 0.5}rem`,
-};
-
 const defaultContent = {
   ...cardBorder,
   ...contentText,
   backgroundColor: c.mainBg00,
   padding: `0 ${spacing.xs}rem 0 0`,
+};
+
+const card: CardType = {
+  ...cardBorder,
+  ...contentText,
+  display: "block",
+  backgroundColor: c.mainBg00,
+  padding: `0 ${spacing.xs}rem 0 0`,
+};
+
+const paper: PaperType = {
+  ...paperBorder,
+  backgroundColor: c.mainBg01,
+};
+
+const menuSelection: CompType = {
+  activeText: {
+    color: c.text01,
+    textShadow: `0px 0px 1px ${c.text01}`,
+    border: `2px dashed ${c.buttonHover}`,
+  },
+  content: {
+    ...contentText,
+    backgroundColor: c.mainBg00,
+    fontWeight: "400",
+    borderRadius: "0px",
+    padding: `${spacing.xs}rem 0 ${spacing.xs}rem 0`,
+  },
+  list: {
+    backgroundColor: c.button,
+    textShadow: "unset",
+  },
+
+  header: {
+    styles: purpleHeader,
+    text: f,
+  },
+  text: {
+    styles: {
+      ...f2,
+      fontSize: "1rem", // 20px
+      backgroundColor: c.mainBg00,
+      margin: 0,
+      textAlign: "center",
+      justifyContent: "center",
+      padding: `0 ${spacing.xs}rem 0 ${spacing.xs}rem`,
+    },
+
+    sx: {
+      ...f2,
+      ...buttonBorder,
+      textShadow: `0px 0px 1px ${c.shine}`,
+      backgroundColor: c.button,
+      color: c.buttonText,
+      fontWeight: "bold",
+      margin: 0,
+      padding: `${spacing.xs * 0.5}rem`,
+      fontSize: "1rem", // 20px
+      textAlign: "center",
+      width: "100%",
+      justifyContent: "center",
+      "&:hover": {
+        border: `2px dashed ${c.buttonHover}`,
+        textShadow: `0px 0px 1px ${c.text01}`,
+      },
+    },
+  },
 };
 
 export const retro = {
@@ -164,12 +188,7 @@ export const retro = {
     margin: "5px",
     padding: "5px",
   },
-  card: {
-    ...cardBorder,
-    ...contentText,
-    backgroundColor: c.mainBg00,
-    padding: `0 ${spacing.xs}rem 0 0`,
-  },
+  card,
   content: defaultContent,
   hover: c.mainBg02,
   icons: {
@@ -193,67 +212,8 @@ export const retro = {
       backgroundColor: c.mainBg01,
     },
   },
-  menuSelection: {
-    activeText: {
-      color: c.text01,
-      textShadow: `0px 0px 1px ${c.text01}`,
-      border: `2px dashed ${c.buttonHover}`,
-    },
-    content: {
-      ...contentText,
-      backgroundColor: c.mainBg00,
-      fontWeight: "400",
-      borderRadius: "0px",
-      padding: `${spacing.xs}rem 0 ${spacing.xs}rem 0`,
-    },
-    list: {
-      backgroundColor: c.button,
-      textShadow: "unset",
-    },
-
-    header: {
-      styles: purpleHeader,
-      text: f,
-    },
-    text: {
-      styles: {
-        ...f2,
-        fontSize: "1rem", // 20px
-        backgroundColor: c.mainBg00,
-        margin: 0,
-        textAlign: "center",
-        justifyContent: "center",
-        padding: `0 ${spacing.xs}rem 0 ${spacing.xs}rem`,
-      },
-
-      sx: {
-        ...f2,
-        ...buttonBorder,
-        textShadow: `0px 0px 1px ${c.shine}`,
-        backgroundColor: c.button,
-        color: c.buttonText,
-        fontWeight: "bold",
-        margin: 0,
-        padding: `${spacing.xs * 0.5}rem`,
-        fontSize: "1rem", // 20px
-        textAlign: "center",
-        width: "100%",
-        justifyContent: "center",
-        "&:hover": {
-          border: `2px dashed ${c.buttonHover}`,
-          textShadow: `0px 0px 1px ${c.text01}`,
-        },
-      },
-    },
-  },
-  paper: {
-    ...paperBorder,
-    backgroundColor: c.mainBg01,
-    text: {
-      textShadow: contentText.textShadow,
-      fontFamily: contentText.fontFamily,
-    },
-  },
+  menuSelection,
+  paper,
   poll: {
     ...f,
     ...cardBorder,

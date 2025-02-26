@@ -6,7 +6,7 @@ import ListItem from "@mui/material/ListItem";
 import Typography from "@mui/material/Typography";
 import { about } from "../styles/about/comps";
 import { useTheme } from "../hooks/useTheme";
-import { MenuType } from "./types";
+import { CompType, CardType, PaperType } from "./types";
 
 //this a temporary interface
 interface MenuItem {
@@ -30,9 +30,9 @@ const MenuSelection: React.FC<MenuSelectionProps> = ({
   onThemeChange,
 }) => {
   // use the the default about.menuSelection
-  const [compTheme, setCompTheme] = useState<MenuType>(about.menuSelection);
-  const [card, setCardTheme] = useState(about.card);
-  const [paper, setPaperTheme] = useState(about.paper);
+  const [compTheme, setCompTheme] = useState<CompType>(about.menuSelection);
+  const [card, setCardTheme] = useState<CardType>(about.card);
+  const [paper, setPaperTheme] = useState<PaperType>(about.paper);
 
   const setDefault = () => {
     setCompTheme(about.menuSelection);
@@ -41,11 +41,16 @@ const MenuSelection: React.FC<MenuSelectionProps> = ({
   };
 
   const getAndSetComp = (theme: string) => {
-    const { paper, card, comp } = useTheme("menuSelection", themeType);
-    if (paper && card && comp) {
-      setCompTheme(comp);
-      setCardTheme(card);
-      setPaperTheme(paper);
+    const themeInfoStyles = useTheme("menuSelection", theme);
+
+    if (themeInfoStyles) {
+      const paperStyles = themeInfoStyles.paper;
+      const cardStyles = themeInfoStyles.card;
+      const compStyles = themeInfoStyles.comp;
+
+      setCompTheme(compStyles);
+      setCardTheme(cardStyles);
+      setPaperTheme(paperStyles);
     } else {
       setDefault();
     }
@@ -69,8 +74,9 @@ const MenuSelection: React.FC<MenuSelectionProps> = ({
 
   const { list, header, text, content } = compTheme;
   const activeText = compTheme.activeText;
-  const activeColor = list.backgroundColor;
-  const activeColorShadow = list.textShadow;
+  const activeColor = list ? list.backgroundColor : "";
+  const activeColorShadow = list?.textShadow;
+  const textStyles = text?.styles;
 
   const listStyles = {
     display: `${horizontal ? "flex" : "block"}`,
@@ -79,22 +85,22 @@ const MenuSelection: React.FC<MenuSelectionProps> = ({
   };
 
   const listItemStyles = {
-    ...text.styles,
+    ...textStyles,
     cursor: "pointer",
     maxWidth: "200px",
   };
 
   const activeStyles = {
-    ...text.styles,
-    color: activeText.color,
+    ...textStyles,
+    color: activeText?.color || "inherit",
   };
 
   const activeFont = {
-    ...text.sx,
+    ...text?.sx,
     backgroundColor: `${activeColor}`,
-    color: activeText.color,
-    border: activeText.border,
-    textShadow: activeColorShadow,
+    color: activeText?.color || "inherit",
+    border: activeText?.border || "inherit",
+    textShadow: activeColorShadow || "inherit",
     cursor: "pointer",
   };
 
@@ -142,7 +148,7 @@ const MenuSelection: React.FC<MenuSelectionProps> = ({
               >
                 <Typography
                   variant="body1"
-                  sx={themeType === item.themeType ? activeFont : text.sx}
+                  sx={themeType === item.themeType ? activeFont : text?.sx}
                 >
                   {item.galleryName}
                 </Typography>

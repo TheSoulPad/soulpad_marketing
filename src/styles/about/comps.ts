@@ -4,21 +4,13 @@ import { colors as c, redOrange, darkBrown } from "./colors";
 import { spacing as s } from "../spacing";
 import { titleText as f } from "./fonts";
 import { bodyText as f2 } from "./fonts";
+import { PaperType, CardType, CompType } from "../../Components/types";
 
 const borderRadiusSm = `${s.sm}rem`;
 const borderRadiusXs = `${s.xs}rem`;
 const redOrangeShadow = `1px 1px 1px ${redOrange}`;
 // const darkBrownShadow = `1px 1px 1px ${darkBrown}`;
 // const beigeShadow = `1px 1px 1px ${c.text01}`;
-
-const defaultPaper = {
-  border: `1px solid ${c.paperBorder}`,
-  borderRadius: borderRadiusSm,
-  display: "block",
-  padding: "unset",
-  boxShadow: `10px 10px 0px 0px ${c.paperShadow}`,
-  backgroundColor: c.mainBg00,
-};
 
 const content = {
   borderRadius: borderRadiusSm,
@@ -47,6 +39,70 @@ const headerText = {
   color: c.text01,
 };
 
+const card: CardType = {
+  ...f2,
+  borderRadius: borderRadiusSm,
+  padding: `${s.xs}rem`,
+  display: "block",
+  backgroundColor: c.mainBg00,
+};
+
+const paper: PaperType = {
+  border: `1px solid ${c.paperBorder}`,
+  borderRadius: borderRadiusSm,
+  display: "block",
+  padding: "unset",
+  boxShadow: `10px 10px 0px 0px ${c.paperShadow}`,
+  backgroundColor: c.mainBg00,
+};
+
+const menuSelection: CompType = {
+  activeText: {
+    color: c.text01,
+    border: "none",
+  },
+  content: {
+    ...content,
+    padding: `${s.xs}rem 0 0 0`,
+    border: "unset",
+    fontWeight: "400",
+  },
+  header: {
+    styles: header,
+    text: headerText,
+  },
+  list: {
+    backgroundColor: c.buttonPrimary,
+    textShadow: redOrangeShadow,
+  },
+  text: {
+    styles: {
+      ...f,
+      backgroundColor: "transparent",
+      borderRadius: `${s.xs}rem`,
+      fontSize: "1.25rem", // 20px
+      padding: `0 ${s.xs}rem 0 0`,
+      "&:hover": {
+        borderRadius: `${s.xs}rem`,
+      },
+    },
+    sx: {
+      ...f,
+      borderRadius: borderRadiusSm,
+      color: c.text02,
+      fontSize: "1.25rem", // 20px
+      padding: `${s.xs * 0.5}rem`,
+      textAlign: "center",
+      width: "100%",
+      "&:hover": {
+        backgroundColor: c.buttonPrimary,
+        color: `${c.text01} !important`,
+        textShadow: redOrangeShadow,
+      },
+    },
+  },
+};
+
 export const about = {
   ID: 0,
   buttonPrimary: {
@@ -60,15 +116,7 @@ export const about = {
       color: c.text01,
     },
   },
-  card: {
-    ...f2,
-    borderRadius: borderRadiusSm,
-    padding: `${s.xs}rem`,
-    display: "block",
-    backgroundColor: c.mainBg00,
-    border: "unset",
-    textShadow: "",
-  },
+  card,
   content: {
     ...content,
     ...f2,
@@ -94,53 +142,8 @@ export const about = {
   mediaPlayer: {
     header,
   },
-  menuSelection: {
-    activeText: {
-      color: c.text01,
-      border: "none",
-    },
-    content: {
-      ...content,
-      padding: `${s.xs}rem 0 0 0`,
-      border: "unset",
-      fontWeight: "400",
-    },
-    header: {
-      styles: header,
-      text: headerText,
-    },
-    list: {
-      backgroundColor: c.buttonPrimary,
-      textShadow: redOrangeShadow,
-    },
-    text: {
-      styles: {
-        ...f,
-        backgroundColor: "transparent",
-        borderRadius: `${s.xs}rem`,
-        fontSize: "1.25rem", // 20px
-        padding: `0 ${s.xs}rem 0 0`,
-        "&:hover": {
-          borderRadius: `${s.xs}rem`,
-        },
-      },
-      sx: {
-        ...f,
-        borderRadius: borderRadiusSm,
-        color: c.text02,
-        fontSize: "1.25rem", // 20px
-        padding: `${s.xs * 0.5}rem`,
-        textAlign: "center",
-        width: "100%",
-        "&:hover": {
-          backgroundColor: c.buttonPrimary,
-          color: `${c.text01} !important`,
-          textShadow: redOrangeShadow,
-        },
-      },
-    },
-  },
-  paper: defaultPaper,
+  menuSelection,
+  paper,
   poll: {},
   progressBar: {},
   richTextPost: {

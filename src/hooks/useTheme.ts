@@ -1,25 +1,14 @@
 import { about } from "../styles/about/comps";
 import { diary } from "../styles/diary00/comps";
 import { retro } from "../styles/retro00/comps";
-import { CardType, MenuType, PaperType } from "../Components/types";
+import { CardType, CompType, PaperType } from "../Components/types";
+import theme from "../theme";
 
-interface Theme {
-  ID: number;
+interface ThemeInfoType {
+  card: CardType;
+  comp: CompType;
+  paper: PaperType;
   themeID: string;
-  button?: {};
-  buttonPrimary?: {};
-  richTextPost: {};
-  paper: {};
-  card: {};
-  content: {};
-  hover?: {};
-  icons: {};
-  listBox: {};
-  mediaPlayer: {};
-  menuSelection: {};
-  poll: {};
-  progressBar: {};
-  wordSticker: {};
 }
 
 export const useTheme = (
@@ -33,23 +22,42 @@ export const useTheme = (
    3.) Return theme styles for the component calling it in the gallery
    ***/
 
-  let theme: any;
+  let themeInfoStyles: ThemeInfoType = {
+    card: about.card,
+    comp: about[compType],
+    paper: about.paper,
+    themeID: about.themeID,
+  };
 
-  //get and set the theme
-  // to do set the types
   switch (themeType) {
     case "DIARY":
-      theme = diary;
-      return { card: diary.card, paper: diary.paper, comp: diary[compType] };
+      themeInfoStyles = {
+        card: diary.card,
+        paper: diary.paper,
+        comp: diary[compType],
+        themeID: diary.themeID,
+      };
+      return themeInfoStyles;
     case "SOULPAD":
-      theme = about;
-      return { card: about.card, paper: about.paper, comp: about[compType] };
+      const aboutInfoStyles = {
+        card: about.card,
+        paper: about.paper,
+        comp: about[compType],
+        themeID: about.themeID,
+      };
+      return aboutInfoStyles;
+
     case "RETRO":
-      theme = retro;
-      return { card: retro.card, paper: retro.paper, comp: retro[compType] };
+      const retroInfoStyles = {
+        card: retro.card,
+        paper: retro.paper,
+        comp: retro[compType],
+        themeID: retro.themeID,
+      };
+      return retroInfoStyles;
     case "VIDEOGAME":
       console.log("set theme video game");
-      break;
+      return;
     default:
       console.error("Theme type not found");
   }

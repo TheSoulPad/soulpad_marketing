@@ -1,54 +1,89 @@
 //component types
 
+
 export interface CompType {
-  themeID: string;
-  card: {};
-  paper: {};
-  icons: {};
   activeText?: {
-    color: string;
-    textShadow: string;
-    border: string;
+    color?: string;
+    textShadow?: string;
+    border?: string;
   };
   content: {};
-  header: {};
+  header: {
+    styles: {};
+    text: {};
+  };
 
-  list: {
+  list?: {
     backgroundColor: string;
     textShadow: string;
   };
 
-  text: {
+  text?: {
     styles: {
       backgroundColor: string;
-      borderRadius: string;
-      color: string;
+      borderRadius?: string;
+      color?: string;
       fontFamily: string;
       fontSize: string;
       padding: string;
       textAlign: string;
       textShadow?: string;
-      "&:hover": {
+      margin?: number | string;
+      justifyContent?: string;
+      "&:hover"?: {
         borderRadius: string;
       };
     };
     sx: {
-      "&:hover": {
-        backgroundColor: string;
-        borderRadius: string;
-        color: string;
-        textShadow: string;
-      };
-      backgroundColor: string;
+      backgroundColor?: string;
       borderRadius: string;
       color: string;
       fontFamily: string;
       fontSize: string;
-      padding: string;
+      fontWeight?: string;
+      padding?: string;
       textAlign: string;
       width: string;
+      textShadow?: string;
+      margin?: string | number;
+      justifyContent?: string;
+      "&:hover": {
+        border?: string;
+        backgroundColor?: string;
+        borderRadius?: string;
+        color?: string;
+        textShadow: string;
+      };
     };
   };
+}
+
+export interface CardType {
+  borderRadius: string;
+  padding: string;
+  display: string;
+  backgroundColor: string;
+  border?: string;
+  textShadow?: string;
+  fontfamily?: string;
+  color: string;
+  borderTop?: string;
+  borderLeft?: string;
+  borderRight?: string;
+  borderBottom?: string;
+}
+
+export interface PaperType {
+  border?: string;
+  borderRadius: string;
+  display?: string;
+  padding?: string;
+  boxShadow?: string;
+  backgroundColor: string;
+  borderTop?: string;
+  borderLeft?: string;
+  borderRight?: string;
+  borderBottom?: string;
 }
 
 export interface MenuType {
@@ -69,24 +104,4 @@ export interface MenuType {
     styles: {};
     sx: {};
   };
-}
-
-export interface CardType {
-  borderRadius: string;
-  padding: string;
-  display: string;
-  backgroundColor: string;
-  border: string;
-  textShadow: string;
-  fontfamily: string;
-  color: string;
-}
-
-export interface PaperType {
-  border: string;
-  borderRadius: string;
-  display: string;
-  padding: string;
-  boxShadow: string;
-  backgroundColor: string;
 }
