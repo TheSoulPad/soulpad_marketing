@@ -1,13 +1,19 @@
 import { about } from "../styles/about/comps";
 import { diary } from "../styles/diary00/comps";
 import { retro } from "../styles/retro00/comps";
-import { CardType, CompType, PaperType } from "../Components/types";
-import theme from "../theme";
+import {
+  CardType,
+  CompType,
+  PaperType,
+  RichTextType,
+  IconsType,
+} from "../Components/types";
 
 interface ThemeInfoType {
   card: CardType;
-  comp: CompType;
+  comp: CompType | RichTextType;
   paper: PaperType;
+  icons: IconsType;
   themeID: string;
 }
 
@@ -27,6 +33,7 @@ export const useTheme = (
     comp: about[compType],
     paper: about.paper,
     themeID: about.themeID,
+    icons: about.icons,
   };
 
   switch (themeType) {
@@ -36,6 +43,7 @@ export const useTheme = (
         paper: diary.paper,
         comp: diary[compType],
         themeID: diary.themeID,
+        icons: diary.icons,
       };
       return themeInfoStyles;
     case "SOULPAD":
@@ -44,6 +52,7 @@ export const useTheme = (
         paper: about.paper,
         comp: about[compType],
         themeID: about.themeID,
+        icons: about.icons,
       };
       return aboutInfoStyles;
 
@@ -53,6 +62,7 @@ export const useTheme = (
         paper: retro.paper,
         comp: retro[compType],
         themeID: retro.themeID,
+        icons: retro.icons,
       };
       return retroInfoStyles;
     case "VIDEOGAME":

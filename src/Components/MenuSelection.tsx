@@ -29,7 +29,6 @@ const MenuSelection: React.FC<MenuSelectionProps> = ({
   title,
   onThemeChange,
 }) => {
-  // use the the default about.menuSelection
   const [compTheme, setCompTheme] = useState<CompType>(about.menuSelection);
   const [card, setCardTheme] = useState<CardType>(about.card);
   const [paper, setPaperTheme] = useState<PaperType>(about.paper);

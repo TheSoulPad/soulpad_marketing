@@ -1,10 +1,15 @@
 //About Theme
 
-import { colors as c, redOrange, darkBrown } from "./colors";
+import { colors as c, redOrange } from "./colors";
 import { spacing as s } from "../spacing";
 import { titleText as f } from "./fonts";
 import { bodyText as f2 } from "./fonts";
-import { PaperType, CardType, CompType } from "../../Components/types";
+import {
+  PaperType,
+  CardType,
+  CompType,
+  RichTextType,
+} from "../../Components/types";
 
 const borderRadiusSm = `${s.sm}rem`;
 const borderRadiusXs = `${s.xs}rem`;
@@ -103,6 +108,26 @@ const menuSelection: CompType = {
   },
 };
 
+const richTextPost: RichTextType = {
+  content: {
+    ...content,
+    ...f2,
+    backgroundColor: c.mainBg00,
+    border: `1px solid ${c.contentBorder}`,
+    fontSize: "1.25rem", // 20px
+    fontWeight: "400",
+    textShadow: "none",
+    borderRadius: `${s.xs}rem`,
+    margin: "unset",
+  },
+  header: {
+    styles: {
+      ...header,
+    },
+    text: headerText,
+  },
+};
+
 export const about = {
   ID: 0,
   buttonPrimary: {
@@ -146,37 +171,7 @@ export const about = {
   paper,
   poll: {},
   progressBar: {},
-  richTextPost: {
-    card: {
-      styles: {
-        ...content,
-        backgroundColor: c.mainBg00,
-        border: "unset",
-        display: "block",
-      },
-      text: {
-        ...f,
-        textShadow: "",
-      },
-    },
-    content: {
-      ...content,
-      ...f2,
-      backgroundColor: c.mainBg00,
-      border: `1px solid ${c.contentBorder}`,
-      fontSize: "1.25rem", // 20px
-      fontWeight: "400",
-      textShadow: "none",
-      borderRadius: `${s.xs}rem`,
-      margin: "unset",
-    },
-    header: {
-      styles: {
-        ...header,
-      },
-      text: headerText,
-    },
-  },
+  richTextPost,
   themeID: "SOULPAD",
   wordSticker: {},
 };

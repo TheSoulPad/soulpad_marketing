@@ -1,12 +1,12 @@
 //component types
 
-
 export interface CompType {
   activeText?: {
     color?: string;
     textShadow?: string;
     border?: string;
   };
+
   content: {};
   header: {
     styles: {};
@@ -56,6 +56,20 @@ export interface CompType {
       };
     };
   };
+}
+
+export interface RichTextType {
+  content: {};
+  header: {
+    styles: {};
+    text: {};
+  };
+}
+
+export interface IconsType {
+  primary: {};
+  secondary: {};
+  iconClose: {};
 }
 
 export interface CardType {

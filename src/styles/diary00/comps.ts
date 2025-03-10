@@ -2,7 +2,12 @@ import { colors as c } from "./colors";
 import { spacing as s } from "../spacing";
 import { headerText as f } from "./fonts";
 import { bodyText as f2 } from "./fonts";
-import { PaperType, CardType, CompType } from "../../Components/types";
+import {
+  PaperType,
+  CardType,
+  CompType,
+  RichTextType,
+} from "../../Components/types";
 
 const purpleShadow = `1px 1px 1px ${c.text02}`;
 const pinkShadow = `1px 1px 1px ${c.text03}`;
@@ -117,6 +122,34 @@ const menuSelection: CompType = {
   },
 };
 
+const richTextPost: RichTextType = {
+  card: {
+    styles: {
+      ...content,
+      display: "block",
+      backgroundColor: c.mainBg03,
+      border: "unset",
+    },
+    text: {
+      ...f2,
+      textShadow: purpleShadow,
+    },
+  },
+  content: {
+    ...content,
+    backgroundColor: c.mainBg00,
+    border: `1px solid ${c.contentBorder}`,
+    fontWeight: "400",
+  },
+  header: {
+    styles: pinkHeader,
+    text: {
+      ...f,
+      textShadow: purpleShadow,
+    },
+  },
+};
+
 export const diary = {
   ID: 1,
   themeID: "DIARY",
@@ -159,32 +192,6 @@ export const diary = {
   paper,
   poll: {},
   progressBar: {},
-  richTextPost: {
-    card: {
-      styles: {
-        ...content,
-        display: "block",
-        backgroundColor: c.mainBg03,
-        border: "unset",
-      },
-      text: {
-        ...f2,
-        textShadow: purpleShadow,
-      },
-    },
-    content: {
-      ...content,
-      backgroundColor: c.mainBg00,
-      border: `1px solid ${c.contentBorder}`,
-      fontWeight: "400",
-    },
-    header: {
-      styles: pinkHeader,
-      text: {
-        ...f,
-        textShadow: purpleShadow,
-      },
-    },
-  },
+  richTextPost,
   wordSticker: {},
 };

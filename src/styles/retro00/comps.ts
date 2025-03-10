@@ -2,7 +2,12 @@ import { colors as c } from "./colors";
 import { headerText as f } from "./fonts";
 import { bodyText as f2 } from "./fonts";
 import { spacing } from "../spacing";
-import { PaperType, CardType, CompType } from "../../Components/types";
+import {
+  PaperType,
+  CardType,
+  CompType,
+  RichTextType,
+} from "../../Components/types";
 
 const getBorder = (
   color: string,
@@ -176,6 +181,27 @@ const menuSelection: CompType = {
   },
 };
 
+const richTextPost: RichTextType = {
+  card: {
+    styles: {
+      ...cardBorder,
+      ...contentText,
+      backgroundColor: c.contentBg,
+      padding: `0 ${spacing.xs}rem 0 0`,
+    },
+    text: f2,
+  },
+  content: {
+    ...contentText,
+    backgroundColor: c.contentBg,
+    padding: `${spacing.md}rem ${spacing.md}rem`,
+  },
+  header: {
+    styles: purpleHeader,
+    text: f,
+  },
+};
+
 export const retro = {
   ID: 2,
   themeID: "RETRO",
@@ -231,26 +257,7 @@ export const retro = {
       padding: `${spacing.xs}em`,
     },
   },
-  richTextPost: {
-    card: {
-      styles: {
-        ...cardBorder,
-        ...contentText,
-        backgroundColor: c.contentBg,
-        padding: `0 ${spacing.xs}rem 0 0`,
-      },
-      text: f2,
-    },
-    content: {
-      ...contentText,
-      backgroundColor: c.contentBg,
-      padding: `${spacing.md}rem ${spacing.md}rem`,
-    },
-    header: {
-      styles: purpleHeader,
-      text: f,
-    },
-  },
+  richTextPost,
   text: {
     ...f2,
     color: c.text01,
