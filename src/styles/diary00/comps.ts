@@ -55,12 +55,30 @@ const card: CardType = {
 };
 
 const paper: PaperType = {
+  ...f,
   borderRadius,
   boxShadow: "",
   backgroundColor: "",
   border: `1px solid ${c.contentBorder}`,
   display: "block",
   padding: "unset",
+};
+
+const customCard: RichTextType = {
+  content: {
+    ...content,
+    backgroundColor: c.mainBg00,
+    border: `1px solid ${c.contentBorder}`,
+    fontWeight: "400",
+    color: c.text01,
+  },
+  header: {
+    styles: purpleHeader,
+    text: {
+      ...f,
+      textShadow: whiteShadow,
+    },
+  },
 };
 
 const menuSelection: CompType = {
@@ -123,18 +141,6 @@ const menuSelection: CompType = {
 };
 
 const richTextPost: RichTextType = {
-  card: {
-    styles: {
-      ...content,
-      display: "block",
-      backgroundColor: c.mainBg03,
-      border: "unset",
-    },
-    text: {
-      ...f2,
-      textShadow: purpleShadow,
-    },
-  },
   content: {
     ...content,
     backgroundColor: c.mainBg00,
@@ -164,6 +170,7 @@ export const diary = {
     },
   },
   card,
+  customCard,
   content: {
     ...content,
   },

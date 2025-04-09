@@ -18,7 +18,8 @@ interface ThemeInfoType {
 }
 
 export const useTheme = (
-  compType: "menuSelection" | "richTextPost",
+  //add custom card here
+  compType: "menuSelection" | "richTextPost" | "customCard",
   themeType: string
 ) => {
   /**
@@ -69,7 +70,7 @@ export const useTheme = (
       console.log("set theme video game");
       return;
     default:
-      console.error("Theme type not found");
+      return themeInfoStyles;
   }
 };
 

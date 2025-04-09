@@ -1,6 +1,6 @@
 //About Theme
 
-import { colors as c, redOrange } from "./colors";
+import { colors as c, redOrange, darkBrown } from "./colors";
 import { spacing as s } from "../spacing";
 import { titleText as f } from "./fonts";
 import { bodyText as f2 } from "./fonts";
@@ -14,7 +14,7 @@ import {
 const borderRadiusSm = `${s.sm}rem`;
 const borderRadiusXs = `${s.xs}rem`;
 const redOrangeShadow = `1px 1px 1px ${redOrange}`;
-// const darkBrownShadow = `1px 1px 1px ${darkBrown}`;
+const darkBrownShadow = `1px 1px 1px ${darkBrown}`;
 // const beigeShadow = `1px 1px 1px ${c.text01}`;
 
 const content = {
@@ -38,6 +38,8 @@ const header = {
   border: "none",
 };
 
+//for sx MUI Typography componet
+//has to be seperate from main header styles
 const headerText = {
   ...f,
   margin: "0",
@@ -59,6 +61,22 @@ const paper: PaperType = {
   padding: "unset",
   boxShadow: `10px 10px 0px 0px ${c.paperShadow}`,
   backgroundColor: c.mainBg00,
+};
+
+const customCard: RichTextType = {
+  content: {
+    ...card,
+    fontWeight: "400",
+    color: c.text01,
+    backgroundColor: c.mainBg01,
+  },
+  header: {
+    styles: header,
+    text: {
+      ...f,
+      textShadow: darkBrownShadow,
+    },
+  },
 };
 
 const menuSelection: CompType = {
@@ -121,9 +139,7 @@ const richTextPost: RichTextType = {
     margin: "unset",
   },
   header: {
-    styles: {
-      ...header,
-    },
+    styles: header,
     text: headerText,
   },
 };
@@ -142,6 +158,7 @@ export const about = {
     },
   },
   card,
+  customCard,
   content: {
     ...content,
     ...f2,

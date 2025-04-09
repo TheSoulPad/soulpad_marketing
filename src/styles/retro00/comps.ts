@@ -127,6 +127,16 @@ const paper: PaperType = {
   backgroundColor: c.mainBg01,
 };
 
+const customCard: RichTextType = {
+  content: {
+    ...defaultContent,
+  },
+  header: {
+    styles: purpleHeader,
+    text: f,
+  },
+};
+
 const menuSelection: CompType = {
   activeText: {
     color: c.text01,
@@ -182,15 +192,6 @@ const menuSelection: CompType = {
 };
 
 const richTextPost: RichTextType = {
-  card: {
-    styles: {
-      ...cardBorder,
-      ...contentText,
-      backgroundColor: c.contentBg,
-      padding: `0 ${spacing.xs}rem 0 0`,
-    },
-    text: f2,
-  },
   content: {
     ...contentText,
     backgroundColor: c.contentBg,
@@ -215,6 +216,7 @@ export const retro = {
     padding: "5px",
   },
   card,
+  customCard,
   content: defaultContent,
   hover: c.mainBg02,
   icons: {

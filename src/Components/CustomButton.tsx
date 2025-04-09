@@ -5,7 +5,6 @@ interface ButtonProps {
   onClick: () => void;
   label: string;
   disabled?: boolean;
-  btnStyles: React.CSSProperties;
   themeType?: string;
 }
 
@@ -13,12 +12,10 @@ const CustomButton: React.FC<ButtonProps> = ({
   onClick,
   label,
   disabled = false,
-  btnStyles,
 }) => {
   const buttonSize = "32px";
 
   const sxStyles = {
-    ...btnStyles,
     maxHeight: buttonSize,
     margin: "4px 4px",
   };
