@@ -1,13 +1,12 @@
 import React, { useEffect, useState } from "react";
-import { spacing } from "../styles";
 import Paper from "@mui/material/Paper";
 import List from "@mui/material/List";
 import Box from "@mui/material/Box";
 import ListItem from "@mui/material/ListItem";
 import Typography from "@mui/material/Typography";
-import { diary } from "../styles/diary00/comps";
 import { about } from "../styles/about/comps";
-import { retro } from "../styles/retro00/comps";
+import { useTheme } from "../hooks/useTheme";
+import { CompType, CardType, PaperType } from "./types";
 
 //this a temporary interface
 interface MenuItem {
@@ -30,67 +29,53 @@ const MenuSelection: React.FC<MenuSelectionProps> = ({
   title,
   onThemeChange,
 }) => {
-  const menuThemeSelection = {
-    themeID: about.themeID,
-    activeText: about.menuSelection.activeText,
-    card: about.card,
-    content: about.menuSelection.content,
-    header: about.menuSelection.header,
-    text: about.menuSelection.text,
-    paper: about.paper,
-    activeColor: about.menuSelection.list.backgroundColor,
-    activeColorShadow: about.menuSelection.list.textShadow,
+  const [compTheme, setCompTheme] = useState<CompType>(about.menuSelection);
+  const [card, setCardTheme] = useState<CardType>(about.card);
+  const [paper, setPaperTheme] = useState<PaperType>(about.paper);
+
+  const setDefault = () => {
+    setCompTheme(about.menuSelection);
+    setCardTheme(about.card);
+    setPaperTheme(about.paper);
   };
 
-  const [theme, setTheme] = useState(menuThemeSelection);
+  const getAndSetComp = (theme: string) => {
+    const themeInfoStyles = useTheme("menuSelection", theme);
 
-  const createSelectedTheme = (theme: any) => {
-    const selectedTheme = {
-      activeText: theme.menuSelection.activeText,
-      themeID: theme.themeID,
-      card: theme.card,
-      content: theme.menuSelection.content,
-      header: theme.menuSelection.header,
-      paper: theme.paper,
-      text: theme.menuSelection.text,
-      activeColor: theme.menuSelection.list.backgroundColor,
-      activeColorShadow: theme.menuSelection.list.textShadow,
-    };
-    setTheme(selectedTheme);
+    if (themeInfoStyles) {
+      const paperStyles = themeInfoStyles.paper;
+      const cardStyles = themeInfoStyles.card;
+      const compStyles = themeInfoStyles.comp;
+
+      setCompTheme(compStyles);
+      setCardTheme(cardStyles);
+      setPaperTheme(paperStyles);
+    } else {
+      setDefault();
+    }
   };
 
   useEffect(() => {
     switch (themeType) {
-      case "DIARY":
-        createSelectedTheme(diary);
-        break;
       case "SOULPAD":
-        createSelectedTheme(about);
+        getAndSetComp("SOULPAD");
+        break;
+      case "DIARY":
+        getAndSetComp("DIARY");
         break;
       case "RETRO":
-        console.log("retro");
-        createSelectedTheme(retro);
-        break;
-      case "VIDEOGAME":
-        console.log("video game");
-        //createSelectedTheme(scrapbookComps);
+        getAndSetComp("RETRO");
         break;
       default:
-        console.log("Default");
+        break;
     }
-  }, [themeType]);
+  }, [themeType, compTheme, card, paper]);
 
-  const {
-    activeText,
-    content,
-    card,
-    activeColor,
-    activeColorShadow,
-    themeID,
-    header,
-    paper,
-    text,
-  } = theme;
+  const { list, header, text, content } = compTheme;
+  const activeText = compTheme.activeText;
+  const activeColor = list ? list.backgroundColor : "";
+  const activeColorShadow = list?.textShadow;
+  const textStyles = text?.styles;
 
   const listStyles = {
     display: `${horizontal ? "flex" : "block"}`,
@@ -99,22 +84,22 @@ const MenuSelection: React.FC<MenuSelectionProps> = ({
   };
 
   const listItemStyles = {
-    ...text.styles,
+    ...textStyles,
     cursor: "pointer",
     maxWidth: "200px",
   };
 
   const activeStyles = {
-    ...text.styles,
-    color: activeText.color,
+    ...textStyles,
+    color: activeText?.color || "inherit",
   };
 
   const activeFont = {
-    ...text.sx,
+    ...text?.sx,
     backgroundColor: `${activeColor}`,
-    color: activeText.color,
-    border: activeText.border,
-    textShadow: activeColorShadow,
+    color: activeText?.color || "inherit",
+    border: activeText?.border || "inherit",
+    textShadow: activeColorShadow || "inherit",
     cursor: "pointer",
   };
 
@@ -127,12 +112,12 @@ const MenuSelection: React.FC<MenuSelectionProps> = ({
   return (
     <Paper
       elevation={1}
-      className={`menu-selection-paper menu-selection-container ${themeID}`}
+      className={`menu-selection-paper menu-selection-container ${themeType}`}
       sx={containerStyles}
     >
-      <Box className={`menu-selection-card ${themeID}`} sx={card}>
+      <Box className={`menu-selection-card ${themeType}`} sx={card}>
         <Box
-          className={`menu-selection-card-header ${themeID}`}
+          className={`menu-selection-card-header ${themeType}`}
           sx={header.styles}
         >
           <Typography variant="h2" sx={header.text}>
@@ -140,27 +125,29 @@ const MenuSelection: React.FC<MenuSelectionProps> = ({
           </Typography>
         </Box>
         <Box
-          className={`menu-selection-content ${themeID}`}
+          className={`menu-selection-content ${themeType}`}
           sx={{ ...content }}
         >
           <List
             disablePadding={horizontal ? true : false}
             dense={true}
             sx={listStyles}
-            className={`menu-selection-list ${themeID}`}
+            className={`menu-selection-list ${themeType}`}
           >
             {items.map((item) => (
               <ListItem
-                className={`menu-selection-list-item ${themeID}`}
+                className={`menu-selection-list-item ${themeType}`}
                 key={item.themeType}
                 onClick={() => {
                   onThemeChange(item.themeType);
                 }}
-                sx={themeID === item.themeType ? activeStyles : listItemStyles}
+                sx={
+                  themeType === item.themeType ? activeStyles : listItemStyles
+                }
               >
                 <Typography
                   variant="body1"
-                  sx={themeID === item.themeType ? activeFont : text.sx}
+                  sx={themeType === item.themeType ? activeFont : text?.sx}
                 >
                   {item.galleryName}
                 </Typography>

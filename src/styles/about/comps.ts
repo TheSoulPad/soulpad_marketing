@@ -4,21 +4,18 @@ import { colors as c, redOrange, darkBrown } from "./colors";
 import { spacing as s } from "../spacing";
 import { titleText as f } from "./fonts";
 import { bodyText as f2 } from "./fonts";
+import {
+  PaperType,
+  CardType,
+  CompType,
+  RichTextType,
+} from "../../Components/types";
 
 const borderRadiusSm = `${s.sm}rem`;
 const borderRadiusXs = `${s.xs}rem`;
 const redOrangeShadow = `1px 1px 1px ${redOrange}`;
-// const darkBrownShadow = `1px 1px 1px ${darkBrown}`;
+const darkBrownShadow = `1px 1px 1px ${darkBrown}`;
 // const beigeShadow = `1px 1px 1px ${c.text01}`;
-
-const defaultPaper = {
-  border: `1px solid ${c.paperBorder}`,
-  borderRadius: borderRadiusSm,
-  display: "block",
-  padding: "unset",
-  boxShadow: `10px 10px 0px 0px ${c.paperShadow}`,
-  backgroundColor: c.mainBg00,
-};
 
 const content = {
   borderRadius: borderRadiusSm,
@@ -41,16 +38,114 @@ const header = {
   border: "none",
 };
 
+//for sx MUI Typography componet
+//has to be seperate from main header styles
 const headerText = {
   ...f,
   margin: "0",
   color: c.text01,
-  textShadow: "",
+};
+
+const card: CardType = {
+  ...f2,
+  borderRadius: borderRadiusSm,
+  padding: `${s.xs}rem`,
+  display: "block",
+  backgroundColor: c.mainBg00,
+};
+
+const paper: PaperType = {
+  border: `1px solid ${c.paperBorder}`,
+  borderRadius: borderRadiusSm,
+  display: "block",
+  padding: "unset",
+  boxShadow: `10px 10px 0px 0px ${c.paperShadow}`,
+  backgroundColor: c.mainBg00,
+};
+
+const customCard: RichTextType = {
+  content: {
+    ...card,
+    fontWeight: "400",
+    color: c.text01,
+    backgroundColor: c.mainBg01,
+  },
+  header: {
+    styles: header,
+    text: {
+      ...f,
+      textShadow: darkBrownShadow,
+    },
+  },
+};
+
+const menuSelection: CompType = {
+  activeText: {
+    color: c.text01,
+    border: "none",
+  },
+  content: {
+    ...content,
+    padding: `${s.xs}rem 0 0 0`,
+    border: "unset",
+    fontWeight: "400",
+  },
+  header: {
+    styles: header,
+    text: headerText,
+  },
+  list: {
+    backgroundColor: c.buttonPrimary,
+    textShadow: redOrangeShadow,
+  },
+  text: {
+    styles: {
+      ...f,
+      backgroundColor: "transparent",
+      borderRadius: `${s.xs}rem`,
+      fontSize: "1.25rem", // 20px
+      padding: `0 ${s.xs}rem 0 0`,
+      "&:hover": {
+        borderRadius: `${s.xs}rem`,
+      },
+    },
+    sx: {
+      ...f,
+      borderRadius: borderRadiusSm,
+      color: c.text02,
+      fontSize: "1.25rem", // 20px
+      padding: `${s.xs * 0.5}rem`,
+      textAlign: "center",
+      width: "100%",
+      "&:hover": {
+        backgroundColor: c.buttonPrimary,
+        color: `${c.text01} !important`,
+        textShadow: redOrangeShadow,
+      },
+    },
+  },
+};
+
+const richTextPost: RichTextType = {
+  content: {
+    ...content,
+    ...f2,
+    backgroundColor: c.mainBg00,
+    border: `1px solid ${c.contentBorder}`,
+    fontSize: "1.25rem", // 20px
+    fontWeight: "400",
+    textShadow: "none",
+    borderRadius: `${s.xs}rem`,
+    margin: "unset",
+  },
+  header: {
+    styles: header,
+    text: headerText,
+  },
 };
 
 export const about = {
   ID: 0,
-  themeID: "SOULPAD",
   buttonPrimary: {
     borderRadius: `${s.xs}rem`,
     color: c.text00,
@@ -62,15 +157,8 @@ export const about = {
       color: c.text01,
     },
   },
-  card: {
-    ...f2,
-    borderRadius: borderRadiusSm,
-    padding: `${s.xs}rem`,
-    display: "block",
-    backgroundColor: c.mainBg00,
-    border: "unset",
-    textShadow: "",
-  },
+  card,
+  customCard,
   content: {
     ...content,
     ...f2,
@@ -96,88 +184,11 @@ export const about = {
   mediaPlayer: {
     header,
   },
-  menuSelection: {
-    activeText: {
-      color: c.text01,
-      border: "none",
-    },
-    header: {
-      styles: {
-        ...header,
-      },
-
-      text: headerText,
-    },
-    content: {
-      ...content,
-      padding: `${s.xs}rem 0 0 0`,
-      border: "unset",
-      fontWeight: "400",
-    },
-    list: {
-      backgroundColor: c.buttonPrimary,
-      textShadow: redOrangeShadow,
-    },
-    text: {
-      styles: {
-        ...f,
-        fontSize: "1.25rem", // 20px
-        backgroundColor: "transparent",
-        borderRadius: `${s.xs}rem`,
-        padding: `0 ${s.xs}rem 0 0`,
-        "&:hover": {
-          borderRadius: `${s.xs}rem`,
-        },
-      },
-      sx: {
-        ...f,
-        borderRadius: borderRadiusSm,
-        padding: `${s.xs * 0.5}rem`,
-        fontSize: "1.25rem", // 20px
-        color: c.text02,
-        width: "100%",
-        textAlign: "center",
-        "&:hover": {
-          backgroundColor: c.buttonPrimary,
-          color: `${c.text01} !important`,
-          textShadow: redOrangeShadow,
-        },
-      },
-    },
-  },
+  menuSelection,
+  paper,
   poll: {},
-  paper: defaultPaper,
   progressBar: {},
-  richTextPost: {
-    card: {
-      styles: {
-        ...content,
-        display: "block",
-        backgroundColor: c.mainBg00,
-        border: "unset",
-      },
-      text: {
-        ...f,
-        textShadow: "",
-      },
-    },
-    content: {
-      ...content,
-      ...f2,
-      backgroundColor: c.mainBg00,
-      border: `1px solid ${c.contentBorder}`,
-      fontWeight: "400",
-      fontSize: "1.25rem", // 20px
-      textShadow: "none",
-      borderRadius: `${s.xs}rem`,
-      margin: "unset",
-    },
-    header: {
-      styles: {
-        ...header,
-      },
-      text: headerText,
-    },
-  },
+  richTextPost,
+  themeID: "SOULPAD",
   wordSticker: {},
 };

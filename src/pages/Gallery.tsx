@@ -59,7 +59,6 @@ const Gallery: React.FC = () => {
     color: "#000000",
   };
 
-
   const menuItems = [
     //make the about theme the SoulPad theme
     {
@@ -132,6 +131,7 @@ const Gallery: React.FC = () => {
                   }
             }
           >
+            {/********** RICH TEXT POST **************/}
             <RichTextPost
               size="small"
               title="This is my first post!"
@@ -149,32 +149,27 @@ const Gallery: React.FC = () => {
                 component. Lorem ipsum dolor sit amet, consectetur
               </span>
             </RichTextPost>
-            {/* <CustomCard
-              card={theme.card}
-              paper={theme.paper}
+            <CustomCard
               size="large"
               title="This is a cool card"
-              titleFont={theme.card.text}
+              themeType={themeType}
             >
               {Array.from({ length: 3 }).map((_, index) => (
                 <CustomButton
                   key={index}
-                  btnStyles={theme.buttonStyles}
                   label="Click Me!"
                   onClick={() => console.log("Button Clicked")}
                 />
               ))}
             </CustomCard>
             <CustomProgress
-              card={theme.card}
+              themeType={themeType}
               circular={true}
-              paper={theme.paper}
               progressValues={[{ item: 50, item2: 50 }]}
               size="small"
               title="My goal progress !"
-              titleFont={theme.card.text}
             />
-            <CustomMediaPlayer
+            {/* <CustomMediaPlayer
               cardStyles={theme.card}
               contentStyles={theme.content}
               headerStyles={theme.mediaPlayer.header}
@@ -184,8 +179,8 @@ const Gallery: React.FC = () => {
               textLocation="top"
               title="This is a cat video"
               videoUrl="https://www.w3schools.com/html/m"
-            />
-
+            /> */}
+            {/*
             <CustomList
               card={theme.list}
               items={[{ item1: "Item 1", item2: "Item 2", item3: "Item 3" }]}
@@ -193,8 +188,7 @@ const Gallery: React.FC = () => {
               size="large"
               title="Check out my list"
               titleFont={theme.card.text}
-            />
-            */}
+            /> */}
           </Grid>
         </Grid>
       </BaseLayout>

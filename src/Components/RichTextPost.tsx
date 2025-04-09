@@ -8,8 +8,14 @@ import styled from "styled-components";
 import useMediaQuery from "@mui/material/useMediaQuery";
 import Typography from "@mui/material/Typography";
 import { about } from "../styles/about/comps";
-import { diary } from "../styles/diary00/comps";
-import { retro } from "../styles/retro00/comps";
+import { useTheme } from "../hooks/useTheme";
+import {
+  RichTextType,
+  PaperType,
+  CompType,
+  IconsType,
+  CardType,
+} from "./types";
 
 // in the future
 // addDate?: boolean;
@@ -37,51 +43,55 @@ const RichTextPost: React.FC<RichTextPostProps> = ({
   children,
   size,
 }) => {
-  const menuThemeSelection = {
-    card: about.richTextPost.card,
-    content: about.richTextPost.content,
-    header: about.richTextPost.header,
-    icons: about.icons,
-    paper: about.paper,
-    themeID: about.themeID,
+  const [compTheme, setCompTheme] = useState<RichTextType | CompType>(
+    about.richTextPost
+  );
+  const [card, setCardTheme] = useState<CardType>(about.card);
+  const [paper, setPaperTheme] = useState<PaperType>(about.paper);
+  const [icons, setIconsTheme] = useState<IconsType>(about.icons);
+
+  const setDefault = () => {
+    setCompTheme(about.richTextPost);
+    setCardTheme(about.card);
+    setPaperTheme(about.paper);
+    setIconsTheme(about.icons);
   };
 
-  const [theme, setTheme] = useState(menuThemeSelection);
+  const getAndSetComp = (theme: string) => {
+    const themeInfoStyles = useTheme("menuSelection", theme);
 
-  const createSelectedTheme = (theme: any) => {
-    const selectedTheme = {
-      themeID: theme.themeID,
-      card: theme.richTextPost.card,
-      content: theme.richTextPost.content,
-      header: theme.richTextPost.header,
-      paper: theme.paper,
-      icons: theme.icons,
-    };
-    setTheme(selectedTheme);
+    if (themeInfoStyles) {
+      const paperStyles = themeInfoStyles.paper;
+      const cardStyles = themeInfoStyles.card;
+      const compStyles = themeInfoStyles.comp;
+      const iconsStyles = themeInfoStyles.icons;
+
+      setCardTheme(cardStyles);
+      setCompTheme(compStyles);
+      setPaperTheme(paperStyles);
+      setIconsTheme(iconsStyles);
+      return;
+    }
+    setDefault();
   };
 
   useEffect(() => {
     switch (themeType) {
-      case "DIARY":
-        createSelectedTheme(diary);
-        break;
       case "SOULPAD":
-        createSelectedTheme(about);
+        getAndSetComp("SOULPAD");
+        break;
+      case "DIARY":
+        getAndSetComp("DIARY");
         break;
       case "RETRO":
-        console.log("retro");
-        createSelectedTheme(retro);
-        break;
-      case "VIDEOGAME":
-        console.log("video game");
-        //createSelectedTheme(scrapbookComps);
+        getAndSetComp("RETRO");
         break;
       default:
-        console.log("Default");
+        break;
     }
-  }, [themeType]);
+  }, [themeType, compTheme, paper]);
 
-  const { content, card, header, paper, icons } = theme;
+  const { content, header } = compTheme;
 
   const isMobile = useMediaQuery("(max-width:600px)");
   const postSize = size === "small" ? "600px" : "900px";
@@ -107,7 +117,7 @@ const RichTextPost: React.FC<RichTextPostProps> = ({
 
   return (
     <Paper className="rich-text-post-paper" elevation={2} sx={allPaperStyles}>
-      <Box className="rich-text-post-card" sx={card.styles}>
+      <Box className="rich-text-post-card" sx={card}>
         <Box className="rich-text-post-header" sx={HeaderStyles}>
           <Typography variant="h2" sx={header.text}>
             {title}
