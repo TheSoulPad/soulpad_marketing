@@ -1,5 +1,3 @@
-import { dark } from "@mui/material/styles/createPalette";
-
 const keyColors = {
   salmon: "#eeb9b3",
   beige: "#f9ecdc",
