@@ -17,9 +17,11 @@ const keyColors = {
   //background gradient from light orange to orange
   lightOrange: "#f99d47",
   orange: "#ec6737",
+  black: "#000000",
+  white: "#ffffff",
 };
 
-export const {
+const {
   darkGray,
   lightGray,
   lightGreen,
@@ -30,21 +32,26 @@ export const {
   lightBlue,
   blue,
   darkBlue,
+  lightOrange,
+  orange,
+  black,
+  white,
 } = keyColors;
 
-//use lighter opacity for borders
+//use light opacity for the comp borders
 export const colors = {
-  button: "",
-  buttonHover: "",
-  buttonText: "",
-  contentBg: "",
+  black,
+  white,
+  buttonPrimary: `linear-gradient(to bottom, ${lightGreen} ${green})`,
+  buttonCancel: `linear-gradient(to bottom, ${lightPurple} ${purple})`,
+  buttonHover: white,
   contentBorder: lightGray,
-  headerBg00: "",
+  headerBg: `linear-gradient(to bottom, ${lightBlue} ${skyBlue})`,
   icon: skyBlue,
+  iconBg: `linear-gradient(to bottom, ${blue} ${darkBlue})`,
   mainBg00: darkGray,
   mainBg01: lightGray,
-  mainBg02: "",
-  shine: "",
-  text01: "",
-  text03: "",
+  mainBg02: `linear-gradient(to bottom, ${lightOrange} ${orange})`,
+  text00: black,
+  text01: white,
 };

@@ -10,15 +10,8 @@ const keyColors = {
   redOrange: "#c53c27",
 };
 
-export const {
-  orange,
-  beige,
-  brown,
-  darkBrown,
-  yellow,
-  lightGreen,
-  redOrange,
-} = keyColors;
+const { orange, beige, brown, darkBrown, yellow, lightGreen, redOrange } =
+  keyColors;
 
 export const colors = {
   buttonPrimary: orange,
