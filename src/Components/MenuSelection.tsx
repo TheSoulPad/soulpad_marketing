@@ -66,6 +66,9 @@ const MenuSelection: React.FC<MenuSelectionProps> = ({
       case "RETRO":
         getAndSetComp("RETRO");
         break;
+      case "VIDEOGAME":
+        getAndSetComp("VIDEOGAME");
+        break;
       default:
         break;
     }

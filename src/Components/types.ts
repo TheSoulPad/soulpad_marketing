@@ -25,6 +25,7 @@ export interface CompType {
       color?: string;
       fontFamily: string;
       fontSize: string;
+      fontWeight?: number;
       padding: string;
       textAlign: string;
       textShadow?: string;
@@ -40,7 +41,7 @@ export interface CompType {
       color: string;
       fontFamily: string;
       fontSize: string;
-      fontWeight?: string;
+      fontWeight?: number;
       padding?: string;
       textAlign: string;
       width: string;
@@ -67,9 +68,9 @@ export interface RichTextType {
 }
 
 export interface IconsType {
+  iconClose: {};
   primary: {};
   secondary: {};
-  iconClose: {};
 }
 
 export interface CardType {

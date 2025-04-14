@@ -40,4 +40,6 @@ export const colors = {
   text00: darkBrown,
   text01: beige,
   text02: "",
+  redOrange,
+  darkBrown,
 };

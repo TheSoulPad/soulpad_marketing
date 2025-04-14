@@ -76,6 +76,9 @@ const CustomCard: React.FC<CardProps> = ({
       case "RETRO":
         getAndSetComp("RETRO");
         break;
+      case "VIDEOGAME":
+        getAndSetComp("VIDEOGAME");
+        break;
       default:
         break;
     }

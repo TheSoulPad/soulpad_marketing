@@ -8,6 +8,7 @@ import {
   CompType,
   RichTextType,
 } from "../../Components/types";
+import { backdropClasses } from "@mui/material";
 
 const blackShadow = `1px 1px 1px ${c.black}`;
 const whiteShadow = `1px 1px 1px ${c.white}`;
@@ -21,8 +22,8 @@ const threeDBtnPrimaryShadow = {
   boxShadow: `0px 4px 6px -1px ${c.buttonPrimary}, 0px 10px 15px -3px ${c.buttonPrimary}`,
 };
 
-const threeDBtnCancelShadow = {
-  boxShadow: `0px 4px 6px -1px ${c.buttonCancel}, 0px 10px 15px -3px ${c.buttonCancel}`,
+const threeDBtnSecShadow = {
+  boxShadow: `0px 4px 6px -1px ${c.buttonSecondary}, 0px 10px 15px -3px ${c.buttonSecondary}`,
 };
 
 const threeDOrangeShadow = {
@@ -41,11 +42,12 @@ const content = {
 const trapezoidBorder = {
   width: "200px",
   height: "0",
-  borderTop: "50px solid transparent",
-  borderBottom: "50px solid transparent",
-  borderLeft: "100px solid transparent",
-  borderRight: "100px solid transparent",
+  borderTop: `50px solid ${c.skyBlue}`,
+  borderBottom: `50px solid ${c.skyBlue}`,
+  borderLeft: `100px solid ${c.skyBlue}`,
+  borderRight: `100px solid ${c.skyBlue}`,
   position: "relative",
+  margin: "0 auto",
   "&:after": {
     content: '""',
     position: "absolute",
@@ -53,14 +55,15 @@ const trapezoidBorder = {
     left: "-100px",
     width: "200px",
     height: "100px",
-    backgroundColor: c.mainBg00,
+    backgroundColor: c.headerBg,
     clipPath: "polygon(0 0, 100% 0, 75% 100%, 25% 100%)",
   },
 };
 
 const header = {
-  ...f,
   ...trapezoidBorder,
+  // background: c.headerBg,
+  background: c.headerBg,
   borderRadius,
   display: "flex",
   justifyContent: "center",
@@ -79,10 +82,7 @@ const card: CardType = {
   display: "block",
 };
 
-///////// BOOKMARK - NOT COMPLETED //////////
-
 const paper: PaperType = {
-  ...f,
   borderRadius,
   boxShadow: "",
   backgroundColor: "",
@@ -94,7 +94,7 @@ const paper: PaperType = {
 const customCard: RichTextType = {
   content: {
     ...content,
-    backgroundColor: c.mainBg00,
+    backgroundColor: c.mainBg02,
     border: `1px solid ${c.contentBorder}`,
     fontWeight: "400",
     color: c.text01,
@@ -110,7 +110,7 @@ const customCard: RichTextType = {
 
 const menuSelection: CompType = {
   activeText: {
-    color: c.text01,
+    color: c.text00,
   },
   content: {
     ...content,
@@ -120,51 +120,47 @@ const menuSelection: CompType = {
     fontWeight: "400",
   },
   header: {
-    styles: {
-      ...header,
-      backgroundColor: "transparent",
-      padding: 0,
-    },
+    styles: header,
 
     text: {
       ...f,
-      textShadow: blackShadow,
+      textShadow: whiteShadow,
       margin: 0,
     },
   },
   list: {
-    backgroundColor: "",
-    textShadow: "",
+    backgroundColor: c.headerBg,
+    textShadow: whiteShadow,
   },
-  // text: {
-  //   styles: {
-  //     ...f,
-  //     textAlign: "center",
-  //     color: "",
-  //     fontSize: "1.25rem", // 20px
-  //     textShadow: "",
-  //     backgroundColor: c.mainBg00,
-  //     borderRadius,
-  //     padding: `0 ${s.xs}rem 0 0`,
-  //     "&:hover": {
-  //       borderRadius,
-  //     },
-  //   },
-  //   sx: {
-  //     ...f,
-  //     borderRadius,
-  //     fontSize: "1.25rem", // 20px
-  //     color: "",
-  //     width: "100%",
-  //     textAlign: "center !important",
-  //     "&:hover": {
-  //       borderRadius,
-  //       backgroundColor: "",
-  //       color: `${c.text01} !important`,
-  //       textShadow: "",
-  //     },
-  //   },
-  // },
+  text: {
+    styles: {
+      ...f,
+      textAlign: "center",
+      color: "",
+      fontSize: "1.25rem", // 20px
+      textShadow: "",
+      backgroundColor: c.mainBg00,
+      borderRadius,
+      padding: `0 ${s.xs}rem 0 0`,
+      "&:hover": {
+        borderRadius,
+      },
+    },
+    sx: {
+      ...f,
+      borderRadius,
+      fontSize: "1.25rem", // 20px
+      color: "",
+      width: "100%",
+      textAlign: "center !important",
+      "&:hover": {
+        borderRadius,
+        backgroundColor: "",
+        color: `${c.text01} !important`,
+        textShadow: "",
+      },
+    },
+  },
 };
 
 const richTextPost: RichTextType = {
@@ -183,19 +179,37 @@ const richTextPost: RichTextType = {
   },
 };
 
+const buttonPrimary = {
+  ...threeDBtnPrimaryShadow,
+  backgroundColor: c.buttonPrimary,
+  border: `1px solid ${c.buttonPrimaryBorder}`,
+  color: c.text01,
+  borderRadius,
+  "&:hover": {
+    backgroundColor: c.buttonHover,
+    color: c.green,
+  },
+};
+
+const buttonSecondary = {
+  ...threeDBtnSecShadow,
+  borderRadius,
+  color: c.text01,
+  backgroundColor: c.buttonSecondary,
+  border: `1px solid ${c.buttonSecondaryBorder}`,
+  "&:hover": {
+    backgroundColor: c.buttonHover,
+    color: c.purple,
+  },
+};
+
+///////// BOOKMARK - NOT COMPLETED //////////
+
 export const videoGame = {
   ID: 3,
   themeID: "VIDEOGAME",
-  button: {
-    borderRadius,
-    color: c.text01,
-    backgroundColor: c.buttonPrimary,
-    border: `1px solid ""`,
-    "&:hover": {
-      backgroundColor: c.buttonHover,
-      color: c.text01,
-    },
-  },
+  buttonPrimary,
+  buttonSecondary,
   card,
   customCard,
   content: {
