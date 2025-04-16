@@ -1,6 +1,7 @@
 import { about } from "../styles/about/comps";
 import { diary } from "../styles/diary00/comps";
 import { retro } from "../styles/retro00/comps";
+import { videoGame } from "../styles/videogame/comps";
 import {
   CardType,
   CompType,
@@ -67,8 +68,14 @@ export const useTheme = (
       };
       return retroInfoStyles;
     case "VIDEOGAME":
-      console.log("set theme video game");
-      return;
+      const vgInfoStyles = {
+        card: videoGame.card,
+        paper: videoGame.paper,
+        comp: videoGame[compType],
+        themeID: videoGame.themeID,
+        icons: videoGame.icons,
+      };
+      return vgInfoStyles;
     default:
       return themeInfoStyles;
   }

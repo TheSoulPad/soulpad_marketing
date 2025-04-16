@@ -5,7 +5,7 @@ export interface TextStyle {
   textAlign: string;
   fontSize: string;
   "&:hover": {
-    backgroundColor: string;
+    backgroundColor?: string;
     color: string;
   };
   sx: {
@@ -26,7 +26,7 @@ export interface CardStyle {
   fontFamily: string;
   textShadow: string;
   color: string;
-  backgroundColor: string;
+  backgroundColor?: string;
 }
 
 export interface HeaderStyle {

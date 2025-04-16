@@ -84,6 +84,10 @@ const config: GatsbyConfig = {
             name: "Gaegu",
             file: "https://fonts.googleapis.com/css2?family=Gaegu&family=Quicksand:wght@300..700&display=swap",
           },
+          {
+            name: "Turret Road",
+            file: "https://fonts.googleapis.com/css2?family=Turret+Road:wght@200;300;400;500;700;800&display=swap",
+          },
         ],
       },
     },

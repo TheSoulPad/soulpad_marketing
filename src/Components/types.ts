@@ -5,6 +5,10 @@ export interface CompType {
     color?: string;
     textShadow?: string;
     border?: string;
+    borderRadius?: string;
+    backgroundColor?: string;
+    background?: string;
+    fontFamily?: string;
   };
 
   content: {};
@@ -14,8 +18,10 @@ export interface CompType {
   };
 
   list?: {
-    backgroundColor: string;
+    backgroundColor?: string;
+    background?: string;
     textShadow: string;
+    borderRadius?: string;
   };
 
   text?: {
@@ -25,6 +31,7 @@ export interface CompType {
       color?: string;
       fontFamily: string;
       fontSize: string;
+      fontWeight?: number;
       padding: string;
       textAlign: string;
       textShadow?: string;
@@ -36,11 +43,12 @@ export interface CompType {
     };
     sx: {
       backgroundColor?: string;
+      background?: string;
       borderRadius: string;
       color: string;
       fontFamily: string;
       fontSize: string;
-      fontWeight?: string;
+      fontWeight?: number;
       padding?: string;
       textAlign: string;
       width: string;
@@ -50,6 +58,7 @@ export interface CompType {
       "&:hover": {
         border?: string;
         backgroundColor?: string;
+        background?: string;
         borderRadius?: string;
         color?: string;
         textShadow: string;
@@ -67,9 +76,9 @@ export interface RichTextType {
 }
 
 export interface IconsType {
+  iconClose: {};
   primary: {};
   secondary: {};
-  iconClose: {};
 }
 
 export interface CardType {
@@ -77,6 +86,7 @@ export interface CardType {
   padding: string;
   display: string;
   backgroundColor: string;
+  background?: string;
   border?: string;
   textShadow?: string;
   fontfamily?: string;
@@ -85,6 +95,7 @@ export interface CardType {
   borderLeft?: string;
   borderRight?: string;
   borderBottom?: string;
+  position?: string;
 }
 
 export interface PaperType {
@@ -98,6 +109,8 @@ export interface PaperType {
   borderLeft?: string;
   borderRight?: string;
   borderBottom?: string;
+  marginBottom?: string;
+  marginTop?: string;
 }
 
 export interface MenuType {

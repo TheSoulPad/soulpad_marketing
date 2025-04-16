@@ -1,5 +1,3 @@
-import { dark } from "@mui/material/styles/createPalette";
-
 const keyColors = {
   salmon: "#eeb9b3",
   beige: "#f9ecdc",
@@ -10,15 +8,8 @@ const keyColors = {
   darkPurple: "#292593",
 };
 
-export const {
-  salmon,
-  beige,
-  lightPurple,
-  purple,
-  softWhite,
-  babyBlue,
-  darkPurple,
-} = keyColors;
+const { salmon, beige, lightPurple, purple, softWhite, babyBlue, darkPurple } =
+  keyColors;
 
 export const colors = {
   button: salmon,

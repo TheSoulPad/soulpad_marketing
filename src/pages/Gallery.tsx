@@ -30,11 +30,8 @@ const Gallery: React.FC = () => {
       case "RETRO":
         setThemeType("RETRO");
         break;
-      case "VIDEO_GAME":
-        setThemeType("VIDEO_GAME");
-        break;
-      case "SCRAPBOOK":
-        setThemeType("SCRAPBOOK");
+      case "VIDEOGAME":
+        setThemeType("VIDEOGAME");
         break;
       default:
         console.log("Default");
@@ -56,7 +53,7 @@ const Gallery: React.FC = () => {
     backgroundImage: `linear-gradient(to right, grey 1px, transparent 1px),
   linear-gradient(to bottom, grey 1px, transparent 1px)`,
     backgroundSize: "40px 40px",
-    color: "#000000",
+    color: "#ffffff",
   };
 
   const menuItems = [
@@ -76,7 +73,7 @@ const Gallery: React.FC = () => {
 
     {
       galleryName: "Video game",
-      themeType: "VIDEO_GAME",
+      themeType: "VIDEOGAME",
     },
   ];
 

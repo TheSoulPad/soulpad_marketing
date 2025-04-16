@@ -86,6 +86,9 @@ const RichTextPost: React.FC<RichTextPostProps> = ({
       case "RETRO":
         getAndSetComp("RETRO");
         break;
+      case "VIDEOGAME":
+        getAndSetComp("VIDEOGAME");
+        break;
       default:
         break;
     }

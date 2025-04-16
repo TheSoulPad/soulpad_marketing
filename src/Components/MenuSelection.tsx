@@ -66,12 +66,17 @@ const MenuSelection: React.FC<MenuSelectionProps> = ({
       case "RETRO":
         getAndSetComp("RETRO");
         break;
+      case "VIDEOGAME":
+        getAndSetComp("VIDEOGAME");
+        break;
       default:
         break;
     }
   }, [themeType, compTheme, card, paper]);
 
   const { list, header, text, content } = compTheme;
+  //fix how you tag the active state styles
+  //make the list styles describe only the DEFAULT list styles
   const activeText = compTheme.activeText;
   const activeColor = list ? list.backgroundColor : "";
   const activeColorShadow = list?.textShadow;
@@ -92,6 +97,7 @@ const MenuSelection: React.FC<MenuSelectionProps> = ({
   const activeStyles = {
     ...textStyles,
     color: activeText?.color || "inherit",
+    background: `${activeText?.background}`,
   };
 
   const activeFont = {
