@@ -8,18 +8,31 @@ import {
   CompType,
   RichTextType,
 } from "../../Components/types";
-import { PostAddOutlined } from "@mui/icons-material";
+import { Margin, PostAddOutlined } from "@mui/icons-material";
+import { matchesGlob } from "path";
+import zIndex from "@mui/material/styles/zIndex";
 
 const blackShadow = `-1px 2px 0px ${c.black}`;
 const whiteShadow = `-1px 2px 0px ${c.white}`;
 const borderRadius = `${s.sm}rem`;
+const buttonStyles = {
+  padding: "15px 30px",
+  border: "none",
+  borderRadius: "12px",
+  cursor: "pointer",
+  transition: "all 0.2s ease",
+};
 
 const threeDContentShadow = {
   boxShadow: `0px 4px 6px -1px ${c.mainBg00}, 0px 10px 1px -4px ${c.mainBg00}`,
 };
 
 const threeDBtnPrimaryShadow = {
-  boxShadow: `0px 4px 6px -1px ${c.green}, 0px 10px 1px -4px ${c.green}`,
+  ...buttonStyles,
+  boxShadow: `
+  0 6px 0 ${c.green},     /* base shadow */
+  0 6px 10px rgba(0, 0, 0, 0.2) /* soft ambient shadow */
+`,
 };
 
 const threeDBtnSecShadow = {
@@ -36,22 +49,17 @@ const content = {
   backgroundColor: c.mainBg00,
   border: `3px solid ${c.contentBorder}`,
   borderRadius,
-  padding: `${s.sm}rem`,
+  padding: `${s.sm}rem ${s.xs}rem`,
 };
 
 const header = {
-  // background: c.headerBg,
   background: c.headerBg,
-  borderRadius: `${s.xs * 0.5}rem`,
-  display: "flex",
-  justifyContent: "center",
-  padding: `${s.xs}rem`,
-  textAlign: "left",
-  margin: "auto",
-  width: "50%",
-  position: "absolute",
-  top: "-30px",
-  left: "188px",
+  borderTopLeftRadius: "10px",
+  borderTopRightRadius: "10px",
+  borderBottomLeftRadius: "40px",
+  borderBottomRightRadius: "40px",
+  boxShadow: "inset 0 -10px 0 #a2d3e4",
+  margin: "0 auto",
   zIndex: 100,
 };
 
@@ -74,6 +82,7 @@ const paper: PaperType = {
   border: `unset`,
   display: "block",
   padding: "unset",
+  marginBottom: `${s.xl}rem`,
 };
 
 const buttonPrimary = {
@@ -127,7 +136,6 @@ const menuSelection: CompType = {
   content: {
     ...content,
     backgroundColor: c.mainBg00,
-    padding: `${s.md}rem`,
     border: `unset`,
     fontWeight: "400",
     position: "relative",
@@ -142,11 +150,12 @@ const menuSelection: CompType = {
     },
   },
   list: {
+    ...threeDBtnPrimaryShadow,
     textShadow: blackShadow,
     borderRadius: `${s.xs}rem`,
   },
   text: {
-    //regular text styles 
+    //regular text styles
     styles: {
       ...f,
       textAlign: "center",
@@ -187,7 +196,10 @@ const richTextPost: RichTextType = {
     position: "relative",
   },
   header: {
-    styles: header,
+    styles: {
+      ...header,
+      left: "55px",
+    },
     text: {
       ...f,
       textShadow: blackShadow,

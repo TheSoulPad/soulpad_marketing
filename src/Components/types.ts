@@ -109,6 +109,8 @@ export interface PaperType {
   borderLeft?: string;
   borderRight?: string;
   borderBottom?: string;
+  marginBottom?: string;
+  marginTop?: string;
 }
 
 export interface MenuType {

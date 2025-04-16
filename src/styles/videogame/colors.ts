@@ -9,8 +9,8 @@ const keyColors = {
   lightPurple: "#af43ee",
   purple: "#602fa3",
   //header gradient from skyblue to lightBlue
-  skyBlue: "#cff6ea",
-  lightBlue: "#a7dbe3",
+  skyBlue: "#d9f7fc",
+  lightBlue: "#b3e5f2",
   //icon background gradient from blue to dark blue
   blue: "#3b9be6",
   darkBlue: "#2e65cc",
@@ -48,7 +48,7 @@ export const colors = {
   buttonSecondaryBorder: lightPurple,
   buttonHover: white,
   contentBorder: lightGray,
-  headerBg: `linear-gradient(${skyBlue}, ${blue})`,
+  headerBg: `linear-gradient(to bottom, ${skyBlue} 60%, ${blue})`,
   icon: skyBlue,
   iconBg: `linear-gradient(${blue}, ${darkBlue})`,
   mainBg00: darkGray,

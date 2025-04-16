@@ -36,9 +36,9 @@ const BaseLayout: React.FC<LayoutProps> = ({ children, title, pageStyles }) => {
   };
 
   const h1Styles: CSSProperties = {
-    margin: 0,
-    padding: `${isMobile ? 0 : spacing.xs}rem`,
+    padding: `${isMobile ? 0 : spacing.sm}rem`,
     color,
+    margin: `${spacing.md}rem`,
   };
 
   return (
@@ -51,7 +51,7 @@ const BaseLayout: React.FC<LayoutProps> = ({ children, title, pageStyles }) => {
         style={baseStyles}
       >
         <Grid>
-          <Typography className="page-title" variant="h1" style={h1Styles}>
+          <Typography className="page-title" variant="h1" sx={h1Styles}>
             {title}
           </Typography>
         </Grid>

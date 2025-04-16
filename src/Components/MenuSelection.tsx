@@ -75,6 +75,8 @@ const MenuSelection: React.FC<MenuSelectionProps> = ({
   }, [themeType, compTheme, card, paper]);
 
   const { list, header, text, content } = compTheme;
+  //fix how you tag the active state styles
+  //make the list styles describe only the DEFAULT list styles
   const activeText = compTheme.activeText;
   const activeColor = list ? list.backgroundColor : "";
   const activeColorShadow = list?.textShadow;

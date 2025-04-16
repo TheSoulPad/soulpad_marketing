@@ -12,6 +12,7 @@ const headline1Font: CSSProperties = {
   fontFamily: "Spicy Rice, serif",
   fontWeight: "400",
   textAlign: "center",
+  fontSize: "5rem", // 40px
 };
 const headline2Font: CSSProperties = {
   margin: "auto",
