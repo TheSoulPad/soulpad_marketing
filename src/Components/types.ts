@@ -5,6 +5,10 @@ export interface CompType {
     color?: string;
     textShadow?: string;
     border?: string;
+    borderRadius?: string;
+    backgroundColor?: string;
+    background?: string;
+    fontFamily?: string;
   };
 
   content: {};
@@ -14,8 +18,10 @@ export interface CompType {
   };
 
   list?: {
-    backgroundColor: string;
+    backgroundColor?: string;
+    background?: string;
     textShadow: string;
+    borderRadius?: string;
   };
 
   text?: {
@@ -37,6 +43,7 @@ export interface CompType {
     };
     sx: {
       backgroundColor?: string;
+      background?: string;
       borderRadius: string;
       color: string;
       fontFamily: string;
@@ -51,6 +58,7 @@ export interface CompType {
       "&:hover": {
         border?: string;
         backgroundColor?: string;
+        background?: string;
         borderRadius?: string;
         color?: string;
         textShadow: string;
@@ -78,6 +86,7 @@ export interface CardType {
   padding: string;
   display: string;
   backgroundColor: string;
+  background?: string;
   border?: string;
   textShadow?: string;
   fontfamily?: string;
@@ -86,6 +95,7 @@ export interface CardType {
   borderLeft?: string;
   borderRight?: string;
   borderBottom?: string;
+  position?: string;
 }
 
 export interface PaperType {

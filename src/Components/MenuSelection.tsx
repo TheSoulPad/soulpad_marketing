@@ -95,6 +95,7 @@ const MenuSelection: React.FC<MenuSelectionProps> = ({
   const activeStyles = {
     ...textStyles,
     color: activeText?.color || "inherit",
+    background: `${activeText?.background}`,
   };
 
   const activeFont = {

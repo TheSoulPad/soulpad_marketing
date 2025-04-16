@@ -8,67 +8,51 @@ import {
   CompType,
   RichTextType,
 } from "../../Components/types";
-import { backdropClasses } from "@mui/material";
+import { PostAddOutlined } from "@mui/icons-material";
 
-const blackShadow = `1px 1px 1px ${c.black}`;
-const whiteShadow = `1px 1px 1px ${c.white}`;
-const borderRadius = `${s.xs * 0.5}rem`;
+const blackShadow = `-1px 2px 0px ${c.black}`;
+const whiteShadow = `-1px 2px 0px ${c.white}`;
+const borderRadius = `${s.sm}rem`;
 
 const threeDContentShadow = {
-  boxShadow: `0px 4px 6px -1px ${c.mainBg00}, 0px 10px 15px -3px ${c.mainBg00}`,
+  boxShadow: `0px 4px 6px -1px ${c.mainBg00}, 0px 10px 1px -4px ${c.mainBg00}`,
 };
 
 const threeDBtnPrimaryShadow = {
-  boxShadow: `0px 4px 6px -1px ${c.buttonPrimary}, 0px 10px 15px -3px ${c.buttonPrimary}`,
+  boxShadow: `0px 4px 6px -1px ${c.green}, 0px 10px 1px -4px ${c.green}`,
 };
 
 const threeDBtnSecShadow = {
-  boxShadow: `0px 4px 6px -1px ${c.buttonSecondary}, 0px 10px 15px -3px ${c.buttonSecondary}`,
+  boxShadow: `0px 4px 6px -1px ${c.purple}, 0px 10px 1px -4px ${c.purple}`,
 };
 
 const threeDOrangeShadow = {
-  boxShadow: `0px 4px 6px -1px ${c.mainBg02}, 0px 10px 15px -3px ${c.mainBg02}`,
+  boxShadow: `0px 4px 6px -1px ${c.mainBg02}, 0px 10px 1px -4px ${c.mainBg02}`,
 };
 
 const content = {
   ...f2,
+  ...threeDContentShadow,
   backgroundColor: c.mainBg00,
-  border: `1px solid ${c.contentBorder}`,
+  border: `3px solid ${c.contentBorder}`,
   borderRadius,
-  padding: `${s.xs}rem`,
-  textShadow: whiteShadow,
-};
-
-const trapezoidBorder = {
-  width: "200px",
-  height: "0",
-  borderTop: `50px solid ${c.skyBlue}`,
-  borderBottom: `50px solid ${c.skyBlue}`,
-  borderLeft: `100px solid ${c.skyBlue}`,
-  borderRight: `100px solid ${c.skyBlue}`,
-  position: "relative",
-  margin: "0 auto",
-  "&:after": {
-    content: '""',
-    position: "absolute",
-    top: "-50px",
-    left: "-100px",
-    width: "200px",
-    height: "100px",
-    backgroundColor: c.headerBg,
-    clipPath: "polygon(0 0, 100% 0, 75% 100%, 25% 100%)",
-  },
+  padding: `${s.sm}rem`,
 };
 
 const header = {
-  ...trapezoidBorder,
   // background: c.headerBg,
   background: c.headerBg,
-  borderRadius,
+  borderRadius: `${s.xs * 0.5}rem`,
   display: "flex",
   justifyContent: "center",
   padding: `${s.xs}rem`,
   textAlign: "left",
+  margin: "auto",
+  width: "50%",
+  position: "absolute",
+  top: "-30px",
+  left: "188px",
+  zIndex: 100,
 };
 
 const icons = {
@@ -80,15 +64,40 @@ const icons = {
 const card: CardType = {
   ...content,
   display: "block",
+  position: "relative",
 };
 
 const paper: PaperType = {
   borderRadius,
   boxShadow: "",
   backgroundColor: "",
-  border: `1px solid ${c.contentBorder}`,
+  border: `unset`,
   display: "block",
   padding: "unset",
+};
+
+const buttonPrimary = {
+  ...threeDBtnPrimaryShadow,
+  background: c.buttonPrimary,
+  border: `1px solid ${c.buttonPrimaryBorder}`,
+  color: c.text01,
+  borderRadius,
+  "&:hover": {
+    backgroundColor: c.buttonHover,
+    color: c.green,
+  },
+};
+
+const buttonSecondary = {
+  ...threeDBtnSecShadow,
+  borderRadius,
+  color: c.text01,
+  backgroundColor: c.buttonSecondary,
+  border: `1px solid ${c.buttonSecondaryBorder}`,
+  "&:hover": {
+    backgroundColor: c.buttonHover,
+    color: c.purple,
+  },
 };
 
 const customCard: RichTextType = {
@@ -110,14 +119,18 @@ const customCard: RichTextType = {
 
 const menuSelection: CompType = {
   activeText: {
-    color: c.text00,
+    backgroundColor: "unset",
+    background: c.buttonPrimary,
+    color: c.text01,
+    borderRadius: `${s.xs}rem`,
   },
   content: {
     ...content,
     backgroundColor: c.mainBg00,
-    padding: `${s.xs}rem`,
-    border: `1px solid ${c.contentBorder}`,
+    padding: `${s.md}rem`,
+    border: `unset`,
     fontWeight: "400",
+    position: "relative",
   },
   header: {
     styles: header,
@@ -129,35 +142,37 @@ const menuSelection: CompType = {
     },
   },
   list: {
-    backgroundColor: c.headerBg,
-    textShadow: whiteShadow,
+    textShadow: blackShadow,
+    borderRadius: `${s.xs}rem`,
   },
   text: {
+    //regular text styles 
     styles: {
       ...f,
       textAlign: "center",
-      color: "",
+      color: c.text01,
       fontSize: "1.25rem", // 20px
-      textShadow: "",
-      backgroundColor: c.mainBg00,
-      borderRadius,
+      textShadow: "unset",
+      backgroundColor: "unset",
+      borderRadius: `${s.xs}rem`,
       padding: `0 ${s.xs}rem 0 0`,
       "&:hover": {
-        borderRadius,
+        borderRadius: `${s.xs}rem`,
       },
     },
+    //active text styles
     sx: {
       ...f,
-      borderRadius,
+      borderRadius: `${s.xs}rem`,
+      backgroundColor: "unset",
+      background: c.buttonPrimary,
       fontSize: "1.25rem", // 20px
       color: "",
       width: "100%",
       textAlign: "center !important",
       "&:hover": {
-        borderRadius,
-        backgroundColor: "",
         color: `${c.text01} !important`,
-        textShadow: "",
+        textShadow: blackShadow,
       },
     },
   },
@@ -167,8 +182,9 @@ const richTextPost: RichTextType = {
   content: {
     ...content,
     backgroundColor: c.mainBg00,
-    border: `1px solid ${c.contentBorder}`,
+    border: `unset`,
     fontWeight: "400",
+    position: "relative",
   },
   header: {
     styles: header,
@@ -176,30 +192,6 @@ const richTextPost: RichTextType = {
       ...f,
       textShadow: blackShadow,
     },
-  },
-};
-
-const buttonPrimary = {
-  ...threeDBtnPrimaryShadow,
-  backgroundColor: c.buttonPrimary,
-  border: `1px solid ${c.buttonPrimaryBorder}`,
-  color: c.text01,
-  borderRadius,
-  "&:hover": {
-    backgroundColor: c.buttonHover,
-    color: c.green,
-  },
-};
-
-const buttonSecondary = {
-  ...threeDBtnSecShadow,
-  borderRadius,
-  color: c.text01,
-  backgroundColor: c.buttonSecondary,
-  border: `1px solid ${c.buttonSecondaryBorder}`,
-  "&:hover": {
-    backgroundColor: c.buttonHover,
-    color: c.purple,
   },
 };
 

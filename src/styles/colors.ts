@@ -20,7 +20,7 @@ export const aboutColors = {
 };
 
 export const galleryColors = {
-  background1: "#a5e5ff", //rgba(165, 229, 255, 0.7)
+  background1: "rgb(94, 74, 84)", //rgba(165, 229, 255, 0.7)
   background2: "#c3bcff", // #fdd9b5
   paper: "rgb(255, 245, 230)", // light shade for paper
   menu: "#93bdbc",

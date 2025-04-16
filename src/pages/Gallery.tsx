@@ -53,7 +53,7 @@ const Gallery: React.FC = () => {
     backgroundImage: `linear-gradient(to right, grey 1px, transparent 1px),
   linear-gradient(to bottom, grey 1px, transparent 1px)`,
     backgroundSize: "40px 40px",
-    color: "#000000",
+    color: "#ffffff",
   };
 
   const menuItems = [
