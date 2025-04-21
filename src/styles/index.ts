@@ -7,5 +7,4 @@ export * from "./diary";
 // export * from  "./scrapbook";
 // export * from "./videogame";
 
-
 // create a way from export a library of themes

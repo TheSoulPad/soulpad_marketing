@@ -106,7 +106,7 @@ const Gallery: React.FC = () => {
               themeType={themeType}
               onThemeChange={useThemeStyles}
               horizontal={true}
-              title="Theme Selection"
+              title="Select a theme"
               items={menuItems}
             />
           </Grid>

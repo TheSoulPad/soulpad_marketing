@@ -1,7 +1,7 @@
 //component types
 
 export interface CompType {
-  activeText?: {
+  activeStyles?: {
     color?: string;
     textShadow?: string;
     border?: string;
@@ -17,52 +17,43 @@ export interface CompType {
     text: {};
   };
 
-  list?: {
-    backgroundColor?: string;
-    background?: string;
-    textShadow: string;
-    borderRadius?: string;
-  };
-
   text?: {
-    styles: {
+    list: {
       backgroundColor: string;
       borderRadius?: string;
       color?: string;
       fontFamily: string;
       fontSize: string;
-      fontWeight?: number;
+      fontWeight?: string;
       padding: string;
       textAlign: string;
       textShadow?: string;
       margin?: number | string;
       justifyContent?: string;
+      width: string;
       "&:hover"?: {
-        borderRadius: string;
+        border?: string;
+        background?: string;
+        backgroundColor?: string;
+        color?: string;
+        textShadow: string;
       };
     };
-    sx: {
+    active: {
       backgroundColor?: string;
       background?: string;
-      borderRadius: string;
+      borderRadius?: string;
+      border?: string;
       color: string;
       fontFamily: string;
       fontSize: string;
-      fontWeight?: number;
+      fontWeight?: string;
       padding?: string;
       textAlign: string;
       width: string;
       textShadow?: string;
       margin?: string | number;
       justifyContent?: string;
-      "&:hover": {
-        border?: string;
-        backgroundColor?: string;
-        background?: string;
-        borderRadius?: string;
-        color?: string;
-        textShadow: string;
-      };
     };
   };
 }
