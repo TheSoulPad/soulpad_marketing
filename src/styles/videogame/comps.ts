@@ -8,17 +8,14 @@ import {
   CompType,
   RichTextType,
 } from "../../Components/types";
-import { Margin, PostAddOutlined } from "@mui/icons-material";
-import { matchesGlob } from "path";
-import zIndex from "@mui/material/styles/zIndex";
 
 const blackShadow = `-1px 2px 0px ${c.black}`;
 const whiteShadow = `-1px 2px 0px ${c.white}`;
 const borderRadius = `${s.sm}rem`;
 const buttonStyles = {
-  padding: "15px 30px",
+  padding: `${s.xs * 0.5}rem`,
   border: "none",
-  borderRadius: "12px",
+  borderRadius: `${s.xs * 0.5}rem`,
   cursor: "pointer",
   transition: "all 0.2s ease",
 };
@@ -29,10 +26,7 @@ const threeDContentShadow = {
 
 const threeDBtnPrimaryShadow = {
   ...buttonStyles,
-  boxShadow: `
-  0 6px 0 ${c.green},     /* base shadow */
-  0 6px 10px rgba(0, 0, 0, 0.2) /* soft ambient shadow */
-`,
+  boxShadow: `0 6px 0 ${c.lightGreen}, 0 6px 10px rgba(0, 0, 0, 0.2)`,
 };
 
 const threeDBtnSecShadow = {
@@ -49,7 +43,7 @@ const content = {
   backgroundColor: c.mainBg00,
   border: `3px solid ${c.contentBorder}`,
   borderRadius,
-  padding: `${s.sm}rem ${s.xs}rem`,
+  padding: `${s.xs}rem`,
 };
 
 const header = {
@@ -82,7 +76,6 @@ const paper: PaperType = {
   border: `unset`,
   display: "block",
   padding: "unset",
-  marginBottom: `${s.xl}rem`,
 };
 
 const buttonPrimary = {
@@ -90,11 +83,6 @@ const buttonPrimary = {
   background: c.buttonPrimary,
   border: `1px solid ${c.buttonPrimaryBorder}`,
   color: c.text01,
-  borderRadius,
-  "&:hover": {
-    backgroundColor: c.buttonHover,
-    color: c.green,
-  },
 };
 
 const buttonSecondary = {
@@ -127,7 +115,7 @@ const customCard: RichTextType = {
 };
 
 const menuSelection: CompType = {
-  activeText: {
+  activeStyles: {
     backgroundColor: "unset",
     background: c.buttonPrimary,
     color: c.text01,
@@ -149,40 +137,34 @@ const menuSelection: CompType = {
       margin: 0,
     },
   },
-  list: {
-    ...threeDBtnPrimaryShadow,
-    textShadow: blackShadow,
-    borderRadius: `${s.xs}rem`,
-  },
+
   text: {
     //regular text styles
-    styles: {
+    list: {
       ...f,
       textAlign: "center",
       color: c.text01,
       fontSize: "1.25rem", // 20px
       textShadow: "unset",
-      backgroundColor: "unset",
-      borderRadius: `${s.xs}rem`,
+      backgroundColor: "transparent",
       padding: `0 ${s.xs}rem 0 0`,
+      width: "100%",
       "&:hover": {
-        borderRadius: `${s.xs}rem`,
+        ...buttonPrimary,
+        textShadow: blackShadow,
+        background: c.buttonPrimary,
       },
     },
     //active text styles
-    sx: {
+    active: {
       ...f,
-      borderRadius: `${s.xs}rem`,
-      backgroundColor: "unset",
+      ...buttonPrimary,
       background: c.buttonPrimary,
       fontSize: "1.25rem", // 20px
-      color: "",
+      color: `${c.text01}`,
       width: "100%",
-      textAlign: "center !important",
-      "&:hover": {
-        color: `${c.text01} !important`,
-        textShadow: blackShadow,
-      },
+      textAlign: "center",
+      textShadow: blackShadow,
     },
   },
 };

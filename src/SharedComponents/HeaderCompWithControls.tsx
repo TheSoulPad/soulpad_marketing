@@ -99,4 +99,3 @@ const RichTextPost: React.FC<RichTextPostProps> = ({
 };
 
 export default RichTextPost;
-

@@ -17,7 +17,7 @@ const getBorder = (
   opt: string,
   opt2: string,
   opt3: string,
-  opt4: string
+  opt4: string,
 ) => {
   const borderStyles = {
     borderTop: `2px ${opt} ${color}`,
@@ -37,7 +37,7 @@ const buttonBorder = getBorder(
   "solid", //top
   "solid", //left
   "inset", //right
-  "inset" //bottom
+  "inset", //bottom
 );
 
 const cardBorder = getBorder(
@@ -48,7 +48,7 @@ const cardBorder = getBorder(
   "solid",
   "solid",
   "inset",
-  "inset"
+  "inset",
 );
 
 const headerIconBorder = getBorder(
@@ -59,7 +59,7 @@ const headerIconBorder = getBorder(
   "solid", //top
   "inset", //left
   "inset", //right
-  "inset" //bottom
+  "inset", //bottom
 );
 
 const paperBorder = getBorder(
@@ -70,7 +70,7 @@ const paperBorder = getBorder(
   "solid",
   "solid",
   "inset",
-  "inset"
+  "inset",
 );
 
 const richTextContentBorder = getBorder(
@@ -81,7 +81,7 @@ const richTextContentBorder = getBorder(
   "solid",
   "solid",
   "inset",
-  "inset"
+  "inset",
 );
 
 const purpleHeader = {
@@ -138,7 +138,7 @@ const customCard: RichTextType = {
 };
 
 const menuSelection: CompType = {
-  activeText: {
+  activeStyles: {
     color: c.text01,
     textShadow: `0px 0px 1px ${c.text01}`,
     border: `2px dashed ${c.buttonHover}`,
@@ -150,43 +150,38 @@ const menuSelection: CompType = {
     borderRadius: "0px",
     padding: `${spacing.xs}rem 0 ${spacing.xs}rem 0`,
   },
-  list: {
-    backgroundColor: c.button,
-    textShadow: "unset",
-  },
 
   header: {
     styles: purpleHeader,
     text: f,
   },
   text: {
-    styles: {
+    list: {
       ...f2,
-      fontSize: "1rem", // 20px
       backgroundColor: c.mainBg00,
       margin: 0,
       textAlign: "center",
       justifyContent: "center",
-      padding: `0 ${spacing.xs}rem 0 ${spacing.xs}rem`,
-    },
-
-    sx: {
-      ...f2,
-      ...buttonBorder,
-      textShadow: `0px 0px 1px ${c.shine}`,
-      backgroundColor: c.button,
-      color: c.buttonText,
-      fontWeight: "bold",
-      margin: 0,
-      padding: `${spacing.xs * 0.5}rem`,
-      fontSize: "1rem", // 20px
-      textAlign: "center",
       width: "100%",
-      justifyContent: "center",
+      padding: `${spacing.xs * 0.5}rem`,
       "&:hover": {
+        backgroundColor: c.button,
         border: `2px dashed ${c.buttonHover}`,
         textShadow: `0px 0px 1px ${c.text01}`,
       },
+    },
+
+    active: {
+      ...f2,
+      border: `2px dashed ${c.buttonHover}`,
+      textShadow: `0px 0px 1px ${c.text01}`,
+      backgroundColor: c.button,
+      color: c.buttonText,
+      margin: 0,
+      padding: `${spacing.xs * 0.5}rem`,
+      textAlign: "center",
+      width: "100%",
+      justifyContent: "center",
     },
   },
 };

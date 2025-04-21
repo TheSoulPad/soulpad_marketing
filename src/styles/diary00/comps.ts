@@ -82,7 +82,7 @@ const customCard: RichTextType = {
 };
 
 const menuSelection: CompType = {
-  activeText: {
+  activeStyles: {
     color: c.text01,
   },
   content: {
@@ -105,37 +105,31 @@ const menuSelection: CompType = {
       margin: 0,
     },
   },
-  list: {
-    backgroundColor: c.button,
-    textShadow: purpleShadow,
-  },
+
   text: {
-    styles: {
+    list: {
       ...f,
       textAlign: "center",
       color: c.text02,
-      fontSize: "1.25rem", // 20px
-      textShadow: pinkShadow,
-      backgroundColor: c.mainBg00,
+      textShadow: whiteShadow,
+      backgroundColor: "transparent",
       borderRadius,
+      width: "100%",
       padding: `0 ${s.xs}rem 0 0`,
       "&:hover": {
-        borderRadius,
-      },
-    },
-    sx: {
-      ...f,
-      borderRadius,
-      fontSize: "1.25rem", // 20px
-      color: c.text02,
-      width: "100%",
-      textAlign: "center !important",
-      "&:hover": {
-        borderRadius,
         backgroundColor: c.button,
-        color: `${c.text01} !important`,
+        color: `${c.text01}`,
         textShadow: purpleShadow,
       },
+    },
+    active: {
+      ...f,
+      backgroundColor: c.button,
+      color: `${c.text01}`,
+      textShadow: purpleShadow,
+      borderRadius,
+      width: "100%",
+      textAlign: "center",
     },
   },
 };

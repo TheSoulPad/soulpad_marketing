@@ -5,6 +5,7 @@ import Box from "@mui/material/Box";
 import ListItem from "@mui/material/ListItem";
 import Typography from "@mui/material/Typography";
 import { about } from "../styles/about/comps";
+import { SxProps, Theme } from "@mui/system";
 import { useTheme } from "../hooks/useTheme";
 import { CompType, CardType, PaperType } from "./types";
 
@@ -74,38 +75,19 @@ const MenuSelection: React.FC<MenuSelectionProps> = ({
     }
   }, [themeType, compTheme, card, paper]);
 
-  const { list, header, text, content } = compTheme;
+  const { header, text, content } = compTheme;
   //fix how you tag the active state styles
   //make the list styles describe only the DEFAULT list styles
-  const activeText = compTheme.activeText;
-  const activeColor = list ? list.backgroundColor : "";
-  const activeColorShadow = list?.textShadow;
-  const textStyles = text?.styles;
-
   const listStyles = {
     display: `${horizontal ? "flex" : "block"}`,
     justifyContent: "center",
     alignItems: "center",
-  };
-
-  const listItemStyles = {
-    ...textStyles,
     cursor: "pointer",
-    maxWidth: "200px",
-  };
-
-  const activeStyles = {
-    ...textStyles,
-    color: activeText?.color || "inherit",
-    background: `${activeText?.background}`,
+    paddingLeft: "0px",
   };
 
   const activeFont = {
-    ...text?.sx,
-    backgroundColor: `${activeColor}`,
-    color: activeText?.color || "inherit",
-    border: activeText?.border || "inherit",
-    textShadow: activeColorShadow || "inherit",
+    ...text?.active,
     cursor: "pointer",
   };
 
@@ -121,7 +103,10 @@ const MenuSelection: React.FC<MenuSelectionProps> = ({
       className={`menu-selection-paper menu-selection-container ${themeType}`}
       sx={containerStyles}
     >
-      <Box className={`menu-selection-card ${themeType}`} sx={card}>
+      <Box
+        className={`menu-selection-card ${themeType}`}
+        sx={card as SxProps<Theme>}
+      >
         <Box
           className={`menu-selection-card-header ${themeType}`}
           sx={header.styles}
@@ -144,16 +129,14 @@ const MenuSelection: React.FC<MenuSelectionProps> = ({
               <ListItem
                 className={`menu-selection-list-item ${themeType}`}
                 key={item.themeType}
+                sx={{ paddingLeft: 0 }}
                 onClick={() => {
                   onThemeChange(item.themeType);
                 }}
-                sx={
-                  themeType === item.themeType ? activeStyles : listItemStyles
-                }
               >
                 <Typography
                   variant="body1"
-                  sx={themeType === item.themeType ? activeFont : text?.sx}
+                  sx={themeType === item.themeType ? activeFont : text?.list}
                 >
                   {item.galleryName}
                 </Typography>

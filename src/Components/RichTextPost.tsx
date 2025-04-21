@@ -44,7 +44,7 @@ const RichTextPost: React.FC<RichTextPostProps> = ({
   size,
 }) => {
   const [compTheme, setCompTheme] = useState<RichTextType | CompType>(
-    about.richTextPost
+    about.richTextPost,
   );
   const [card, setCardTheme] = useState<CardType>(about.card);
   const [paper, setPaperTheme] = useState<PaperType>(about.paper);
