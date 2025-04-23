@@ -180,9 +180,6 @@ export const about = {
     },
   },
   listBox: {},
-  mediaPlayer: {
-    header,
-  },
   menuSelection,
   paper,
   poll: {},

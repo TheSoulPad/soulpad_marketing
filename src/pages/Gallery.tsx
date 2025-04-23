@@ -166,17 +166,14 @@ const Gallery: React.FC = () => {
               size="small"
               title="My goal progress !"
             />
-            {/* <CustomMediaPlayer
-              cardStyles={theme.card}
-              contentStyles={theme.content}
-              headerStyles={theme.mediaPlayer.header}
-              icons={theme.icons}
-              paper={theme.paper}
+            <CustomMediaPlayer
+              themeType={themeType}
               size="small"
+              title="My awesome video!"
               textLocation="top"
-              title="This is a cat video"
-              videoUrl="https://www.w3schools.com/html/m"
-            /> */}
+              videoType="mp4"
+              videoUrl="https://www.quickpickdeal.com/videos/sample-mp4-video.mp4"
+            />
             {/*
             <CustomList
               card={theme.list}

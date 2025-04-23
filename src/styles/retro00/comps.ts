@@ -17,7 +17,7 @@ const getBorder = (
   opt: string,
   opt2: string,
   opt3: string,
-  opt4: string,
+  opt4: string
 ) => {
   const borderStyles = {
     borderTop: `2px ${opt} ${color}`,
@@ -37,7 +37,7 @@ const buttonBorder = getBorder(
   "solid", //top
   "solid", //left
   "inset", //right
-  "inset", //bottom
+  "inset" //bottom
 );
 
 const cardBorder = getBorder(
@@ -48,7 +48,7 @@ const cardBorder = getBorder(
   "solid",
   "solid",
   "inset",
-  "inset",
+  "inset"
 );
 
 const headerIconBorder = getBorder(
@@ -59,7 +59,7 @@ const headerIconBorder = getBorder(
   "solid", //top
   "inset", //left
   "inset", //right
-  "inset", //bottom
+  "inset" //bottom
 );
 
 const paperBorder = getBorder(
@@ -70,7 +70,7 @@ const paperBorder = getBorder(
   "solid",
   "solid",
   "inset",
-  "inset",
+  "inset"
 );
 
 const richTextContentBorder = getBorder(
@@ -81,7 +81,7 @@ const richTextContentBorder = getBorder(
   "solid",
   "solid",
   "inset",
-  "inset",
+  "inset"
 );
 
 const purpleHeader = {
@@ -119,7 +119,7 @@ const card: CardType = {
   ...contentText,
   display: "block",
   backgroundColor: c.mainBg00,
-  padding: `0 ${spacing.xs}rem 0 0`,
+  padding: `${spacing.xs}rem`,
 };
 
 const paper: PaperType = {
@@ -225,14 +225,6 @@ export const retro = {
       ...contentText,
       ...richTextContentBorder,
       backgroundColor: c.icon,
-    },
-  },
-  mediaPlayer: {
-    header: purpleHeader,
-    content: {
-      ...contentText,
-      ...richTextContentBorder,
-      backgroundColor: c.mainBg01,
     },
   },
   menuSelection,

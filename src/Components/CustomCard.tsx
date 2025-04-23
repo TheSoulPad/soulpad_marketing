@@ -33,7 +33,7 @@ const CustomCard: React.FC<CardProps> = ({
   themeType,
 }) => {
   const [compTheme, setCompTheme] = useState<RichTextType | CompType>(
-    about.richTextPost,
+    about.richTextPost
   );
   const [card, setCardTheme] = useState<CardType>(about.card);
   const [paper, setPaperTheme] = useState<PaperType>(about.paper);
@@ -48,16 +48,14 @@ const CustomCard: React.FC<CardProps> = ({
 
   const getAndSetComp = (theme: string) => {
     //for now default to menuSelection
-    const themeInfoStyles = useTheme("menuSelection", theme);
+    const themeInfoStyles = useTheme("customCard", theme);
 
     if (themeInfoStyles) {
       const paperStyles = themeInfoStyles.paper;
       const cardStyles = themeInfoStyles.card;
-      // const compStyles = themeInfoStyles.comp;
       const iconsStyles = themeInfoStyles.icons;
 
       setCardTheme(cardStyles);
-      // setCompTheme(compStyles);
       setPaperTheme(paperStyles);
       setIconsTheme(iconsStyles);
       return;

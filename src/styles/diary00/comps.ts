@@ -182,13 +182,6 @@ export const diary = {
     backgroundColor: c.mainBg03,
     textShadow: purpleShadow,
   },
-  mediaPlayer: {
-    header: {
-      ...header,
-      backgroundColor: c.headerBg02,
-      border: "none",
-    },
-  },
   menuSelection,
   paper,
   poll: {},

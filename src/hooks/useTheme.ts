@@ -21,7 +21,7 @@ interface ThemeInfoType {
 export const useTheme = (
   //add custom card here
   compType: "menuSelection" | "richTextPost" | "customCard",
-  themeType: string,
+  themeType: string
 ) => {
   /**
    1.)get and set the theme first (about, diary, retro).

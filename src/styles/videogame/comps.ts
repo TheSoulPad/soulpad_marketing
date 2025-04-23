@@ -189,6 +189,21 @@ const richTextPost: RichTextType = {
   },
 };
 
+const mediaPlayer: CompType = {
+  header: {
+    styles: {
+      ...header,
+      backgroundColor: "",
+      border: "none",
+    },
+    text: {
+      ...f,
+      textShadow: blackShadow,
+    },
+  },
+  content,
+};
+
 ///////// BOOKMARK - NOT COMPLETED //////////
 
 export const videoGame = {
@@ -215,13 +230,7 @@ export const videoGame = {
     backgroundColor: "",
     textShadow: blackShadow,
   },
-  mediaPlayer: {
-    header: {
-      ...header,
-      backgroundColor: "",
-      border: "none",
-    },
-  },
+  mediaPlayer,
   menuSelection,
   paper,
   poll: {},
