@@ -5,7 +5,8 @@ interface ButtonProps {
   onClick: () => void;
   label: string;
   disabled?: boolean;
-  themeType?: string;
+  themeType: string;
+  buttonType: "primary" | "secondary" | "custom";
 }
 
 const CustomButton: React.FC<ButtonProps> = ({

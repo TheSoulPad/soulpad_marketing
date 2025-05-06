@@ -1,5 +1,6 @@
 //component types
 
+//change name to MenuSelectionType
 export interface CompType {
   activeStyles?: {
     color?: string;
@@ -35,8 +36,9 @@ export interface CompType {
         border?: string;
         background?: string;
         backgroundColor?: string;
+        boxShadow?: string;
         color?: string;
-        textShadow: string;
+        textShadow?: string;
       };
     };
     active: {
@@ -44,6 +46,7 @@ export interface CompType {
       background?: string;
       borderRadius?: string;
       border?: string;
+      boxShadow?: string;
       color: string;
       fontFamily: string;
       fontSize: string;
@@ -122,4 +125,9 @@ export interface MenuType {
     styles: {};
     sx: {};
   };
+}
+
+export interface ButtonType {
+  primary: {};
+  secondary: {};
 }

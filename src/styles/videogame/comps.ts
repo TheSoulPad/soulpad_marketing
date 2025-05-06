@@ -7,6 +7,7 @@ import {
   CardType,
   CompType,
   RichTextType,
+  ButtonType,
 } from "../../Components/types";
 
 const blackShadow = `-1px 2px 0px ${c.black}`;
@@ -204,13 +205,16 @@ const mediaPlayer: CompType = {
   content,
 };
 
-///////// BOOKMARK - NOT COMPLETED //////////
+const buttons: ButtonType = {
+  primary: buttonPrimary,
+  secondary: buttonSecondary,
+  custom: {},
+};
 
 export const videoGame = {
   ID: 3,
   themeID: "VIDEOGAME",
-  buttonPrimary,
-  buttonSecondary,
+  buttons,
   card,
   customCard,
   content: {
@@ -222,15 +226,6 @@ export const videoGame = {
     primary: icons,
     secondary: icons,
   },
-  listBox: {
-    ...content,
-    ...f,
-    display: "block",
-    border: "unset",
-    backgroundColor: "",
-    textShadow: blackShadow,
-  },
-  mediaPlayer,
   menuSelection,
   paper,
   poll: {},

@@ -7,6 +7,7 @@ import {
   CardType,
   CompType,
   RichTextType,
+  ButtonType,
 } from "../../Components/types";
 
 const getBorder = (
@@ -198,18 +199,25 @@ const richTextPost: RichTextType = {
   },
 };
 
+const buttons: ButtonType = {
+  primary: {},
+  secondary: {},
+};
+
+// buttonPrimary: {
+//   ...buttonBorder,
+//   backgroundColor: c.button,
+//   color: c.buttonText,
+//   cursor: "pointer",
+//   fontWeight: "bold",
+//   margin: "5px",
+//   padding: "5px",
+// },
+
 export const retro = {
   ID: 2,
   themeID: "RETRO",
-  buttonPrimary: {
-    ...buttonBorder,
-    backgroundColor: c.button,
-    color: c.buttonText,
-    cursor: "pointer",
-    fontWeight: "bold",
-    margin: "5px",
-    padding: "5px",
-  },
+  buttons,
   card,
   customCard,
   content: defaultContent,

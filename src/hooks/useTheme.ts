@@ -8,19 +8,21 @@ import {
   PaperType,
   RichTextType,
   IconsType,
+  ButtonType,
 } from "../Components/types";
 
 interface ThemeInfoType {
   card: CardType;
   comp: CompType | RichTextType;
   paper: PaperType;
+  buttons: ButtonType;
   icons: IconsType;
   themeID: string;
 }
 
 export const useTheme = (
   //add custom card here
-  compType: "menuSelection" | "richTextPost" | "customCard",
+  compCategory: "menuSelection" | "richTextPost" | "customCard",
   themeType: string
 ) => {
   /**
@@ -32,29 +34,32 @@ export const useTheme = (
 
   let themeInfoStyles: ThemeInfoType = {
     card: about.card,
-    comp: about[compType],
+    comp: about[compCategory],
     paper: about.paper,
     themeID: about.themeID,
     icons: about.icons,
+    buttons: about.buttons,
   };
 
   switch (themeType) {
     case "DIARY":
       themeInfoStyles = {
         card: diary.card,
+        comp: diary[compCategory],
         paper: diary.paper,
-        comp: diary[compType],
         themeID: diary.themeID,
         icons: diary.icons,
+        buttons: diary.buttons,
       };
       return themeInfoStyles;
     case "SOULPAD":
       const aboutInfoStyles = {
         card: about.card,
         paper: about.paper,
-        comp: about[compType],
+        comp: about[compCategory],
         themeID: about.themeID,
         icons: about.icons,
+        buttons: about.buttons,
       };
       return aboutInfoStyles;
 
@@ -62,18 +67,20 @@ export const useTheme = (
       const retroInfoStyles = {
         card: retro.card,
         paper: retro.paper,
-        comp: retro[compType],
+        comp: retro[compCategory],
         themeID: retro.themeID,
         icons: retro.icons,
+        buttons: retro.buttons,
       };
       return retroInfoStyles;
     case "VIDEOGAME":
       const vgInfoStyles = {
         card: videoGame.card,
         paper: videoGame.paper,
-        comp: videoGame[compType],
+        comp: videoGame[compCategory],
         themeID: videoGame.themeID,
         icons: videoGame.icons,
+        buttons: videoGame.buttons,
       };
       return vgInfoStyles;
     default:

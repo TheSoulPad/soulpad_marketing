@@ -12,6 +12,7 @@ import CustomMediaPlayer from "../Components/CustomMediaPlayer";
 import CustomList from "../Components/CustomList";
 import CustomProgress from "../Components/CustomProgress";
 import useMediaQuery from "@mui/material/useMediaQuery";
+import { about } from "../styles/about/comps";
 
 const strings = Strings.galleryPage;
 const headStrings = Strings.metaData.gallery;
@@ -82,6 +83,23 @@ const Gallery: React.FC = () => {
     margin: "auto",
   };
 
+  const listItems = [
+    { id: 1, label: "Pizza" },
+    { id: 2, label: "Ice cream" },
+    { id: 3, label: "Peanut butter" },
+    { id: 4, label: "Chocolate" },
+  ];
+
+  const buttonTypes: {
+    type: "primary" | "secondary" | "custom";
+    label: string;
+  }[] = [
+    { type: "primary", label: "Primary" },
+    { type: "secondary", label: "Seconary" },
+    { type: "custom", label: "Custom 1" },
+    { type: "custom", label: "Custom 2" },
+  ];
+
   return (
     <div className="overlay" style={overlayStyles}>
       <BaseLayout title={strings.header} pageStyles={galleryStyles}>
@@ -131,7 +149,7 @@ const Gallery: React.FC = () => {
             {/********** RICH TEXT POST **************/}
             <RichTextPost
               size="small"
-              title="This is my first post!"
+              title="Custom Post"
               themeType={themeType}
             >
               <span className="loren">
@@ -146,15 +164,13 @@ const Gallery: React.FC = () => {
                 component. Lorem ipsum dolor sit amet, consectetur
               </span>
             </RichTextPost>
-            <CustomCard
-              size="large"
-              title="This is a cool card"
-              themeType={themeType}
-            >
-              {Array.from({ length: 3 }).map((_, index) => (
+            <CustomCard size="large" title="Custom Card" themeType={themeType}>
+              {buttonTypes.map((item, index) => (
                 <CustomButton
+                  themeType={themeType}
                   key={index}
-                  label="Click Me!"
+                  buttonType={item.type}
+                  label={item.label}
                   onClick={() => console.log("Button Clicked")}
                 />
               ))}
@@ -164,25 +180,23 @@ const Gallery: React.FC = () => {
               circular={true}
               progressValues={[{ item: 50, item2: 50 }]}
               size="small"
-              title="My goal progress !"
+              title="Custom Progress Card"
             />
             <CustomMediaPlayer
               themeType={themeType}
               size="small"
-              title="My awesome video!"
+              title="Custom Media Player"
               textLocation="top"
               videoType="mp4"
               videoUrl="https://www.quickpickdeal.com/videos/sample-mp4-video.mp4"
             />
-            {/*
+
             <CustomList
-              card={theme.list}
-              items={[{ item1: "Item 1", item2: "Item 2", item3: "Item 3" }]}
-              paper={theme.paper}
+              items={listItems}
+              themeType={themeType}
               size="large"
-              title="Check out my list"
-              titleFont={theme.card.text}
-            /> */}
+              title="Custom List"
+            />
           </Grid>
         </Grid>
       </BaseLayout>
