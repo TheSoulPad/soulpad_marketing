@@ -33,13 +33,27 @@ const getBorder = (
 const buttonBorder = getBorder(
   c.shine, //top
   c.shine, //left
-  c.button, //right
-  c.button, //bottom
+  c.navyBlue, //right
+  c.navyBlue, //bottom
   "solid", //top
   "solid", //left
   "inset", //right
   "inset" //bottom
 );
+
+const primaryButton = {
+  ...f2,
+  ...buttonBorder,
+  backgroundColor: c.button,
+  textShadow: `0px 0px 1px ${c.text01}`,
+  color: c.buttonText,
+  cursor: "pointer",
+  padding: `${spacing.xs * 0.5}rem`,
+  textAlign: "center",
+  width: "100%",
+  justifyContent: "center",
+  margin: 0,
+};
 
 const cardBorder = getBorder(
   c.contentBorder, //top
@@ -140,49 +154,37 @@ const customCard: RichTextType = {
 
 const menuSelection: CompType = {
   activeStyles: {
+    border: `2px dashed ${c.buttonHover}`,
     color: c.text01,
     textShadow: `0px 0px 1px ${c.text01}`,
-    border: `2px dashed ${c.buttonHover}`,
   },
   content: {
     ...contentText,
     backgroundColor: c.mainBg00,
-    fontWeight: "400",
     borderRadius: "0px",
+    fontWeight: "400",
     padding: `${spacing.xs}rem 0 ${spacing.xs}rem 0`,
   },
-
   header: {
     styles: purpleHeader,
     text: f,
   },
   text: {
+    active: {
+      ...primaryButton,
+      fontSize: "1.5rem",
+      border: `2px dashed ${c.buttonHover}`,
+    },
     list: {
-      ...f2,
-      backgroundColor: c.mainBg00,
-      margin: 0,
-      textAlign: "center",
-      justifyContent: "center",
-      width: "100%",
-      padding: `${spacing.xs * 0.5}rem`,
+      ...primaryButton,
+      backgroundColor: "transparent",
+      border: "none",
+      fontSize: "1.5rem",
       "&:hover": {
         backgroundColor: c.button,
         border: `2px dashed ${c.buttonHover}`,
         textShadow: `0px 0px 1px ${c.text01}`,
       },
-    },
-
-    active: {
-      ...f2,
-      border: `2px dashed ${c.buttonHover}`,
-      textShadow: `0px 0px 1px ${c.text01}`,
-      backgroundColor: c.button,
-      color: c.buttonText,
-      margin: 0,
-      padding: `${spacing.xs * 0.5}rem`,
-      textAlign: "center",
-      width: "100%",
-      justifyContent: "center",
     },
   },
 };
@@ -200,19 +202,16 @@ const richTextPost: RichTextType = {
 };
 
 const buttons: ButtonType = {
-  primary: {},
+  primary: {
+    ...primaryButton,
+    "&:hover": {
+      backgroundColor: c.buttonHover,
+      border: `2px dashed ${c.buttonHover}`,
+      textShadow: `0px 0px 1px ${c.text01}`,
+    },
+  },
   secondary: {},
 };
-
-// buttonPrimary: {
-//   ...buttonBorder,
-//   backgroundColor: c.button,
-//   color: c.buttonText,
-//   cursor: "pointer",
-//   fontWeight: "bold",
-//   margin: "5px",
-//   padding: "5px",
-// },
 
 export const retro = {
   ID: 2,

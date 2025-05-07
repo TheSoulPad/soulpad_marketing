@@ -13,6 +13,7 @@ import {
 } from "./types";
 import { about } from "../styles/about/comps";
 
+
 //hardcode thes styles for now
 interface CardProps {
   children?: React.ReactNode;
@@ -21,6 +22,7 @@ interface CardProps {
   text?: string;
   title: string;
   themeType: string;
+  renderItem?: React.ReactNode;
 }
 //create styled components for video and image if necessary
 
@@ -31,6 +33,7 @@ const CustomCard: React.FC<CardProps> = ({
   size,
   children,
   themeType,
+  renderItem,
 }) => {
   const [compTheme, setCompTheme] = useState<RichTextType | CompType>(
     about.richTextPost
@@ -122,7 +125,7 @@ const CustomCard: React.FC<CardProps> = ({
         )}
 
         <Box display="flex" flexDirection="column" sx={{ textAlign: "center" }}>
-          {children}
+          {renderItem}
         </Box>
       </Card>
     </Paper>

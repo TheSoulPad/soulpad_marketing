@@ -93,11 +93,12 @@ const Gallery: React.FC = () => {
   const buttonTypes: {
     type: "primary" | "secondary" | "custom";
     label: string;
+    color?: string | null;
   }[] = [
-    { type: "primary", label: "Primary" },
-    { type: "secondary", label: "Seconary" },
-    { type: "custom", label: "Custom 1" },
-    { type: "custom", label: "Custom 2" },
+    { type: "primary", label: "Primary", color: null },
+    { type: "secondary", label: "Seconary", color: null },
+    { type: "custom", label: "Custom 1", color: "red" },
+    { type: "custom", label: "Custom 2", color: "blue" },
   ];
 
   return (
@@ -164,17 +165,23 @@ const Gallery: React.FC = () => {
                 component. Lorem ipsum dolor sit amet, consectetur
               </span>
             </RichTextPost>
-            <CustomCard size="large" title="Custom Card" themeType={themeType}>
-              {buttonTypes.map((item, index) => (
+            <CustomCard
+              size="large"
+              title="Custom Card"
+              themeType={themeType}
+              renderItem={buttonTypes.map((item, index) => (
                 <CustomButton
                   themeType={themeType}
                   key={index}
                   buttonType={item.type}
                   label={item.label}
+                  isCustom={item.type === "custom"}
+                  color={item.color}
                   onClick={() => console.log("Button Clicked")}
                 />
               ))}
-            </CustomCard>
+            />
+
             <CustomProgress
               themeType={themeType}
               circular={true}

@@ -13,7 +13,7 @@ import {
 
 interface ThemeInfoType {
   card: CardType;
-  comp: CompType | RichTextType;
+  comp: CompType | RichTextType | ButtonType;
   paper: PaperType;
   buttons: ButtonType;
   icons: IconsType;
@@ -22,7 +22,7 @@ interface ThemeInfoType {
 
 export const useTheme = (
   //add custom card here
-  compCategory: "menuSelection" | "richTextPost" | "customCard",
+  compCategory: "menuSelection" | "richTextPost" | "customCard" | "buttons",
   themeType: string
 ) => {
   /**

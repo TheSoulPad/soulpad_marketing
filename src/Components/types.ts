@@ -23,6 +23,7 @@ export interface CompType {
       backgroundColor: string;
       borderRadius?: string;
       color?: string;
+      border?: string;
       fontFamily: string;
       fontSize: string;
       fontWeight?: string;

@@ -208,7 +208,6 @@ const mediaPlayer: CompType = {
 const buttons: ButtonType = {
   primary: buttonPrimary,
   secondary: buttonSecondary,
-  custom: {},
 };
 
 export const videoGame = {
