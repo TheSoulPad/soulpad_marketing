@@ -98,7 +98,13 @@ const CustomCard: React.FC<CardProps> = ({
           </Typography>
         )}
 
-        <Box display="flex" flexDirection="column" sx={{ textAlign: "center" }}>
+        {/* fixed styles for now */}
+        <Box
+          display="flex"
+          flexDirection="column"
+          rowGap={1}
+          sx={{ alignItems: "center" }}
+        >
           {renderItem || children}
         </Box>
       </Card>

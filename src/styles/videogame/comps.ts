@@ -208,6 +208,7 @@ const mediaPlayer: MenuType = {
 const buttons: ButtonType = {
   primary: buttonPrimary,
   secondary: buttonSecondary,
+  custom: buttonStyles,
 };
 
 export const videoGame = {

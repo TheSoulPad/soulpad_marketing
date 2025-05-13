@@ -90,14 +90,21 @@ const Gallery: React.FC = () => {
   ];
 
   const buttonTypes: {
-    type: "primary" | "secondary" | "custom";
+    type?: "primary" | "secondary" | "custom";
     label: string;
+    textColor?: string | null;
+    bgColor?: string | null;
     color?: string | null;
   }[] = [
-    { type: "primary", label: "Primary", color: null },
-    { type: "secondary", label: "Seconary", color: null },
-    { type: "custom", label: "Custom 1", color: "red" },
-    { type: "custom", label: "Custom 2", color: "blue" },
+    { type: "primary", label: "Primary" },
+    { type: "secondary", label: "Secondary" },
+    {
+      type: "custom",
+      label: "Custom 1",
+      textColor: "#ffffff",
+      bgColor: "purple",
+    },
+    { type: "custom", label: "Custom 2", textColor: "#ffffff", bgColor: "red" },
   ];
 
   return (
@@ -172,10 +179,10 @@ const Gallery: React.FC = () => {
                 <CustomButton
                   themeType={themeType}
                   key={index}
-                  buttonType={item.type}
+                  buttonType={item.type || "primary"}
                   label={item.label}
-                  isCustom={item.type === "custom"}
-                  color={item.color}
+                  textColor={item.textColor}
+                  bgColor={item.bgColor}
                   onClick={() => console.log("Button Clicked")}
                 />
               ))}

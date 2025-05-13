@@ -174,6 +174,7 @@ const buttons: ButtonType = {
       color: c.yellow,
     },
   },
+  custom: allButtons,
 };
 
 export const about = {

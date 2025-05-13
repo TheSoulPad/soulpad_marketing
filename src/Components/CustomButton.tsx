@@ -10,8 +10,8 @@ interface ButtonProps {
   disabled?: boolean;
   themeType: string;
   buttonType: "primary" | "secondary" | "custom";
-  isCustom?: boolean;
-  color?: string | null;
+  textColor?: string | null;
+  bgColor?: string | null;
 }
 
 const CustomButton: React.FC<ButtonProps> = ({
@@ -19,18 +19,21 @@ const CustomButton: React.FC<ButtonProps> = ({
   label,
   disabled = false,
   themeType,
+  buttonType,
+  textColor,
+  bgColor,
 }) => {
-  const [compTheme, setCompTheme] = useState<ButtonType>(about.buttons);
+  const [buttons, setButtons] = useState<ButtonType>(about.buttons);
 
   const setDefault = () => {
-    setCompTheme(about.buttons);
+    setButtons(about.buttons);
   };
 
   const getAndSetComp = () => {
     const themeInfoStyles = useTheme(themeType);
     if (themeInfoStyles) {
       const buttonStyles = themeInfoStyles.buttons;
-      setCompTheme(buttonStyles);
+      setButtons(buttonStyles);
       return;
     }
     setDefault();
@@ -42,12 +45,26 @@ const CustomButton: React.FC<ButtonProps> = ({
 
   const buttonSize = "32px";
 
+  const buttonStyles = {
+    primary: buttons.primary,
+    secondary: buttons.secondary,
+    custom: {
+      ...buttons.custom,
+      backgroundColor: bgColor,
+      color: textColor,
+    },
+  };
+
+  const buttonStyle = buttonStyles[buttonType] || buttons.primary;
+
   const sxStyles = {
+    ...buttonStyle,
     maxHeight: buttonSize,
-    margin: "4px 4px",
+    width: "80%",
+    margin: "auto",
   };
   return (
-    <Button sx={sxStyles} onClick={onClick} disabled={disabled}>
+    <Button sx={sxStyles} onClick={onClick}>
       {label}
     </Button>
   );

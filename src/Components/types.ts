@@ -111,4 +111,5 @@ export interface PaperType {
 export interface ButtonType {
   primary: {};
   secondary: {};
+  custom?: {};
 }

@@ -41,18 +41,23 @@ const buttonBorder = getBorder(
   "inset" //bottom
 );
 
-const primaryButton = {
+const allButtons = {
   ...f2,
   ...buttonBorder,
-  backgroundColor: c.button,
-  textShadow: `0px 0px 1px ${c.text01}`,
-  color: c.buttonText,
   cursor: "pointer",
   padding: `${spacing.xs * 0.5}rem`,
   textAlign: "center",
   width: "100%",
   justifyContent: "center",
   margin: 0,
+
+};
+
+const primaryButton = {
+  ...allButtons,
+  backgroundColor: c.button,
+  textShadow: `0px 0px 1px ${c.text01}`,
+  color: c.buttonText,
 };
 
 const cardBorder = getBorder(
@@ -211,6 +216,7 @@ const buttons: ButtonType = {
     },
   },
   secondary: {},
+  custom: allButtons,
 };
 
 export const retro = {

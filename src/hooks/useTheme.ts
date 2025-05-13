@@ -21,15 +21,11 @@ interface ThemeInfoType {
   themeID: string;
 }
 
-export const useTheme = (
-  //add custom card here
-  themeType: string
-) => {
+export const useTheme = (themeType: string) => {
   /**
-   1.)get and set the theme first (about, diary, retro).
-   To do: create a type for theme and match it across all the themes.
-   2.) Get and set the component types so menuSelection or richTextPost
-   3.) Return theme styles for the component calling it in the gallery
+   1.) set the default theme first (about).
+   2.) Change the theme based on the themeType passed in.
+   3.) Return the updated theme styles
    ***/
 
   let themeInfoStyles: ThemeInfoType = {

@@ -178,6 +178,7 @@ const buttons: ButtonType = {
       color: `${c.text02}`,
     },
   },
+  custom: allButtons,
 };
 
 export const diary = {
