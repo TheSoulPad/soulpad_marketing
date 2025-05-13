@@ -42,6 +42,7 @@ export const colors = {
   text01: purple,
   text02: lightGrey,
   text03: paleWhiteBlue,
+  navyBlue,
 };
 
 // 10 colors for the theme palette

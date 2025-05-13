@@ -57,7 +57,7 @@ const Gallery: React.FC = () => {
   };
 
   const menuItems = [
-    //make the about theme the SoulPad theme
+    //rename the 'about' theme to SoulPad
     {
       galleryName: "SoulPad",
       themeType: "SOULPAD",
@@ -81,6 +81,31 @@ const Gallery: React.FC = () => {
     width: "100%",
     margin: "auto",
   };
+
+  const listItems = [
+    { id: 1, label: "Pizza" },
+    { id: 2, label: "Ice cream" },
+    { id: 3, label: "Peanut butter" },
+    { id: 4, label: "Chocolate" },
+  ];
+
+  const buttonTypes: {
+    type?: "primary" | "secondary" | "custom";
+    label: string;
+    textColor?: string | null;
+    bgColor?: string | null;
+    color?: string | null;
+  }[] = [
+    { type: "primary", label: "Primary" },
+    { type: "secondary", label: "Secondary" },
+    {
+      type: "custom",
+      label: "Custom 1",
+      textColor: "#ffffff",
+      bgColor: "purple",
+    },
+    { type: "custom", label: "Custom 2", textColor: "#ffffff", bgColor: "red" },
+  ];
 
   return (
     <div className="overlay" style={overlayStyles}>
@@ -131,7 +156,7 @@ const Gallery: React.FC = () => {
             {/********** RICH TEXT POST **************/}
             <RichTextPost
               size="small"
-              title="This is my first post!"
+              title="Custom Post"
               themeType={themeType}
             >
               <span className="loren">
@@ -148,44 +173,43 @@ const Gallery: React.FC = () => {
             </RichTextPost>
             <CustomCard
               size="large"
-              title="This is a cool card"
+              title="Custom Card"
               themeType={themeType}
-            >
-              {Array.from({ length: 3 }).map((_, index) => (
+              renderItem={buttonTypes.map((item, index) => (
                 <CustomButton
+                  themeType={themeType}
                   key={index}
-                  label="Click Me!"
+                  buttonType={item.type || "primary"}
+                  label={item.label}
+                  textColor={item.textColor}
+                  bgColor={item.bgColor}
                   onClick={() => console.log("Button Clicked")}
                 />
               ))}
-            </CustomCard>
+            />
+
             <CustomProgress
               themeType={themeType}
               circular={true}
               progressValues={[{ item: 50, item2: 50 }]}
               size="small"
-              title="My goal progress !"
+              title="Custom Progress Card"
             />
-            {/* <CustomMediaPlayer
-              cardStyles={theme.card}
-              contentStyles={theme.content}
-              headerStyles={theme.mediaPlayer.header}
-              icons={theme.icons}
-              paper={theme.paper}
+            <CustomMediaPlayer
+              themeType={themeType}
               size="small"
+              title="Custom Media Player"
               textLocation="top"
-              title="This is a cat video"
-              videoUrl="https://www.w3schools.com/html/m"
-            /> */}
-            {/*
+              videoType="mp4"
+              videoUrl="https://www.quickpickdeal.com/videos/sample-mp4-video.mp4"
+            />
+
             <CustomList
-              card={theme.list}
-              items={[{ item1: "Item 1", item2: "Item 2", item3: "Item 3" }]}
-              paper={theme.paper}
+              items={listItems}
+              themeType={themeType}
               size="large"
-              title="Check out my list"
-              titleFont={theme.card.text}
-            /> */}
+              title="Custom List"
+            />
           </Grid>
         </Grid>
       </BaseLayout>

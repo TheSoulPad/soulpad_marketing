@@ -5,8 +5,9 @@ import { bodyText as f2 } from "./fonts";
 import {
   PaperType,
   CardType,
-  CompType,
+  MenuType,
   RichTextType,
+  ButtonType,
 } from "../../Components/types";
 
 const blackShadow = `-1px 2px 0px ${c.black}`;
@@ -114,7 +115,7 @@ const customCard: RichTextType = {
   },
 };
 
-const menuSelection: CompType = {
+const menuSelection: MenuType = {
   activeStyles: {
     backgroundColor: "unset",
     background: c.buttonPrimary,
@@ -189,13 +190,31 @@ const richTextPost: RichTextType = {
   },
 };
 
-///////// BOOKMARK - NOT COMPLETED //////////
+const mediaPlayer: MenuType = {
+  header: {
+    styles: {
+      ...header,
+      backgroundColor: "",
+      border: "none",
+    },
+    text: {
+      ...f,
+      textShadow: blackShadow,
+    },
+  },
+  content,
+};
+
+const buttons: ButtonType = {
+  primary: buttonPrimary,
+  secondary: buttonSecondary,
+  custom: buttonStyles,
+};
 
 export const videoGame = {
   ID: 3,
   themeID: "VIDEOGAME",
-  buttonPrimary,
-  buttonSecondary,
+  buttons,
   card,
   customCard,
   content: {
@@ -206,21 +225,6 @@ export const videoGame = {
     iconClose: icons,
     primary: icons,
     secondary: icons,
-  },
-  listBox: {
-    ...content,
-    ...f,
-    display: "block",
-    border: "unset",
-    backgroundColor: "",
-    textShadow: blackShadow,
-  },
-  mediaPlayer: {
-    header: {
-      ...header,
-      backgroundColor: "",
-      border: "none",
-    },
   },
   menuSelection,
   paper,

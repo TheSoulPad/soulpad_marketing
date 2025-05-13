@@ -7,7 +7,7 @@ import Typography from "@mui/material/Typography";
 import { about } from "../styles/about/comps";
 import { SxProps, Theme } from "@mui/system";
 import { useTheme } from "../hooks/useTheme";
-import { CompType, CardType, PaperType } from "./types";
+import { MenuType, CardType, PaperType } from "./types";
 
 //this a temporary interface
 interface MenuItem {
@@ -30,7 +30,7 @@ const MenuSelection: React.FC<MenuSelectionProps> = ({
   title,
   onThemeChange,
 }) => {
-  const [compTheme, setCompTheme] = useState<CompType>(about.menuSelection);
+  const [compTheme, setCompTheme] = useState<MenuType>(about.menuSelection);
   const [card, setCardTheme] = useState<CardType>(about.card);
   const [paper, setPaperTheme] = useState<PaperType>(about.paper);
 
@@ -40,13 +40,13 @@ const MenuSelection: React.FC<MenuSelectionProps> = ({
     setPaperTheme(about.paper);
   };
 
-  const getAndSetComp = (theme: string) => {
-    const themeInfoStyles = useTheme("menuSelection", theme);
+  const getAndSetComp = () => {
+    const themeInfoStyles = useTheme(themeType);
 
     if (themeInfoStyles) {
       const paperStyles = themeInfoStyles.paper;
       const cardStyles = themeInfoStyles.card;
-      const compStyles = themeInfoStyles.comp;
+      const compStyles = themeInfoStyles.menu;
 
       setCompTheme(compStyles);
       setCardTheme(cardStyles);
@@ -57,23 +57,8 @@ const MenuSelection: React.FC<MenuSelectionProps> = ({
   };
 
   useEffect(() => {
-    switch (themeType) {
-      case "SOULPAD":
-        getAndSetComp("SOULPAD");
-        break;
-      case "DIARY":
-        getAndSetComp("DIARY");
-        break;
-      case "RETRO":
-        getAndSetComp("RETRO");
-        break;
-      case "VIDEOGAME":
-        getAndSetComp("VIDEOGAME");
-        break;
-      default:
-        break;
-    }
-  }, [themeType, compTheme, card, paper]);
+    getAndSetComp();
+  }, [themeType]);
 
   const { header, text, content } = compTheme;
   //fix how you tag the active state styles

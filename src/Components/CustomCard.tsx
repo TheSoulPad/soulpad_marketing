@@ -7,7 +7,7 @@ import { useTheme } from "../hooks/useTheme";
 import {
   RichTextType,
   PaperType,
-  CompType,
+  MenuType,
   IconsType,
   CardType,
 } from "./types";
@@ -21,68 +21,43 @@ interface CardProps {
   text?: string;
   title: string;
   themeType: string;
+  renderItem?: React.ReactNode;
 }
-//create styled components for video and image if necessary
 
 const CustomCard: React.FC<CardProps> = ({
   title,
   text,
   imageUrl,
   size,
-  children,
   themeType,
+  renderItem,
+  children,
 }) => {
-  const [compTheme, setCompTheme] = useState<RichTextType | CompType>(
-    about.richTextPost,
-  );
   const [card, setCardTheme] = useState<CardType>(about.card);
   const [paper, setPaperTheme] = useState<PaperType>(about.paper);
-  const [icons, setIconsTheme] = useState<IconsType>(about.icons);
 
   const setDefault = () => {
-    setCompTheme(about.richTextPost);
     setCardTheme(about.card);
     setPaperTheme(about.paper);
-    setIconsTheme(about.icons);
   };
 
-  const getAndSetComp = (theme: string) => {
-    //for now default to menuSelection
-    const themeInfoStyles = useTheme("menuSelection", theme);
+  const getAndSetComp = () => {
+    const themeInfoStyles = useTheme(themeType);
 
     if (themeInfoStyles) {
       const paperStyles = themeInfoStyles.paper;
       const cardStyles = themeInfoStyles.card;
-      // const compStyles = themeInfoStyles.comp;
-      const iconsStyles = themeInfoStyles.icons;
 
       setCardTheme(cardStyles);
-      // setCompTheme(compStyles);
       setPaperTheme(paperStyles);
-      setIconsTheme(iconsStyles);
       return;
     }
     setDefault();
   };
 
   useEffect(() => {
-    switch (themeType) {
-      case "SOULPAD":
-        getAndSetComp("SOULPAD");
-        break;
-      case "DIARY":
-        getAndSetComp("DIARY");
-        break;
-      case "RETRO":
-        getAndSetComp("RETRO");
-        break;
-      case "VIDEOGAME":
-        getAndSetComp("VIDEOGAME");
-        break;
-      default:
-        break;
-    }
-  }, [themeType, compTheme, paper]);
+    getAndSetComp();
+  }, [themeType]);
 
   const smallSize = {
     minWidth: "150px",
@@ -123,8 +98,14 @@ const CustomCard: React.FC<CardProps> = ({
           </Typography>
         )}
 
-        <Box display="flex" flexDirection="column" sx={{ textAlign: "center" }}>
-          {children}
+        {/* fixed styles for now */}
+        <Box
+          display="flex"
+          flexDirection="column"
+          rowGap={1}
+          sx={{ alignItems: "center" }}
+        >
+          {renderItem || children}
         </Box>
       </Card>
     </Paper>

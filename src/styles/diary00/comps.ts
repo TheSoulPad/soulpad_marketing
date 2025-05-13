@@ -5,14 +5,35 @@ import { bodyText as f2 } from "./fonts";
 import {
   PaperType,
   CardType,
-  CompType,
+  MenuType,
   RichTextType,
+  ButtonType,
 } from "../../Components/types";
 
 const purpleShadow = `1px 1px 1px ${c.text02}`;
 const pinkShadow = `1px 1px 1px ${c.text03}`;
 const whiteShadow = `1px 1px 1px ${c.text01}`;
 const borderRadius = `${s.xs * 0.5}rem`;
+const allButtons = {
+  ...f,
+  borderRadius,
+  width: "100%",
+  textAlign: "center",
+};
+
+const primaryButton = {
+  ...allButtons,
+  backgroundColor: c.button,
+  color: `${c.text01}`,
+  textShadow: purpleShadow,
+};
+
+const secondaryButton = {
+  ...allButtons,
+  backgroundColor: c.buttonSecondary,
+  color: `${c.text03}`,
+  textShadow: pinkShadow,
+};
 
 const content = {
   ...f2,
@@ -81,7 +102,7 @@ const customCard: RichTextType = {
   },
 };
 
-const menuSelection: CompType = {
+const menuSelection: MenuType = {
   activeStyles: {
     color: c.text01,
   },
@@ -122,15 +143,7 @@ const menuSelection: CompType = {
         textShadow: purpleShadow,
       },
     },
-    active: {
-      ...f,
-      backgroundColor: c.button,
-      color: `${c.text01}`,
-      textShadow: purpleShadow,
-      borderRadius,
-      width: "100%",
-      textAlign: "center",
-    },
+    active: primaryButton,
   },
 };
 
@@ -150,24 +163,31 @@ const richTextPost: RichTextType = {
   },
 };
 
+const buttons: ButtonType = {
+  primary: {
+    ...primaryButton,
+    "&:hover": {
+      backgroundColor: c.buttonHover,
+      color: `${c.text02}`,
+    },
+  },
+  secondary: {
+    ...secondaryButton,
+    "&:hover": {
+      backgroundColor: c.buttonHover,
+      color: `${c.text02}`,
+    },
+  },
+  custom: allButtons,
+};
+
 export const diary = {
   ID: 1,
   themeID: "DIARY",
-  button: {
-    borderRadius,
-    color: c.text01,
-    backgroundColor: c.button,
-    border: `1px solid ${c.buttonBorder}`,
-    "&:hover": {
-      backgroundColor: c.buttonHover,
-      color: c.text02,
-    },
-  },
+  buttons,
   card,
   customCard,
-  content: {
-    ...content,
-  },
+  content,
   hover: c.mainBg03,
   icons: {
     iconClose: icons,
@@ -181,13 +201,6 @@ export const diary = {
     border: "unset",
     backgroundColor: c.mainBg03,
     textShadow: purpleShadow,
-  },
-  mediaPlayer: {
-    header: {
-      ...header,
-      backgroundColor: c.headerBg02,
-      border: "none",
-    },
   },
   menuSelection,
   paper,

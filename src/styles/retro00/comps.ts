@@ -5,8 +5,9 @@ import { spacing } from "../spacing";
 import {
   PaperType,
   CardType,
-  CompType,
+  MenuType,
   RichTextType,
+  ButtonType,
 } from "../../Components/types";
 
 const getBorder = (
@@ -17,7 +18,7 @@ const getBorder = (
   opt: string,
   opt2: string,
   opt3: string,
-  opt4: string,
+  opt4: string
 ) => {
   const borderStyles = {
     borderTop: `2px ${opt} ${color}`,
@@ -32,13 +33,32 @@ const getBorder = (
 const buttonBorder = getBorder(
   c.shine, //top
   c.shine, //left
-  c.button, //right
-  c.button, //bottom
+  c.navyBlue, //right
+  c.navyBlue, //bottom
   "solid", //top
   "solid", //left
   "inset", //right
-  "inset", //bottom
+  "inset" //bottom
 );
+
+const allButtons = {
+  ...f2,
+  ...buttonBorder,
+  cursor: "pointer",
+  padding: `${spacing.xs * 0.5}rem`,
+  textAlign: "center",
+  width: "100%",
+  justifyContent: "center",
+  margin: 0,
+
+};
+
+const primaryButton = {
+  ...allButtons,
+  backgroundColor: c.button,
+  textShadow: `0px 0px 1px ${c.text01}`,
+  color: c.buttonText,
+};
 
 const cardBorder = getBorder(
   c.contentBorder, //top
@@ -48,7 +68,7 @@ const cardBorder = getBorder(
   "solid",
   "solid",
   "inset",
-  "inset",
+  "inset"
 );
 
 const headerIconBorder = getBorder(
@@ -59,7 +79,7 @@ const headerIconBorder = getBorder(
   "solid", //top
   "inset", //left
   "inset", //right
-  "inset", //bottom
+  "inset" //bottom
 );
 
 const paperBorder = getBorder(
@@ -70,7 +90,7 @@ const paperBorder = getBorder(
   "solid",
   "solid",
   "inset",
-  "inset",
+  "inset"
 );
 
 const richTextContentBorder = getBorder(
@@ -81,7 +101,7 @@ const richTextContentBorder = getBorder(
   "solid",
   "solid",
   "inset",
-  "inset",
+  "inset"
 );
 
 const purpleHeader = {
@@ -119,7 +139,7 @@ const card: CardType = {
   ...contentText,
   display: "block",
   backgroundColor: c.mainBg00,
-  padding: `0 ${spacing.xs}rem 0 0`,
+  padding: `${spacing.xs}rem`,
 };
 
 const paper: PaperType = {
@@ -137,51 +157,39 @@ const customCard: RichTextType = {
   },
 };
 
-const menuSelection: CompType = {
+const menuSelection: MenuType = {
   activeStyles: {
+    border: `2px dashed ${c.buttonHover}`,
     color: c.text01,
     textShadow: `0px 0px 1px ${c.text01}`,
-    border: `2px dashed ${c.buttonHover}`,
   },
   content: {
     ...contentText,
     backgroundColor: c.mainBg00,
-    fontWeight: "400",
     borderRadius: "0px",
+    fontWeight: "400",
     padding: `${spacing.xs}rem 0 ${spacing.xs}rem 0`,
   },
-
   header: {
     styles: purpleHeader,
     text: f,
   },
   text: {
+    active: {
+      ...primaryButton,
+      fontSize: "1.5rem",
+      border: `2px dashed ${c.buttonHover}`,
+    },
     list: {
-      ...f2,
-      backgroundColor: c.mainBg00,
-      margin: 0,
-      textAlign: "center",
-      justifyContent: "center",
-      width: "100%",
-      padding: `${spacing.xs * 0.5}rem`,
+      ...primaryButton,
+      backgroundColor: "transparent",
+      border: "none",
+      fontSize: "1.5rem",
       "&:hover": {
         backgroundColor: c.button,
         border: `2px dashed ${c.buttonHover}`,
         textShadow: `0px 0px 1px ${c.text01}`,
       },
-    },
-
-    active: {
-      ...f2,
-      border: `2px dashed ${c.buttonHover}`,
-      textShadow: `0px 0px 1px ${c.text01}`,
-      backgroundColor: c.button,
-      color: c.buttonText,
-      margin: 0,
-      padding: `${spacing.xs * 0.5}rem`,
-      textAlign: "center",
-      width: "100%",
-      justifyContent: "center",
     },
   },
 };
@@ -198,18 +206,23 @@ const richTextPost: RichTextType = {
   },
 };
 
+const buttons: ButtonType = {
+  primary: {
+    ...primaryButton,
+    "&:hover": {
+      backgroundColor: c.buttonHover,
+      border: `2px dashed ${c.buttonHover}`,
+      textShadow: `0px 0px 1px ${c.text01}`,
+    },
+  },
+  secondary: {},
+  custom: allButtons,
+};
+
 export const retro = {
   ID: 2,
   themeID: "RETRO",
-  buttonPrimary: {
-    ...buttonBorder,
-    backgroundColor: c.button,
-    color: c.buttonText,
-    cursor: "pointer",
-    fontWeight: "bold",
-    margin: "5px",
-    padding: "5px",
-  },
+  buttons,
   card,
   customCard,
   content: defaultContent,
@@ -225,14 +238,6 @@ export const retro = {
       ...contentText,
       ...richTextContentBorder,
       backgroundColor: c.icon,
-    },
-  },
-  mediaPlayer: {
-    header: purpleHeader,
-    content: {
-      ...contentText,
-      ...richTextContentBorder,
-      backgroundColor: c.mainBg01,
     },
   },
   menuSelection,

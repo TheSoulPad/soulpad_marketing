@@ -1,77 +1,46 @@
 import React from "react";
-import { spacing } from "../styles";
 import List from "@mui/material/List";
 import ListItem from "@mui/material/ListItem";
 import ListItemText from "@mui/material/ListItemText";
-import { ListSubheader } from "@mui/material";
 import CustomCard from "./CustomCard";
-import {
-  CardStyle,
-  Simple,
-  SimplePaper,
-  PaperStyle,
-  TitleFont,
-  ListStyle,
-} from "../styles/types";
 
 interface CustomListItem {
-  item1: string;
-  item2: string;
-  item3: string;
+  id: number;
+  label: string;
 }
 
 interface CustomListProps {
-  card: CardStyle | Simple | ListStyle;
-  children?: React.ReactNode;
   items: CustomListItem[];
-  paper: PaperStyle | SimplePaper;
   size: "small" | "large";
   title: string;
-  titleFont: TitleFont;
-  themeType?: string;
+  themeType: string;
 }
 
 const CustomList: React.FC<CustomListProps> = ({
   items,
   title,
-  titleFont,
-  card,
-  paper,
   size,
+  themeType,
 }) => {
   return (
-    <CustomCard
-      title={title}
-      paper={paper}
-      card={card}
-      titleFont={titleFont}
-      size={size}
-    >
+    <CustomCard title={title} themeType={themeType} size={size}>
       <div>
         <List
           sx={{
             width: "100%",
             maxWidth: 360,
-            bgcolor: "background.paper",
-            position: "relative",
-            overflow: "auto",
+            bgcolor: "transparent",
             maxHeight: 300,
             "& ul": { padding: 0 },
           }}
-          subheader={<li />}
         >
-          {[0, 1, 2, 3, 4].map((sectionId) => (
-            <li key={`section-${sectionId}`}>
-              <ul>
-                <ListSubheader>{`I'm sticky ${sectionId}`}</ListSubheader>
-                {[0, 1, 2].map((item) => (
-                  <ListItem key={`item-${sectionId}-${item}`}>
-                    <ListItemText primary={`Item ${item}`} />
-                  </ListItem>
-                ))}
-              </ul>
-            </li>
-          ))}
+          <ul>
+            {items.map((item) => (
+              <ListItem key={item.id}>
+                <ListItemText primary={`${item.label}`} />
+              </ListItem>
+            ))}
+          </ul>
         </List>
       </div>
     </CustomCard>

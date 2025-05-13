@@ -4,57 +4,61 @@ import { retro } from "../styles/retro00/comps";
 import { videoGame } from "../styles/videogame/comps";
 import {
   CardType,
-  CompType,
+  MenuType,
   PaperType,
   RichTextType,
   IconsType,
+  ButtonType,
 } from "../Components/types";
 
 interface ThemeInfoType {
   card: CardType;
-  comp: CompType | RichTextType;
+  menu: MenuType;
+  richText: RichTextType;
   paper: PaperType;
+  buttons: ButtonType;
   icons: IconsType;
   themeID: string;
 }
 
-export const useTheme = (
-  //add custom card here
-  compType: "menuSelection" | "richTextPost" | "customCard",
-  themeType: string,
-) => {
+export const useTheme = (themeType: string) => {
   /**
-   1.)get and set the theme first (about, diary, retro).
-   To do: create a type for theme and match it across all the themes.
-   2.) Get and set the component types so menuSelection or richTextPost
-   3.) Return theme styles for the component calling it in the gallery
+   1.) set the default theme first (about).
+   2.) Change the theme based on the themeType passed in.
+   3.) Return the updated theme styles
    ***/
 
   let themeInfoStyles: ThemeInfoType = {
     card: about.card,
-    comp: about[compType],
+    menu: about.menuSelection,
+    richText: about.richTextPost,
     paper: about.paper,
     themeID: about.themeID,
     icons: about.icons,
+    buttons: about.buttons,
   };
 
   switch (themeType) {
     case "DIARY":
       themeInfoStyles = {
         card: diary.card,
+        menu: diary.menuSelection,
+        richText: diary.richTextPost,
         paper: diary.paper,
-        comp: diary[compType],
         themeID: diary.themeID,
         icons: diary.icons,
+        buttons: diary.buttons,
       };
       return themeInfoStyles;
     case "SOULPAD":
       const aboutInfoStyles = {
         card: about.card,
         paper: about.paper,
-        comp: about[compType],
+        menu: about.menuSelection,
+        richText: about.richTextPost,
         themeID: about.themeID,
         icons: about.icons,
+        buttons: about.buttons,
       };
       return aboutInfoStyles;
 
@@ -62,18 +66,22 @@ export const useTheme = (
       const retroInfoStyles = {
         card: retro.card,
         paper: retro.paper,
-        comp: retro[compType],
+        menu: retro.menuSelection,
+        richText: retro.richTextPost,
         themeID: retro.themeID,
         icons: retro.icons,
+        buttons: retro.buttons,
       };
       return retroInfoStyles;
     case "VIDEOGAME":
       const vgInfoStyles = {
         card: videoGame.card,
         paper: videoGame.paper,
-        comp: videoGame[compType],
+        menu: videoGame.menuSelection,
+        richText: videoGame.richTextPost,
         themeID: videoGame.themeID,
         icons: videoGame.icons,
+        buttons: videoGame.buttons,
       };
       return vgInfoStyles;
     default:

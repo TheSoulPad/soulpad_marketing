@@ -13,6 +13,7 @@ const { salmon, beige, lightPurple, purple, softWhite, babyBlue, darkPurple } =
 
 export const colors = {
   button: salmon,
+  buttonSecondary: purple,
   buttonBorder: salmon,
   buttonHover: beige,
   buttonText: softWhite,

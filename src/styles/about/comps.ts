@@ -7,15 +7,40 @@ import { bodyText as f2 } from "./fonts";
 import {
   PaperType,
   CardType,
-  CompType,
+  MenuType,
   RichTextType,
+  ButtonType,
 } from "../../Components/types";
+import { red } from "@mui/material/colors";
+
+//TO DO
+//fix the header styles; see souldpad theme in obsidian
 
 const borderRadiusSm = `${s.sm}rem`;
 const borderRadiusXs = `${s.xs}rem`;
-const redOrangeShadow = `1px 1px 1px ${c.redOrange}`;
-const darkBrownShadow = `1px 1px 1px ${c.darkBrown}`;
-// const beigeShadow = `1px 1px 1px ${c.text01}`;
+const redOrangeShadow = `7px 6px 1px ${c.redOrange}`;
+const darkBrownShadow = `7px 6px 0px 0px ${c.darkBrown}`;
+const yellowShadow = `7px 6px 0px 0px ${c.yellow}`;
+const allButtons = {
+  ...f,
+  boxShadow: darkBrownShadow,
+  borderRadius: borderRadiusSm,
+  fontSize: "1.25rem",
+  padding: `${s.xs * 0.5}rem`,
+  textAlign: "center",
+  width: "100%",
+};
+const primaryButton = {
+  ...allButtons,
+  backgroundColor: c.buttonPrimary,
+  color: c.text00,
+};
+
+const secondaryButton = {
+  ...allButtons,
+  backgroundColor: c.buttonSecondary,
+  color: c.text00,
+};
 
 const content = {
   borderRadius: borderRadiusSm,
@@ -79,48 +104,37 @@ const customCard: RichTextType = {
   },
 };
 
-const menuSelection: CompType = {
+const menuSelection: MenuType = {
   activeStyles: {
-    color: c.text01,
     border: "none",
+    color: c.text01,
   },
   content: {
     ...content,
-    padding: `${s.xs}rem 0 0 0`,
     border: "unset",
     fontWeight: "400",
+    padding: `${s.xs}rem 0 0 0`,
   },
   header: {
     styles: header,
     text: headerText,
   },
-
   text: {
+    active: primaryButton,
     list: {
       ...f,
-      color: c.text00,
       backgroundColor: "transparent",
       borderRadius: borderRadiusSm,
+      color: c.text00,
       fontSize: "1.25rem", // 20px
       padding: `${s.xs * 0.5}rem`,
       textAlign: "center",
       width: "100%",
       "&:hover": {
         backgroundColor: c.buttonPrimary,
-        color: `${c.text01} !important`,
-        textShadow: redOrangeShadow,
+        boxShadow: darkBrownShadow,
+        color: `${c.text00}`,
       },
-    },
-    active: {
-      ...f,
-      backgroundColor: c.buttonPrimary,
-      color: `${c.text01} !important`,
-      textShadow: redOrangeShadow,
-      borderRadius: borderRadiusSm,
-      fontSize: "1.25rem", // 20px
-      padding: `${s.xs * 0.5}rem`,
-      textAlign: "center",
-      width: "100%",
     },
   },
 };
@@ -143,19 +157,29 @@ const richTextPost: RichTextType = {
   },
 };
 
-export const about = {
-  ID: 0,
-  buttonPrimary: {
-    borderRadius: `${s.xs}rem`,
-    color: c.text00,
-    backgroundColor: c.buttonPrimary,
-    padding: `${s.xs}rem ${s.xs * 2}rem`,
-    boxShadow: `1px 1px 1px ${c.buttonShadow}`,
+const buttons: ButtonType = {
+  primary: {
+    ...primaryButton,
     "&:hover": {
       backgroundColor: c.buttonPrimaryHover,
-      color: c.text01,
+      boxShadow: redOrangeShadow,
+      color: c.redOrange,
     },
   },
+  secondary: {
+    ...secondaryButton,
+    "&:hover": {
+      backgroundColor: c.buttonSecondaryHover,
+      boxShadow: yellowShadow,
+      color: c.yellow,
+    },
+  },
+  custom: allButtons,
+};
+
+export const about = {
+  ID: 0,
+  buttons,
   card,
   customCard,
   content: {
@@ -180,9 +204,6 @@ export const about = {
     },
   },
   listBox: {},
-  mediaPlayer: {
-    header,
-  },
   menuSelection,
   paper,
   poll: {},
