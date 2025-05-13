@@ -12,7 +12,6 @@ import CustomMediaPlayer from "../Components/CustomMediaPlayer";
 import CustomList from "../Components/CustomList";
 import CustomProgress from "../Components/CustomProgress";
 import useMediaQuery from "@mui/material/useMediaQuery";
-import { about } from "../styles/about/comps";
 
 const strings = Strings.galleryPage;
 const headStrings = Strings.metaData.gallery;
@@ -58,7 +57,7 @@ const Gallery: React.FC = () => {
   };
 
   const menuItems = [
-    //make the about theme the SoulPad theme
+    //rename the 'about' theme to SoulPad
     {
       galleryName: "SoulPad",
       themeType: "SOULPAD",

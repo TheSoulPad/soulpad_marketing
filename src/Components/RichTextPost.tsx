@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Box, Paper } from "@mui/material";
+import { Box, Paper, SxProps, Theme } from "@mui/material";
 import CloseIcon from "@mui/icons-material/Close";
 import CropSquareIcon from "@mui/icons-material/CropSquare";
 import MinimizeIcon from "@mui/icons-material/Minimize";
@@ -12,10 +12,11 @@ import { useTheme } from "../hooks/useTheme";
 import {
   RichTextType,
   PaperType,
-  CompType,
+  MenuType,
   IconsType,
   CardType,
 } from "./types";
+import { get } from "http";
 
 // in the future
 // addDate?: boolean;
@@ -43,8 +44,8 @@ const RichTextPost: React.FC<RichTextPostProps> = ({
   children,
   size,
 }) => {
-  const [compTheme, setCompTheme] = useState<RichTextType | CompType>(
-    about.richTextPost,
+  const [compTheme, setCompTheme] = useState<RichTextType | MenuType>(
+    about.richTextPost
   );
   const [card, setCardTheme] = useState<CardType>(about.card);
   const [paper, setPaperTheme] = useState<PaperType>(about.paper);
@@ -57,13 +58,13 @@ const RichTextPost: React.FC<RichTextPostProps> = ({
     setIconsTheme(about.icons);
   };
 
-  const getAndSetComp = (theme: string) => {
-    const themeInfoStyles = useTheme("menuSelection", theme);
+  const getAndSetComp = () => {
+    const themeInfoStyles = useTheme(themeType);
 
     if (themeInfoStyles) {
       const paperStyles = themeInfoStyles.paper;
       const cardStyles = themeInfoStyles.card;
-      const compStyles = themeInfoStyles.comp;
+      const compStyles = themeInfoStyles.richText;
       const iconsStyles = themeInfoStyles.icons;
 
       setCardTheme(cardStyles);
@@ -76,23 +77,8 @@ const RichTextPost: React.FC<RichTextPostProps> = ({
   };
 
   useEffect(() => {
-    switch (themeType) {
-      case "SOULPAD":
-        getAndSetComp("SOULPAD");
-        break;
-      case "DIARY":
-        getAndSetComp("DIARY");
-        break;
-      case "RETRO":
-        getAndSetComp("RETRO");
-        break;
-      case "VIDEOGAME":
-        getAndSetComp("VIDEOGAME");
-        break;
-      default:
-        break;
-    }
-  }, [themeType, compTheme, paper]);
+    getAndSetComp();
+  }, [themeType]);
 
   const { content, header } = compTheme;
 
@@ -120,7 +106,7 @@ const RichTextPost: React.FC<RichTextPostProps> = ({
 
   return (
     <Paper className="rich-text-post-paper" elevation={2} sx={allPaperStyles}>
-      <Box className="rich-text-post-card" sx={card}>
+      <Box className="rich-text-post-card" sx={card as SxProps<Theme>}>
         <Box className="rich-text-post-header" sx={HeaderStyles}>
           <Typography variant="h2" sx={header.text}>
             {title}

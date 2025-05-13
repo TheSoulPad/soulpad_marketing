@@ -5,7 +5,7 @@ import { bodyText as f2 } from "./fonts";
 import {
   PaperType,
   CardType,
-  CompType,
+  MenuType,
   RichTextType,
   ButtonType,
 } from "../../Components/types";
@@ -115,7 +115,7 @@ const customCard: RichTextType = {
   },
 };
 
-const menuSelection: CompType = {
+const menuSelection: MenuType = {
   activeStyles: {
     backgroundColor: "unset",
     background: c.buttonPrimary,
@@ -190,7 +190,7 @@ const richTextPost: RichTextType = {
   },
 };
 
-const mediaPlayer: CompType = {
+const mediaPlayer: MenuType = {
   header: {
     styles: {
       ...header,

@@ -5,7 +5,7 @@ import { spacing } from "../spacing";
 import {
   PaperType,
   CardType,
-  CompType,
+  MenuType,
   RichTextType,
   ButtonType,
 } from "../../Components/types";
@@ -152,7 +152,7 @@ const customCard: RichTextType = {
   },
 };
 
-const menuSelection: CompType = {
+const menuSelection: MenuType = {
   activeStyles: {
     border: `2px dashed ${c.buttonHover}`,
     color: c.text01,

@@ -18,6 +18,7 @@ const CustomButton: React.FC<ButtonProps> = ({
   onClick,
   label,
   disabled = false,
+  themeType,
 }) => {
   const [compTheme, setCompTheme] = useState<ButtonType>(about.buttons);
 
@@ -25,9 +26,8 @@ const CustomButton: React.FC<ButtonProps> = ({
     setCompTheme(about.buttons);
   };
 
-  const getAndSetComp = (theme: string) => {
-    //for now default to menuSelection
-    const themeInfoStyles = useTheme("buttons", theme);
+  const getAndSetComp = () => {
+    const themeInfoStyles = useTheme(themeType);
     if (themeInfoStyles) {
       const buttonStyles = themeInfoStyles.buttons;
       setCompTheme(buttonStyles);
@@ -35,6 +35,10 @@ const CustomButton: React.FC<ButtonProps> = ({
     }
     setDefault();
   };
+
+  useEffect(() => {
+    getAndSetComp();
+  }, [themeType]);
 
   const buttonSize = "32px";
 

@@ -4,7 +4,7 @@ import { retro } from "../styles/retro00/comps";
 import { videoGame } from "../styles/videogame/comps";
 import {
   CardType,
-  CompType,
+  MenuType,
   PaperType,
   RichTextType,
   IconsType,
@@ -13,7 +13,8 @@ import {
 
 interface ThemeInfoType {
   card: CardType;
-  comp: CompType | RichTextType | ButtonType;
+  menu: MenuType;
+  richText: RichTextType;
   paper: PaperType;
   buttons: ButtonType;
   icons: IconsType;
@@ -22,7 +23,6 @@ interface ThemeInfoType {
 
 export const useTheme = (
   //add custom card here
-  compCategory: "menuSelection" | "richTextPost" | "customCard" | "buttons",
   themeType: string
 ) => {
   /**
@@ -34,7 +34,8 @@ export const useTheme = (
 
   let themeInfoStyles: ThemeInfoType = {
     card: about.card,
-    comp: about[compCategory],
+    menu: about.menuSelection,
+    richText: about.richTextPost,
     paper: about.paper,
     themeID: about.themeID,
     icons: about.icons,
@@ -45,7 +46,8 @@ export const useTheme = (
     case "DIARY":
       themeInfoStyles = {
         card: diary.card,
-        comp: diary[compCategory],
+        menu: diary.menuSelection,
+        richText: diary.richTextPost,
         paper: diary.paper,
         themeID: diary.themeID,
         icons: diary.icons,
@@ -56,7 +58,8 @@ export const useTheme = (
       const aboutInfoStyles = {
         card: about.card,
         paper: about.paper,
-        comp: about[compCategory],
+        menu: about.menuSelection,
+        richText: about.richTextPost,
         themeID: about.themeID,
         icons: about.icons,
         buttons: about.buttons,
@@ -67,7 +70,8 @@ export const useTheme = (
       const retroInfoStyles = {
         card: retro.card,
         paper: retro.paper,
-        comp: retro[compCategory],
+        menu: retro.menuSelection,
+        richText: retro.richTextPost,
         themeID: retro.themeID,
         icons: retro.icons,
         buttons: retro.buttons,
@@ -77,7 +81,8 @@ export const useTheme = (
       const vgInfoStyles = {
         card: videoGame.card,
         paper: videoGame.paper,
-        comp: videoGame[compCategory],
+        menu: videoGame.menuSelection,
+        richText: videoGame.richTextPost,
         themeID: videoGame.themeID,
         icons: videoGame.icons,
         buttons: videoGame.buttons,

@@ -7,7 +7,7 @@ import { bodyText as f2 } from "./fonts";
 import {
   PaperType,
   CardType,
-  CompType,
+  MenuType,
   RichTextType,
   ButtonType,
 } from "../../Components/types";
@@ -104,7 +104,7 @@ const customCard: RichTextType = {
   },
 };
 
-const menuSelection: CompType = {
+const menuSelection: MenuType = {
   activeStyles: {
     border: "none",
     color: c.text01,
