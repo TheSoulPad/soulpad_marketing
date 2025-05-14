@@ -9,7 +9,7 @@ export const Strings = {
   },
 
   about: {
-    header: "About",
+    header: "About SoulPad",
     subHeader: "What is SoulPad?",
     subHeader2: "How does it work?",
     content: {

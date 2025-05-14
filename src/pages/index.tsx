@@ -51,6 +51,7 @@ const subTitle: CSSProperties = {
   fontSize: "32px",
   padding: `${spacing.xs}rem`,
   margin: "auto",
+  width: "50%",
 };
 
 const cloudContainer: CSSProperties = {

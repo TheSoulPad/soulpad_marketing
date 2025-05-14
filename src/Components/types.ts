@@ -11,7 +11,6 @@ export interface MenuType {
     background?: string;
     fontFamily?: string;
   };
-
   content: {};
   header: {
     styles: {};
@@ -78,7 +77,7 @@ export interface IconsType {
 
 export interface CardType {
   borderRadius: string;
-  padding: string;
+  padding?: string;
   display: string;
   backgroundColor: string;
   background?: string;
