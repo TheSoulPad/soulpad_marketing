@@ -65,7 +65,7 @@ export interface RichTextType {
   content: {};
   header: {
     styles: {};
-    text: {};
+    text?: {};
   };
 }
 

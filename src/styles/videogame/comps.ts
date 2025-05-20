@@ -9,6 +9,7 @@ import {
   RichTextType,
   ButtonType,
 } from "../../Components/types";
+import { text } from "stream/consumers";
 
 const blackShadow = `-1px 2px 0px ${c.black}`;
 const whiteShadow = `-1px 2px 0px ${c.white}`;
@@ -31,12 +32,13 @@ const threeDBtnPrimaryShadow = {
 };
 
 const threeDBtnSecShadow = {
+  ...buttonStyles,
   boxShadow: `0px 4px 6px -1px ${c.purple}, 0px 10px 1px -4px ${c.purple}`,
 };
 
-const threeDOrangeShadow = {
-  boxShadow: `0px 4px 6px -1px ${c.mainBg02}, 0px 10px 1px -4px ${c.mainBg02}`,
-};
+// const threeDOrangeShadow = {
+//   boxShadow: `0px 4px 6px -1px ${c.mainBg02}, 0px 10px 1px -4px ${c.mainBg02}`,
+// };
 
 const content = {
   ...f2,
@@ -62,6 +64,7 @@ const icons = {
   backgroundColor: c.iconBg,
   color: c.icon,
   borderRadius: `${s.xs * 0.5}rem`,
+  marginRight: `${s.sm}rem`,
 };
 
 const card: CardType = {
@@ -89,6 +92,7 @@ const buttonPrimary = {
 const buttonSecondary = {
   ...threeDBtnSecShadow,
   borderRadius,
+  margin: `${s.xs}rem 0`,
   color: c.text01,
   backgroundColor: c.buttonSecondary,
   border: `1px solid ${c.buttonSecondaryBorder}`,
@@ -102,15 +106,18 @@ const customCard: RichTextType = {
   content: {
     ...content,
     backgroundColor: c.mainBg02,
-    border: `1px solid ${c.contentBorder}`,
+    border: "none",
     fontWeight: "400",
     color: c.text01,
   },
   header: {
-    styles: header,
-    text: {
+    styles: {
       ...f,
-      textShadow: blackShadow,
+      ...header,
+      display: "block",
+      padding: `${s.xs}rem`,
+      textShadow: whiteShadow,
+      fontSize: "1.2rem",
     },
   },
 };
@@ -179,30 +186,12 @@ const richTextPost: RichTextType = {
     position: "relative",
   },
   header: {
-    styles: {
-      ...header,
-      left: "55px",
-    },
+    styles: header,
     text: {
       ...f,
-      textShadow: blackShadow,
+      textShadow: whiteShadow,
     },
   },
-};
-
-const mediaPlayer: MenuType = {
-  header: {
-    styles: {
-      ...header,
-      backgroundColor: "",
-      border: "none",
-    },
-    text: {
-      ...f,
-      textShadow: blackShadow,
-    },
-  },
-  content,
 };
 
 const buttons: ButtonType = {
@@ -229,7 +218,6 @@ export const videoGame = {
   menuSelection,
   paper,
   poll: {},
-  progressBar: {},
   richTextPost,
   wordSticker: {},
 };

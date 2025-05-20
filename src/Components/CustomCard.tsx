@@ -79,11 +79,10 @@ const CustomCard: React.FC<CardProps> = ({
   const cardSize = size === "small" ? smallSize : largeSize;
 
   const titleStyles = {
-    fontSize: "1.5rem",
-    fontWeight: "bold",
-    textAlign: "center",
-    padding: "0.5rem",
-    color: "#e8d8a7",
+    ...customCard.header.text,
+    ...customCard.header.styles,
+   
+
   };
 
   const paperStyles = {

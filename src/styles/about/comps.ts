@@ -12,6 +12,8 @@ import {
   ButtonType,
 } from "../../Components/types";
 import { red } from "@mui/material/colors";
+import { dark } from "@mui/material/styles/createPalette";
+import { text } from "stream/consumers";
 
 //TO DO
 //fix the header styles; see souldpad theme in obsidian
@@ -96,10 +98,14 @@ const customCard: RichTextType = {
     color: c.text00,
   },
   header: {
-    styles: header,
-    text: {
+    styles: {
+      ...header,
       ...f,
       textShadow: darkBrownShadow,
+      padding: `${s.xs}rem`,
+      color: c.text01,
+      textAlign: "center",
+      display: "block",
     },
   },
 };
