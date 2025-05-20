@@ -1,6 +1,6 @@
 import { colors as c } from "./colors";
-import { headerText as f } from "./fonts";
-import { bodyText as f2 } from "./fonts";
+import { headerText as h } from "./fonts";
+import { bodyText as b } from "./fonts";
 import { spacing } from "../spacing";
 import {
   PaperType,
@@ -9,6 +9,8 @@ import {
   RichTextType,
   ButtonType,
 } from "../../Components/types";
+import { purple } from "@mui/material/colors";
+import { text } from "stream/consumers";
 
 const getBorder = (
   color: string,
@@ -42,7 +44,7 @@ const buttonBorder = getBorder(
 );
 
 const allButtons = {
-  ...f2,
+  ...b,
   ...buttonBorder,
   cursor: "pointer",
   padding: `${spacing.xs * 0.5}rem`,
@@ -50,7 +52,6 @@ const allButtons = {
   width: "100%",
   justifyContent: "center",
   margin: 0,
-
 };
 
 const primaryButton = {
@@ -58,6 +59,12 @@ const primaryButton = {
   backgroundColor: c.button,
   textShadow: `0px 0px 1px ${c.text01}`,
   color: c.buttonText,
+};
+const secondaryButton = {
+  ...allButtons,
+  backgroundColor: c.mainBg02,
+  textShadow: `0px 0px 1px ${c.text02}`,
+  color: c.text02,
 };
 
 const cardBorder = getBorder(
@@ -105,13 +112,12 @@ const richTextContentBorder = getBorder(
 );
 
 const purpleHeader = {
-  ...f,
+  ...h,
   backgroundColor: c.mainBg02,
   color: c.text02,
   display: "flex",
   fontSize: "14px",
   margin: 0,
-  padding: `${spacing.xs * 0.5}em`,
   textAlign: "left",
   width: "100%",
 };
@@ -123,7 +129,7 @@ const icons = {
 };
 
 const contentText = {
-  ...f2,
+  ...b,
   padding: `${spacing.xs}em`,
 };
 
@@ -139,7 +145,7 @@ const card: CardType = {
   ...contentText,
   display: "block",
   backgroundColor: c.mainBg00,
-  padding: `${spacing.xs}rem`,
+  padding: "0",
 };
 
 const paper: PaperType = {
@@ -152,8 +158,13 @@ const customCard: RichTextType = {
     ...defaultContent,
   },
   header: {
-    styles: purpleHeader,
-    text: f,
+    styles: {
+      ...purpleHeader,
+      display: "block",
+      textAlign: "center",
+      padding: "0.5rem",
+      fontSize: "1.5rem",
+    },
   },
 };
 
@@ -172,7 +183,7 @@ const menuSelection: MenuType = {
   },
   header: {
     styles: purpleHeader,
-    text: f,
+    text: { ...h, padding: `${spacing.xs}` },
   },
   text: {
     active: {
@@ -202,7 +213,7 @@ const richTextPost: RichTextType = {
   },
   header: {
     styles: purpleHeader,
-    text: f,
+    text: h,
   },
 };
 
@@ -210,12 +221,15 @@ const buttons: ButtonType = {
   primary: {
     ...primaryButton,
     "&:hover": {
-      backgroundColor: c.buttonHover,
       border: `2px dashed ${c.buttonHover}`,
-      textShadow: `0px 0px 1px ${c.text01}`,
     },
   },
-  secondary: {},
+  secondary: {
+    ...secondaryButton,
+    "&:hover": {
+      border: `2px dashed ${c.text03}`,
+    },
+  },
   custom: allButtons,
 };
 
@@ -243,7 +257,7 @@ export const retro = {
   menuSelection,
   paper,
   poll: {
-    ...f,
+    ...h,
     ...cardBorder,
     backgroundColor: c.mainBg00,
   },
@@ -261,11 +275,11 @@ export const retro = {
   },
   richTextPost,
   text: {
-    ...f2,
+    ...b,
     color: c.text01,
   },
   wordSticker: {
-    ...f2,
+    ...b,
     ...cardBorder,
     backgroundColor: c.mainBg00,
   },

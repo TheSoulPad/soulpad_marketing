@@ -13,6 +13,7 @@ import {
 
 interface ThemeInfoType {
   card: CardType;
+  customCard?: RichTextType;
   menu: MenuType;
   richText: RichTextType;
   paper: PaperType;
@@ -42,6 +43,7 @@ export const useTheme = (themeType: string) => {
     case "DIARY":
       themeInfoStyles = {
         card: diary.card,
+        customCard: diary.customCard,
         menu: diary.menuSelection,
         richText: diary.richTextPost,
         paper: diary.paper,
@@ -53,6 +55,7 @@ export const useTheme = (themeType: string) => {
     case "SOULPAD":
       const aboutInfoStyles = {
         card: about.card,
+        customCard: about.customCard,
         paper: about.paper,
         menu: about.menuSelection,
         richText: about.richTextPost,
@@ -65,6 +68,7 @@ export const useTheme = (themeType: string) => {
     case "RETRO":
       const retroInfoStyles = {
         card: retro.card,
+        customCard: retro.customCard,
         paper: retro.paper,
         menu: retro.menuSelection,
         richText: retro.richTextPost,
@@ -76,6 +80,7 @@ export const useTheme = (themeType: string) => {
     case "VIDEOGAME":
       const vgInfoStyles = {
         card: videoGame.card,
+        customCard: videoGame.customCard,
         paper: videoGame.paper,
         menu: videoGame.menuSelection,
         richText: videoGame.richTextPost,

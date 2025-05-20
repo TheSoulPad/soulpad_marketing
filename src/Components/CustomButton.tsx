@@ -58,10 +58,10 @@ const CustomButton: React.FC<ButtonProps> = ({
   const buttonStyle = buttonStyles[buttonType] || buttons.primary;
 
   const sxStyles = {
-    ...buttonStyle,
     maxHeight: buttonSize,
     width: "80%",
     margin: "auto",
+    ...buttonStyle,
   };
   return (
     <Button sx={sxStyles} onClick={onClick}>

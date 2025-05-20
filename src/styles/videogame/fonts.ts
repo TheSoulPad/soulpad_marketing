@@ -9,7 +9,7 @@ export const headerText = {
 };
 
 export const bodyText = {
-  fontFamily: "Turret Road, sans-serif",
+  fontFamily: `Quantico, sans-serif`,
   textAlign: "left",
   fontWeight: "300",
   color: c.text01,

@@ -1,7 +1,7 @@
 import { colors as c } from "./colors";
 import { spacing as s } from "../spacing";
-import { headerText as f } from "./fonts";
-import { bodyText as f2 } from "./fonts";
+import { headerText as h } from "./fonts";
+import { bodyText as b } from "./fonts";
 import {
   PaperType,
   CardType,
@@ -15,28 +15,27 @@ const pinkShadow = `1px 1px 1px ${c.text03}`;
 const whiteShadow = `1px 1px 1px ${c.text01}`;
 const borderRadius = `${s.xs * 0.5}rem`;
 const allButtons = {
-  ...f,
+  ...h,
   borderRadius,
   width: "100%",
   textAlign: "center",
+  color: `${c.text01}`,
 };
 
 const primaryButton = {
   ...allButtons,
   backgroundColor: c.button,
-  color: `${c.text01}`,
   textShadow: purpleShadow,
 };
 
 const secondaryButton = {
   ...allButtons,
   backgroundColor: c.buttonSecondary,
-  color: `${c.text03}`,
   textShadow: pinkShadow,
 };
 
 const content = {
-  ...f2,
+  ...b,
   backgroundColor: c.mainBg00,
   border: `1px solid ${c.contentBorder}`,
   borderRadius,
@@ -45,7 +44,7 @@ const content = {
 };
 
 const header = {
-  ...f,
+  ...h,
   borderRadius,
   display: "flex",
   justifyContent: "space-between",
@@ -76,7 +75,7 @@ const card: CardType = {
 };
 
 const paper: PaperType = {
-  ...f,
+  ...h,
   borderRadius,
   boxShadow: "",
   backgroundColor: "",
@@ -91,13 +90,16 @@ const customCard: RichTextType = {
     backgroundColor: c.mainBg00,
     border: `1px solid ${c.contentBorder}`,
     fontWeight: "400",
-    color: c.text01,
   },
   header: {
-    styles: purpleHeader,
-    text: {
-      ...f,
-      textShadow: whiteShadow,
+    styles: {
+      ...purpleHeader,
+      ...h,
+      textShadow: purpleShadow,
+      padding: `${s.xs}rem`,
+      color: c.text01,
+      textAlign: "center",
+      display: "block",
     },
   },
 };
@@ -121,7 +123,7 @@ const menuSelection: MenuType = {
     },
 
     text: {
-      ...f,
+      ...h,
       textShadow: purpleShadow,
       margin: 0,
     },
@@ -129,7 +131,7 @@ const menuSelection: MenuType = {
 
   text: {
     list: {
-      ...f,
+      ...h,
       textAlign: "center",
       color: c.text02,
       textShadow: whiteShadow,
@@ -155,9 +157,9 @@ const richTextPost: RichTextType = {
     fontWeight: "400",
   },
   header: {
-    styles: pinkHeader,
+    styles: purpleHeader,
     text: {
-      ...f,
+      ...h,
       textShadow: purpleShadow,
     },
   },
@@ -196,7 +198,7 @@ export const diary = {
   },
   listBox: {
     ...content,
-    ...f,
+    ...h,
     display: "block",
     border: "unset",
     backgroundColor: c.mainBg03,

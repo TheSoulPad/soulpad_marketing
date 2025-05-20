@@ -25,7 +25,6 @@ const BaseLayout: React.FC<LayoutProps> = ({ children, title, pageStyles }) => {
   const mainStyles: CSSProperties = {
     flex: 1,
     position: "relative",
-    margin: `${spacing.lg}rem  0`,
     padding: `${isMobile ? spacing.sm : 0}rem`,
   };
 

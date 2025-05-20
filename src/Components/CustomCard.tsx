@@ -33,11 +33,16 @@ const CustomCard: React.FC<CardProps> = ({
   renderItem,
   children,
 }) => {
+  //change this to  customCard and update in useTheme
   const [card, setCardTheme] = useState<CardType>(about.card);
+  const [customCard, setCustomCardTheme] = useState<RichTextType>(
+    about.customCard
+  );
   const [paper, setPaperTheme] = useState<PaperType>(about.paper);
 
   const setDefault = () => {
     setCardTheme(about.card);
+    setCustomCardTheme(about.customCard);
     setPaperTheme(about.paper);
   };
 
@@ -45,10 +50,12 @@ const CustomCard: React.FC<CardProps> = ({
     const themeInfoStyles = useTheme(themeType);
 
     if (themeInfoStyles) {
+      const customCardStyles = themeInfoStyles.customCard || about.customCard;
       const paperStyles = themeInfoStyles.paper;
       const cardStyles = themeInfoStyles.card;
 
       setCardTheme(cardStyles);
+      setCustomCardTheme(customCardStyles as RichTextType);
       setPaperTheme(paperStyles);
       return;
     }
@@ -69,23 +76,51 @@ const CustomCard: React.FC<CardProps> = ({
     minHeight: "200px",
   };
 
+  const cardSize = size === "small" ? smallSize : largeSize;
+
   const titleStyles = {
-    fontSize: "1.5rem",
-    fontWeight: "bold",
-    textAlign: "center",
+    ...customCard.header.text,
+    ...customCard.header.styles,
+   
+
   };
 
-  const cardSize = size === "small" ? smallSize : largeSize;
+  const paperStyles = {
+    ...paper,
+    ...cardSize,
+    overflow: "auto",
+  };
+
+  const cardStyles = {
+    ...card,
+    ...cardSize,
+  };
+
+  const contentStyles = {
+    ...customCard.content,
+    alignItems: "center",
+    padding: "1rem",
+  };
+
   return (
-    <Paper className="custom-paper-card" sx={{ ...paper, ...cardSize }}>
-      <Card
-        className="custom-card-body"
-        sx={{ ...card, minHeight: cardSize.minHeight }}
-      >
+    <Paper className="custom-paper-card" sx={paperStyles}>
+      <Card className="custom-card-body" sx={cardStyles}>
         <Typography variant="body1" className="card-title" sx={titleStyles}>
           {title}
         </Typography>
 
+        {/* fixed styles for now */}
+        <Box
+          className="custom-card-content"
+          display="flex"
+          flexDirection="column"
+          rowGap={1}
+          sx={contentStyles}
+        >
+          {renderItem || children}
+        </Box>
+
+        {/*
         {imageUrl && (
           <Box className="card-image">
             <img src={imageUrl} alt={title} className="card-image" />
@@ -96,17 +131,7 @@ const CustomCard: React.FC<CardProps> = ({
           <Typography variant="h4" className="card-text">
             {text}
           </Typography>
-        )}
-
-        {/* fixed styles for now */}
-        <Box
-          display="flex"
-          flexDirection="column"
-          rowGap={1}
-          sx={{ alignItems: "center" }}
-        >
-          {renderItem || children}
-        </Box>
+        )} */}
       </Card>
     </Paper>
   );

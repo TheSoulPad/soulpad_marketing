@@ -12,12 +12,13 @@ import {
   ButtonType,
 } from "../../Components/types";
 import { red } from "@mui/material/colors";
+import { dark } from "@mui/material/styles/createPalette";
+import { text } from "stream/consumers";
 
 //TO DO
 //fix the header styles; see souldpad theme in obsidian
 
 const borderRadiusSm = `${s.sm}rem`;
-const borderRadiusXs = `${s.xs}rem`;
 const redOrangeShadow = `7px 6px 1px ${c.redOrange}`;
 const darkBrownShadow = `7px 6px 0px 0px ${c.darkBrown}`;
 const yellowShadow = `7px 6px 0px 0px ${c.yellow}`;
@@ -43,8 +44,11 @@ const secondaryButton = {
 };
 
 const content = {
-  borderRadius: borderRadiusSm,
-  padding: `${s.xs}rem`,
+  borderBottomLeftRadius: borderRadiusSm,
+  borderBottomRightRadius: borderRadiusSm,
+  border: "none",
+  padding: `${s.sm}rem`,
+  backgroundColor: c.mainBg00,
 };
 
 const iconsClass = {
@@ -54,8 +58,9 @@ const iconsClass = {
 };
 
 const header = {
-  backgroundColor: c.headerBg00,
-  borderRadius: borderRadiusXs,
+  backgroundColor: c.headerBg,
+  borderTopLeftRadius: borderRadiusSm,
+  borderTopRightRadius: borderRadiusSm,
   display: "flex",
   justifyContent: "space-between",
   padding: `${s.xs}rem`,
@@ -74,13 +79,11 @@ const headerText = {
 const card: CardType = {
   ...f2,
   borderRadius: borderRadiusSm,
-  padding: `${s.xs}rem`,
   display: "block",
-  backgroundColor: c.mainBg00,
+  backgroundColor: c.headerBg,
 };
 
 const paper: PaperType = {
-  border: `1px solid ${c.paperBorder}`,
   borderRadius: borderRadiusSm,
   display: "block",
   padding: "unset",
@@ -90,16 +93,19 @@ const paper: PaperType = {
 
 const customCard: RichTextType = {
   content: {
-    ...card,
+    ...content,
     fontWeight: "400",
-    color: c.text01,
-    backgroundColor: c.mainBg01,
+    color: c.text00,
   },
   header: {
-    styles: header,
-    text: {
+    styles: {
+      ...header,
       ...f,
       textShadow: darkBrownShadow,
+      padding: `${s.xs}rem`,
+      color: c.text01,
+      textAlign: "center",
+      display: "block",
     },
   },
 };
@@ -113,7 +119,6 @@ const menuSelection: MenuType = {
     ...content,
     border: "unset",
     fontWeight: "400",
-    padding: `${s.xs}rem 0 0 0`,
   },
   header: {
     styles: header,
@@ -143,12 +148,9 @@ const richTextPost: RichTextType = {
   content: {
     ...content,
     ...f2,
-    backgroundColor: c.mainBg00,
-    border: `1px solid ${c.contentBorder}`,
     fontSize: "1.25rem", // 20px
     fontWeight: "400",
     textShadow: "none",
-    borderRadius: `${s.xs}rem`,
     margin: "unset",
   },
   header: {
