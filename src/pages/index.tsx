@@ -27,13 +27,14 @@ import BaseLayout from "../BaseLayout";
 import { colors, spacing } from "../styles";
 import Typography from "@mui/material/Typography";
 import Grid from "@mui/material/Grid2";
-import Clouds from "../Components/Clouds";
+import Window from "../Components/Window";
 import { homePageLinks } from "../const";
 import { Strings } from "../resources/strings";
+//add svg support
 
 const strings = Strings.homePage;
 const headStrings = Strings.metaData.home;
-const pageStyles = {
+const gridStyles = {
   color: "#232129",
   overflow: "hidden",
 };
@@ -45,35 +46,48 @@ const contentStyles: CSSProperties = {
 };
 
 const subTitle: CSSProperties = {
-  fontWeight: "800",
-  backgroundColor: `rgba(${colors.backgroundRGB}, 0.7)`,
   borderRadius: "5px",
   fontSize: "32px",
-  padding: `${spacing.xs}rem`,
-  margin: "auto",
-  width: "50%",
+  width: "100%",
+  color: "rgba(0,0,0,0.87)",
+  letterSpacing: "0.15rem",
+  textShadow: "1px 1px 0px rgba(255,97,5,0.6)",
 };
 
-const cloudContainer: CSSProperties = {
-  marginTop: `${spacing.layoutbg}rem`,
+const windowContainer: CSSProperties = {
+  marginTop: `${spacing.sm}rem`,
 };
 
 const homeStyles = {
-  backgroundImage: "url('/images/home-bg.jpg')",
   backgroundSize: "cover",
-  color: "#ffffff",
+  backgroundColor: "#ffe7c1", // official bg color
+  color: "#ff6c05", // official text color
+  textShadow: "6px 7px 2px #caf105",
+};
+
+const subHeaderImgBox = {
+  width: "50%",
+  marging: "auto",
 };
 
 const Home = () => {
   return (
     <BaseLayout title={strings.header} pageStyles={homeStyles}>
-      <Grid style={pageStyles}>
+      <Grid style={gridStyles}>
         <Grid
           container
           direction="column"
           className="home-page--content"
           style={contentStyles}
         >
+          <Typography
+            style={subTitle}
+            className="home-page--subtitle"
+            variant="h2"
+          >
+            {strings.subHeader0}
+          </Typography>
+
           <Typography
             className="home-page--subtitle"
             variant="h2"
@@ -82,18 +96,46 @@ const Home = () => {
             {strings.subHeader}
           </Typography>
 
+          {/* <Box
+            sx={subHeaderImgBox}
+            display="flex"
+            gap={1}
+            justifyContent="space-between"
+          >
+            <Typography
+              className="home-page--subtitle"
+              variant="h2"
+              style={subTitle}
+            >
+              {strings.subHeader}
+            </Typography>
+
+            <Box>
+              <img src="" alt="soundhorn" />
+            </Box>
+          </Box> */}
+
           <Grid
             container
-            style={cloudContainer}
+            style={windowContainer}
             justifyContent="center"
-            spacing={3}
-            className="cloud-container"
+            className="window-container"
+            flexDirection="column"
           >
-            {Object.entries(homePageLinks)
-              .slice(1)
-              .map(([key, item]) => (
-                <Clouds key={key} title={item.label} link={item.url} />
-              ))}
+            <Grid display={"flex"} justifyContent="center">
+              {Object.entries(homePageLinks)
+                .filter(([item]) => item !== "home" && item !== "demo")
+                .map(([key, item]) => (
+                  <Window key={key} title={item.label} link={item.url} />
+                ))}
+            </Grid>
+            <Grid display={"flex"} justifyContent="center">
+              {Object.entries(homePageLinks)
+                .filter(([item]) => item === "demo")
+                .map(([key, item]) => (
+                  <Window key={key} title={item.label} link={item.url} />
+                ))}
+            </Grid>
           </Grid>
         </Grid>
       </Grid>

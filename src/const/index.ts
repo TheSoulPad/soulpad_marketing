@@ -1,26 +1,22 @@
 export const homePageLinks = {
   home: {
+    id: "home",
     label: "Home",
     url: "/",
   },
   about: {
+    id: "about",
     label: "About SoulPad",
     url: "/About",
   },
-  // create: {
-  //   label: "Create a SoulPad",
-  //   url: "/Create",
-  // },
-  // login: {
-  //   label: "Enter your SoulPad",
-  //   url: "/Login",
-  // },
   gallery: {
+    id: "gallery",
     label: "Gallery of Themes",
     url: "/Gallery",
   },
   demo: {
-    label: "Demo",
+    id: "demo",
+    label: "Try the Demo",
     url: "/Demo",
   },
 };
