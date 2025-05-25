@@ -12,17 +12,19 @@ interface WindowProps {
 
 const Windows: React.FC<WindowProps> = ({ title, link }) => {
   const windowStyles = {
-    width: "360px",
-    height: "225px",
+    width: "300px",
+    height: "186px",
     cursor: "pointer",
-    backgroundImage: `url(/images/sp-window.svg)`,
+    backgroundImage: `url(/images/soulpadbrowser.svg)`,
     backgroundSize: "cover",
+    backgroundPositionY: "0px",
+    backgroundPositionX: "0px",
     position: "relative",
     "&::after": {
       content: `'${title}'`, // Replace with your desired text
       position: "absolute",
-      bottom: "50%",
-      left: "40%",
+      bottom: "43%",
+      left: "35%",
       color: "#000",
       fontWeight: 400,
       fontSize: "1rem",
@@ -36,12 +38,13 @@ const Windows: React.FC<WindowProps> = ({ title, link }) => {
     display: "block",
     color: "transparent",
     position: "absolute",
-    top: "3rem",
-    left: "4rem",
-    width: "70%",
-    height: "63%",
+    top: "0",
+    left: "1rem",
+    width: "91%",
+    height: "95%",
     margin: "auto",
     cursor: "pointer",
+    zIndex: 1,
   };
   return (
     <Grid

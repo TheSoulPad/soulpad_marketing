@@ -55,7 +55,7 @@ const subTitle: CSSProperties = {
 };
 
 const windowContainer: CSSProperties = {
-  marginTop: `${spacing.sm}rem`,
+  marginTop: `${spacing.lg}rem`,
 };
 
 const homeStyles = {
@@ -122,7 +122,7 @@ const Home = () => {
             className="window-container"
             flexDirection="column"
           >
-            <Grid display={"flex"} justifyContent="center">
+            <Grid display={"flex"} justifyContent="center" flexWrap="wrap">
               {Object.entries(homePageLinks)
                 .filter(([item]) => item !== "home" && item !== "demo")
                 .map(([key, item]) => (

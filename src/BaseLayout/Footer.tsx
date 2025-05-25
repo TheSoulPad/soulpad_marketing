@@ -19,6 +19,7 @@ const Footer: React.FC = () => {
         color: "white",
         textAlign: "left",
         display: "flex",
+        flexWrap: "wrap",
         gap: 2,
       }}
     >

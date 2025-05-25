@@ -71,6 +71,7 @@ const BaseLayout: React.FC<LayoutProps> = ({ children, title, pageStyles }) => {
             justifyContent: "center",
             alignItems: "center",
             padding: `${spacing.sm}rem ${spacing.sm}rem 0`,
+            flexWrap: "wrap",
           }}
         >
           <Typography className="page-title" variant="h1" sx={h1Styles}>
