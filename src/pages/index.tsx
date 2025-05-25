@@ -58,13 +58,6 @@ const windowContainer: CSSProperties = {
   marginTop: `${spacing.lg}rem`,
 };
 
-const homeStyles = {
-  backgroundSize: "cover",
-  backgroundColor: "#ffe7c1", // official bg color
-  color: "#ff6c05", // official text color
-  textShadow: "6px 7px 2px #caf105",
-};
-
 const subHeaderImgBox = {
   width: "50%",
   marging: "auto",
@@ -72,7 +65,7 @@ const subHeaderImgBox = {
 
 const Home = () => {
   return (
-    <BaseLayout title={strings.header} pageStyles={homeStyles}>
+    <BaseLayout title={strings.header} isHomePage={true}>
       <Grid style={gridStyles}>
         <Grid
           container

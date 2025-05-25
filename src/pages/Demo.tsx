@@ -23,19 +23,9 @@ const Demo: React.FC = () => {
     color: "#ffffff",
   };
 
-  const demoStyles = {
-    backgroundImage: "url('/images/home-bg.jpg')",
-    backgroundSize: "cover",
-    color: "#ffffff",
-  };
-
   return (
-    <BaseLayout title={strings.header} pageStyles={demoStyles}>
-      <Grid container style={contentStyles}>
-        <Typography variant="h2" style={subTitle}>
-          {strings.subHeader}
-        </Typography>
-      </Grid>
+    <BaseLayout title={strings.header}>
+      <Grid container style={contentStyles}></Grid>
       {/* Add your content here */}
     </BaseLayout>
   );

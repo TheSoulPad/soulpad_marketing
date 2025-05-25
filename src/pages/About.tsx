@@ -27,14 +27,6 @@ const AboutPage = () => {
     opacity: 1,
     zIndex: 1,
   };
-
-  const pageStyles = {
-    backgroundImage: `linear-gradient(to right, grey 1px, transparent 1px),
-    linear-gradient(to bottom, grey 1px, transparent 1px)`,
-    backgroundSize: "40px 40px",
-    color: "#ffffff",
-  };
-
   const containerStyles = {
     color: "#232129",
     padding: `${isMobile ? spacing.sm : 0}em`,
@@ -47,7 +39,7 @@ const AboutPage = () => {
 
   return (
     <div className="overlay" style={overlayStyles}>
-      <BaseLayout title={strings.header} pageStyles={pageStyles}>
+      <BaseLayout title={strings.header} isHomePage={false}>
         {/* Post ONE */}
         <Grid
           display="flex"
