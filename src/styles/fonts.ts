@@ -9,15 +9,18 @@ const mobileHeadline2Font: CSSProperties = {
 };
 
 const headline1Font: CSSProperties = {
-  fontFamily: "Spicy Rice, serif",
-  fontWeight: "400",
+  fontFamily: "Fredoka, sans-serif",
+  fontWeight: "600",
   textAlign: "center",
   fontSize: "5rem", // 40px
+  fontStyle: "normal",
+  fontOpticalSizing: "auto",
+
 };
 const headline2Font: CSSProperties = {
   margin: "auto",
   fontSize: "1.5rem",
-  fontWeight: "700",
+  fontWeight: "500",
   textAlign: "center",
   width: "100%",
 };

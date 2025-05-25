@@ -88,6 +88,10 @@ const config: GatsbyConfig = {
             name: "Turret Road",
             file: "https://fonts.googleapis.com/css2?family=Turret+Road:wght@200;300;400;500;700;800&display=swap",
           },
+          {
+            name: "Fredoka",
+            file: "https://fonts.googleapis.com/css2?family=Fredoka:wght@300..700&display=swap",
+          },
         ],
       },
     },

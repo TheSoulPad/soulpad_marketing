@@ -4,6 +4,8 @@ import { colors } from "../styles";
 
 import { homePageLinks } from "../const";
 
+//fix header in gallery page
+
 const Footer: React.FC = () => {
   return (
     <Box
@@ -16,6 +18,9 @@ const Footer: React.FC = () => {
         backgroundColor: `rgba(${colors.backgroundRGB}, 0.7)`,
         color: "white",
         textAlign: "left",
+        display: "flex",
+        flexWrap: "wrap",
+        gap: 2,
       }}
     >
       {Object.entries(homePageLinks).map(([key, link]) => (
