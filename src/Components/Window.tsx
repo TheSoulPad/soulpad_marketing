@@ -20,42 +20,60 @@ const Windows: React.FC<WindowProps> = ({ title, link }) => {
     backgroundPositionY: "0px",
     backgroundPositionX: "0px",
     position: "relative",
-    "&::after": {
-      content: `'${title}'`, // Replace with your desired text
-      position: "absolute",
-      bottom: "43%",
-      left: "35%",
-      color: "#000",
-      fontWeight: 400,
-      fontSize: "1rem",
-      pointerEvents: "none",
-      fontFamily: "Roboto, sans-serif",
-    },
+    display: "flex",
+    justifyContent: "left",
+    alignItems: "center",
   };
 
   const linkStyles: CSSProperties = {
+    color: "#000",
+    fontWeight: 400,
+    fontSize: "1rem",
+    fontFamily: "Roboto, sans-serif",
     textDecoration: "none",
     display: "block",
-    color: "transparent",
-    position: "absolute",
-    top: "0",
-    left: "1rem",
-    width: "91%",
-    height: "95%",
     margin: "auto",
     cursor: "pointer",
-    zIndex: 1,
+    transform: "translateX(15%)",
+    maxWidth: "100px",
+    width: "100%",
   };
+
+  const arrowStyles = {
+    backgroundImage: `url(/images/soulpadarrow.svg)`,
+    backgroundRepeat: "no-repeat",
+    width: "80px",
+    height: "30px",
+    marginLeft: "5rem",
+    position: "absolute",
+    transition: "left 0.3s ease",
+    transform: "translateX(100%)",
+    animation: "arrow-move 2s infinite alternate",
+    "@keyframes arrow-move": {
+      from: { left: "0px" },
+      to: { left: "15px" },
+    },
+  };
+
   return (
     <Grid
-      sx={{
-        display: "flex",
-      }}
+      container
+      className="home-selection home-selection--window-container"
+      justifyContent={"center"}
+      alignItems="center"
     >
-      <Box className="window" sx={windowStyles}>
-        <Link style={linkStyles} to={link}>
-          test
-        </Link>
+      <Box className="home-selection--window" sx={windowStyles}>
+        <Box sx={{ marginLeft: "3rem" }}>
+          <Link style={linkStyles} to={link}>
+            {title}
+          </Link>
+        </Box>
+
+        <Box className="home-selection--arrow" sx={arrowStyles}>
+          <Link style={{ color: "transparent" }} to={link}>
+            text
+          </Link>
+        </Box>
       </Box>
     </Grid>
   );
