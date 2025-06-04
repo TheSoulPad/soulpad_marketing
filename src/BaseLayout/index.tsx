@@ -1,7 +1,6 @@
 import React, { CSSProperties } from "react";
 import GlobalStyles from "../GlobalStyles";
 import Grid from "@mui/material/Grid2";
-import Typography from "@mui/material/Typography";
 import { spacing, colors } from "../styles";
 import Footer from "./Footer";
 import { ThemeProvider } from "@mui/material/styles";
@@ -9,6 +8,7 @@ import theme from "../theme";
 import useMediaQuery from "@mui/material/useMediaQuery";
 import Box from "@mui/material/Box";
 import { Link } from "gatsby";
+import zIndex from "@mui/material/styles/zIndex";
 
 interface LayoutProps {
   children: React.ReactNode;
@@ -20,8 +20,8 @@ const BaseLayout: React.FC<LayoutProps> = ({ children, title, isHomePage }) => {
   const isMobile = useMediaQuery("(max-width:600px)");
   const { officialBackgroundColor, officialTextColor, officialTextShadow } =
     colors;
-  const widthLogo = "250px";
-  const heightLogo = "150px";
+  const widthLogo = "455px";
+  const heightLogo = "200px";
 
   const mainStyles: CSSProperties = {
     flex: 1,
@@ -49,6 +49,10 @@ const BaseLayout: React.FC<LayoutProps> = ({ children, title, isHomePage }) => {
     alignItems: "end",
     padding: `${spacing.sm}rem ${spacing.sm}rem 0`,
     flexWrap: "wrap",
+    width: widthLogo,
+    height: heightLogo,
+    position: "relative",
+    margin: "0 auto",
   };
 
   const notHomeHeaderStyles: CSSProperties = {
@@ -69,19 +73,39 @@ const BaseLayout: React.FC<LayoutProps> = ({ children, title, isHomePage }) => {
     marginBottom: "44px",
   };
 
-  const notHomeBoxStyles: CSSProperties = {
-    ...boxStyles,
-    width: "75px",
-    height: "42px",
-    marginLeft: "-14px",
-    marginBottom: "0px",
-    marginTop: "-21px",
-    backgroundSize: "100%",
+  // const notHomeBoxStyles: CSSProperties = {
+  //   ...boxStyles,
+  //   width: "75px",
+  //   height: "42px",
+  //   marginLeft: "-14px",
+  //   marginBottom: "0px",
+  //   marginTop: "-21px",
+  //   backgroundSize: "100%",
+  // };
+
+  const boxStylesToCenter = {
+    width: "100%",
+    height: "100%",
+    backgroundImage: `url(/images/SoulPadTitle.svg)`,
+    backgroundSize: "cover",
+    color: "transparent",
+    zIndex: 1,
   };
 
-  const setTitleTextStyles = isHomePage ? h1Styles : notHomePageStyles;
+  const boxStars = {
+    width: "97%",
+    height: "100%",
+    backgroundImage: `url(/images/soulpadstars.svg)`,
+    backgroundSize: "cover",
+    backgroundRepeat: "repeat",
+    position: "absolute",
+    color: "transparent",
+    backgroundPositionY: "47%",
+  };
+
+  // const setTitleTextStyles = isHomePage ? h1Styles : notHomePageStyles;
   const setHeaderStyles = isHomePage ? headerStyles : notHomeHeaderStyles;
-  const boxStylesToUse = isHomePage ? boxStyles : notHomeBoxStyles;
+  // const boxStylesToUse = isHomePage ? boxStylesToCenter : notHomeBoxStyles;
 
   return (
     <ThemeProvider theme={theme}>
@@ -93,21 +117,11 @@ const BaseLayout: React.FC<LayoutProps> = ({ children, title, isHomePage }) => {
         style={baseStyles}
       >
         <Grid sx={setHeaderStyles} className="header">
-          <Link to="/" style={{ textDecoration: "none" }}>
-            <Typography
-              className="page-title"
-              variant="h1"
-              sx={setTitleTextStyles}
-            >
-              SoulPad
-            </Typography>
-          </Link>
-
           {/* need to create a unique logo*/}
-          <Box sx={boxStylesToUse}>
-            <img src="/images/soulpadlogo.svg" alt="" width="100%" />
-          </Box>
+          <Box sx={boxStylesToCenter}>TEST</Box>
+          <Box sx={boxStars}>stars</Box>
         </Grid>
+
         <main style={mainStyles}>{children}</main>
         <Grid size={"auto"}>
           <Footer />

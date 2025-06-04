@@ -1,7 +1,8 @@
 /**
  * The main index page component for the SoulPad application.
  *
- * This component uses a base layout and displays a header, subheader, and a series of cloud components
+ * This component uses a base layout and displays a header, subheader, and a
+ * series of cloud components
  * that link to different parts of the application.
  *
  * @component
@@ -47,7 +48,6 @@ const contentStyles: CSSProperties = {
 
 const subTitle: CSSProperties = {
   borderRadius: "5px",
-  fontSize: "32px",
   width: "100%",
   color: "rgba(0,0,0,0.87)",
   letterSpacing: "0.15rem",
@@ -73,14 +73,6 @@ const Home = () => {
           className="home-page--content"
           style={contentStyles}
         >
-          <Typography
-            style={subTitle}
-            className="home-page--subtitle"
-            variant="h2"
-          >
-            {strings.subHeader0}
-          </Typography>
-
           <Typography
             className="home-page--subtitle"
             variant="h2"

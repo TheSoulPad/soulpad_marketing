@@ -8,6 +8,7 @@ const mobileHeadline2Font: CSSProperties = {
   fontSize: "1.125rem", // 18px
 };
 
+//official title font
 const headline1Font: CSSProperties = {
   fontFamily: "Fredoka, sans-serif",
   fontWeight: "600",
@@ -19,7 +20,7 @@ const headline1Font: CSSProperties = {
 };
 const headline2Font: CSSProperties = {
   margin: "auto",
-  fontSize: "1.5rem",
+  fontSize: "1.5rem", // 24px
   fontWeight: "500",
   textAlign: "center",
   width: "100%",

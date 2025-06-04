@@ -2,7 +2,7 @@ export const colors = {
   primaryText: "#264653",
   secondary: "#2ecc71",
   accent: "#e74c3c",
-  officialBackgroundColor: "#45d5bb",
+  officialBackgroundColor: "#edf9f9",
   officialTextColor: "#ff6c05",
   officialTextShadow: "3px 4px 2px #caf105",
   background: "#264653",
