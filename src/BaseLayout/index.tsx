@@ -20,16 +20,16 @@ const BaseLayout: React.FC<LayoutProps> = ({ children, title, isHomePage }) => {
   const isMobile = useMediaQuery("(max-width:600px)");
   const { officialBackgroundColor, officialTextColor, officialTextShadow } =
     colors;
-  const widthLogo = "455px";
-  const heightLogo = "200px";
+  const widthLogo = "475px";
+  const heightLogo = "210px";
 
   const mainStyles: CSSProperties = {
     flex: 1,
     position: "relative",
-    padding: `${isMobile ? spacing.sm : 0}rem`,
+    padding: `0 ${isMobile ? 0 : spacing.xl}rem`,
   };
 
-  const baseStyles: CSSProperties = {
+  const baseLayoutStyles: CSSProperties = {
     backgroundColor: officialBackgroundColor,
     minHeight: "100vh",
   };
@@ -93,7 +93,7 @@ const BaseLayout: React.FC<LayoutProps> = ({ children, title, isHomePage }) => {
   };
 
   const boxStars = {
-    width: "97%",
+    width: "106%",
     height: "100%",
     backgroundImage: `url(/images/soulpadstars.svg)`,
     backgroundSize: "cover",
@@ -114,7 +114,7 @@ const BaseLayout: React.FC<LayoutProps> = ({ children, title, isHomePage }) => {
         className="base-layout"
         container
         direction="column"
-        style={baseStyles}
+        style={baseLayoutStyles}
       >
         <Grid sx={setHeaderStyles} className="header">
           {/* need to create a unique logo*/}
@@ -122,7 +122,10 @@ const BaseLayout: React.FC<LayoutProps> = ({ children, title, isHomePage }) => {
           <Box sx={boxStars}>stars</Box>
         </Grid>
 
-        <main style={mainStyles}>{children}</main>
+        <Grid sx={mainStyles}>
+          <main>{children}</main>
+        </Grid>
+
         <Grid size={"auto"}>
           <Footer />
         </Grid>
