@@ -52,10 +52,12 @@ const subTitle: CSSProperties = {
   color: "rgba(0,0,0,0.87)",
   letterSpacing: "0.15rem",
   textShadow: "1px 1px 0px rgba(255,97,5,0.6)",
+  fontWeight: 700,
+  fontFamily: "Roboto Mono, monospace",
 };
 
 const windowContainer: CSSProperties = {
-  marginTop: `${spacing.lg}rem`,
+  marginBottom: `${spacing.xl}rem`,
 };
 
 const subHeaderImgBox = {
@@ -68,13 +70,15 @@ const imgBoxContainer = {
   border: "1px solid red",
   display: "flex",
   alignContent: "start",
+  position: "relative",
 };
 const imgBox = {
   border: "5px solid black",
   width: "100%",
   color: "black",
-  position: "relative",
+  position: "absolute",
   bottom: "4rem",
+  height: "180px",
 };
 
 const Home = () => {
@@ -132,11 +136,17 @@ const Home = () => {
           </Box>
           <Box
             display="flex"
+            flexWrap="wrap"
             className="content-windows"
-            sx={{ padding: `0 ${spacing.lg}rem` }}
+            justifyContent="center"
+            sx={{
+              maxWidth: "800px",
+              width: "100%",
+              margin: "auto",
+            }}
           >
             {Object.entries(homePageLinks)
-              .filter(([item]) => item !== "home" && item !== "demo")
+              .filter(([item]) => item !== "home")
               .map(([key, item]) => (
                 <Window key={key} title={item.label} link={item.url} />
               ))}
@@ -144,18 +154,6 @@ const Home = () => {
           <Box sx={imgBoxContainer}>
             <Box sx={{ ...imgBox, bottom: "4rem" }}> Img Person</Box>
           </Box>
-        </Grid>
-
-        <Grid
-          className="content-row-2"
-          display={"flex"}
-          justifyContent="center"
-        >
-          {Object.entries(homePageLinks)
-            .filter(([item]) => item === "demo")
-            .map(([key, item]) => (
-              <Window key={key} title={item.label} link={item.url} />
-            ))}
         </Grid>
       </Grid>
     </BaseLayout>

@@ -1,6 +1,6 @@
 import React, { CSSProperties } from "react";
 import Grid from "@mui/material/Grid2";
-import Typography from "@mui/material/Typography";
+import { spacing } from "../styles";
 
 import Box from "@mui/material/Box";
 import { Link } from "gatsby";
@@ -12,10 +12,10 @@ interface WindowProps {
 
 const Windows: React.FC<WindowProps> = ({ title, link }) => {
   const windowStyles = {
-    width: "300px",
-    height: "186px",
+    width: "400px",
+    height: "245px",
     cursor: "pointer",
-    backgroundImage: `url(/images/soulpadbrowser.svg)`,
+    backgroundImage: `url(/images/pencilwindow.svg)`,
     backgroundSize: "cover",
     backgroundPositionY: "0px",
     backgroundPositionX: "0px",
@@ -23,6 +23,7 @@ const Windows: React.FC<WindowProps> = ({ title, link }) => {
     display: "flex",
     justifyContent: "left",
     alignItems: "center",
+    marginTop: `${spacing.sm}rem`,
   };
 
   const linkStyles: CSSProperties = {
