@@ -91,13 +91,14 @@ const Home = () => {
         sx={topPageStyles}
       >
         <Box
+          className="home-page--header"
           sx={subHeaderImgBox}
           display="flex"
           gap={1}
           justifyContent="space-between"
         >
           <Typography
-            className="home-page--subtitle"
+            className="home-page--text"
             variant="h2"
             sx={subTitle}
           >
@@ -107,6 +108,7 @@ const Home = () => {
           <Box
             width="42px"
             height="42px"
+            className="home-page home-page--person-img person-img1"
             sx={{
               border: "1px solid red",
               color: "black",
@@ -131,7 +133,10 @@ const Home = () => {
           justifyContent="start"
           flexDirection="row"
         >
-          <Box sx={imgBoxContainer}>
+          <Box
+            sx={imgBoxContainer}
+            className="home-page home-page--person-img person-img1"
+          >
             <Box sx={imgBox}> Img Person</Box>
           </Box>
           <Box
