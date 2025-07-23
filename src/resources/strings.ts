@@ -56,8 +56,8 @@ export const Strings = {
 
   homePage: {
     header: "SoulPad",
-    subHeader0: "Break the rules.",
-    subHeader: "Release your inner universe",
+    subHeader0: "Break the rules",
+    subHeader: "Unleash your inner universe",
   },
 
   createPage: {

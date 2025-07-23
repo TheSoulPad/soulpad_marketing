@@ -92,6 +92,10 @@ const config: GatsbyConfig = {
             name: "Fredoka",
             file: "https://fonts.googleapis.com/css2?family=Fredoka:wght@300..700&display=swap",
           },
+                {
+            name: "Waterlily",
+            file: "https://fonts.googleapis.com/css2?family=Fredoka:wght@300..700&display=swap",
+          },
         ],
       },
     },

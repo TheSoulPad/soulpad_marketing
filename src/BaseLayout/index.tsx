@@ -1,60 +1,111 @@
 import React, { CSSProperties } from "react";
 import GlobalStyles from "../GlobalStyles";
 import Grid from "@mui/material/Grid2";
-import Typography from "@mui/material/Typography";
-import { spacing } from "../styles";
+import { spacing, colors } from "../styles";
 import Footer from "./Footer";
 import { ThemeProvider } from "@mui/material/styles";
 import theme from "../theme";
 import useMediaQuery from "@mui/material/useMediaQuery";
 import Box from "@mui/material/Box";
-// import { Image } from "@mui/icons-material";
+import { Link } from "gatsby";
+import zIndex from "@mui/material/styles/zIndex";
 
 interface LayoutProps {
   children: React.ReactNode;
   title?: string;
-  pageStyles: {
-    backgroundSize: string;
-    backgroundColor: string;
-    color: string;
-    textShadow?: string;
-  };
+  isHomePage?: boolean;
 }
 
-const BaseLayout: React.FC<LayoutProps> = ({ children, title, pageStyles }) => {
+const BaseLayout: React.FC<LayoutProps> = ({ children, title, isHomePage }) => {
   const isMobile = useMediaQuery("(max-width:600px)");
-  const { backgroundSize, backgroundColor, color, textShadow } = pageStyles;
-  const widthLogo = "165px";
-  const heightLogo = "150px";
+  const { officialBackgroundColor, officialTextColor, officialTextShadow } =
+    colors;
+  const widthLogo = "475px";
+  const heightLogo = "210px";
 
   const mainStyles: CSSProperties = {
     flex: 1,
     position: "relative",
-    padding: `${isMobile ? spacing.sm : 0}rem`,
+    padding: `0 ${isMobile ? 0 : spacing.xl}rem`,
   };
 
-  const baseStyles: CSSProperties = {
-    backgroundSize,
-    backgroundColor,
+  const baseLayoutStyles: CSSProperties = {
+    backgroundColor: officialBackgroundColor,
     minHeight: "100vh",
   };
 
   const h1Styles: CSSProperties = {
     padding: 0,
-    color,
-    textShadow,
-    // margin: `${spacing.sm}rem ${spacing.sm}rem`,
+    color: officialTextColor,
+    textShadow: officialTextShadow,
     alignSelf: "flex-end",
     transform: "rotate(-9deg)",
+    fontSize: isHomePage ? "5rem" : "2rem",
+  };
+
+  const headerStyles: CSSProperties = {
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "end",
+    padding: `${spacing.sm}rem ${spacing.sm}rem 0`,
+    flexWrap: "wrap",
+    width: widthLogo,
+    height: heightLogo,
+    position: "relative",
+    margin: "0 auto",
+  };
+
+  const notHomeHeaderStyles: CSSProperties = {
+    ...headerStyles,
+    justifyContent: "start",
+    alignItems: "start",
+  };
+
+  const notHomePageStyles: CSSProperties = {
+    ...h1Styles,
+    alignSelf: "flex-start",
   };
 
   const boxStyles: CSSProperties = {
     width: widthLogo,
     height: heightLogo,
-    backgroundImage: `url(/images/soulpadlogo.svg)`,
-    backgroundPosition: "center",
-    backgroundSize: "350px",
+    marginLeft: "-4rem",
+    marginBottom: "44px",
   };
+
+  // const notHomeBoxStyles: CSSProperties = {
+  //   ...boxStyles,
+  //   width: "75px",
+  //   height: "42px",
+  //   marginLeft: "-14px",
+  //   marginBottom: "0px",
+  //   marginTop: "-21px",
+  //   backgroundSize: "100%",
+  // };
+
+  const boxStylesToCenter = {
+    width: "100%",
+    height: "100%",
+    backgroundImage: `url(/images/SoulPadTitle.svg)`,
+    backgroundSize: "cover",
+    color: "transparent",
+    zIndex: 1,
+  };
+
+  const boxStars = {
+    width: "106%",
+    height: "100%",
+    backgroundImage: `url(/images/soulpadstars.svg)`,
+    backgroundSize: "cover",
+    backgroundRepeat: "repeat",
+    position: "absolute",
+    color: "transparent",
+    backgroundPositionY: "47%",
+  };
+
+  // const setTitleTextStyles = isHomePage ? h1Styles : notHomePageStyles;
+  const setHeaderStyles = isHomePage ? headerStyles : notHomeHeaderStyles;
+  // const boxStylesToUse = isHomePage ? boxStylesToCenter : notHomeBoxStyles;
 
   return (
     <ThemeProvider theme={theme}>
@@ -63,25 +114,18 @@ const BaseLayout: React.FC<LayoutProps> = ({ children, title, pageStyles }) => {
         className="base-layout"
         container
         direction="column"
-        style={baseStyles}
+        style={baseLayoutStyles}
       >
-        <Grid
-          sx={{
-            display: "flex",
-            justifyContent: "center",
-            alignItems: "center",
-            padding: `${spacing.sm}rem ${spacing.sm}rem 0`,
-            flexWrap: "wrap",
-          }}
-        >
-          <Typography className="page-title" variant="h1" sx={h1Styles}>
-            {title}
-          </Typography>
-
+        <Grid sx={setHeaderStyles} className="header">
           {/* need to create a unique logo*/}
-          <Box sx={boxStyles} />
+          <Box sx={boxStylesToCenter}>TEST</Box>
+          <Box sx={boxStars}>stars</Box>
         </Grid>
-        <main style={mainStyles}>{children}</main>
+
+        <Grid sx={mainStyles}>
+          <main>{children}</main>
+        </Grid>
+
         <Grid size={"auto"}>
           <Footer />
         </Grid>

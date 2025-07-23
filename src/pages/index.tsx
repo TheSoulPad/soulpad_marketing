@@ -1,7 +1,8 @@
 /**
  * The main index page component for the SoulPad application.
  *
- * This component uses a base layout and displays a header, subheader, and a series of cloud components
+ * This component uses a base layout and displays a header, subheader, and a
+ * series of cloud components
  * that link to different parts of the application.
  *
  * @component
@@ -24,119 +25,140 @@ import * as React from "react";
 import type { HeadFC, PageProps } from "gatsby";
 import { CSSProperties } from "react";
 import BaseLayout from "../BaseLayout";
-import { colors, spacing } from "../styles";
+import { spacing } from "../styles";
 import Typography from "@mui/material/Typography";
 import Grid from "@mui/material/Grid2";
 import Window from "../Components/Window";
 import { homePageLinks } from "../const";
 import { Strings } from "../resources/strings";
+import Box from "@mui/material/Box";
 //add svg support
 
 const strings = Strings.homePage;
 const headStrings = Strings.metaData.home;
-const gridStyles = {
-  color: "#232129",
-  overflow: "hidden",
-};
+// const gridStyles = {
+//   color: "#232129",
+//   overflow: "hidden",
+// };
 
-const contentStyles: CSSProperties = {
-  padding: `${spacing.md}rem`,
+const topPageStyles: CSSProperties = {
   textAlign: "center",
   color: "#ffffff",
 };
 
 const subTitle: CSSProperties = {
   borderRadius: "5px",
-  fontSize: "32px",
   width: "100%",
   color: "rgba(0,0,0,0.87)",
   letterSpacing: "0.15rem",
   textShadow: "1px 1px 0px rgba(255,97,5,0.6)",
+  fontWeight: 700,
+  fontFamily: "Roboto Mono, monospace",
 };
 
 const windowContainer: CSSProperties = {
-  marginTop: `${spacing.lg}rem`,
-};
-
-const homeStyles = {
-  backgroundSize: "cover",
-  backgroundColor: "#ffe7c1", // official bg color
-  color: "#ff6c05", // official text color
-  textShadow: "6px 7px 2px #caf105",
+  marginBottom: `${spacing.xl}rem`,
 };
 
 const subHeaderImgBox = {
-  width: "50%",
-  marging: "auto",
+  margin: "auto",
+};
+
+const imgBoxContainer = {
+  height: "180px",
+  width: "270px",
+  border: "1px solid red",
+  display: "flex",
+  alignContent: "start",
+  position: "relative",
+};
+const imgBox = {
+  border: "5px solid black",
+  width: "100%",
+  color: "black",
+  position: "absolute",
+  bottom: "4rem",
+  height: "180px",
 };
 
 const Home = () => {
   return (
-    <BaseLayout title={strings.header} pageStyles={homeStyles}>
-      <Grid style={gridStyles}>
-        <Grid
-          container
-          direction="column"
-          className="home-page--content"
-          style={contentStyles}
+    <BaseLayout title={strings.header} isHomePage={true}>
+      <Grid
+        container
+        direction="column"
+        className="home-page--top"
+        sx={topPageStyles}
+      >
+        <Box
+          className="home-page--header"
+          sx={subHeaderImgBox}
+          display="flex"
+          gap={1}
+          justifyContent="space-between"
         >
           <Typography
-            style={subTitle}
-            className="home-page--subtitle"
+            className="home-page--text"
             variant="h2"
-          >
-            {strings.subHeader0}
-          </Typography>
-
-          <Typography
-            className="home-page--subtitle"
-            variant="h2"
-            style={subTitle}
+            sx={subTitle}
           >
             {strings.subHeader}
           </Typography>
 
-          {/* <Box
-            sx={subHeaderImgBox}
+          <Box
+            width="42px"
+            height="42px"
+            className="home-page home-page--person-img person-img1"
+            sx={{
+              border: "1px solid red",
+              color: "black",
+            }}
+          >
+            Img Box
+          </Box>
+        </Box>
+      </Grid>
+
+      <Grid
+        container
+        sx={windowContainer}
+        justifyContent="center"
+        className="home-page--content window-container"
+        flexDirection="column"
+      >
+        <Grid
+          container
+          className="content-row-1"
+          display={"flex"}
+          justifyContent="start"
+          flexDirection="row"
+        >
+          <Box
+            sx={imgBoxContainer}
+            className="home-page home-page--person-img person-img1"
+          >
+            <Box sx={imgBox}> Img Person</Box>
+          </Box>
+          <Box
             display="flex"
-            gap={1}
-            justifyContent="space-between"
-          >
-            <Typography
-              className="home-page--subtitle"
-              variant="h2"
-              style={subTitle}
-            >
-              {strings.subHeader}
-            </Typography>
-
-            <Box>
-              <img src="" alt="soundhorn" />
-            </Box>
-          </Box> */}
-
-          <Grid
-            container
-            style={windowContainer}
+            flexWrap="wrap"
+            className="content-windows"
             justifyContent="center"
-            className="window-container"
-            flexDirection="column"
+            sx={{
+              maxWidth: "800px",
+              width: "100%",
+              margin: "auto",
+            }}
           >
-            <Grid display={"flex"} justifyContent="center" flexWrap="wrap">
-              {Object.entries(homePageLinks)
-                .filter(([item]) => item !== "home" && item !== "demo")
-                .map(([key, item]) => (
-                  <Window key={key} title={item.label} link={item.url} />
-                ))}
-            </Grid>
-            <Grid display={"flex"} justifyContent="center">
-              {Object.entries(homePageLinks)
-                .filter(([item]) => item === "demo")
-                .map(([key, item]) => (
-                  <Window key={key} title={item.label} link={item.url} />
-                ))}
-            </Grid>
-          </Grid>
+            {Object.entries(homePageLinks)
+              .filter(([item]) => item !== "home")
+              .map(([key, item]) => (
+                <Window key={key} title={item.label} link={item.url} />
+              ))}
+          </Box>
+          <Box sx={imgBoxContainer}>
+            <Box sx={{ ...imgBox, bottom: "4rem" }}> Img Person</Box>
+          </Box>
         </Grid>
       </Grid>
     </BaseLayout>
