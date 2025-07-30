@@ -32,19 +32,23 @@ import Window from "../Components/Window";
 import { homePageLinks } from "../const";
 import { Strings } from "../resources/strings";
 import Box from "@mui/material/Box";
-//add svg support
+//later: add svg support
 
 const strings = Strings.homePage;
 const headStrings = Strings.metaData.home;
-// const gridStyles = {
-//   color: "#232129",
-//   overflow: "hidden",
-// };
 
-const topPageStyles: CSSProperties = {
-  textAlign: "center",
-  color: "#ffffff",
+const imgBoxContainer = {
+  width: "300px",
+  height: "245px",
+  border: "1px solid red",
+  display: "flex",
+  alignContent: "start",
+  marginBottom: spacing.sm + "rem",
 };
+
+const maxWidthSubHeader = "510px";
+const maxWidthContent = "600px";
+const maxWidthHomePage = "1250px";
 
 const subTitle: CSSProperties = {
   borderRadius: "5px",
@@ -54,31 +58,7 @@ const subTitle: CSSProperties = {
   textShadow: "1px 1px 0px rgba(255,97,5,0.6)",
   fontWeight: 700,
   fontFamily: "Roboto Mono, monospace",
-};
-
-const windowContainer: CSSProperties = {
-  marginBottom: `${spacing.xl}rem`,
-};
-
-const subHeaderImgBox = {
-  margin: "auto",
-};
-
-const imgBoxContainer = {
-  height: "180px",
-  width: "270px",
-  border: "1px solid red",
-  display: "flex",
-  alignContent: "start",
-  position: "relative",
-};
-const imgBox = {
-  border: "5px solid black",
-  width: "100%",
-  color: "black",
-  position: "absolute",
-  bottom: "4rem",
-  height: "180px",
+  textAlign: "center",
 };
 
 const Home = () => {
@@ -86,66 +66,89 @@ const Home = () => {
     <BaseLayout title={strings.header} isHomePage={true}>
       <Grid
         container
-        direction="column"
-        className="home-page--top"
-        sx={topPageStyles}
+        display="flex"
+        className="home-page"
+        flexDirection="row"
+        justifyContent="center"
+        spacing={1}
+        sx={{
+          padding: `${spacing.sm}rem 0`,
+          maxWidth: maxWidthHomePage,
+          margin: "auto",
+        }}
       >
-        <Box
-          className="home-page--header"
-          sx={subHeaderImgBox}
+        {/* People Imgs Col 1 */}
+        <Grid
+          // display={(theme) =>
+          //   theme.breakpoints.values.laptop ? "flex" : "none"
+          // }
           display="flex"
           gap={1}
-          justifyContent="space-between"
-        >
-          <Typography
-            className="home-page--text"
-            variant="h2"
-            sx={subTitle}
-          >
-            {strings.subHeader}
-          </Typography>
-
-          <Box
-            width="42px"
-            height="42px"
-            className="home-page home-page--person-img person-img1"
-            sx={{
-              border: "1px solid red",
-              color: "black",
-            }}
-          >
-            Img Box
-          </Box>
-        </Box>
-      </Grid>
-
-      <Grid
-        container
-        sx={windowContainer}
-        justifyContent="center"
-        className="home-page--content window-container"
-        flexDirection="column"
-      >
-        <Grid
-          container
-          className="content-row-1"
-          display={"flex"}
-          justifyContent="start"
-          flexDirection="row"
+          flexDirection="column"
+          className="home-page--imgs col1"
         >
           <Box
             sx={imgBoxContainer}
-            className="home-page home-page--person-img person-img1"
+            className="home-page--person-img person-img-box person-img-1"
           >
-            <Box sx={imgBox}> Img Person</Box>
+            Img Person 1
           </Box>
+          <Box
+            sx={imgBoxContainer}
+            className="home-page--person-img person-img-box person-img-2"
+          >
+            Img Person 2
+          </Box>
+        </Grid>
+
+        {/* Home Page Content Col 2 */}
+        <Grid
+          sx={{
+            margin: "auto",
+            maxWidth: maxWidthContent,
+            width: "100%",
+          }}
+          className="home-page--content window-container col-2"
+          flexDirection="column"
+        >
+          <Box
+            className="home-page--subheader"
+            sx={{
+              margin: "auto",
+              maxWidth: maxWidthSubHeader,
+              width: "100%",
+            }}
+            display="flex"
+            gap={1}
+            justifyContent="space-between"
+          >
+            <Typography
+              className="home-page--subheader__text"
+              variant="h2"
+              sx={subTitle}
+            >
+              {strings.subHeader}
+            </Typography>
+            <Box
+              width="42px"
+              height="42px"
+              className="subheader-horn-img"
+              sx={{
+                border: "1px solid red",
+                color: "black",
+              }}
+            >
+              tagline horn img
+            </Box>
+          </Box>
+
           <Box
             display="flex"
             flexWrap="wrap"
             className="content-windows"
             justifyContent="center"
             sx={{
-              maxWidth: "800px",
+              maxWidth: "600px",
               width: "100%",
               margin: "auto",
             }}
@@ -156,9 +159,27 @@ const Home = () => {
                 <Window key={key} title={item.label} link={item.url} />
               ))}
           </Box>
-          <Box sx={imgBoxContainer}>
-            <Box sx={{ ...imgBox, bottom: "4rem" }}> Img Person</Box>
+        </Grid>
+
+        {/* People Imgs Col 3 */}
+        <Grid
+          // display={(theme) => {
+          //   const laptop = theme.breakpoints.values.laptop;
+          //   return laptop ? "flex" : "none";
+          // }}
+          display="flex"
+          gap={1}
+          flexDirection="column"
+          className="home-page--imgs col3"
+        >
+          {" "}
+          <Box
+            sx={imgBoxContainer}
+            className="home-page--person-img person-img-box person-img-1"
+          >
+            Img Person 1
           </Box>
+          <Box sx={imgBoxContainer}>Img Person 2</Box>
         </Grid>
       </Grid>
     </BaseLayout>
