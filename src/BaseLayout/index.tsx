@@ -27,6 +27,8 @@ const BaseLayout: React.FC<LayoutProps> = ({ children, title, isHomePage }) => {
     flex: 1,
     position: "relative",
     padding: `0 ${isMobile ? 0 : spacing.lg}rem`,
+    height: "auto",
+    maxHeight: `${isHomePage ? "600px" : "auto"} `,
   };
 
   const baseLayoutStyles: CSSProperties = {
@@ -122,9 +124,7 @@ const BaseLayout: React.FC<LayoutProps> = ({ children, title, isHomePage }) => {
           <Box sx={boxStars}>stars</Box>
         </Grid>
 
-        <Grid sx={mainStyles}>
-          <main className="base-layout--children">{children}</main>
-        </Grid>
+        {children}
 
         <Grid className="base-layout--footer-wrapper" size={"auto"}>
           <Footer />
