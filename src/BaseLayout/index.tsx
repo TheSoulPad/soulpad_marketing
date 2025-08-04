@@ -23,18 +23,17 @@ const BaseLayout: React.FC<LayoutProps> = ({ children, title, isHomePage }) => {
   const widthLogo = "475px";
   const heightLogo = "210px";
 
-  const mainStyles: CSSProperties = {
-    flex: 1,
-    position: "relative",
-    padding: `0 ${isMobile ? 0 : spacing.lg}rem`,
-    height: "auto",
-    maxHeight: `${isHomePage ? "600px" : "auto"} `,
-  };
-
   const baseLayoutStyles: CSSProperties = {
     backgroundColor: officialBackgroundColor,
-    minHeight: "100vh",
   };
+
+  // const mainStyles: CSSProperties = {
+  //   flex: 1,
+  //   position: "relative",
+  //   padding: `0 ${isMobile ? 0 : spacing.lg}rem`,
+  //   height: "auto",
+  //   maxHeight: `${isHomePage ? "600px" : "auto"} `,
+  // };
 
   const h1Styles: CSSProperties = {
     padding: 0,
@@ -115,7 +114,7 @@ const BaseLayout: React.FC<LayoutProps> = ({ children, title, isHomePage }) => {
       <Grid
         className="base-layout"
         container
-        direction="column"
+        flexDirection="column"
         style={baseLayoutStyles}
       >
         <Grid sx={setHeaderStyles} className="base-layout--header">

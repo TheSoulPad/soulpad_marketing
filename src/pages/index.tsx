@@ -32,7 +32,7 @@ import Window from "../Components/Window";
 import { homePageLinks } from "../const";
 import { Strings } from "../resources/strings";
 import Box from "@mui/material/Box";
-import { Margin } from "@mui/icons-material";
+import useMediaQuery from "@mui/material/useMediaQuery";
 //later: add svg support
 
 const strings = Strings.homePage;
@@ -43,10 +43,11 @@ const person3Path = "/images/people_hp/soulperson3.svg";
 const person4Path = "/images/people_hp/soulperson4.svg";
 const maxWidthSubHeader = "510px";
 const maxWidthContent = "600px";
-const maxWidthHomePage = "1250px";
 
 const homePageStyles = {
-  maxHeight: "600px",
+  minHeight: "554px",
+  overflow: "hidden",
+  position: "relative",
 };
 
 const imgBoxContainer = {
@@ -58,8 +59,7 @@ const imgBoxContainer = {
   backgroundSize: "cover",
   backgroundPositionY: "0px",
   backgroundPositionX: "0px",
-  // width: "100%",
-  // height: "100%",
+  position: "absolute",
 };
 
 const person1ImgStyles = {
@@ -78,35 +78,35 @@ const subTitle: CSSProperties = {
 };
 
 const Home = () => {
+  const tabletAndGreater = useMediaQuery("(min-width:769px)");
+
   return (
     <BaseLayout title={strings.header} isHomePage={true}>
-      <Grid
-        container
-        display="flex"
-        className="home-page"
-        flexDirection="row"
-        justifyContent="space-around"
-        alignContent={"center"}
-        // spacing={1}
-        sx={homePageStyles}
-      >
+      <Grid display="flex" className="home-page" sx={homePageStyles}>
         {/* People Imgs Col 1 */}
         <Grid
-          // display={(theme) =>
-          //   theme.breakpoints.values.laptop ? "flex" : "none"
-          // }
-          display="flex"
-          gap={3}
+          display={tabletAndGreater ? "flex" : "none"}
+          gap={1}
           flexDirection="column"
           className="home-page--imgs col1"
-          pl="2rem"
+          pl={3}
         >
           <Box
-            sx={{ ...imgBoxContainer, backgroundImage: `url(${person1Path})` }}
+            sx={{
+              ...imgBoxContainer,
+              backgroundImage: `url(${person1Path})`,
+              left: "55px",
+              top: "0px",
+            }}
             className="home-page--person-img person-img-box person-img-1"
           ></Box>
           <Box
-            sx={{ ...imgBoxContainer, backgroundImage: `url(${person3Path})` }}
+            sx={{
+              ...imgBoxContainer,
+              backgroundImage: `url(${person3Path})`,
+              left: "55px",
+              bottom: "100px",
+            }}
             className="home-page--person-img person-img-box person-img-3"
           ></Box>
         </Grid>
@@ -159,6 +159,7 @@ const Home = () => {
             flexWrap="wrap"
             className="content-windows"
             justifyContent="center"
+            pb={3}
             sx={{
               maxWidth: "600px",
               width: "100%",
@@ -175,24 +176,30 @@ const Home = () => {
 
         {/* People Imgs Col 3 */}
         <Grid
-          // display={(theme) => {
-          //   const laptop = theme.breakpoints.values.laptop;
-          //   return laptop ? "flex" : "none";
-          // }}
-          display="flex"
-          gap={1}
+          display={tabletAndGreater ? "flex" : "none"}
           flexDirection="column"
           className="home-page--imgs col3"
-          pr="2rem"
+          pr={3}
         >
           {" "}
           <Box
-            sx={{ ...imgBoxContainer, backgroundImage: `url(${person2Path})` }}
+            sx={{
+              ...imgBoxContainer,
+              backgroundImage: `url(${person2Path})`,
+              right: "55px",
+              top: "0px",
+            }}
             className="home-page--person-img person-img-box person-img-2"
           ></Box>
           <Box
-            className="home-page--person-img person-img-box person-img-2"
-            sx={{ ...imgBoxContainer, backgroundImage: `url(${person4Path})` }}
+            className="home-page--person-img person-img-box person-img-4"
+            sx={{
+              ...imgBoxContainer,
+              backgroundImage: `url(${person4Path})`,
+              position: "absolute",
+              right: "55px",
+              bottom: "100px",
+            }}
           ></Box>
         </Grid>
       </Grid>

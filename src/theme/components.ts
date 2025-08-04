@@ -21,7 +21,7 @@ const components = {
   breakpoints: {
     values: {
       mobile: 0,
-      tablet: 600,
+      tablet: 700,
       laptop: 1024,
       desktop: 1280,
     },
