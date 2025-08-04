@@ -32,18 +32,38 @@ import Window from "../Components/Window";
 import { homePageLinks } from "../const";
 import { Strings } from "../resources/strings";
 import Box from "@mui/material/Box";
-//add svg support
+import useMediaQuery from "@mui/material/useMediaQuery";
+//later: add svg support
 
 const strings = Strings.homePage;
 const headStrings = Strings.metaData.home;
-// const gridStyles = {
-//   color: "#232129",
-//   overflow: "hidden",
-// };
+const person1Path = "/images/people_hp/soulperson1.svg";
+const person2Path = "/images/people_hp/soulperson2.svg";
+const person3Path = "/images/people_hp/soulperson3.svg";
+const person4Path = "/images/people_hp/soulperson4.svg";
+const maxWidthSubHeader = "510px";
+const maxWidthContent = "600px";
 
-const topPageStyles: CSSProperties = {
-  textAlign: "center",
-  color: "#ffffff",
+const homePageStyles = {
+  minHeight: "554px",
+  overflow: "hidden",
+  position: "relative",
+};
+
+const imgBoxContainer = {
+  width: "300px",
+  height: "245px",
+  display: "flex",
+  alignContent: "start",
+  marginBottom: spacing.sm + "rem",
+  backgroundSize: "cover",
+  backgroundPositionY: "0px",
+  backgroundPositionX: "0px",
+  position: "absolute",
+};
+
+const person1ImgStyles = {
+  backgroundImage: `url(${person1Path})`,
 };
 
 const subTitle: CSSProperties = {
@@ -54,98 +74,94 @@ const subTitle: CSSProperties = {
   textShadow: "1px 1px 0px rgba(255,97,5,0.6)",
   fontWeight: 700,
   fontFamily: "Roboto Mono, monospace",
-};
-
-const windowContainer: CSSProperties = {
-  marginBottom: `${spacing.xl}rem`,
-};
-
-const subHeaderImgBox = {
-  margin: "auto",
-};
-
-const imgBoxContainer = {
-  height: "180px",
-  width: "270px",
-  border: "1px solid red",
-  display: "flex",
-  alignContent: "start",
-  position: "relative",
-};
-const imgBox = {
-  border: "5px solid black",
-  width: "100%",
-  color: "black",
-  position: "absolute",
-  bottom: "4rem",
-  height: "180px",
+  textAlign: "center",
 };
 
 const Home = () => {
+  const tabletAndGreater = useMediaQuery("(min-width:769px)");
+
   return (
     <BaseLayout title={strings.header} isHomePage={true}>
-      <Grid
-        container
-        direction="column"
-        className="home-page--top"
-        sx={topPageStyles}
-      >
-        <Box
-          className="home-page--header"
-          sx={subHeaderImgBox}
-          display="flex"
-          gap={1}
-          justifyContent="space-between"
-        >
-          <Typography
-            className="home-page--text"
-            variant="h2"
-            sx={subTitle}
-          >
-            {strings.subHeader}
-          </Typography>
-
-          <Box
-            width="42px"
-            height="42px"
-            className="home-page home-page--person-img person-img1"
-            sx={{
-              border: "1px solid red",
-              color: "black",
-            }}
-          >
-            Img Box
-          </Box>
-        </Box>
-      </Grid>
-
-      <Grid
-        container
-        sx={windowContainer}
-        justifyContent="center"
-        className="home-page--content window-container"
-        flexDirection="column"
-      >
+      <Grid display="flex" className="home-page" sx={homePageStyles}>
+        {/* People Imgs Col 1 */}
         <Grid
-          container
-          className="content-row-1"
-          display={"flex"}
-          justifyContent="start"
-          flexDirection="row"
+          display={tabletAndGreater ? "flex" : "none"}
+          gap={1}
+          flexDirection="column"
+          className="home-page--imgs col1"
+          pl={3}
         >
           <Box
-            sx={imgBoxContainer}
-            className="home-page home-page--person-img person-img1"
+            sx={{
+              ...imgBoxContainer,
+              backgroundImage: `url(${person1Path})`,
+              left: "55px",
+              top: "0px",
+            }}
+            className="home-page--person-img person-img-box person-img-1"
+          ></Box>
+          <Box
+            sx={{
+              ...imgBoxContainer,
+              backgroundImage: `url(${person3Path})`,
+              left: "55px",
+              bottom: "100px",
+            }}
+            className="home-page--person-img person-img-box person-img-3"
+          ></Box>
+        </Grid>
+
+        {/* Home Page Content Col 2 */}
+        <Grid
+          sx={{
+            margin: "auto",
+            maxWidth: maxWidthContent,
+            width: "100%",
+          }}
+          className="home-page--content window-container col-2"
+          flexDirection="column"
+        >
+          <Box
+            className="home-page--subheader"
+            sx={{
+              margin: "auto",
+              maxWidth: maxWidthSubHeader,
+              width: "100%",
+            }}
+            display="flex"
+            gap={1}
+            justifyContent="center"
           >
-            <Box sx={imgBox}> Img Person</Box>
+            <Typography
+              className="home-page--subheader__text"
+              variant="h2"
+              sx={subTitle}
+            >
+              {strings.subHeader}
+            </Typography>
+            <Box
+              width="42px"
+              height="42px"
+              className="subheader-horn-img"
+              sx={{
+                backgroundSize: "cover",
+                backgroundPositionY: "0px",
+                backgroundPositionX: "0px",
+                width: "42px",
+                height: "42px ",
+                backgroundImage: `url(/images/speakers.svg)`,
+              }}
+            ></Box>
           </Box>
+
           <Box
             display="flex"
             flexWrap="wrap"
             className="content-windows"
             justifyContent="center"
+            pb={3}
             sx={{
-              maxWidth: "800px",
+              maxWidth: "600px",
               width: "100%",
               margin: "auto",
             }}
@@ -156,9 +172,35 @@ const Home = () => {
                 <Window key={key} title={item.label} link={item.url} />
               ))}
           </Box>
-          <Box sx={imgBoxContainer}>
-            <Box sx={{ ...imgBox, bottom: "4rem" }}> Img Person</Box>
-          </Box>
+        </Grid>
+
+        {/* People Imgs Col 3 */}
+        <Grid
+          display={tabletAndGreater ? "flex" : "none"}
+          flexDirection="column"
+          className="home-page--imgs col3"
+          pr={3}
+        >
+          {" "}
+          <Box
+            sx={{
+              ...imgBoxContainer,
+              backgroundImage: `url(${person2Path})`,
+              right: "55px",
+              top: "0px",
+            }}
+            className="home-page--person-img person-img-box person-img-2"
+          ></Box>
+          <Box
+            className="home-page--person-img person-img-box person-img-4"
+            sx={{
+              ...imgBoxContainer,
+              backgroundImage: `url(${person4Path})`,
+              position: "absolute",
+              right: "55px",
+              bottom: "100px",
+            }}
+          ></Box>
         </Grid>
       </Grid>
     </BaseLayout>

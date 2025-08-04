@@ -23,16 +23,17 @@ const BaseLayout: React.FC<LayoutProps> = ({ children, title, isHomePage }) => {
   const widthLogo = "475px";
   const heightLogo = "210px";
 
-  const mainStyles: CSSProperties = {
-    flex: 1,
-    position: "relative",
-    padding: `0 ${isMobile ? 0 : spacing.xl}rem`,
-  };
-
   const baseLayoutStyles: CSSProperties = {
     backgroundColor: officialBackgroundColor,
-    minHeight: "100vh",
   };
+
+  // const mainStyles: CSSProperties = {
+  //   flex: 1,
+  //   position: "relative",
+  //   padding: `0 ${isMobile ? 0 : spacing.lg}rem`,
+  //   height: "auto",
+  //   maxHeight: `${isHomePage ? "600px" : "auto"} `,
+  // };
 
   const h1Styles: CSSProperties = {
     padding: 0,
@@ -113,20 +114,18 @@ const BaseLayout: React.FC<LayoutProps> = ({ children, title, isHomePage }) => {
       <Grid
         className="base-layout"
         container
-        direction="column"
+        flexDirection="column"
         style={baseLayoutStyles}
       >
-        <Grid sx={setHeaderStyles} className="header">
+        <Grid sx={setHeaderStyles} className="base-layout--header">
           {/* need to create a unique logo*/}
           <Box sx={boxStylesToCenter}>TEST</Box>
           <Box sx={boxStars}>stars</Box>
         </Grid>
 
-        <Grid sx={mainStyles}>
-          <main>{children}</main>
-        </Grid>
+        {children}
 
-        <Grid size={"auto"}>
+        <Grid className="base-layout--footer-wrapper" size={"auto"}>
           <Footer />
         </Grid>
       </Grid>

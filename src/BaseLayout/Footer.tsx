@@ -21,6 +21,7 @@ const Footer: React.FC = () => {
         display: "flex",
         flexWrap: "wrap",
         gap: 2,
+        width: "auto",
       }}
     >
       {Object.entries(homePageLinks).map(([key, link]) => (
