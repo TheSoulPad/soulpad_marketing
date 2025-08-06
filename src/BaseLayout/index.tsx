@@ -53,7 +53,7 @@ const BaseLayout: React.FC<LayoutProps> = ({ children, title, isHomePage }) => {
     width: widthLogo,
     height: heightLogo,
     position: "relative",
-    margin: "0 auto",
+    margin: "1rem auto",
   };
 
   const notHomeHeaderStyles: CSSProperties = {
@@ -91,6 +91,7 @@ const BaseLayout: React.FC<LayoutProps> = ({ children, title, isHomePage }) => {
     backgroundSize: "cover",
     color: "transparent",
     zIndex: 1,
+    position: "absolute",
   };
 
   const boxStars = {
@@ -101,7 +102,7 @@ const BaseLayout: React.FC<LayoutProps> = ({ children, title, isHomePage }) => {
     backgroundRepeat: "repeat",
     position: "absolute",
     color: "transparent",
-    backgroundPositionY: "47%",
+    backgroundPositionY: "84%",
   };
 
   // const setTitleTextStyles = isHomePage ? h1Styles : notHomePageStyles;
