@@ -41,14 +41,6 @@ const person1Path = "/images/people_hp/soulperson1.svg";
 const person2Path = "/images/people_hp/soulperson2.svg";
 const person3Path = "/images/people_hp/soulperson3.svg";
 const person4Path = "/images/people_hp/soulperson4.svg";
-const maxWidthSubHeader = "510px";
-const maxWidthContent = "600px";
-
-const homePageStyles = {
-  minHeight: "554px",
-  overflow: "hidden",
-  position: "relative",
-};
 
 const imgBoxContainer = {
   width: "300px",
@@ -60,10 +52,6 @@ const imgBoxContainer = {
   backgroundPositionY: "0px",
   backgroundPositionX: "0px",
   position: "absolute",
-};
-
-const person1ImgStyles = {
-  backgroundImage: `url(${person1Path})`,
 };
 
 const subTitle: CSSProperties = {
@@ -78,7 +66,16 @@ const subTitle: CSSProperties = {
 };
 
 const Home = () => {
-  const tabletAndGreater = useMediaQuery("(min-width:769px)");
+  const tabletAndGreater = useMediaQuery("(min-width:812px)");
+  const maxWidthSubHeader = tabletAndGreater ? "510px" : "368px";
+  const maxWidthContent = "600px";
+
+  const homePageStyles = {
+    maxHeight: `${tabletAndGreater ? "529px" : "auto"}`,
+    overflow: "hidden",
+    position: "relative",
+    justifyContent: "center",
+  };
 
   return (
     <BaseLayout title={strings.header} isHomePage={true}>
@@ -104,8 +101,8 @@ const Home = () => {
             sx={{
               ...imgBoxContainer,
               backgroundImage: `url(${person3Path})`,
-              left: "55px",
-              bottom: "100px",
+              left: "200px",
+              bottom: "0px",
             }}
             className="home-page--person-img person-img-box person-img-3"
           ></Box>
@@ -114,7 +111,6 @@ const Home = () => {
         {/* Home Page Content Col 2 */}
         <Grid
           sx={{
-            margin: "auto",
             maxWidth: maxWidthContent,
             width: "100%",
           }}
@@ -163,7 +159,6 @@ const Home = () => {
             sx={{
               maxWidth: "600px",
               width: "100%",
-              margin: "auto",
             }}
           >
             {Object.entries(homePageLinks)
@@ -197,8 +192,8 @@ const Home = () => {
               ...imgBoxContainer,
               backgroundImage: `url(${person4Path})`,
               position: "absolute",
-              right: "55px",
-              bottom: "100px",
+
+              bottom: "0px",
             }}
           ></Box>
         </Grid>

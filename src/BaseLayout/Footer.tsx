@@ -11,7 +11,7 @@ const Footer: React.FC = () => {
     <Box
       component="footer"
       sx={{
-        py: 3,
+        py: 1,
         px: 2,
         mt: "auto",
         margin: "0 auto",
