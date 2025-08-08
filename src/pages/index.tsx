@@ -33,7 +33,6 @@ import { homePageLinks } from "../const";
 import { Strings } from "../resources/strings";
 import Box from "@mui/material/Box";
 import useMediaQuery from "@mui/material/useMediaQuery";
-import { table } from "console";
 //later: add svg support
 
 const strings = Strings.homePage;
@@ -42,9 +41,6 @@ const person1Path = "/images/people_hp/soulperson1.svg";
 const person2Path = "/images/people_hp/soulperson2.svg";
 const person3Path = "/images/people_hp/soulperson3.svg";
 const person4Path = "/images/people_hp/soulperson4.svg";
-const maxWidthSubHeader = "510px";
-const maxWidthContent = "600px";
-const maxHeighContent = "529px";
 
 const imgBoxContainer = {
   width: "300px",
@@ -56,10 +52,6 @@ const imgBoxContainer = {
   backgroundPositionY: "0px",
   backgroundPositionX: "0px",
   position: "absolute",
-};
-
-const person1ImgStyles = {
-  backgroundImage: `url(${person1Path})`,
 };
 
 const subTitle: CSSProperties = {
@@ -75,6 +67,8 @@ const subTitle: CSSProperties = {
 
 const Home = () => {
   const tabletAndGreater = useMediaQuery("(min-width:812px)");
+  const maxWidthSubHeader = tabletAndGreater ? "510px" : "368px";
+  const maxWidthContent = "600px";
 
   const homePageStyles = {
     maxHeight: `${tabletAndGreater ? "529px" : "auto"}`,

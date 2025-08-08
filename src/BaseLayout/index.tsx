@@ -7,8 +7,6 @@ import { ThemeProvider } from "@mui/material/styles";
 import theme from "../theme";
 import useMediaQuery from "@mui/material/useMediaQuery";
 import Box from "@mui/material/Box";
-import { Link } from "gatsby";
-import zIndex from "@mui/material/styles/zIndex";
 
 interface LayoutProps {
   children: React.ReactNode;
@@ -21,7 +19,7 @@ const BaseLayout: React.FC<LayoutProps> = ({ children, title, isHomePage }) => {
   const { officialBackgroundColor, officialTextColor, officialTextShadow } =
     colors;
   const widthLogo = "475px";
-  const heightLogo = "210px";
+  const heightLogo = isMobile ? "185px" : "205px";
 
   const baseLayoutStyles: CSSProperties = {
     backgroundColor: officialBackgroundColor,
@@ -35,14 +33,14 @@ const BaseLayout: React.FC<LayoutProps> = ({ children, title, isHomePage }) => {
   //   maxHeight: `${isHomePage ? "600px" : "auto"} `,
   // };
 
-  const h1Styles: CSSProperties = {
-    padding: 0,
-    color: officialTextColor,
-    textShadow: officialTextShadow,
-    alignSelf: "flex-end",
-    transform: "rotate(-9deg)",
-    fontSize: isHomePage ? "5rem" : "2rem",
-  };
+  // const h1Styles: CSSProperties = {
+  //   padding: 0,
+  //   color: officialTextColor,
+  //   textShadow: officialTextShadow,
+  //   alignSelf: "flex-end",
+  //   transform: "rotate(-9deg)",
+  //   fontSize: isHomePage ? "5rem" : "2rem",
+  // };
 
   const headerStyles: CSSProperties = {
     display: "flex",
@@ -50,7 +48,7 @@ const BaseLayout: React.FC<LayoutProps> = ({ children, title, isHomePage }) => {
     alignItems: "end",
     padding: `${spacing.sm}rem ${spacing.sm}rem 0`,
     flexWrap: "wrap",
-    width: widthLogo,
+    maxWidth: widthLogo,
     height: heightLogo,
     position: "relative",
     margin: "1rem auto",
@@ -62,17 +60,17 @@ const BaseLayout: React.FC<LayoutProps> = ({ children, title, isHomePage }) => {
     alignItems: "start",
   };
 
-  const notHomePageStyles: CSSProperties = {
-    ...h1Styles,
-    alignSelf: "flex-start",
-  };
+  // const notHomePageStyles: CSSProperties = {
+  //   ...h1Styles,
+  //   alignSelf: "flex-start",
+  // };
 
-  const boxStyles: CSSProperties = {
-    width: widthLogo,
-    height: heightLogo,
-    marginLeft: "-4rem",
-    marginBottom: "44px",
-  };
+  // const boxStyles: CSSProperties = {
+  //   width: widthLogo,
+  //   height: heightLogo,
+  //   marginLeft: "-4rem",
+  //   marginBottom: "44px",
+  // };
 
   // const notHomeBoxStyles: CSSProperties = {
   //   ...boxStyles,
@@ -95,7 +93,7 @@ const BaseLayout: React.FC<LayoutProps> = ({ children, title, isHomePage }) => {
   };
 
   const boxStars = {
-    width: "106%",
+    width: "100%",
     height: "100%",
     backgroundImage: `url(/images/soulpadstars.svg)`,
     backgroundSize: "cover",
@@ -118,7 +116,7 @@ const BaseLayout: React.FC<LayoutProps> = ({ children, title, isHomePage }) => {
         flexDirection="column"
         style={baseLayoutStyles}
       >
-        <Grid sx={setHeaderStyles} className="base-layout--header">
+        <Grid width="100%" sx={setHeaderStyles} className="base-layout--header">
           {/* need to create a unique logo*/}
           <Box sx={boxStylesToCenter}>TEST</Box>
           <Box sx={boxStars}>stars</Box>
