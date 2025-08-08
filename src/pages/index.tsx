@@ -33,6 +33,7 @@ import { homePageLinks } from "../const";
 import { Strings } from "../resources/strings";
 import Box from "@mui/material/Box";
 import useMediaQuery from "@mui/material/useMediaQuery";
+
 //later: add svg support
 
 const strings = Strings.homePage;

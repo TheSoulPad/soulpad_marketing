@@ -7,6 +7,7 @@ import { ThemeProvider } from "@mui/material/styles";
 import theme from "../theme";
 import useMediaQuery from "@mui/material/useMediaQuery";
 import Box from "@mui/material/Box";
+import { Link } from "gatsby";
 
 interface LayoutProps {
   children: React.ReactNode;
@@ -116,11 +117,17 @@ const BaseLayout: React.FC<LayoutProps> = ({ children, title, isHomePage }) => {
         flexDirection="column"
         style={baseLayoutStyles}
       >
-        <Grid width="100%" sx={setHeaderStyles} className="base-layout--header">
-          {/* need to create a unique logo*/}
-          <Box sx={boxStylesToCenter}>TEST</Box>
-          <Box sx={boxStars}>stars</Box>
-        </Grid>
+        <Link to="/">
+          <Grid
+            width="100%"
+            sx={setHeaderStyles}
+            className="base-layout--header"
+          >
+            {/* need to create a unique logo*/}
+            <Box sx={boxStylesToCenter}>TEST</Box>
+            <Box sx={boxStars}>stars</Box>
+          </Grid>
+        </Link>
 
         {children}
 
