@@ -3,6 +3,7 @@ import { spacing } from "../styles";
 import Box from "@mui/material/Box";
 import { Link } from "gatsby";
 
+
 interface WindowProps {
   title: string;
   link: string;
@@ -39,8 +40,8 @@ const Windows: React.FC<WindowProps> = ({ title, link }) => {
     top: "50%",
     left: "20%",
     "&:hover": {
-      color: "#ff6105 !important",
-      fontWeight: `700 !important`,
+      color: "#ff6105",
+      fontWeight: "700",
     },
   };
 
@@ -62,6 +63,7 @@ const Windows: React.FC<WindowProps> = ({ title, link }) => {
       animation: "arrow-move 0s",
       left: "25px",
       backgroundImage: `url(/images/arrow_hover.svg)`,
+
     },
   };
 

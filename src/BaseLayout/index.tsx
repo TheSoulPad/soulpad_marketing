@@ -9,6 +9,7 @@ import useMediaQuery from "@mui/material/useMediaQuery";
 import Box from "@mui/material/Box";
 import { Link } from "gatsby";
 
+
 interface LayoutProps {
   children: React.ReactNode;
   title?: string;
