@@ -30,7 +30,9 @@ export const Strings = {
         title2: " point a little deeper:",
         highlight:
           'They keep our attention glued to the timeline or "feed" rather than on each other’s profiles.',
-        p: `When was the last time you spent more than five minutes on the profile page of a friend or a loved one vs scrolling or swiping through the feed? Let’s be honest. We spend more time going through endless videos, photos, sponsored content, or ads than we do individual profiles. In fact, TikTok has determined that it takes about 260 videos to get people addicted to the app (https://www.npr.org/2024/10/12/g-s1-28040/teens-tiktok-addiction-lawsuit-investigation-documents). Social media creators want us to stay hooked to the feed. Their algorithms make us interact more with content from famous social media stars instead of engaging with the profiles of our friends or new people.`,
+        p: `When was the last time you spent more than five minutes on the profile page of a friend or a loved one vs scrolling or swiping through the feed? Let’s be honest. We spend more time going through endless videos, photos, sponsored content, or ads than we do individual profiles. In fact, TikTok has determined that it takes about 260 videos to get people addicted to the app `,
+        link: `https://www.npr.org/2024/10/12/g-s1-28040/teens-tiktok-addiction-lawsuit-investigation-documents`,
+        p1: `Social media apps are designed to keep us scrolling through the feed, not on our friends’ profiles. They want us to consume content, not create it. The more we scroll, the more ads they can show us, and the more money they make.`,
       },
       point3: {
         title: "Which leads to the ",
