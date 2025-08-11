@@ -10,6 +10,7 @@
 
     ```shell
     cd soul-pad-beta/
+    npm install
     npm run dev
     ```
 
