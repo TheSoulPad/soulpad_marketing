@@ -9,6 +9,9 @@ import { Strings } from "../resources/strings";
 import RichTextPost from "../Components/RichTextPost";
 import useMediaQuery from "@mui/material/useMediaQuery";
 import AboutPageContent from "../Components/AboutPageContent";
+import Box from "@mui/material/Box";
+import Window from "../Components/Window";
+import Typography from "@mui/material/Typography";
 
 const strings = Strings.about;
 const headStrings = Strings.metaData.about;
@@ -17,53 +20,44 @@ const content = Strings.about.content;
 const AboutPage = () => {
   const isMobile = useMediaQuery("(max-width:600px)");
 
-  const overlayStyles: CSSProperties = {
-    position: "absolute",
-    top: 0,
-    left: 0,
-    width: "100%",
-    minHeight: "100vh",
-    background: `linear-gradient(to bottom, ${aboutColors.background1}, ${aboutColors.background2})`,
-    opacity: 1,
-    zIndex: 1,
-  };
   const containerStyles = {
     color: "#232129",
     padding: `${isMobile ? spacing.sm : 0}em`,
-    maxWidth: "900px",
     width: "100%",
-    marginTop: `${spacing.xl}em`,
-    marginLeft: "auto",
-    marginRight: "auto",
   };
 
   return (
-    <div className="overlay" style={overlayStyles}>
-      <BaseLayout title={strings.header} isHomePage={false}>
-        {/* Post ONE */}
-        <Grid
+    <BaseLayout title={strings.header} isHomePage={false}>
+      {/* Post ONE */}
+      <Grid
+        display="flex"
+        flexDirection="column"
+        justifyContent="center"
+        className="about-container"
+        style={containerStyles}
+      >
+        <Typography variant="h1">{strings.header}</Typography>
+        <Box
           display="flex"
           flexDirection="column"
-          justifyContent="center"
-          className="about-container"
-          style={containerStyles}
+          className="content-windows"
+          alignItems="center"
+          p={3}
+          sx={{
+            maxWidth: "900px",
+            width: "100%",
+            margin: "auto",
+          }}
         >
-          <RichTextPost
-            title={"The problem with modern social media"}
-            size="large"
-            themeType="SOULPAD"
-          >
-            {/* THE CONTENT */}
-            <AboutPageContent point={content.point1} />
-            <AboutPageContent point={content.point2} />
-            <AboutPageContent point={content.point3} />
-            <AboutPageContent point={content.point4} />
-          </RichTextPost>
-        </Grid>
+          <AboutPageContent point={content.point1} />
+          <AboutPageContent point={content.point2} />
+          <AboutPageContent point={content.point3} />
+          <AboutPageContent point={content.point4} />
+        </Box>
+      </Grid>
 
-        {/********************* Post TWO *********** */}
-      </BaseLayout>
-    </div>
+      {/********************* Post TWO *********** */}
+    </BaseLayout>
   );
 };
 

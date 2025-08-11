@@ -22,7 +22,7 @@ const BaseLayout: React.FC<LayoutProps> = ({ children, title, isHomePage }) => {
   const widthLogo = "475px";
   const notHomeWidthLogo = isMobile ? widthLogo : "208px";
   const heightLogo = isMobile ? mobileHeight : "205px";
-  const notHomeHeightLogo = isMobile ? mobileHeight : "85px";
+  const notHomeHeightLogo = isMobile ? mobileHeight : "89px";
 
   const baseLayoutStyles: CSSProperties = {
     backgroundColor: officialBackgroundColor,

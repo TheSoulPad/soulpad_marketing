@@ -165,7 +165,13 @@ const Home = () => {
             {Object.entries(homePageLinks)
               .filter(([item]) => item !== "home")
               .map(([key, item]) => (
-                <Window key={key} title={item.label} link={item.url} />
+                <Window
+                  key={key}
+                  title={item.label}
+                  link={item.url}
+                  maxWidth="300px"
+                  minHeight="180px"
+                />
               ))}
           </Box>
         </Grid>

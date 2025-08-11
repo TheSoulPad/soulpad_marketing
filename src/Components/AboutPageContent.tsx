@@ -17,6 +17,7 @@ interface AboutContentProps {
     p?: string;
     p1?: string;
     p2?: string;
+    link?: string;
   };
 }
 
@@ -92,6 +93,16 @@ const AboutPageContent: React.FC<AboutContentProps> = ({ point }) => {
 
       <Typography variant="body1" style={bodyTextStyles}>
         {point.p}
+        {point.link && (
+          <a
+            href={point.link}
+            target="_blank"
+            rel="noopener noreferrer"
+            style={{ color: "#ff6105", textDecoration: "underline" }}
+          >
+            (teens-tiktok-addiction-lawsuit-investigation-documents)
+          </a>
+        )}
       </Typography>
 
       <Typography variant="body1" style={bodyTextStyles}>

@@ -3,15 +3,19 @@ import { spacing } from "../styles";
 import Box from "@mui/material/Box";
 import { Link } from "gatsby";
 
-
 interface WindowProps {
   title: string;
   link: string;
+  maxWidth: string;
+  minHeight: string;
 }
 
-const windowContainerLength = "300px";
-
-const Windows: React.FC<WindowProps> = ({ title, link }) => {
+const Windows: React.FC<WindowProps> = ({
+  title,
+  link,
+  maxWidth,
+  minHeight,
+}) => {
   const windowStyles = {
     cursor: "pointer",
     backgroundImage: `url(/images/pencilwindow.svg)`,
@@ -20,9 +24,10 @@ const Windows: React.FC<WindowProps> = ({ title, link }) => {
     backgroundPositionX: "0px",
     position: "relative",
     marginTop: `${spacing.sm}rem`,
-    maxWidth: windowContainerLength,
+    maxWidth,
+    minHeight,
     width: "100%",
-    height: "180px",
+    height: "100%",
   };
 
   const linkStyles = {
@@ -63,7 +68,6 @@ const Windows: React.FC<WindowProps> = ({ title, link }) => {
       animation: "arrow-move 0s",
       left: "25px",
       backgroundImage: `url(/images/arrow_hover.svg)`,
-
     },
   };
 
