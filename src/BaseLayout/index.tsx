@@ -34,10 +34,11 @@ const BaseLayout: React.FC<LayoutProps> = ({ children, title, isHomePage }) => {
     alignItems: "center",
     padding: "0",
     flexWrap: "wrap",
-    maxWidth: widthLogo,
+    maxWidth: isMobile ? "100%" : widthLogo,
     height: heightLogo,
     position: "relative",
     margin: "1rem auto",
+    width: isMobile ? "75%" : "100%",
   };
 
   const notHomeHeaderStyles: CSSProperties = {
