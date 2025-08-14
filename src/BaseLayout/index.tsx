@@ -71,7 +71,12 @@ const BaseLayout: React.FC<LayoutProps> = ({ children, title, isHomePage }) => {
         flexDirection="column"
         style={baseLayoutStyles}
       >
-        <Grid className="base-layout--header">
+        <Grid
+          sx={{
+            maxWidth: isHomePage ? "100%" : "400px",
+          }}
+          className="base-layout--header"
+        >
           <Link to="/">
             <Box sx={setHeaderStyles} className="header--wrapper">
               {/* need to create a unique logo*/}
