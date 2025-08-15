@@ -44,7 +44,9 @@ The MVP will leverage a subset of the recommended tech stack, focusing on rapid 
 
 *   **Frontend Framework (Next.js):**
     *   Will be used for building the **highly interactive SoulPad editor** via Client-Side Rendering (CSR) [10, 15].
-    *   Will facilitate the generation of fast, static public SoulPad views using Static Site Generation (SSG) and Incremental Static Regeneration (ISR) [10, 15].
+*   **Frontend Framework (Gatsby 5, migrating to Next.js):**
+    *   The current implementation uses **Gatsby 5** for building the highly interactive SoulPad editor and static public SoulPad views.
+    *   There is a planned migration to **Next.js** to leverage its advanced features such as Client-Side Rendering (CSR), Static Site Generation (SSG), and Incremental Static Regeneration (ISR) [10, 15].
 *   **Canvas Engine (Fabric.js):**
     *   Chosen for its **granular control over HTML5 canvas elements**, enabling deep aesthetic customization and free manipulation of objects (text, images, shapes) [16, 17].
     *   Its ability to **serialize the canvas state to JSON** is crucial for persisting user-created SoulPads [6].
