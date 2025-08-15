@@ -27,7 +27,7 @@ Note: Each task is atomic and actionable. The sequence is ordered to reduce chur
 
 5. [ ] Gatsby configuration correctness
    - [ ] Validate `gatsby-plugin-google-fonts` vs `gatsby-omni-font-loader` duplication; prefer a single strategy (likely omni loader) to avoid double-loading.
-   - [ ] Fix misconfigured font entry: `Waterlily` currently points to `Fredoka` URL; correct or remove.
+   - [ ] Fix misconfigured font entry: `Waterlily` currently points to `Fredoka` URL; update to correct Waterlily font URL (e.g., `https://fonts.googleapis.com/css?family=Waterlily` or the appropriate source), or remove if not needed.
    - [ ] Confirm `gatsby-source-filesystem` covers all needed content roots (only `./src/pages/` is defined currently).
    - [ ] Add `gatsby-plugin-styled-components` options if needed for SSR and display names in dev.
    - [ ] Document `npm run clean` requirement after config changes (README).
