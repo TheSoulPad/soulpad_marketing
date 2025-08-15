@@ -14,6 +14,28 @@
     npm run dev
     ```
 
+### Node.js version
+
+- Target Node 22 LTS for development and builds (primary target for Gatsby 5 in this repo).
+- If you use nvm, this project includes an `.nvmrc`. Run:
+
+  ```bash
+  nvm use
+  # if Node 22 isn't installed yet
+  nvm install
+  ```
+
+- Note: Gatsby v5 is tested against Node 18, but Node 22 is recommended here. If you encounter plugin issues (e.g., font loaders or Netlify CMS), check for updates or compatibility notes.
+
+#### Node 22 caveats
+- package.json enforces Node 22 via engines: "node": ">=22 <24". Use Node 22.x locally and in CI (nvm, Volta, or CI matrix).
+- Some Gatsby plugins may lag on Node 22 support. If you hit build/runtime errors:
+  - Update the plugin to the latest version and check its changelog/issues for Node 22 notes (common: font loaders and Netlify CMS integration).
+  - Clear Gatsby cache after config/plugin changes: `npm run clean`.
+  - If Jest fails due to ESM in dependencies, adjust `transformIgnorePatterns` in `jest.config.js` to allow transforming that package (gatsby* are already allowed).
+- After changing gatsby-config.ts, always run `npm run clean` before `npm run dev` to avoid stale GraphQL/types.
+- Prefer `npm ci` over `npm install` to match the exact lockfile when setting up in CI or fresh clones.
+
 2.  **Open the code and start customizin!**
 
     The site is now running at http://localhost:8000
