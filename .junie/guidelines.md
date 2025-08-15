@@ -5,7 +5,7 @@ Audience: Experienced developers working with Gatsby 5 + TypeScript + Jest + Rea
 1. Build and Configuration
 
 - Node.js version
-  - Target Node 18 LTS. Gatsby v5 is tested against Node 18; Node 20 works but some plugins may lag behind. If you must use Node 20, test thoroughly (especially font-loader and Netlify CMS integration).
+  - Target Node 22 LTS. Gatsby v5 is tested against Node 18, but Node 22 is now recommended for new projects and is supported by the ecosystem. If you encounter plugin issues, check for updates or compatibility notes, especially for font-loader and Netlify CMS integration.
 
 - Install and bootstrap
   - npm ci to install with the exact lockfile.
