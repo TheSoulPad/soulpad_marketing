@@ -1,4 +1,4 @@
-# SoulPad MVP: MySpace Profile Demo - Requirements
+# SoulPad MVP: Profile Demo - Requirements
 
 This document outlines the core requirements for the Minimum Viable Product (MVP) of SoulPad, focused on delivering a foundational "MySpace Profile" like demo. The goal is to showcase the platform's core premise of **self-expression and aesthetic freedom** through a highly customizable personal digital space, distinct from traditional social media [1, 2].
 

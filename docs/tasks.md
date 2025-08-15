@@ -4,7 +4,7 @@ Note: Each task is atomic and actionable. The sequence is ordered to reduce chur
 
 1. [ ] Node and tooling baseline
    - [ ] Pin Node 22 LTS in `.nvmrc` and document in README (Gatsby 5 primary target).
-   - [ ] Add `engines.node` in `package.json` to `>=18 <20` (or align with team decision) and document Node 20 caveats.
+   - [ ] Add `engines.node` in `package.json` to `>=22 <24` (or align with team decision) and document Node 22 caveats.
    - [ ] Add `.editorconfig` for consistent editor defaults (indent, eol, charset).
 
 2. [ ] Linting and formatting
