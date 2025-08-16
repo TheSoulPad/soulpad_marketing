@@ -1,6 +1,6 @@
-<h1 align="center">
-  SoulPad Beta
-</h1>
+
+#  SoulPad Beta
+
 
 ## 🚀 Quick start
 
@@ -9,7 +9,7 @@
     Navigate into the site’s directory and start it up.
 
     ```shell
-    cd soul-pad-beta/
+    cd src/
     npm install
     npm run dev
     ```
