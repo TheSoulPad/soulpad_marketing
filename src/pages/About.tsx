@@ -18,6 +18,10 @@ const person6Path = "/images/people_hp/p6.svg";
 const person7Path = "/images/people_hp/p7.svg";
 const person8Path = "/images/people_hp/p8.svg";
 const person9Path = "/images/people_hp/p9.svg";
+const person10Path = "/images/people_hp/p10.svg";
+const person11Path = "/images/people_hp/p11.svg";
+const person12Path = "/images/people_hp/p12.svg";
+const person13Path = "/images/people_hp/p13.svg";
 
 const columnStyles = {
   display: "flex",
@@ -73,7 +77,21 @@ const AboutPage = () => {
             className="col--img img2"
           />
 
-          <Box className="col--img img3">IMG</Box>
+          <Box
+            sx={{
+              backgroundImage: `url(${person10Path})`,
+              minHeight: "250px",
+            }}
+            className="col--img img3"
+          />
+
+          <Box
+            sx={{
+              backgroundImage: `url(${person11Path})`,
+              minHeight: "276px",
+            }}
+            className="col--img img4"
+          />
         </Grid>
 
         {/******  CONTENT *****/}
@@ -104,8 +122,27 @@ const AboutPage = () => {
               minHeight: "220px",
             }}
           ></Box>
-          <Box className="col--img img5"></Box>
-          <Box className="col--img img6"></Box>
+          <Box
+            sx={{
+              backgroundImage: `url(${person8Path})`,
+              minHeight: "281px",
+            }}
+            className="col--img img5"
+          ></Box>
+          <Box
+            sx={{
+              backgroundImage: `url(${person9Path})`,
+              minHeight: "285px",
+            }}
+            className="col--img img6"
+          ></Box>
+          <Box
+            sx={{
+              backgroundImage: `url(${person13Path})`,
+              minHeight: "270px",
+            }}
+            className="col--img img7"
+          ></Box>
         </Grid>
       </Grid>
 
