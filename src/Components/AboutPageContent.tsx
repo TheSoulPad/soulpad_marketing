@@ -41,7 +41,7 @@ const AboutPageContent: React.FC<AboutContentProps> = ({ point }) => {
     fontSize: "1.5rem",
     textAlign: "center",
     padding: `${spacing.md}em`,
-    width: isMobile ? "unset" : "50%",
+    width: isMobile ? "unset" : "63%",
     margin: "auto",
   };
 

@@ -60,7 +60,7 @@ const BaseLayout: React.FC<LayoutProps> = ({ children, title, isHomePage }) => {
   };
 
   const setHeaderStyles = isHomePage ? headerStyles : notHomeHeaderStyles;
-  const setGridStyles = isHomePage ? "100%" : "14%";
+  const nonMobileStyles = isHomePage ? "100%" : "400px";
 
   return (
     <ThemeProvider theme={theme}>
@@ -73,7 +73,7 @@ const BaseLayout: React.FC<LayoutProps> = ({ children, title, isHomePage }) => {
       >
         <Grid
           sx={{
-            maxWidth: isHomePage ? "100%" : "400px",
+            maxWidth: isMobile ? "65%" : nonMobileStyles,
           }}
           className="base-layout--header"
         >

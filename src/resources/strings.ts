@@ -18,7 +18,7 @@ export const Strings = {
         numbers: ["1", "2", "3"],
         bullets: [
           `They keep our attention glued to the timeline or "feed" rather than on each other’s profiles.`,
-          "They highlight popularity culture through showcasing the number of followers, followed by, likes, and other popularity measurments.",
+          "They highlight celebrity culture through showcasing the number of followers, followed by, likes, and other popularity measurments.",
           "They restrict our freedom and creativity to design our profiles or pages as we want.",
         ],
       },

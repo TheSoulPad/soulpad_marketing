@@ -20,24 +20,7 @@ const person8Path = "/images/people_hp/p8.svg";
 const person9Path = "/images/people_hp/p9.svg";
 const person10Path = "/images/people_hp/p10.svg";
 const person11Path = "/images/people_hp/p11.svg";
-const person12Path = "/images/people_hp/p12.svg";
 const person13Path = "/images/people_hp/p13.svg";
-
-const columnStyles = {
-  display: "flex",
-  flexDirection: "column",
-  justifyContent: "space-between",
-  gap: spacing.sm + "rem",
-  maxWidth: "300px",
-  width: "100%",
-  padding: spacing.xs + "rem",
-  ".col--img": {
-    width: "100%",
-    backgroundSize: "cover",
-  },
-};
-
-const colBoxStyles = {};
 
 const AboutPage = () => {
   const isMobile = useMediaQuery("(max-width:600px)");
@@ -46,6 +29,22 @@ const AboutPage = () => {
     color: "#232129",
     padding: `${isMobile ? spacing.sm : 0}em`,
     width: "100%",
+    position: "relative",
+  };
+
+  const columnStyles = {
+    display: isMobile ? "none" : "flex",
+    flexDirection: "column",
+    justifyContent: "space-between",
+    gap: spacing.sm + "rem",
+    maxWidth: "300px",
+    width: "100%",
+    padding: spacing.xs + "rem",
+    position: "absolute",
+    ".col--img": {
+      width: "100%",
+      backgroundSize: "cover",
+    },
   };
 
   return (
@@ -57,7 +56,7 @@ const AboutPage = () => {
         display="flex"
         justifyContent="center"
         className="about-container"
-        style={containerStyles}
+        sx={containerStyles}
       >
         {/* IMG COLUMN 1   */}
 
