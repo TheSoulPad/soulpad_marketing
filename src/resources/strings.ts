@@ -1,15 +1,13 @@
 export const Strings = {
   metaData: {
     home: "SoulPad - Home",
-    create: "SoulPad - Create",
-    login: "SoulPad - Enter",
     about: "SoulPad - About",
     gallery: "SoulPad - Gallery",
     demo: "SoulPad - Demo",
   },
 
   about: {
-    header: "About SoulPad",
+    header: "Why SoulPad?",
     subHeader: "What is SoulPad?",
     subHeader2: "How does it work?",
     content: {
@@ -20,8 +18,8 @@ export const Strings = {
         numbers: ["1", "2", "3"],
         bullets: [
           `They keep our attention glued to the timeline or "feed" rather than on each other’s profiles.`,
-          "They highlight celebrity culture by showing the number of followers, followed by, likes, and other reactions.",
-          "They don’t give us the freedom to design our profiles the way we want.",
+          "They highlight celebrity culture through showcasing the number of followers, followed by, likes, and other popularity measurments.",
+          "They restrict our freedom and creativity to design our profiles or pages as we want.",
         ],
       },
       point2: {

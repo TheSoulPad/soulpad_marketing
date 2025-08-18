@@ -60,7 +60,7 @@ const BaseLayout: React.FC<LayoutProps> = ({ children, title, isHomePage }) => {
   };
 
   const setHeaderStyles = isHomePage ? headerStyles : notHomeHeaderStyles;
-  const setGridStyles = isHomePage ? "100%" : "14%";
+  const nonMobileStyles = isHomePage ? "100%" : "400px";
 
   return (
     <ThemeProvider theme={theme}>
@@ -71,7 +71,12 @@ const BaseLayout: React.FC<LayoutProps> = ({ children, title, isHomePage }) => {
         flexDirection="column"
         style={baseLayoutStyles}
       >
-        <Grid className="base-layout--header">
+        <Grid
+          sx={{
+            maxWidth: isMobile ? "65%" : nonMobileStyles,
+          }}
+          className="base-layout--header"
+        >
           <Link to="/">
             <Box sx={setHeaderStyles} className="header--wrapper">
               {/* need to create a unique logo*/}

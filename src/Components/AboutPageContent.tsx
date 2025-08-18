@@ -24,8 +24,6 @@ interface AboutContentProps {
 const AboutPageContent: React.FC<AboutContentProps> = ({ point }) => {
   const bodyTextStyles: CSSProperties = {
     textAlign: "left",
-    paddingLeft: `${spacing.sm}em`,
-    marginTop: `${spacing.xs}em`,
   };
 
   const contentStyles: CSSProperties = {
@@ -43,7 +41,7 @@ const AboutPageContent: React.FC<AboutContentProps> = ({ point }) => {
     fontSize: "1.5rem",
     textAlign: "center",
     padding: `${spacing.md}em`,
-    width: isMobile ? "unset" : "50%",
+    width: isMobile ? "unset" : "63%",
     margin: "auto",
   };
 
