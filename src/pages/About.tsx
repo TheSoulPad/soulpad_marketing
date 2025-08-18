@@ -29,7 +29,6 @@ const AboutPage = () => {
     color: "#232129",
     padding: `${isMobile ? spacing.sm : 0}em`,
     width: "100%",
-    position: "relative",
   };
 
   const columnStyles = {
@@ -40,7 +39,6 @@ const AboutPage = () => {
     maxWidth: "300px",
     width: "100%",
     padding: spacing.xs + "rem",
-    position: "absolute",
     ".col--img": {
       width: "100%",
       backgroundSize: "cover",
