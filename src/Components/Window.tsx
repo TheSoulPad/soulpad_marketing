@@ -43,7 +43,7 @@ const Windows: React.FC<WindowProps> = ({
     padding: `0 ${spacing.xs}rem`,
     position: "absolute",
     top: "38%",
-    left: "5%",
+    left: title === "About SoulPad" ? "22%" : "5%",
     "&:hover": {
       color: "#ff6105",
       fontWeight: "700",
@@ -53,7 +53,8 @@ const Windows: React.FC<WindowProps> = ({
   const arrowStyles = {
     backgroundImage: `url(/images/soulpadarrow.svg)`,
     backgroundRepeat: "no-repeat",
-    width: "80px",
+    backgroundPositionX: "13px",
+    width: "85px",
     height: "30px",
     top: "65%",
     position: "absolute",
