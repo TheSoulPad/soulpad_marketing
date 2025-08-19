@@ -11,7 +11,7 @@ export const homePageLinks = {
   },
   gallery: {
     id: "gallery",
-    label: "Gallery of Themes",
+    label: "See the Soul Exchange",
     url: "/Gallery",
   },
   demo: {

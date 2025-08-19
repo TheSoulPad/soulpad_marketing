@@ -92,23 +92,36 @@ const AboutPage = () => {
         </Grid>
 
         {/******  CONTENT *****/}
-        <Box
+
+        <Grid
           display="flex"
+          className="about--content"
           flexDirection="column"
-          className="content-windows"
-          alignItems="center"
-          p={3}
-          sx={{
-            maxWidth: "900px",
-            width: "100%",
-            margin: "auto",
-          }}
+          mt={6}
         >
-          <AboutPageContent point={content.point1} />
-          <AboutPageContent point={content.point2} />
-          <AboutPageContent point={content.point3} />
-          <AboutPageContent point={content.point4} />
-        </Box>
+          <Typography variant="body1">
+            Today's most popular social medica apps all share three big
+            problems:
+          </Typography>
+          <Box
+            display="flex"
+            flexDirection="column"
+            className="content-windows"
+            alignItems="center"
+            sx={{
+              maxWidth: "700px",
+              width: "100%",
+              margin: "auto",
+            }}
+          >
+            <AboutPageContent point={content.point1} />
+            <Typography variant="h2"> Let's dive in!</Typography>
+
+            <AboutPageContent point={content.point2} />
+            <AboutPageContent point={content.point3} />
+            <AboutPageContent point={content.point4} />
+          </Box>
+        </Grid>
 
         {/* IMG COLUMN 2   */}
         <Grid className="about--column" sx={columnStyles}>

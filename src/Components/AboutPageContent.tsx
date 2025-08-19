@@ -8,9 +8,6 @@ import Box from "@mui/material/Box";
 interface AboutContentProps {
   link?: string;
   point: {
-    title: string;
-    number: string;
-    title2: string;
     numbers?: string[];
     bullets?: string[];
     highlight?: string;
@@ -51,13 +48,8 @@ const AboutPageContent: React.FC<AboutContentProps> = ({ point }) => {
       flexDirection="column"
       className="about-content"
       style={contentStyles}
+      width={"680px"}
     >
-      <Typography variant="body1" style={bodyTextStyles}>
-        {point.title}
-        <span style={funFont1}>{point.number}</span>
-        {point.title2}
-      </Typography>
-
       {point.bullets && (
         <ul
           style={{

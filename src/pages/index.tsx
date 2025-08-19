@@ -68,7 +68,7 @@ const subTitle: CSSProperties = {
 
 const Home = () => {
   const tabletAndGreater = useMediaQuery("(min-width:812px)");
-  const maxWidthSubHeader = tabletAndGreater ? "510px" : "368px";
+  const maxWidthSubHeader = tabletAndGreater ? "580px" : "368px";
   const maxWidthContent = "600px";
 
   const homePageStyles = {

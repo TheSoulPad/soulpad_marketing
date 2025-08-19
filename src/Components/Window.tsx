@@ -42,8 +42,8 @@ const Windows: React.FC<WindowProps> = ({
     transform: "translateX(15%)",
     padding: `0 ${spacing.xs}rem`,
     position: "absolute",
-    top: "50%",
-    left: "20%",
+    top: "38%",
+    left: "5%",
     "&:hover": {
       color: "#ff6105",
       fontWeight: "700",
