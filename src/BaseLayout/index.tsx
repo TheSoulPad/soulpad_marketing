@@ -1,7 +1,7 @@
 import React, { CSSProperties } from "react";
 import GlobalStyles from "../GlobalStyles";
 import Grid from "@mui/material/Grid2";
-import { spacing, colors } from "../styles";
+import { colors } from "../styles";
 import Footer from "./Footer";
 import { ThemeProvider } from "@mui/material/styles";
 import theme from "../theme";
@@ -70,8 +70,9 @@ const BaseLayout: React.FC<LayoutProps> = ({ children, title, isHomePage }) => {
       <Grid
         className={isHomePage ? `base-layout--home` : "base-layout--not-home"}
         container
+        display="flex"
         flexDirection="column"
-        justifyContent="space-between"
+        justifyContent="center"
         style={baseLayoutStyles}
       >
         <Grid

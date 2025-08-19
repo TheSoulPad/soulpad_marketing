@@ -23,7 +23,11 @@ const person11Path = "/images/people_hp/p11.svg";
 const person13Path = "/images/people_hp/p13.svg";
 
 const AboutPage = () => {
-  const isMobile = useMediaQuery("(max-width:600px)");
+  const isMobile = useMediaQuery("(max-width: 600px)");
+
+  const isTablet = useMediaQuery(
+    "(min-width: 759px)" + " and (max-width: 1024px)",
+  );
 
   const containerStyles = {
     color: "#232129",
@@ -98,10 +102,24 @@ const AboutPage = () => {
           className="about--content"
           flexDirection="column"
           mt={6}
+          sx={{
+            maxWidth: isTablet ? "450px" : "100%",
+            width: "100%",
+          }}
         >
-          <Typography variant="body1">
-            Today's most popular social medica apps all share three big
-            problems:
+          <Typography
+            sx={{
+              paddingBottom: spacing.sm + "rem",
+              margin: "auto",
+              maxWidth: "700px",
+              width: "100%",
+
+              fontSize: "1.5rem",
+            }}
+            variant="body2"
+          >
+            {/* Today’s most popular social media apps all share three big problems:  */}
+            {strings.content.point1.title}
           </Typography>
           <Box
             display="flex"
@@ -115,8 +133,6 @@ const AboutPage = () => {
             }}
           >
             <AboutPageContent point={content.point1} />
-            <Typography variant="h2"> Let's dive in!</Typography>
-
             <AboutPageContent point={content.point2} />
             <AboutPageContent point={content.point3} />
             <AboutPageContent point={content.point4} />
@@ -124,9 +140,15 @@ const AboutPage = () => {
         </Grid>
 
         {/* IMG COLUMN 2   */}
-        <Grid className="about--column" sx={columnStyles}>
+        <Grid
+          className="about--column about--column2"
+          sx={{
+            ...columnStyles,
+            display: isTablet || isMobile ? "none" : "flex",
+          }}
+        >
           <Box
-            className="col--img img4"
+            className="col--img col--img2 img4"
             sx={{
               backgroundImage: `url(${person7Path})`,
               minHeight: "220px",
@@ -143,6 +165,7 @@ const AboutPage = () => {
             sx={{
               backgroundImage: `url(${person9Path})`,
               minHeight: "285px",
+              backgroundPositionX: "45px",
             }}
             className="col--img img6"
           ></Box>

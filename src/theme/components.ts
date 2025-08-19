@@ -1,6 +1,6 @@
 import { body1Styles, funFont1, headline1Font, headline2Font } from "../styles";
 
-declare module '@mui/system' {
+declare module "@mui/system" {
   interface BreakpointOverrides {
     // Your custom breakpoints
     laptop: true;
@@ -15,7 +15,6 @@ declare module '@mui/system' {
     xl: false;
   }
 }
-
 
 const components = {
   breakpoints: {
@@ -36,6 +35,7 @@ const components = {
       // The props to change the default for.
       variantMapping: {
         body1: "p",
+        body2: "p",
         h1: "h1",
         h2: "h2",
         subtitle1: "subtitle1",
@@ -47,6 +47,14 @@ const components = {
       body1: {
         ...body1Styles,
       },
+      body2: {
+        ...body1Styles,
+        fontFamily: "Fredoka, sans-serif",
+        fontWeight: 400,
+        fontSize: "1.1rem",
+      },
+      // Custom styles for h1, h2, and subtitle1
+      // These can be adjusted as needed
       h1: {
         ...headline1Font,
       },
