@@ -64,11 +64,12 @@ const subTitle: CSSProperties = {
   fontWeight: 700,
   fontFamily: "Roboto Mono, monospace",
   textAlign: "center",
+  fontSize: "1.3rem",
 };
 
 const Home = () => {
   const tabletAndGreater = useMediaQuery("(min-width:812px)");
-  const maxWidthSubHeader = tabletAndGreater ? "580px" : "368px";
+  const maxWidthSubHeader = tabletAndGreater ? "525px" : "368px";
   const maxWidthContent = "600px";
 
   const homePageStyles = {
@@ -102,8 +103,9 @@ const Home = () => {
             sx={{
               ...imgBoxContainer,
               backgroundImage: `url(${person3Path})`,
-              left: "200px",
+              left: "150px",
               bottom: "0px",
+              backgroundPositionX: "25px",
             }}
             className="home-page--person-img person-img-box person-img-3"
           ></Box>
@@ -114,19 +116,20 @@ const Home = () => {
           sx={{
             maxWidth: maxWidthContent,
             width: "100%",
+            padding: spacing.sm + "rem",
           }}
           className="home-page--content window-container col-2"
           flexDirection="column"
+          alignItems={"center"}
         >
+          {/******  Subheader *****************/}
           <Box
             className="home-page--subheader"
             sx={{
-              margin: "auto",
               maxWidth: maxWidthSubHeader,
               width: "100%",
             }}
             display="flex"
-            gap={1}
             justifyContent="center"
           >
             <Typography
@@ -150,6 +153,7 @@ const Home = () => {
               }}
             ></Box>
           </Box>
+          {/******  Subheader End *****************/}
 
           <Box
             display="flex"
@@ -190,6 +194,7 @@ const Home = () => {
               backgroundImage: `url(${person2Path})`,
               right: "55px",
               top: "0px",
+              backgroundPositionY: "10px",
             }}
             className="home-page--person-img person-img-box person-img-2"
           ></Box>
@@ -199,8 +204,9 @@ const Home = () => {
               ...imgBoxContainer,
               backgroundImage: `url(${person4Path})`,
               position: "absolute",
-
+              backgroundPositionX: "10px",
               bottom: "0px",
+              right: "100px",
             }}
           ></Box>
         </Grid>

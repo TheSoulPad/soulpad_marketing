@@ -57,6 +57,7 @@ const BaseLayout: React.FC<LayoutProps> = ({ children, title, isHomePage }) => {
     backgroundImage: `url(/images/SoulPad.svg)`,
     backgroundSize: "cover",
     color: "transparent",
+    backgroundPositionX: "10px",
   };
 
   const setHeaderStyles = isHomePage ? headerStyles : notHomeHeaderStyles;

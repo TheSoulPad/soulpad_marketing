@@ -14,9 +14,9 @@ export const homePageLinks = {
     label: "See the Soul Exchange",
     url: "/Gallery",
   },
-  demo: {
-    id: "demo",
-    label: "Try the Demo",
-    url: "/Demo",
-  },
+  // demo: {
+  //   id: "demo",
+  //   label: "Try the Demo",
+  //   url: "/Demo",
+  // },
 };
