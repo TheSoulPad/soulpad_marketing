@@ -62,7 +62,8 @@ git remote add upstream [https://github.com/csevere/soul-pad-beta.git](https://g
 # Verify the remotes are configured
 git remote -v
 # origin    [https://github.com/csevere/soul-pad-beta.git](https://github.com/csevere/soul-pad-beta.git) (fetch)
-# origin    [https://github.com/csevere/soul-pad-beta.git](https://github.com/csevere/soul-pad-beta.git) (push)
+# origin    [https://github.com/your-username/soul-pad-beta.git](https://github.com/your-username/soul-pad-beta.git) (fetch)
+# origin    [https://github.com/your-username/soul-pad-beta.git](https://github.com/your-username/soul-pad-beta.git) (push)
 # upstream  [https://github.com/csevere/soul-pad-beta.git](https://github.com/csevere/soul-pad-beta.git) (fetch)
 # upstream  [https://github.com/csevere/soul-pad-beta.git](https://github.com/csevere/soul-pad-beta.git) (push)
 ```
