@@ -18,7 +18,7 @@ interface LayoutProps {
 const BaseLayout: React.FC<LayoutProps> = ({ children, title, isHomePage }) => {
   const isMobile = useMediaQuery("(max-width:600px)");
   const { officialBackgroundColor } = colors;
-  const mobileHeight = "185px";
+  const mobileHeight = "163px";
   const widthLogo = "475px";
   const notHomeWidthLogo = isMobile ? widthLogo : "150px";
   const heightLogo = isMobile ? mobileHeight : "250px";
@@ -26,6 +26,8 @@ const BaseLayout: React.FC<LayoutProps> = ({ children, title, isHomePage }) => {
 
   const baseLayoutStyles: CSSProperties = {
     backgroundColor: officialBackgroundColor,
+    minHeight: isMobile ? "932px" : "900px",
+    height: "100%",
   };
 
   const headerStyles: CSSProperties = {
@@ -61,7 +63,6 @@ const BaseLayout: React.FC<LayoutProps> = ({ children, title, isHomePage }) => {
   };
 
   const setHeaderStyles = isHomePage ? headerStyles : notHomeHeaderStyles;
-  const nonMobileStyles = isHomePage ? "100%" : "400px";
 
   return (
     <ThemeProvider theme={theme}>
@@ -70,13 +71,15 @@ const BaseLayout: React.FC<LayoutProps> = ({ children, title, isHomePage }) => {
         className={isHomePage ? `base-layout--home` : "base-layout--not-home"}
         container
         flexDirection="column"
+        justifyContent="space-between"
         style={baseLayoutStyles}
       >
         <Grid
-          sx={{
-            maxWidth: isMobile ? "65%" : nonMobileStyles,
-          }}
           className="base-layout--header"
+          sx={{
+            // maxWidth: isMobile ? "100%" : nonMobileStyles,
+            maxWidth: "100%",
+          }}
         >
           <Link to="/">
             <Box sx={setHeaderStyles} className="header--wrapper">

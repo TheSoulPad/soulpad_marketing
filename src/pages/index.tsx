@@ -126,11 +126,12 @@ const Home = () => {
           <Box
             className="home-page--subheader"
             sx={{
-              maxWidth: maxWidthSubHeader,
+              maxWidth: tabletAndGreater ? maxWidthSubHeader : "unset",
               width: "100%",
             }}
             display="flex"
             justifyContent="center"
+            alignItems="center"
           >
             <Typography
               className="home-page--subheader__text"
