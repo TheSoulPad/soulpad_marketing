@@ -19,27 +19,30 @@ interface AboutContentProps {
 }
 
 const AboutPageContent: React.FC<AboutContentProps> = ({ point }) => {
+  const isMobile = useMediaQuery("(max-width:850px)");
   const bodyTextStyles: CSSProperties = {
     textAlign: "left",
   };
 
-  const contentStyles: CSSProperties = {
+  const contentStyles = {
     marginTop: spacing.lg,
+    maxWidth: isMobile ? "unset" : "680px",
+    width: "100%",
+    "& p": {
+      marginBottom: spacing.sm + "rem",
+    },
   };
-  const isMobile = useMediaQuery("(max-width:600px)");
 
-  const numberStyles: CSSProperties = {
+  const numberStyles = {
     paddingRight: `${spacing.sm / 2}em`,
+    fontFamily: "Fredoka, sans-serif",
   };
 
   const blockquoteStyles: CSSProperties = {
-    fontFamily: "Galindo, sans-serif",
+    fontFamily: "Fredoka, sans-serif",
     fontWeight: "500",
     fontSize: "1.5rem",
-    textAlign: "center",
-    padding: `${spacing.md}em`,
-    width: isMobile ? "unset" : "63%",
-    margin: "auto",
+    paddingBottom: spacing.sm + "rem",
   };
 
   return (
@@ -47,9 +50,9 @@ const AboutPageContent: React.FC<AboutContentProps> = ({ point }) => {
       container
       flexDirection="column"
       className="about-content"
-      style={contentStyles}
-      width={"680px"}
+      sx={contentStyles}
     >
+      {/* The three problems numbered list  */}
       {point.bullets && (
         <ul
           style={{
@@ -62,16 +65,22 @@ const AboutPageContent: React.FC<AboutContentProps> = ({ point }) => {
             <li
               key={index}
               style={{
-                marginBottom: spacing.sm,
                 display: "flex",
+                alignItems: isMobile ? "start" : "center",
+                marginBottom: isMobile ? spacing.sm + "rem" : 0,
               }}
             >
               <Box className="number" sx={funFont1}>
                 <div style={numberStyles}>{point.numbers?.[index]}</div>
               </Box>
-              <Typography variant="body1" style={bodyTextStyles}>
-                {bullet}
-              </Typography>
+              <Box>
+                <Typography
+                  variant="body2"
+                  sx={{ ...bodyTextStyles, marginBottom: "0 !important" }}
+                >
+                  {bullet}
+                </Typography>
+              </Box>
             </li>
           ))}
         </ul>
@@ -81,25 +90,17 @@ const AboutPageContent: React.FC<AboutContentProps> = ({ point }) => {
         <blockquote style={blockquoteStyles}>{point.highlight}</blockquote>
       )}
 
-      <Typography variant="body1" style={bodyTextStyles}>
+      <Typography variant="body2" style={bodyTextStyles}>
         {point.p}
-        {point.link && (
-          <a
-            href={point.link}
-            target="_blank"
-            rel="noopener noreferrer"
-            style={{ color: "#ff6105", textDecoration: "underline" }}
-          >
-            (teens-tiktok-addiction-lawsuit-investigation-documents)
-          </a>
-        )}
+        {""}
       </Typography>
 
-      <Typography variant="body1" style={bodyTextStyles}>
+      <Typography variant="body2" style={bodyTextStyles}>
         {point.p1}
+        {""}
       </Typography>
 
-      <Typography variant="body1" style={bodyTextStyles}>
+      <Typography variant="body2" style={bodyTextStyles}>
         {point.p2}
       </Typography>
     </Grid>

@@ -34,7 +34,7 @@ const Windows: React.FC<WindowProps> = ({
     color: "#000",
     fontWeight: 400,
     fontSize: "1rem",
-    fontFamily: "Roboto, sans-serif",
+    fontFamily: "Fredoka, sans-serif",
     textDecoration: "none",
     display: "block",
     margin: "auto",
@@ -46,7 +46,7 @@ const Windows: React.FC<WindowProps> = ({
     left: title === "About SoulPad" ? "22%" : "5%",
     "&:hover": {
       color: "#ff6105",
-      fontWeight: "700",
+      fontWeight: "600",
     },
   };
 

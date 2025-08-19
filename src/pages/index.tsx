@@ -61,8 +61,8 @@ const subTitle: CSSProperties = {
   color: "rgba(0,0,0,0.87)",
   letterSpacing: "0.15rem",
   textShadow: "1px 1px 0px rgba(255,97,5,0.6)",
-  fontWeight: 700,
-  fontFamily: "Roboto Mono, monospace",
+  fontWeight: 500,
+  fontFamily: "Fredoka, sans-serif",
   textAlign: "center",
   fontSize: "1.3rem",
 };
@@ -100,14 +100,14 @@ const Home = () => {
             className="home-page--person-img person-img-box person-img-1"
           ></Box>
           <Box
+            className="home-page--person-img person-img-box person-img-3"
             sx={{
               ...imgBoxContainer,
               backgroundImage: `url(${person3Path})`,
-              left: "150px",
+              left: "225px",
               bottom: "0px",
               backgroundPositionX: "25px",
             }}
-            className="home-page--person-img person-img-box person-img-3"
           ></Box>
         </Grid>
 
@@ -116,7 +116,6 @@ const Home = () => {
           sx={{
             maxWidth: maxWidthContent,
             width: "100%",
-            padding: spacing.sm + "rem",
           }}
           className="home-page--content window-container col-2"
           flexDirection="column"
@@ -126,11 +125,13 @@ const Home = () => {
           <Box
             className="home-page--subheader"
             sx={{
-              maxWidth: maxWidthSubHeader,
-              width: "100%",
+              maxWidth: tabletAndGreater ? maxWidthSubHeader : "unset",
+              width: "99%",
+              margin: "auto",
             }}
             display="flex"
             justifyContent="center"
+            alignItems="center"
           >
             <Typography
               className="home-page--subheader__text"
@@ -139,19 +140,6 @@ const Home = () => {
             >
               {strings.subHeader}
             </Typography>
-            <Box
-              width="42px"
-              height="42px"
-              className="subheader-horn-img"
-              sx={{
-                backgroundSize: "cover",
-                backgroundPositionY: "0px",
-                backgroundPositionX: "0px",
-                width: "42px",
-                height: "42px ",
-                backgroundImage: `url(/images/speakers.svg)`,
-              }}
-            ></Box>
           </Box>
           {/******  Subheader End *****************/}
 
@@ -195,6 +183,7 @@ const Home = () => {
               right: "55px",
               top: "0px",
               backgroundPositionY: "10px",
+              backgroundPositionX: "30px",
             }}
             className="home-page--person-img person-img-box person-img-2"
           ></Box>
@@ -206,7 +195,7 @@ const Home = () => {
               position: "absolute",
               backgroundPositionX: "10px",
               bottom: "0px",
-              right: "100px",
+              right: "125px",
             }}
           ></Box>
         </Grid>

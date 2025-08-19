@@ -12,9 +12,7 @@ export const Strings = {
     subHeader2: "How does it work?",
     content: {
       point1: {
-        title: `Today’s most popular social media apps all share `,
-        number: "three",
-        title2: ` big problems:`,
+        title: `Today’s most popular social media apps all share three big problems: `,
         numbers: ["1", "2", "3"],
         bullets: [
           `They keep us glued to endless feeds instead of enjoying each other’s profiles.`,
@@ -45,7 +43,7 @@ export const Strings = {
   homePage: {
     header: "SoulPad",
     subHeader0: "Break the rules",
-    subHeader: "A soul is a universe, not a box",
+    subHeader: "A soul is a universe not a feed.",
   },
 
   createPage: {
