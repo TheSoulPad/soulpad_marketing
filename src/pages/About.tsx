@@ -136,6 +136,7 @@ const AboutPage = () => {
             <AboutPageContent point={content.point2} />
             <AboutPageContent point={content.point3} />
             <AboutPageContent point={content.point4} />
+            <AboutPageContent point={content.point5} />
           </Box>
         </Grid>
 

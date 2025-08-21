@@ -43,6 +43,7 @@ const AboutPageContent: React.FC<AboutContentProps> = ({ point }) => {
     fontWeight: "500",
     fontSize: "1.5rem",
     paddingBottom: spacing.sm + "rem",
+    margin: "auto",
   };
 
   return (
@@ -86,18 +87,24 @@ const AboutPageContent: React.FC<AboutContentProps> = ({ point }) => {
         </ul>
       )}
 
-      {point.highlight && (
-        <blockquote style={blockquoteStyles}>{point.highlight}</blockquote>
+      {point.highlight && point.highlight !== "Enter SoulPad" && (
+        <Box sx={blockquoteStyles}>
+          <blockquote>{point.highlight}</blockquote>
+        </Box>
+      )}
+
+      {point.highlight === "Enter SoulPad" && (
+        <Box sx={blockquoteStyles}>
+          <blockquote>{point.highlight}</blockquote>
+        </Box>
       )}
 
       <Typography variant="body2" style={bodyTextStyles}>
         {point.p}
-        {""}
       </Typography>
 
       <Typography variant="body2" style={bodyTextStyles}>
         {point.p1}
-        {""}
       </Typography>
 
       <Typography variant="body2" style={bodyTextStyles}>
