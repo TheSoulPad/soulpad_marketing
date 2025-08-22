@@ -98,7 +98,11 @@ const AboutPageContent: React.FC<AboutContentProps> = ({ point }) => {
           <blockquote>{point.highlight}</blockquote>
         </Box>
       )}
-
+      {point.highlight && (
+        <Box sx={blockquoteStyles}>
+          <blockquote>{point.highlight}</blockquote>
+        </Box>
+      )}
       <Typography variant="body2" style={bodyTextStyles}>
         {point.p}
       </Typography>
