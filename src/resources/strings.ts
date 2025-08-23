@@ -39,11 +39,14 @@ export const Strings = {
         p2: `So why shouldn’t our profiles reflect that? Imagine if we could design our profiles exactly how we wanted, with our own colors, fonts, assets, and layout. Imagine owning a space on the internet that truly reflects who we are vs another template everyone uses.`,
       },
       point5: {
-        highlight: "Enter SoulPad",
+        highlight: "Enter SoulPad: A Post Social Network Canvas Playground ",
         p: `SoulPad flips the script. Instead of endless feeds and cookie-cutter profiles, we focus on you. Your creativity. Your individuality. Your way of sharing and connecting.`,
-        p1: `With SoulPad, you get the freedom of an infinite canvas to design your profile how you want — easily, playfully, and without the pressure of likes, followers, or algorithms deciding who matters most.`,
-        p2: `It’s time for social media to feel fun again. Let’s bring the focus back to self-expression and genuine connection.`,
+        p1: `Design and customize your SoulPad with complete freedom. Add whatever inspires you: comment boxes, polls, sketchpads, even mini-games. Your SoulPad canvas allows you to add interactive features that turn your page into a living, breathing expression of you. Adding images, themes, and personal assets is as simple as drag-and-drop, yet as flexible as a sketchbook that grows alongside your imagination.`,
+        p2 : `An AI collaborator is always at your side, sparking ideas, answering questions, and helping bring new elements to life. And here’s what makes SoulPad different: no likes, no followers no ads, no endless feeds. The focus is authentic self-expression and genuine interaction.`,
+        p3: `You and your connections can interact directly within your SdoulPad, or explore someone else’s SoulPad where real-time interaction comes to life. Keep your space private as a personal retreat, share it with close friends, or open it up for the world to experience how you see and shape it`,
+        p4: `It’s time for social networks to be creative and fun again. Let’s bring the focus back to self-expression and genuine connection with SoulPad.`,
       },
+
     },
   },
 
