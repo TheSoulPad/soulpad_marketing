@@ -206,4 +206,13 @@ const Home = () => {
 
 export default Home;
 
-export const Head: HeadFC = () => <title>{headStrings}</title>;
+export const Head: HeadFC = () => (
+  <>
+    <title>{headStrings}</title>
+    <link
+      rel="icon"
+      href="https://avatars.githubusercontent.com/u/226777579?s=200&v=4"
+      type="image/x-icon"
+    />
+  </>
+);
