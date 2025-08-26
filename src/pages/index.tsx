@@ -187,27 +187,19 @@ const Home = () => {
                 border: "2px solid black",
               }}
             >
-              {" "}
               <Typography
                 variant="body2"
                 sx={{ textAlign: "center", padding: spacing.xs + "rem" }}
               >
                 Watch the SoulPad Video
               </Typography>
-              <video controls width="100%" src={videoPath}></video>
+              <video
+                controls
+                width="100%"
+                src={videoPath}
+                aria-label="SoulPad introduction video"
+              ></video>
             </Box>
-            {/* <Box
-              className="home-page--video"
-              sx={{
-                backgroundImage: `url(${videoImgPath})`,
-                backgroundSize: "cover",
-                maxWidth: "265px",
-                minHeight: "194px",
-                width: "100%",
-                position: "relative",
-                cursor: "pointer",
-              }}
-            ></Box> */}
           </Box>
         </Grid>
 
