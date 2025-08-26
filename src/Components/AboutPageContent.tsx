@@ -16,6 +16,7 @@ interface AboutContentProps {
     p2?: string;
     p3?: string;
     p4?: string;
+    p5?: string;
     link?: string;
   };
 }
@@ -115,6 +116,12 @@ const AboutPageContent: React.FC<AboutContentProps> = ({ point }) => {
       {point.p4 && (
         <Typography variant="body2" style={bodyTextStyles}>
           {point.p4}
+        </Typography>
+      )}
+
+      {point.p5 && (
+        <Typography variant="body2" style={bodyTextStyles}>
+          {point.p5}
         </Typography>
       )}
     </Grid>

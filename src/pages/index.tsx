@@ -42,6 +42,8 @@ const person1Path = "/images/people_hp/soulperson1.svg";
 const person2Path = "/images/people_hp/soulperson2.svg";
 const person3Path = "/images/people_hp/soulperson3.svg";
 const person4Path = "/images/people_hp/soulperson4.svg";
+const videoImgPath = "/images/video.svg";
+const videoPath = "/media/soulpadVideo.mp4";
 
 const imgBoxContainer = {
   width: "300px",
@@ -104,8 +106,8 @@ const Home = () => {
             sx={{
               ...imgBoxContainer,
               backgroundImage: `url(${person3Path})`,
-              left: "225px",
-              bottom: "0px",
+              left: "30px",
+              bottom: "-55px",
               backgroundPositionX: "25px",
             }}
           ></Box>
@@ -166,6 +168,47 @@ const Home = () => {
                 />
               ))}
           </Box>
+
+          <Box
+            className="home-page--media-container"
+            display="flex"
+            justifyContent="center"
+            sx={{
+              maxWidth: "600px",
+              width: "100%",
+            }}
+          >
+            <Box
+              sx={{
+                maxWidth: "265px",
+                maxHeight: "190px",
+                width: "100%",
+                height: "100%",
+                border: "2px solid black",
+              }}
+            >
+              {" "}
+              <Typography
+                variant="body2"
+                sx={{ textAlign: "center", padding: spacing.xs + "rem" }}
+              >
+                Watch the SoulPad Video
+              </Typography>
+              <video controls width="100%" src={videoPath}></video>
+            </Box>
+            {/* <Box
+              className="home-page--video"
+              sx={{
+                backgroundImage: `url(${videoImgPath})`,
+                backgroundSize: "cover",
+                maxWidth: "265px",
+                minHeight: "194px",
+                width: "100%",
+                position: "relative",
+                cursor: "pointer",
+              }}
+            ></Box> */}
+          </Box>
         </Grid>
 
         {/* People Imgs Col 3 */}
@@ -180,7 +223,7 @@ const Home = () => {
             sx={{
               ...imgBoxContainer,
               backgroundImage: `url(${person2Path})`,
-              right: "55px",
+              right: "85px",
               top: "0px",
               backgroundPositionY: "10px",
               backgroundPositionX: "30px",
@@ -194,8 +237,8 @@ const Home = () => {
               backgroundImage: `url(${person4Path})`,
               position: "absolute",
               backgroundPositionX: "10px",
-              bottom: "0px",
-              right: "125px",
+              bottom: "-9px",
+              right: "30px",
             }}
           ></Box>
         </Grid>
