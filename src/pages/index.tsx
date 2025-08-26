@@ -42,7 +42,6 @@ const person1Path = "/images/people_hp/soulperson1.svg";
 const person2Path = "/images/people_hp/soulperson2.svg";
 const person3Path = "/images/people_hp/soulperson3.svg";
 const person4Path = "/images/people_hp/soulperson4.svg";
-const videoImgPath = "/images/video.svg";
 const videoPath = "/media/soulpadVideo.mp4";
 
 const imgBoxContainer = {
