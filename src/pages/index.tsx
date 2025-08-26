@@ -106,7 +106,7 @@ const Home = () => {
               ...imgBoxContainer,
               backgroundImage: `url(${person3Path})`,
               left: "30px",
-              bottom: "-55px",
+              bottom: "-8px",
               backgroundPositionX: "25px",
             }}
           ></Box>
