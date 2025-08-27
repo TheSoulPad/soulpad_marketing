@@ -28,6 +28,8 @@ const BaseLayout: React.FC<LayoutProps> = ({ children, title, isHomePage }) => {
     backgroundColor: officialBackgroundColor,
     minHeight: isMobile ? "932px" : "900px",
     height: "100%",
+    maxWidth: "1400px",
+    margin: "0 auto",
   };
 
   const headerStyles: CSSProperties = {

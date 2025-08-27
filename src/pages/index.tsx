@@ -211,15 +211,15 @@ const Home = () => {
         >
           {" "}
           <Box
+            className="home-page--person-img person-img-box person-img-2"
             sx={{
               ...imgBoxContainer,
               backgroundImage: `url(${person2Path})`,
-              right: "85px",
-              top: "0px",
               backgroundPositionY: "10px",
               backgroundPositionX: "30px",
+              right: "49px",
+              top: "0px",
             }}
-            className="home-page--person-img person-img-box person-img-2"
           ></Box>
           <Box
             className="home-page--person-img person-img-box person-img-4"
