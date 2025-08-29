@@ -36,7 +36,7 @@ const CustomCard: React.FC<CardProps> = ({
   //change this to  customCard and update in useTheme
   const [card, setCardTheme] = useState<CardType>(about.card);
   const [customCard, setCustomCardTheme] = useState<RichTextType>(
-    about.customCard
+    about.customCard,
   );
   const [paper, setPaperTheme] = useState<PaperType>(about.paper);
 
@@ -81,8 +81,6 @@ const CustomCard: React.FC<CardProps> = ({
   const titleStyles = {
     ...customCard.header.text,
     ...customCard.header.styles,
-   
-
   };
 
   const paperStyles = {
