@@ -21,7 +21,7 @@ const NewsletterBanner: React.FC = () => {
         fontFamily: "Fredoka, sans-serif",
         border: "2px solid black",
         padding: "2rem",
-        borderRadius: `${spacing.xs}rem}`,
+        borderRadius: `${spacing.xs}rem`,
       }}
     >
       <Box
