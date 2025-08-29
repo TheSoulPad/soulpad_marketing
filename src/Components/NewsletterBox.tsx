@@ -6,10 +6,18 @@ import { FORMSPREEENDPOINT } from "../const";
 import { spacing } from "../styles";
 import { Typography } from "@mui/material";
 import useMediaQuery from "@mui/material/useMediaQuery";
+import { useForm, ValidationError } from "@formspree/react";
 
 const NewsletterBanner: React.FC = () => {
   const [submitted, setSubmitted] = useState(false);
   const isMobile = useMediaQuery("(max-width:600px)");
+  const [state, handleSubmit] = useForm("xdklakod");
+
+  const onSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    setSubmitted(true);
+    handleSubmit(e);
+  };
 
   return (
     <Box
@@ -60,10 +68,14 @@ const NewsletterBanner: React.FC = () => {
         </Box>
       ) : (
         <form
-          action={FORMSPREEENDPOINT}
+          onSubmit={onSubmit}
           method="POST"
-          style={{ display: "flex", gap: "1rem", justifyContent: "center" }}
-          onSubmit={() => setSubmitted(true)}
+          style={{
+            display: "flex",
+            gap: "1rem",
+            justifyContent: "center",
+            flexDirection: "column",
+          }}
         >
           {/* Honeypot field for spam protection */}
           <input
@@ -87,6 +99,29 @@ const NewsletterBanner: React.FC = () => {
                 borderRadius: "5px",
               },
             }}
+          />
+          <ValidationError prefix="Email" field="email" errors={state.errors} />
+
+          <TextField
+            type="text"
+            label="Leave a message"
+            variant="outlined"
+            size="medium"
+            required
+            name="message"
+            className="newsletter--input"
+            sx={{
+              flexGrow: 1,
+              "& .MuiOutlinedInput-root": {
+                borderRadius: "5px",
+              },
+            }}
+          />
+
+          <ValidationError
+            prefix="Message"
+            field="message"
+            errors={state.errors}
           />
           <Button
             type="submit"
