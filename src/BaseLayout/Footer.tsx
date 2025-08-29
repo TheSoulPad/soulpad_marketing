@@ -26,10 +26,10 @@ const Footer: React.FC = () => {
         display: "flex",
         flexWrap: "wrap",
         gap: 2,
-        width: isMobile ? "70%" : "auto",
+        width: isMobile ? "100%" : "auto",
         height: "100%",
         minHeight: "100px",
-        alignContent: "end",
+        alignContent: isMobile ? "start" : "end",
         flexDirection: isMobile ? "column" : "row",
       }}
     >

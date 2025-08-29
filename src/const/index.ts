@@ -20,3 +20,5 @@ export const homePageLinks = {
   //   url: "/Demo",
   // },
 };
+
+export const FORMSPREEENDPOINT = "https://formspree.io/f/xdklakod";
