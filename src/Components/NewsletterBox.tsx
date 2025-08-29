@@ -2,16 +2,16 @@ import React, { useState } from "react";
 import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
 import TextField from "@mui/material/TextField";
-import { FORMSPREEENDPOINT } from "../const";
 import { spacing } from "../styles";
 import { Typography } from "@mui/material";
 import useMediaQuery from "@mui/material/useMediaQuery";
 import { useForm, ValidationError } from "@formspree/react";
+import { FORMSPREEENDPOINT } from "../const";
 
 const NewsletterBanner: React.FC = () => {
   const [submitted, setSubmitted] = useState(false);
   const isMobile = useMediaQuery("(max-width:600px)");
-  const [state, handleSubmit] = useForm("xdklakod");
+  const [state, handleSubmit] = useForm(FORMSPREEENDPOINT);
 
   const onSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();

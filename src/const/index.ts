@@ -21,4 +21,4 @@ export const homePageLinks = {
   // },
 };
 
-export const FORMSPREEENDPOINT = "https://formspree.io/f/xdklakod";
+export const FORMSPREEENDPOINT = "xdklakod";
