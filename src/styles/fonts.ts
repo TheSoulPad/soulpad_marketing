@@ -19,6 +19,7 @@ const headline1Font: CSSProperties = {
 };
 const headline2Font: CSSProperties = {
   margin: "auto",
+  fontFamily: "Fredoka, sans-serif",
   fontSize: "1.5rem", // 24px
   fontWeight: "500",
   textAlign: "center",
