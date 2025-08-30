@@ -22,3 +22,4 @@ export const homePageLinks = {
 };
 
 export const FORMSPREEENDPOINT = "xdklakod";
+export const FUNDRAISER_URL = "https://gofund.me/4351b380";

@@ -2,8 +2,7 @@ import React from "react";
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import Button from "@mui/material/Button";
-
-const FUNDRAISER_URL = "https://www.gofundme.com/f/soulpad-fundraiser"; // Replace with your actual GoFundMe URL
+import { FUNDRAISER_URL } from "../const";
 
 const FundraisingBanner: React.FC = () => (
   <Box
