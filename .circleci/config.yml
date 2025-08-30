@@ -17,7 +17,7 @@ jobs:
           command: npm install
       - run:
           name: Run tests
-          command: npm tests
+          command: npm run tests
       - run:
           name: Build Gatsby site
           command: npm run build
