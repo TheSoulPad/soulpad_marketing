@@ -33,7 +33,8 @@ import { homePageLinks } from "../const";
 import { Strings } from "../resources/strings";
 import Box from "@mui/material/Box";
 import useMediaQuery from "@mui/material/useMediaQuery";
-import NewsletterBanner from "../Components/NewsletterBox";
+import Newsletter from "../Components/NewsletterBox";
+import Fundraising from "../Components/FundraisingComp";
 
 //later: add svg support
 
@@ -236,7 +237,8 @@ const Home = () => {
           ></Box>
         </Grid>
       </Grid>
-      <NewsletterBanner />
+      <Newsletter />
+      <Fundraising />
     </BaseLayout>
   );
 };

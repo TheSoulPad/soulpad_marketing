@@ -6,7 +6,7 @@ export const homePageLinks = {
   },
   about: {
     id: "about",
-    label: "About SoulPad",
+    label: "Learn about SoulPad",
     url: "/About",
   },
   gallery: {
