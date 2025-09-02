@@ -35,6 +35,7 @@ import Box from "@mui/material/Box";
 import useMediaQuery from "@mui/material/useMediaQuery";
 import Newsletter from "../Components/NewsletterBox";
 import Fundraising from "../Components/FundraisingComp";
+import AboutCreator from "../Components/AboutCreator";
 
 //later: add svg support
 
@@ -237,6 +238,7 @@ const Home = () => {
           ></Box>
         </Grid>
       </Grid>
+      <AboutCreator />
       <Newsletter />
       <Fundraising />
     </BaseLayout>
