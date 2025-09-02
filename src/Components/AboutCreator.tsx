@@ -3,7 +3,7 @@ import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import Paper from "@mui/material/Paper";
 
-const PHOTO_URL = "https://avatars.githubusercontent.com/u/27731576?v=4"; // Replace with your actual image path
+const PHOTO_URL = "https://avatars.githubusercontent.com/u/27731576?v=4";
 
 const AboutCreator: React.FC = () => (
   <Paper
@@ -92,7 +92,7 @@ const AboutCreator: React.FC = () => (
       </Typography>
       <Typography variant="body1" sx={{ mb: 2 }}>
         My vision for SoulPad is to create a hub where people can gather and
-        share their lives without the banging noise of ads, endless feeds, or
+        share their lives without the intrusive noise of ads, endless feeds, or
         sponsored content dominating today’s platforms. My team is designing
         SoulPad to be a genuine creative refuge—an open space where expression
         comes first and community thrives naturally. Support SoulPad today, and
