@@ -3,25 +3,46 @@ import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import Paper from "@mui/material/Paper";
 import useMediaQuery from "@mui/material/useMediaQuery";
+import { paperMobileStyles, tabletAndGreaterStyles } from "../styles";
 
 const PHOTO_URL = "https://avatars.githubusercontent.com/u/27731576?v=4";
 
 const AboutCreator: React.FC = () => {
   const tabletAndGreater = useMediaQuery("(min-width:812px)");
 
+  const aboutCreatorParagraphs = [
+    {
+      key: "intro",
+      text: "Hi there, I’m Kala, the creator of SoulPad. My professional journey in web technologies began seven years ago, but my love for online communities goes back much further. I grew up immersed in platforms like LiveJournal, GaiaOnline, Blogger, WordPress, and of course, MySpace. As a teenager and young adult, these sites offered a refuge from my chaotic home life. They gave me space to express myself freely, connect with other creatives, and build meaningful online communities rooted in shared passions and creative exchange.",
+    },
+    {
+      key: "nostalgia",
+      text: "Today, I find myself longing for that kind of social networking experience again—one centered on individuality, expression, and creativity, rather than the polished performances we see on Instagram or TikTok.",
+    },
+    {
+      key: "origin",
+      text: "The idea for SoulPad came after I shared a collection of photos from a hike at San Diego’s Torrey Pines on Instagram. I was frustrated—not only by the limited controls the platform offered, but also by how constrained I felt in presenting my perspective. I wanted to showcase my photos in a way that reflected my creativity, but the platform’s format didn’t allow it. That frustration became inspiration.",
+    },
+    {
+      key: "vision",
+      text: "SoulPad grew from the idea of an infinite canvas—a place where people can truly design their own digital worlds. Whether through photos, media, artwork, or anything they imagine, users can arrange and share their lives without limits. It could be through a scrapbook layout, a sci-fi cafe theme, or even a mini-game to play with connections. SoulPad is a space built for creative freedom, individuality, and authentic self-expression.",
+    },
+    {
+      key: "mission",
+      text: "My vision for SoulPad is to create a hub where people can gather and share their lives without the intrusive noise of ads, endless feeds, or sponsored content dominating today’s platforms. My team is designing SoulPad to be a genuine creative refuge—an open space where expression comes first and community thrives naturally. Support SoulPad today, and together we can build the kind of online world we’ve been missing: authentic, empowering, and truly our own.",
+    },
+  ];
+
   return (
     <Paper
       elevation={3}
       sx={{
-        maxWidth: tabletAndGreater ? 800 : 350,
-        width: "100%",
-        margin: tabletAndGreater ? "2rem auto" : "1.3rem 0",
-        padding: tabletAndGreater ? "2rem" : "1rem",
+        fontFamily: "Fredoka, sans-serif",
+        whiteSpace: "break-spaces",
         borderRadius: "5px",
         background: "linear-gradient(90deg, #edf9f9 0%, #ffe0b2 100%)",
-        fontFamily: "Fredoka, sans-serif",
-        border: tabletAndGreater ? "2px solid black" : "none",
-        whiteSpace: "break-spaces",
+        width: "100%",
+        ...(tabletAndGreater ? tabletAndGreaterStyles : paperMobileStyles),
       }}
     >
       <Box
@@ -63,48 +84,15 @@ const AboutCreator: React.FC = () => {
           </Typography>
         </Box>
 
-        <Typography variant="body1" sx={{ mb: 2 }}>
-          Hi there, I’m Kala, the creator of SoulPad. My professional journey in
-          web technologies began seven years ago, but my love for online
-          communities goes back much further. I grew up immersed in platforms
-          like LiveJournal, GaiaOnline, Blogger, WordPress, and of course,
-          MySpace. As a teenager and young adult, these sites offered a refuge
-          from my chaotic home life. They gave me space to express myself
-          freely, connect with other creatives, and build meaningful online
-          communities rooted in shared passions and creative exchange.
-        </Typography>
-        <Typography variant="body1" sx={{ mb: 2 }}>
-          Today, I find myself longing for that kind of social networking
-          experience again—one centered on individuality, expression, and
-          creativity, rather than the polished performances we see on Instagram
-          or TikTok.
-        </Typography>
-        <Typography variant="body1" sx={{ mb: 2 }}>
-          The idea for SoulPad came after I shared a collection of photos from a
-          hike at San Diego’s Torrey Pines on Instagram. I was frustrated—not
-          only by the limited controls the platform offered, but also by how
-          constrained I felt in presenting my perspective. I wanted to showcase
-          my photos in a way that reflected my creativity, but the platform’s
-          format didn’t allow it. That frustration became inspiration.
-        </Typography>
-        <Typography variant="body1" sx={{ mb: 2 }}>
-          SoulPad grew from the idea of an infinite canvas—a place where people
-          can truly design their own digital worlds. Whether through photos,
-          media, artwork, or anything they imagine, users can arrange and share
-          their lives without limits. It could be through a scrapbook layout, a
-          sci-fi cafe theme, or even a mini-game to play with connections.
-          SoulPad is a space built for creative freedom, individuality, and
-          authentic self-expression.
-        </Typography>
-        <Typography variant="body1" sx={{ mb: 2 }}>
-          My vision for SoulPad is to create a hub where people can gather and
-          share their lives without the intrusive noise of ads, endless feeds,
-          or sponsored content dominating today’s platforms. My team is
-          designing SoulPad to be a genuine creative refuge—an open space where
-          expression comes first and community thrives naturally. Support
-          SoulPad today, and together we can build the kind of online world
-          we’ve been missing: authentic, empowering, and truly our own.
-        </Typography>
+        {aboutCreatorParagraphs.map((para) => (
+          <Typography
+            key={para.key}
+            variant="body2"
+            sx={{ mb: 1, px: tabletAndGreater ? 0 : 2 }}
+          >
+            {para.text}
+          </Typography>
+        ))}
       </Box>
     </Paper>
   );

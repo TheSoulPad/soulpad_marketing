@@ -3,7 +3,7 @@ import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
 import TextField from "@mui/material/TextField";
 import Paper from "@mui/material/Paper";
-import { spacing } from "../styles";
+import { paperMobileStyles, tabletAndGreaterStyles } from "../styles";
 import { Typography } from "@mui/material";
 import useMediaQuery from "@mui/material/useMediaQuery";
 import { useForm, ValidationError } from "@formspree/react";
@@ -13,6 +13,18 @@ const NewsletterBanner: React.FC = () => {
   const [submitted, setSubmitted] = useState(false);
   const isMobile = useMediaQuery("(max-width:600px)");
   const [state, handleSubmit] = useForm(FORMSPREEENDPOINT);
+
+  const STRINGS = {
+    header: "Sign up to our newsletter",
+    info: "Stay updated on SoulPad's progress! For questions, comments, or suggestions, email us at ",
+    emailLink: "info@soulpadforeveryone.com",
+    thankYou: "Thank you for signing up!",
+    emailLabel: "Your email address",
+    messageLabel: "Leave a message",
+    signUpButton: "Sign Up",
+    emailValidationPrefix: "Email",
+    messageValidationPrefix: "Message",
+  };
 
   const onSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -24,14 +36,12 @@ const NewsletterBanner: React.FC = () => {
     <Paper
       className="home-page--newsletter"
       sx={{
-        margin: "auto",
-        maxWidth: isMobile ? "unset" : "800px",
-        width: isMobile ? "unset" : "100%",
         fontFamily: "Fredoka, sans-serif",
-        border: "2px solid black",
-        padding: "2rem",
+        whiteSpace: "break-spaces",
         borderRadius: "5px",
         background: "linear-gradient(90deg, #edf9f9 0%, #ffe0b2 100%)",
+        width: "100%",
+        ...(isMobile ? paperMobileStyles : tabletAndGreaterStyles),
       }}
     >
       <Box
@@ -54,27 +64,26 @@ const NewsletterBanner: React.FC = () => {
               fontWeight: 600,
             }}
           >
-            Sign up to our newsletter
+            {STRINGS.header}
           </Typography>
           <Typography
             variant="body2"
             className="newsletter--info"
-            sx={{ marginBottom: "1.5rem", padding: isMobile ? "0" : "0 3rem" }}
+            sx={{ marginBottom: "1.5rem", px: isMobile ? 2 : 0 }}
           >
-            Stay updated on SoulPad's progress! For questions, comments, or
-            suggestions, email us at{" "}
-            <a
-              href="mailto:kala@soulpadforeveryone.com"
-              style={{ color: "black" }}
-            >
-              info@soulpadforeveryone.com
+            {STRINGS.info}
+            <a href={`mailto:${STRINGS.emailLink}`} style={{ color: "black" }}>
+              {STRINGS.emailLink}
             </a>
           </Typography>
         </Box>
 
         {submitted ? (
-          <Box sx={{ margin: "auto", maxWidth: "200px" }} color="success.main">
-            Thank you for signing up!
+          <Box
+            sx={{ margin: "auto", maxWidth: "200px", px: isMobile ? 2 : 0 }}
+            color="success.main"
+          >
+            {STRINGS.thankYou}
           </Box>
         ) : (
           <form
@@ -85,6 +94,7 @@ const NewsletterBanner: React.FC = () => {
               gap: "1rem",
               justifyContent: "center",
               flexDirection: "column",
+              padding: isMobile ? "1rem" : "0",
             }}
           >
             {/* Honeypot field for spam protection */}
@@ -97,7 +107,7 @@ const NewsletterBanner: React.FC = () => {
             />
             <TextField
               type="email"
-              label="Your email address"
+              label={STRINGS.emailLabel}
               variant="outlined"
               size="small"
               required
@@ -111,14 +121,14 @@ const NewsletterBanner: React.FC = () => {
               }}
             />
             <ValidationError
-              prefix="Email"
+              prefix={STRINGS.emailValidationPrefix}
               field="email"
               errors={state.errors}
             />
 
             <TextField
               type="text"
-              label="Leave a message"
+              label={STRINGS.messageLabel}
               variant="outlined"
               size="medium"
               required
@@ -133,7 +143,7 @@ const NewsletterBanner: React.FC = () => {
             />
 
             <ValidationError
-              prefix="Message"
+              prefix={STRINGS.messageValidationPrefix}
               field="message"
               errors={state.errors}
             />
@@ -150,7 +160,7 @@ const NewsletterBanner: React.FC = () => {
                 },
               }}
             >
-              Sign Up
+              {STRINGS.signUpButton}
             </Button>
           </form>
         )}
