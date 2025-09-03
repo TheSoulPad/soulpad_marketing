@@ -3,60 +3,92 @@ import Box from "@mui/material/Box";
 import Paper from "@mui/material/Paper";
 import Typography from "@mui/material/Typography";
 import Button from "@mui/material/Button";
+import useMediaQuery from "@mui/material/useMediaQuery";
 import { FUNDRAISER_URL } from "../const";
+import { paperMobileStyles, tabletAndGreaterStyles } from "../styles";
 
-const FundraisingBanner: React.FC = () => (
-  <Paper
-    sx={{
-      background: "linear-gradient(90deg, #edf9f9 0%, #ffe0b2 100%)",
-      padding: "2rem",
-      borderRadius: "5px",
-      textAlign: "center",
-      boxShadow: "0 2px 8px rgba(0,0,0,0.08)",
-      maxWidth: 800,
-      width: "100%",
-      margin: "2rem auto",
-      border: "2px solid black",
-    }}
-  >
-    <Box
-      className="fundraising--content"
-      sx={{ maxWidth: 600, width: "100%", margin: "auto" }}
+const FundraisingBanner: React.FC = () => {
+  const tabletAndGreater = useMediaQuery("(min-width:812px)");
+
+  const STRINGS = {
+    header: "Help SoulPad Reach Our $10,000 Fundraising Goal!",
+    description:
+      "Your donation will help us hire developers, designers, and cover operational costs. Help make SoulPad a reality for everyone!",
+    button: "Donate Now on GoFundMe",
+    thankYou:
+      "Thank you for supporting SoulPad’s mission to bring creative power and fun back to social media!",
+  };
+
+  return (
+    <Paper
+      className="home-page--fundraising"
+      sx={{
+        fontFamily: "Fredoka, sans-serif",
+        whiteSpace: "break-spaces",
+        borderRadius: "5px",
+        background: "linear-gradient(90deg, #edf9f9 0%, #ffe0b2 100%)",
+        width: "100%",
+        ...(tabletAndGreater ? tabletAndGreaterStyles : paperMobileStyles),
+      }}
     >
-      <Typography variant="h2" sx={{ marginBottom: "1rem", fontWeight: 600 }}>
-        Help SoulPad Reach Our $10,000 Fundraising Goal!
-      </Typography>
-      <Typography variant="body2" sx={{ marginBottom: "1.5rem" }}>
-        Your donation will help us hire developers, designers, and cover
-        operational costs. Help make SoulPad a reality for everyone!
-      </Typography>
-      <Button
-        variant="contained"
-        color="primary"
-        size="large"
-        href={FUNDRAISER_URL}
-        target="_blank"
-        sx={{
-          backgroundColor: "rgba(255,97,5,0.6)",
-          fontWeight: 700,
-          fontSize: "1.1rem",
-          padding: "0.75rem 2rem",
-          borderRadius: "8px",
-          fontFamily: "Fredoka, sans-serif",
-          "&:hover": {
-            backgroundColor: "#fff",
-            color: "rgba(255,97,5,0.6)",
-          },
-        }}
+      <Box
+        className="fundraising--content"
+        display="flex"
+        flexDirection="column"
+        sx={{ maxWidth: 600, width: "100%", margin: "auto" }}
       >
-        Donate Now on GoFundMe
-      </Button>
-      <Typography variant="body2" sx={{ marginTop: "1.5rem", color: "#333" }}>
-        Thank you for supporting SoulPad’s mission to bring creative power and
-        fun back to social media!
-      </Typography>
-    </Box>
-  </Paper>
-);
+        <Typography
+          className="fundraising--header"
+          variant="h2"
+          sx={{
+            marginBottom: "1rem",
+            fontWeight: 600,
+            px: tabletAndGreater ? 0 : 2,
+          }}
+        >
+          {STRINGS.header}
+        </Typography>
+        <Typography
+          variant="body2"
+          sx={{ marginBottom: "1.5rem", px: tabletAndGreater ? 0 : 2 }}
+        >
+          {STRINGS.description}
+        </Typography>
+        <Button
+          variant="contained"
+          color="primary"
+          size="large"
+          href={FUNDRAISER_URL}
+          target="_blank"
+          sx={{
+            backgroundColor: "rgba(255,97,5,0.6)",
+            fontWeight: 700,
+            fontSize: "1rem",
+            padding: "0.75rem 2rem",
+            borderRadius: "8px",
+            fontFamily: "Fredoka, sans-serif",
+            margin: "auto",
+            "&:hover": {
+              backgroundColor: "#fff",
+              color: "rgba(255,97,5,0.6)",
+            },
+          }}
+        >
+          {STRINGS.button}
+        </Button>
+        <Typography
+          variant="body2"
+          sx={{
+            marginTop: "1.5rem",
+            color: "#333",
+            px: tabletAndGreater ? 0 : 2,
+          }}
+        >
+          {STRINGS.thankYou}
+        </Typography>
+      </Box>
+    </Paper>
+  );
+};
 
 export default FundraisingBanner;
