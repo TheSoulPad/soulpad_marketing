@@ -88,7 +88,7 @@ const AboutCreator: React.FC = () => {
           <Typography
             key={para.key}
             variant="body2"
-            sx={{ mb: 1, px: tabletAndGreater ? 0 : 2 }}
+            sx={{ mb: 2, px: tabletAndGreater ? 0 : 2 }}
           >
             {para.text}
           </Typography>
