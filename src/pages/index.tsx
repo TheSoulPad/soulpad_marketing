@@ -80,7 +80,7 @@ const Home = () => {
     maxHeight: `${tabletAndGreater ? "529px" : "auto"}`,
     overflow: "hidden",
     position: "relative",
-    justifyContent: "center",
+    justifyContent: tabletAndGreater ? "center" : "flex-start",
   };
 
   return (
@@ -117,11 +117,12 @@ const Home = () => {
 
         {/* Home Page Content Col 2 */}
         <Grid
+          className="home-page--content window-container col-2"
           sx={{
             maxWidth: maxWidthContent,
-            width: "100%",
+            width: tabletAndGreater ? "100%" : "unset",
+            margin: tabletAndGreater ? "auto" : "2rem",
           }}
-          className="home-page--content window-container col-2"
           flexDirection="column"
           alignItems={"center"}
         >
