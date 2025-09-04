@@ -9,8 +9,6 @@ import {
   RichTextType,
   ButtonType,
 } from "../../Components/types";
-import { purple } from "@mui/material/colors";
-import { text } from "stream/consumers";
 
 const getBorder = (
   color: string,
@@ -43,25 +41,26 @@ const buttonBorder = getBorder(
   "inset", //bottom
 );
 
-const allButtons = {
+const baseButton = {
   ...b,
   ...buttonBorder,
   cursor: "pointer",
   padding: `${spacing.xs * 0.5}rem`,
-  textAlign: "center",
+  textAlign: "center" as const,
   width: "100%",
   justifyContent: "center",
   margin: 0,
 };
 
 const primaryButton = {
-  ...allButtons,
+  ...baseButton,
   backgroundColor: c.button,
   textShadow: `0px 0px 1px ${c.text01}`,
   color: c.buttonText,
 };
+
 const secondaryButton = {
-  ...allButtons,
+  ...baseButton,
   backgroundColor: c.mainBg02,
   textShadow: `0px 0px 1px ${c.text02}`,
   color: c.text02,
@@ -71,28 +70,6 @@ const cardBorder = getBorder(
   c.contentBorder, //top
   c.headerBorder, //left
   c.headerBorder, //right
-  c.contentBorder, //bottom
-  "solid",
-  "solid",
-  "inset",
-  "inset",
-);
-
-const headerIconBorder = getBorder(
-  c.shine,
-  c.shine,
-  c.contentBorder,
-  c.contentBorder,
-  "solid", //top
-  "inset", //left
-  "inset", //right
-  "inset", //bottom
-);
-
-const paperBorder = getBorder(
-  c.shine, //top
-  c.shine, //left
-  c.contentBorder, //right
   c.contentBorder, //bottom
   "solid",
   "solid",
@@ -115,12 +92,26 @@ const purpleHeader = {
   ...h,
   backgroundColor: c.mainBg02,
   color: c.text02,
-  display: "flex",
-  fontSize: "14px",
   margin: 0,
   textAlign: "left",
   width: "100%",
+  maxWidth: "800px",
+  display: "block",
+  fontSize: "1.5rem",
+  minHeight: "36px",
+  height: "100%",
 };
+
+const headerIconBorder = getBorder(
+  c.shine,
+  c.shine,
+  c.contentBorder,
+  c.contentBorder,
+  "solid",
+  "inset",
+  "inset",
+  "inset",
+);
 
 const icons = {
   ...headerIconBorder,
@@ -148,6 +139,17 @@ const card: CardType = {
   padding: "0",
 };
 
+const paperBorder = getBorder(
+  c.shine,
+  c.shine,
+  c.contentBorder,
+  c.contentBorder,
+  "solid",
+  "solid",
+  "inset",
+  "inset",
+);
+
 const paper: PaperType = {
   ...paperBorder,
   backgroundColor: c.mainBg01,
@@ -160,10 +162,7 @@ const customCard: RichTextType = {
   header: {
     styles: {
       ...purpleHeader,
-      display: "block",
       textAlign: "center",
-      padding: "0.5rem",
-      fontSize: "1.5rem",
     },
   },
 };
@@ -183,7 +182,7 @@ const menuSelection: MenuType = {
   },
   header: {
     styles: purpleHeader,
-    text: { ...h, padding: `${spacing.xs}` },
+    text: { ...h, marginLeft: spacing.sm },
   },
   text: {
     active: {
@@ -213,7 +212,7 @@ const richTextPost: RichTextType = {
   },
   header: {
     styles: purpleHeader,
-    text: h,
+    text: { ...h, marginLeft: spacing.sm },
   },
 };
 
@@ -230,7 +229,7 @@ const buttons: ButtonType = {
       border: `2px dashed ${c.text03}`,
     },
   },
-  custom: allButtons,
+  custom: baseButton,
 };
 
 export const retro = {

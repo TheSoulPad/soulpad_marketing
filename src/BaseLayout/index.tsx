@@ -11,14 +11,13 @@ import { Link } from "gatsby";
 
 interface LayoutProps {
   children: React.ReactNode;
-  title?: string;
   isHomePage?: boolean;
 }
 
-const BaseLayout: React.FC<LayoutProps> = ({ children, title, isHomePage }) => {
+const BaseLayout: React.FC<LayoutProps> = ({ children, isHomePage }) => {
   const isMobile = useMediaQuery("(max-width:600px)");
   const { officialBackgroundColor } = colors;
-  const mobileHeight = "163px";
+  const mobileHeight = "185px";
   const widthLogo = "475px";
   const notHomeWidthLogo = isMobile ? widthLogo : "150px";
   const heightLogo = isMobile ? mobileHeight : "250px";

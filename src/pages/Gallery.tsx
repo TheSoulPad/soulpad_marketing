@@ -1,7 +1,7 @@
 import React, { CSSProperties, useState } from "react";
 import BaseLayout from "../BaseLayout";
 import Grid from "@mui/material/Grid2";
-import { galleryColors } from "../styles";
+import { spacing, isMobileWidth } from "../styles";
 import { HeadFC } from "gatsby";
 import { Strings } from "../resources/strings";
 import MenuSelection from "../Components/MenuSelection";
@@ -10,14 +10,14 @@ import RichTextPost from "../Components/RichTextPost";
 import CustomCard from "../Components/CustomCard";
 import CustomMediaPlayer from "../Components/CustomMediaPlayer";
 import CustomList from "../Components/CustomList";
-import CustomProgress from "../Components/CustomProgress";
 import useMediaQuery from "@mui/material/useMediaQuery";
+import Typography from "@mui/material/Typography";
 
 const strings = Strings.galleryPage;
 const headStrings = Strings.metaData.gallery;
 
 const Gallery: React.FC = () => {
-  const isMobile = useMediaQuery("(max-width:600px)");
+  const isMobile = useMediaQuery(isMobileWidth);
   const [themeType, setThemeType] = useState("SOULPAD");
   const useThemeStyles = (themeType: string) => {
     switch (themeType) {
@@ -38,26 +38,7 @@ const Gallery: React.FC = () => {
     }
   };
 
-  const overlayStyles: CSSProperties = {
-    position: "absolute",
-    top: 0,
-    left: 0,
-    width: "100%",
-    minHeight: "100vh",
-    background: `linear-gradient(to bottom, ${galleryColors.background1}, ${galleryColors.background2})`,
-    opacity: 1,
-    zIndex: 1,
-  };
-
-  const galleryStyles = {
-    backgroundImage: `linear-gradient(to right, grey 1px, transparent 1px),
-  linear-gradient(to bottom, grey 1px, transparent 1px)`,
-    backgroundSize: "40px 40px",
-    color: "#ffffff",
-  };
-
   const menuItems = [
-    //rename the 'about' theme to SoulPad
     {
       galleryName: "SoulPad",
       themeType: "SOULPAD",
@@ -79,7 +60,8 @@ const Gallery: React.FC = () => {
 
   const mobileGridStyles: CSSProperties = {
     width: "100%",
-    margin: "auto",
+    margin: spacing.xs + "rem",
+    justifyContent: "center",
   };
 
   const listItems = [
@@ -108,112 +90,103 @@ const Gallery: React.FC = () => {
   ];
 
   return (
-    <div className="overlay" style={overlayStyles}>
-      <BaseLayout title={strings.header} pageStyles={galleryStyles}>
+    <BaseLayout>
+      <Typography className="gallery-header" variant="h1">
+        {strings.header}
+      </Typography>
+      <Grid
+        className="gallery-wrapper"
+        container
+        mt={2}
+        mb={4}
+        flexDirection="row"
+        spacing={5}
+        height="100%"
+      >
+        {/************ MENU SECTION ******************/}
         <Grid
-          className="gallery-wrapper"
-          container
-          mt={2}
-          mb={4}
-          flexDirection="row"
-          spacing={5}
-          height="100%"
+          className="menu-selection-grid"
+          ml={2}
+          size={8}
+          display="flex"
+          justifyContent="center"
+          sx={isMobile ? mobileGridStyles : { margin: "auto" }}
         >
-          {/************ MENU SECTION ******************/}
-          <Grid
-            ml={2}
-            size={8}
-            display="flex"
-            justifyContent="center"
-            sx={isMobile ? mobileGridStyles : { margin: "auto" }}
-          >
-            <MenuSelection
-              themeType={themeType}
-              onThemeChange={useThemeStyles}
-              horizontal={true}
-              title="Select a theme"
-              items={menuItems}
-            />
-          </Grid>
-
-          {/********** GALLERY **************/}
-          <Grid
-            container
-            size={10}
-            className="gallery-row"
-            flexWrap="wrap"
-            spacing={2}
-            sx={
-              isMobile
-                ? mobileGridStyles
-                : {
-                    display: "flex",
-                    alignItems: "start",
-                    margin: "auto",
-                  }
-            }
-          >
-            {/********** RICH TEXT POST **************/}
-            <RichTextPost
-              size="small"
-              title="Custom Post"
-              themeType={themeType}
-            >
-              <span className="loren">
-                Welcome to SoulPad! I hope you enjoy your stay. This is a test
-                of the post component. Lorem ipsum dolor sit amet, consectetur
-                adipiscing elit. Sed do eiusmod tempor incididunt ut labore et
-                dolore magna aliqua. Welcome to SoulPad! I hope you enjoy your
-                stay. This is a test of the post component. Lorem ipsum dolor
-                sit amet, consectetur adipiscing elit. Sed do eiusmod tempor
-                incididunt ut labore et dolore magna aliqua. Welcome to SoulPad!
-                I hope you enjoy your stay. This is a test of the post
-                component. Lorem ipsum dolor sit amet, consectetur
-              </span>
-            </RichTextPost>
-            <CustomCard
-              size="large"
-              title="Custom Card"
-              themeType={themeType}
-              renderItem={buttonTypes.map((item, index) => (
-                <CustomButton
-                  themeType={themeType}
-                  key={index}
-                  buttonType={item.type || "primary"}
-                  label={item.label}
-                  textColor={item.textColor}
-                  bgColor={item.bgColor}
-                  onClick={() => console.log("Button Clicked")}
-                />
-              ))}
-            />
-
-            <CustomProgress
-              themeType={themeType}
-              circular={true}
-              progressValues={[{ item: 50, item2: 50 }]}
-              size="small"
-              title="Custom Progress Card"
-            />
-            <CustomMediaPlayer
-              themeType={themeType}
-              size="small"
-              title="Custom Media Player"
-              textLocation="top"
-              videoType="mp4"
-              videoUrl="https://www.quickpickdeal.com/videos/sample-mp4-video.mp4"
-            />
-
-            <CustomList
-              items={listItems}
-              themeType={themeType}
-              size="large"
-              title="Custom List"
-            />
-          </Grid>
+          <MenuSelection
+            themeType={themeType}
+            onThemeChange={useThemeStyles}
+            horizontal={true}
+            title="Select a theme"
+            items={menuItems}
+          />
         </Grid>
-      </BaseLayout>
-    </div>
+
+        {/********** GALLERY **************/}
+        <Grid
+          container
+          size={10}
+          className="gallery-row"
+          flexWrap="wrap"
+          spacing={isMobile ? 5 : 2}
+          sx={
+            isMobile
+              ? mobileGridStyles
+              : {
+                  display: "flex",
+                  alignItems: "start",
+                  margin: "auto",
+                }
+          }
+        >
+          {/********** RICH TEXT POST **************/}
+          <RichTextPost size="small" title="Custom Post" themeType={themeType}>
+            <span className="loren">
+              Welcome to SoulPad! I hope you enjoy your stay. This is a test of
+              the post component. Lorem ipsum dolor sit amet, consectetur
+              adipiscing elit. Sed do eiusmod tempor incididunt ut labore et
+              dolore magna aliqua. Welcome to SoulPad! I hope you enjoy your
+              stay. This is a test of the post component. Lorem ipsum dolor sit
+              amet, consectetur adipiscing elit. Sed do eiusmod tempor
+              incididunt ut labore et dolore magna aliqua. Welcome to SoulPad! I
+              hope you enjoy your stay. This is a test of the post component.
+              Lorem ipsum dolor sit amet, consectetur
+            </span>
+          </RichTextPost>
+          <CustomCard
+            size="large"
+            title="Custom Card"
+            themeType={themeType}
+            renderItem={buttonTypes.map((item, index) => (
+              <CustomButton
+                themeType={themeType}
+                key={index}
+                buttonType={item.type || "primary"}
+                label={item.label}
+                textColor={item.textColor}
+                bgColor={item.bgColor}
+                onClick={() => console.log("Button Clicked")}
+              />
+            ))}
+          />
+
+          <CustomMediaPlayer
+            themeType={themeType}
+            size="small"
+            title="Custom Media Player"
+            textLocation="top"
+            videoType="mp4"
+            videoUrl="https://www.quickpickdeal.com/videos/sample-mp4-video.mp4"
+          />
+
+          <CustomList
+            items={listItems}
+            themeType={themeType}
+            size="large"
+            title="Custom List"
+          />
+        </Grid>
+      </Grid>
+    </BaseLayout>
   );
 };
 

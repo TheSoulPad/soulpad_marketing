@@ -5,10 +5,14 @@ import Typography from "@mui/material/Typography";
 import Button from "@mui/material/Button";
 import useMediaQuery from "@mui/material/useMediaQuery";
 import { FUNDRAISER_URL } from "../const";
-import { paperMobileStyles, tabletAndGreaterStyles } from "../styles";
+import {
+  paperMobileStyles,
+  tabletAndGreaterStyles,
+  tabletAndGreaterWidth,
+} from "../styles";
 
 const FundraisingBanner: React.FC = () => {
-  const tabletAndGreater = useMediaQuery("(min-width:812px)");
+  const tabletAndGreater = useMediaQuery(tabletAndGreaterWidth);
 
   const STRINGS = {
     header: "Help SoulPad Reach Our $10,000 Fundraising Goal!",
@@ -41,6 +45,7 @@ const FundraisingBanner: React.FC = () => {
           className="fundraising--header"
           variant="h2"
           sx={{
+            marginTop: tabletAndGreater ? "0" : "1rem",
             marginBottom: "1rem",
             fontWeight: 600,
             px: tabletAndGreater ? 0 : 2,
@@ -49,12 +54,14 @@ const FundraisingBanner: React.FC = () => {
           {STRINGS.header}
         </Typography>
         <Typography
+          className="fundraising--description"
           variant="body2"
           sx={{ marginBottom: "1.5rem", px: tabletAndGreater ? 0 : 2 }}
         >
           {STRINGS.description}
         </Typography>
         <Button
+          className="fundraising--button"
           variant="contained"
           color="primary"
           size="large"

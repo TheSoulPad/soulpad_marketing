@@ -14,4 +14,5 @@ export const tabletAndGreaterStyles = {
   border: "2px solid black",
 };
 
-export const isMobile = "(max-width:600px)";
+export const isMobileWidth = "(max-width:600px)";
+export const tabletAndGreaterWidth = "(min-width:812px)";

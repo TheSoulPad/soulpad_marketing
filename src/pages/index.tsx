@@ -84,7 +84,7 @@ const Home = () => {
   };
 
   return (
-    <BaseLayout title={strings.header} isHomePage={true}>
+    <BaseLayout isHomePage={true}>
       <Grid display="flex" className="home-page" sx={homePageStyles}>
         {/* People Imgs Col 1 */}
         <Grid
