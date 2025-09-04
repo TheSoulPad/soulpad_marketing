@@ -72,7 +72,7 @@ const MenuSelection: React.FC<MenuSelectionProps> = ({
     alignItems: "center",
     cursor: "pointer",
     paddingLeft: "0px",
-    flexDirection: `${horizontal ? (isMobile ? "column" : "row") : "column"}`,
+    flexDirection: horizontal ? (isMobile ? "column" : "row") : "column",
   };
 
   const activeFont = {
