@@ -50,7 +50,7 @@ const AboutPage = () => {
   };
 
   return (
-    <BaseLayout title={strings.header} isHomePage={false}>
+    <BaseLayout isHomePage={false}>
       <Typography variant="h1">{strings.header}</Typography>
 
       {/* Post ONE */}

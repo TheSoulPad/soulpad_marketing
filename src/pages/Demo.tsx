@@ -24,7 +24,7 @@ const Demo: React.FC = () => {
   };
 
   return (
-    <BaseLayout title={strings.header}>
+    <BaseLayout>
       <Grid container style={contentStyles}></Grid>
       {/* Add your content here */}
     </BaseLayout>

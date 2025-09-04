@@ -80,7 +80,7 @@ const card: CardType = {
   ...f2,
   borderRadius: borderRadiusSm,
   display: "block",
-  backgroundColor: c.headerBg,
+  backgroundColor: c.mainBg00,
 };
 
 const paper: PaperType = {
