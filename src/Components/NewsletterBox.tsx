@@ -3,7 +3,11 @@ import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
 import TextField from "@mui/material/TextField";
 import Paper from "@mui/material/Paper";
-import { paperMobileStyles, tabletAndGreaterStyles } from "../styles";
+import {
+  paperMobileStyles,
+  tabletAndGreaterStyles,
+  isMobileWidth,
+} from "../styles";
 import { Typography } from "@mui/material";
 import useMediaQuery from "@mui/material/useMediaQuery";
 import { useForm, ValidationError } from "@formspree/react";
@@ -11,7 +15,7 @@ import { FORMSPREEENDPOINT } from "../const";
 
 const NewsletterBanner: React.FC = () => {
   const [submitted, setSubmitted] = useState(false);
-  const isMobile = useMediaQuery("(max-width:600px)");
+  const isMobile = useMediaQuery(isMobileWidth);
   const [state, handleSubmit] = useForm(FORMSPREEENDPOINT);
 
   const STRINGS = {
@@ -49,6 +53,7 @@ const NewsletterBanner: React.FC = () => {
         className="newsletter--content"
       >
         <Box
+          className="newsletter--header"
           sx={{
             display: "flex",
             flexDirection: "column",
@@ -57,8 +62,10 @@ const NewsletterBanner: React.FC = () => {
           }}
         >
           <Typography
+            className="newsletter--title"
             variant="h2"
             sx={{
+              marginTop: isMobile ? "1rem" : "0",
               marginBottom: "1rem",
               fontFamily: "Fredoka, sans-serif",
               fontWeight: 600,

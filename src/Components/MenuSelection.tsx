@@ -8,6 +8,8 @@ import { about } from "../styles/about/comps";
 import { SxProps, Theme } from "@mui/system";
 import { useTheme } from "../hooks/useTheme";
 import { MenuType, CardType, PaperType } from "./types";
+import useMediaQuery from "@mui/material/useMediaQuery";
+import { isMobileWidth } from "../styles";
 
 //this a temporary interface
 interface MenuItem {
@@ -30,6 +32,7 @@ const MenuSelection: React.FC<MenuSelectionProps> = ({
   title,
   onThemeChange,
 }) => {
+  const isMobile = useMediaQuery(isMobileWidth);
   const [compTheme, setCompTheme] = useState<MenuType>(about.menuSelection);
   const [card, setCardTheme] = useState<CardType>(about.card);
   const [paper, setPaperTheme] = useState<PaperType>(about.paper);
@@ -69,6 +72,7 @@ const MenuSelection: React.FC<MenuSelectionProps> = ({
     alignItems: "center",
     cursor: "pointer",
     paddingLeft: "0px",
+    flexDirection: `${horizontal ? (isMobile ? "column" : "row") : "column"}`,
   };
 
   const activeFont = {

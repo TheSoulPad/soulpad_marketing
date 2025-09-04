@@ -1,7 +1,7 @@
 import React, { CSSProperties, useState } from "react";
 import BaseLayout from "../BaseLayout";
 import Grid from "@mui/material/Grid2";
-import { galleryColors } from "../styles";
+import { spacing, isMobileWidth } from "../styles";
 import { HeadFC } from "gatsby";
 import { Strings } from "../resources/strings";
 import MenuSelection from "../Components/MenuSelection";
@@ -10,7 +10,6 @@ import RichTextPost from "../Components/RichTextPost";
 import CustomCard from "../Components/CustomCard";
 import CustomMediaPlayer from "../Components/CustomMediaPlayer";
 import CustomList from "../Components/CustomList";
-import CustomProgress from "../Components/CustomProgress";
 import useMediaQuery from "@mui/material/useMediaQuery";
 import Typography from "@mui/material/Typography";
 
@@ -18,7 +17,7 @@ const strings = Strings.galleryPage;
 const headStrings = Strings.metaData.gallery;
 
 const Gallery: React.FC = () => {
-  const isMobile = useMediaQuery("(max-width:600px)");
+  const isMobile = useMediaQuery(isMobileWidth);
   const [themeType, setThemeType] = useState("SOULPAD");
   const useThemeStyles = (themeType: string) => {
     switch (themeType) {
@@ -37,24 +36,6 @@ const Gallery: React.FC = () => {
       default:
         console.log("Default");
     }
-  };
-
-  const overlayStyles: CSSProperties = {
-    position: "absolute",
-    top: 0,
-    left: 0,
-    width: "100%",
-    minHeight: "100vh",
-    background: `linear-gradient(to bottom, ${galleryColors.background1}, ${galleryColors.background2})`,
-    opacity: 1,
-    zIndex: 1,
-  };
-
-  const galleryStyles = {
-    backgroundImage: `linear-gradient(to right, grey 1px, transparent 1px),
-  linear-gradient(to bottom, grey 1px, transparent 1px)`,
-    backgroundSize: "40px 40px",
-    color: "#ffffff",
   };
 
   const menuItems = [
@@ -79,7 +60,8 @@ const Gallery: React.FC = () => {
 
   const mobileGridStyles: CSSProperties = {
     width: "100%",
-    margin: "auto",
+    margin: spacing.xs + "rem",
+    justifyContent: "center",
   };
 
   const listItems = [
@@ -109,7 +91,9 @@ const Gallery: React.FC = () => {
 
   return (
     <BaseLayout>
-      <Typography variant="h1">{strings.header}</Typography>
+      <Typography className="gallery-header" variant="h1">
+        {strings.header}
+      </Typography>
       <Grid
         className="gallery-wrapper"
         container
@@ -121,6 +105,7 @@ const Gallery: React.FC = () => {
       >
         {/************ MENU SECTION ******************/}
         <Grid
+          className="menu-selection-grid"
           ml={2}
           size={8}
           display="flex"
@@ -142,7 +127,7 @@ const Gallery: React.FC = () => {
           size={10}
           className="gallery-row"
           flexWrap="wrap"
-          spacing={2}
+          spacing={isMobile ? 5 : 2}
           sx={
             isMobile
               ? mobileGridStyles

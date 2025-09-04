@@ -85,8 +85,6 @@ const Home = () => {
 
   return (
     <BaseLayout isHomePage={true}>
-      <Typography variant="h1">{strings.header}</Typography>
-
       <Grid display="flex" className="home-page" sx={homePageStyles}>
         {/* People Imgs Col 1 */}
         <Grid

@@ -21,3 +21,8 @@ jobs:
       - run:
           name: Build Gatsby site
           command: npm run build
+
+workflows:
+  build_and_test:
+    jobs:
+      - build
