@@ -99,7 +99,7 @@ const purpleHeader = {
   display: "block",
   fontSize: "1.5rem",
   minHeight: "36px",
-  Height: "100%",
+  height: "100%",
 };
 
 const headerIconBorder = getBorder(
