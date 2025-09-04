@@ -57,7 +57,6 @@ const Gallery: React.FC = () => {
   };
 
   const menuItems = [
-    //rename the 'about' theme to SoulPad
     {
       galleryName: "SoulPad",
       themeType: "SOULPAD",
