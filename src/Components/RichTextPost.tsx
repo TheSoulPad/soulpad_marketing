@@ -110,11 +110,6 @@ const RichTextPost: React.FC<RichTextPostProps> = ({
           <Typography variant="h2" sx={header.text}>
             {title}
           </Typography>
-          <ActionMenuWrapper>
-            <MinimizeIcon sx={{ ...icons.primary, marginRight: 0.5 }} />
-            <CropSquareIcon sx={{ ...icons.secondary, marginRight: 0.5 }} />
-            <CloseIcon sx={icons.iconClose} />
-          </ActionMenuWrapper>
         </Box>
         <Box
           className="rich-text-post-content"

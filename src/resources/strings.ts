@@ -67,7 +67,7 @@ export const Strings = {
   },
 
   galleryPage: {
-    header: "Explore The Soul Exchange",
+    header: "The Soul Exchange",
     subHeader: "Explore SoulPad themes.",
   },
 

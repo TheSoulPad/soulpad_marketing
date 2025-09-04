@@ -1,10 +1,7 @@
 import React from "react";
 import CustomCard from "./CustomCard";
-import CircularProgress, {
-  CircularProgressProps,
-} from "@mui/material/CircularProgress";
-
-import { Box, Typography } from "@mui/material";
+import CircularProgress from "@mui/material/CircularProgress";
+import { Box } from "@mui/material";
 
 interface CustomListProps {
   children?: React.ReactNode;
@@ -33,7 +30,7 @@ const CustomProgress: React.FC<CustomListProps> = ({
       >
         <CircularProgress
           sx={{
-            marginTop: 3,
+            mt: 2,
           }}
           variant="determinate"
           value={50}
