@@ -13,3 +13,5 @@ export const tabletAndGreaterStyles = {
   padding: "2rem",
   border: "2px solid black",
 };
+
+export const isMobile = "(max-width:600px)";
