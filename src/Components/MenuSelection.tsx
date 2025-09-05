@@ -5,7 +5,7 @@ import Box from "@mui/material/Box";
 import ListItem from "@mui/material/ListItem";
 import Typography from "@mui/material/Typography";
 import { about } from "../styles/about/comps";
-import { maxHeight, SxProps, Theme } from "@mui/system";
+import { SxProps, Theme } from "@mui/system";
 import { useTheme } from "../hooks/useTheme";
 import { MenuType, CardType, PaperType } from "./types";
 import useMediaQuery from "@mui/material/useMediaQuery";
