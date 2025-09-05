@@ -82,7 +82,8 @@ const MenuSelection: React.FC<MenuSelectionProps> = ({
 
   const containerStyles = {
     ...paper,
-    maxWidth: "800px",
+    maxWidth: horizontal ? "800px" : "300px",
+    height: "100%",
     width: "100%",
   };
 

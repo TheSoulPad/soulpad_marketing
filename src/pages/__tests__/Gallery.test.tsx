@@ -25,8 +25,8 @@ describe("Gallery Page", () => {
     expect(await findByText(/Diary/i)).toBeInTheDocument();
   });
 
-  it("renders the Custom Card", () => {
+  it("renders the Custom List", () => {
     render(<Gallery />);
-    expect(screen.getByText(/Custom Card/i)).toBeInTheDocument();
+    expect(screen.getByText(/Custom List/i)).toBeInTheDocument();
   });
 });

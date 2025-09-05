@@ -38,6 +38,7 @@ const components = {
         body2: "p",
         h1: "h1",
         h2: "h2",
+        h3: "h3",
         subtitle1: "subtitle1",
       },
     },
@@ -63,6 +64,9 @@ const components = {
       },
       subtitle1: {
         ...funFont1,
+      },
+      h3: {
+        fontSize: "0.5rem",
       },
     },
   },
