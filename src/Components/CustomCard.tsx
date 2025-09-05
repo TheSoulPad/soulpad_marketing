@@ -6,7 +6,6 @@ import Typography from "@mui/material/Typography";
 import { useTheme } from "../hooks/useTheme";
 import { RichTextType, PaperType, CardType } from "./types";
 import { about } from "../styles/about/comps";
-import { WidthFull } from "@mui/icons-material";
 
 //hardcode thes styles for now
 interface CardProps {
