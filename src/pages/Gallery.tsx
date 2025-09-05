@@ -132,7 +132,7 @@ const Gallery: React.FC = () => {
         spacing={5}
         height="100%"
         sx={{
-          minWidth: "1200pz",
+          minWidth: "1200px",
         }}
       >
         {/************ INFO - MENU SECTION ******************/}
