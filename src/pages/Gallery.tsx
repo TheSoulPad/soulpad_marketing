@@ -16,6 +16,34 @@ import Typography from "@mui/material/Typography";
 const strings = Strings.galleryPage;
 const headStrings = Strings.metaData.gallery;
 
+const aboutSoulExchange = {
+  p01: (
+    <>
+      The <strong>Soul Exchange</strong> is SoulPad’s marketplace for themes,
+      animations, stickers, and other unique assets created by individual
+      sellers. It will provide a wide range of tools and content to help make
+      your SoulPad reflect your inner world.
+    </>
+  ),
+  p02: (
+    <>
+      We call it the Soul Exchange because both buying and trading are possible.
+      Transactions can be made using SoulPad’s in-app currency,
+      <i>Soul Coins</i>, or through direct trades—one asset for another.
+      Artists, designers, game developers, and other creatives can showcase
+      their work, sell it, or trade with fellow <i>Soul Padders</i>.
+    </>
+  ),
+  p03: (
+    <>
+      In this micro view of the Soul Exchange below, users can browse a gallery
+      of free SoulPad themes and add them directly to their asset drawer for use
+      on their canvas. We aim to add hundreds of themes and assets with the full
+      launch of SoulPad.
+    </>
+  ),
+};
+
 const Gallery: React.FC = () => {
   const isMobile = useMediaQuery(isMobileWidth);
   const [themeType, setThemeType] = useState("SOULPAD");
@@ -94,28 +122,43 @@ const Gallery: React.FC = () => {
       <Typography className="gallery-header" variant="h1">
         {strings.header}
       </Typography>
+
       <Grid
         className="gallery-wrapper"
         container
-        mt={2}
+        mt={5}
         mb={4}
-        flexDirection="row"
+        flexDirection="column"
         spacing={5}
         height="100%"
+        sx={{
+          minWidth: "1200pz",
+        }}
       >
-        {/************ MENU SECTION ******************/}
+        {/************ INFO - MENU SECTION ******************/}
         <Grid
           className="menu-selection-grid"
           ml={2}
-          size={8}
           display="flex"
+          rowGap={2}
+          columnGap={2}
           justifyContent="center"
           sx={isMobile ? mobileGridStyles : { margin: "auto" }}
+          flexDirection={isMobile ? "column" : "row"}
         >
+          <CustomCard
+            title="About the Soul Exchange"
+            size="large"
+            themeType={themeType}
+          >
+            <Typography variant="body1">{aboutSoulExchange.p01}</Typography>
+            <Typography variant="body1">{aboutSoulExchange.p02}</Typography>
+            <Typography variant="body1">{aboutSoulExchange.p03}</Typography>
+          </CustomCard>
           <MenuSelection
             themeType={themeType}
             onThemeChange={useThemeStyles}
-            horizontal={true}
+            horizontal={false}
             title="Select a theme"
             items={menuItems}
           />
@@ -124,10 +167,11 @@ const Gallery: React.FC = () => {
         {/********** GALLERY **************/}
         <Grid
           container
-          size={10}
           className="gallery-row"
-          flexWrap="wrap"
           spacing={isMobile ? 5 : 2}
+          rowGap={2}
+          columnGap={2}
+          justifyContent="center"
           sx={
             isMobile
               ? mobileGridStyles
@@ -139,21 +183,20 @@ const Gallery: React.FC = () => {
           }
         >
           {/********** RICH TEXT POST **************/}
-          <RichTextPost size="small" title="Custom Post" themeType={themeType}>
+          <RichTextPost size="large" title="Custom Post" themeType={themeType}>
             <span className="loren">
-              Welcome to SoulPad! I hope you enjoy your stay. This is a test of
-              the post component. Lorem ipsum dolor sit amet, consectetur
-              adipiscing elit. Sed do eiusmod tempor incididunt ut labore et
-              dolore magna aliqua. Welcome to SoulPad! I hope you enjoy your
-              stay. This is a test of the post component. Lorem ipsum dolor sit
-              amet, consectetur adipiscing elit. Sed do eiusmod tempor
-              incididunt ut labore et dolore magna aliqua. Welcome to SoulPad! I
-              hope you enjoy your stay. This is a test of the post component.
-              Lorem ipsum dolor sit amet, consectetur
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do
+              eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem
+              ipsum dolor sit amet, consectetur Lorem ipsum dolor sit amet,
+              consectetur Lorem ipsum dolor sit amet, consectetur adipiscing
+              elit. Sed do eiusmod tempor incididunt ut labore et dolore magna
+              aliqua. Welcome to SoulPad! I hope you enjoy your stay. This is a
+              test of the post component. Lorem ipsum dolor sit amet,
+              consectetur
             </span>
           </RichTextPost>
           <CustomCard
-            size="large"
+            size="small"
             title="Custom Card"
             themeType={themeType}
             renderItem={buttonTypes.map((item, index) => (
@@ -168,7 +211,6 @@ const Gallery: React.FC = () => {
               />
             ))}
           />
-
           <CustomMediaPlayer
             themeType={themeType}
             size="small"
@@ -177,11 +219,28 @@ const Gallery: React.FC = () => {
             videoType="mp4"
             videoUrl="https://www.quickpickdeal.com/videos/sample-mp4-video.mp4"
           />
-
+          <CustomCard
+            size="small"
+            title="Custom Card"
+            themeType={themeType}
+            renderItem={
+              <span className="loren">
+                Welcome to SoulPad! I hope you enjoy your stay. This is a test
+                of the post component. Lorem ipsum dolor sit amet, consectetur
+                adipiscing elit. Sed do eiusmod tempor incididunt ut labore et
+                dolore magna aliqua. Welcome to SoulPad! I hope you enjoy your
+                stay. This is a test of the post component. Lorem ipsum dolor
+                sit amet, consectetur adipiscing elit. Sed do eiusmod tempor
+                incididunt ut labore et dolore magna aliqua. Welcome to SoulPad!
+                I hope you enjoy your stay. This is a test of the post
+                component. Lorem ipsum dolor sit amet, consectetur
+              </span>
+            }
+          />
           <CustomList
             items={listItems}
             themeType={themeType}
-            size="large"
+            size="small"
             title="Custom List"
           />
         </Grid>

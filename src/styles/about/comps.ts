@@ -100,7 +100,7 @@ const customCard: RichTextType = {
   header: {
     styles: {
       ...header,
-      ...f,
+      ...headerText,
       textShadow: darkBrownShadow,
       padding: `${s.xs}rem`,
       color: c.text01,
@@ -122,7 +122,7 @@ const menuSelection: MenuType = {
   },
   header: {
     styles: header,
-    text: headerText,
+    text: { ...headerText, textAlign: "center" },
   },
   text: {
     active: primaryButton,

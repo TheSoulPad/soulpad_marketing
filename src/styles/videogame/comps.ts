@@ -9,7 +9,6 @@ import {
   RichTextType,
   ButtonType,
 } from "../../Components/types";
-import { text } from "stream/consumers";
 
 const blackShadow = `-1px 2px 0px ${c.black}`;
 const whiteShadow = `-1px 2px 0px ${c.white}`;
@@ -115,9 +114,9 @@ const customCard: RichTextType = {
       ...f,
       ...header,
       display: "block",
-      padding: `${s.xs}rem`,
+      padding: `0.1rem`,
       textShadow: whiteShadow,
-      fontSize: "1.2rem",
+      fontSize: "1.3rem",
     },
   },
 };
@@ -143,6 +142,8 @@ const menuSelection: MenuType = {
       ...f,
       textShadow: whiteShadow,
       margin: 0,
+      textAlign: "center",
+      fontSize: "1.2rem",
     },
   },
 

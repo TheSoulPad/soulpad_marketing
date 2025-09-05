@@ -5,7 +5,7 @@ import Box from "@mui/material/Box";
 import ListItem from "@mui/material/ListItem";
 import Typography from "@mui/material/Typography";
 import { about } from "../styles/about/comps";
-import { SxProps, Theme } from "@mui/system";
+import { maxHeight, SxProps, Theme } from "@mui/system";
 import { useTheme } from "../hooks/useTheme";
 import { MenuType, CardType, PaperType } from "./types";
 import useMediaQuery from "@mui/material/useMediaQuery";
@@ -82,7 +82,8 @@ const MenuSelection: React.FC<MenuSelectionProps> = ({
 
   const containerStyles = {
     ...paper,
-    maxWidth: "800px",
+    maxWidth: horizontal ? "800px" : "300px",
+    height: "100%",
     width: "100%",
   };
 

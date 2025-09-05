@@ -9,6 +9,7 @@ import {
   RichTextType,
   ButtonType,
 } from "../../Components/types";
+import { text } from "stream/consumers";
 
 const getBorder = (
   color: string,
@@ -95,7 +96,6 @@ const purpleHeader = {
   margin: 0,
   textAlign: "left",
   width: "100%",
-  maxWidth: "800px",
   display: "block",
   fontSize: "1.5rem",
   minHeight: "36px",
@@ -178,11 +178,11 @@ const menuSelection: MenuType = {
     backgroundColor: c.mainBg00,
     borderRadius: "0px",
     fontWeight: "400",
-    padding: `${spacing.xs}rem 0 ${spacing.xs}rem 0`,
+    // padding: `${spacing.xs}rem 0 ${spacing.xs}rem 0`,
   },
   header: {
     styles: purpleHeader,
-    text: { ...h, marginLeft: spacing.sm },
+    text: { ...h, marginLeft: spacing.sm, textAlign: "center" },
   },
   text: {
     active: {

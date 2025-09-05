@@ -94,7 +94,6 @@ const customCard: RichTextType = {
   header: {
     styles: {
       ...purpleHeader,
-      ...h,
       textShadow: purpleShadow,
       padding: `${s.xs}rem`,
       color: c.text01,
@@ -126,6 +125,7 @@ const menuSelection: MenuType = {
       ...h,
       textShadow: purpleShadow,
       margin: 0,
+      textAlign: "center",
     },
   },
 

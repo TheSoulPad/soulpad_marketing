@@ -4,14 +4,9 @@ import Card from "@mui/material/Card";
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import { useTheme } from "../hooks/useTheme";
-import {
-  RichTextType,
-  PaperType,
-  MenuType,
-  IconsType,
-  CardType,
-} from "./types";
+import { RichTextType, PaperType, CardType } from "./types";
 import { about } from "../styles/about/comps";
+import { WidthFull } from "@mui/icons-material";
 
 //hardcode thes styles for now
 interface CardProps {
@@ -26,8 +21,6 @@ interface CardProps {
 
 const CustomCard: React.FC<CardProps> = ({
   title,
-  text,
-  imageUrl,
   size,
   themeType,
   renderItem,
@@ -67,26 +60,23 @@ const CustomCard: React.FC<CardProps> = ({
   }, [themeType]);
 
   const smallSize = {
-    minWidth: "150px",
-    minHeight: "150px",
+    maxWidth: "400px",
+    maxHeight: "1000px",
+    width: "100%",
   };
 
   const largeSize = {
-    minWidth: "300px",
+    maxWidth: "800px",
     minHeight: "200px",
   };
 
   const cardSize = size === "small" ? smallSize : largeSize;
 
-  const titleStyles = {
-    ...customCard.header.text,
-    ...customCard.header.styles,
-  };
+  const titleStyles = customCard.header.styles;
 
   const paperStyles = {
     ...paper,
     ...cardSize,
-    overflow: "auto",
   };
 
   const cardStyles = {
@@ -103,7 +93,7 @@ const CustomCard: React.FC<CardProps> = ({
   return (
     <Paper className="custom-paper-card" sx={paperStyles}>
       <Card className="custom-card-body" sx={cardStyles}>
-        <Typography variant="body1" className="card-title" sx={titleStyles}>
+        <Typography variant="h2" className="card-title" sx={titleStyles}>
           {title}
         </Typography>
 
