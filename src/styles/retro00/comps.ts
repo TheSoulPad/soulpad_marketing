@@ -9,7 +9,6 @@ import {
   RichTextType,
   ButtonType,
 } from "../../Components/types";
-import { text } from "stream/consumers";
 
 const getBorder = (
   color: string,
