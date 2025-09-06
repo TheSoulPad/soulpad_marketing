@@ -79,11 +79,10 @@ const AboutPageContent: React.FC<AboutContentProps> = ({ point }) => {
     >
       {/* The three problems numbered list  */}
       {point.bullets && (
-        <Paper className="about-content--list">
+        <Paper className="about-content--list" sx={paperStyles}>
           <ul
             className="about-content--bullets"
             style={{
-              ...paperStyles,
               listStyleType: "none",
               paddingLeft: spacing.md,
               margin: "0",
