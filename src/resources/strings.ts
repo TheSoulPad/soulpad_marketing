@@ -23,7 +23,6 @@ export const Strings = {
       point2: {
         highlight: "1. The Feed vs. Real Profiles",
         p: `When was the last time you explored a friend’s profile for more than a few minutes? Chances are, not often. That’s because most profiles look the same — plain, predictable, and, if we're being honest, somewhat boring.`,
-        link: "",
         p1: `Instead, we find ourselves lost in an endless stream of videos, ads, and sponsored posts. Apps are designed this way to keep us scrolling! TikTok even figured out it takes about 250 videos to get someone hooked. That’s why most of our energy goes into consuming content from strangers instead of appreciating and participating in the lives of the people we actually know.`,
       },
       point3: {
@@ -45,7 +44,7 @@ export const Strings = {
         p2: `Design and customize your SoulPad with complete freedom. Add whatever inspires you: comment boxes, polls, sketchpads for your guests, even mini-games. Play with these interactive features to turn your page into a living, breathing expression of you. Adding images, themes, and personal assets is as simple as drag-and-drop, yet as flexible as a sketchbook that grows alongside your imagination.`,
         p3: `An AI collaborator is present to help spark ideas, answer questions about SoulPad’s controls, and help bring new elements to life. `,
         p4: `You and your connections can interact directly within your SoulPad, or explore someone else’s SoulPad where real-time interaction comes to life. Keep your space private as a personal retreat, share it with close friends, or open it up for the world to experience how you see and shape it.`,
-        p5: `It’s time for social networks to be creative and fun again. Let’s bring the focus back to self-expression and genuine connection with SoulPad.`,
+        p5: `It’s time for social networks to be creative and fun again. Let’s bring the focus back to self-expression and genuine connection with SoulPad. Support SoulPad today, and together we can build the kind of online world we’ve been missing: authentic, empowering, and truly our own.`,
       },
     },
   },

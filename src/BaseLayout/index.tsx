@@ -1,7 +1,7 @@
 import React, { CSSProperties } from "react";
 import GlobalStyles from "../GlobalStyles";
 import Grid from "@mui/material/Grid2";
-import { colors } from "../styles";
+import { colors, isMobileWidth, istabletAndGreaterWidth } from "../styles";
 import Footer from "./Footer";
 import { ThemeProvider } from "@mui/material/styles";
 import theme from "../theme";
@@ -15,7 +15,7 @@ interface LayoutProps {
 }
 
 const BaseLayout: React.FC<LayoutProps> = ({ children, isHomePage }) => {
-  const isMobile = useMediaQuery("(max-width:600px)");
+  const isMobile = useMediaQuery(isMobileWidth);
   const { officialBackgroundColor } = colors;
   const mobileHeight = "185px";
   const widthLogo = "475px";
@@ -29,6 +29,7 @@ const BaseLayout: React.FC<LayoutProps> = ({ children, isHomePage }) => {
     height: "100%",
     maxWidth: "1400px",
     margin: "0 auto",
+    overflowX: "hidden",
   };
 
   const headerStyles: CSSProperties = {

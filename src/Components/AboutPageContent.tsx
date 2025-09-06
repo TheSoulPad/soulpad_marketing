@@ -1,9 +1,17 @@
 import React, { CSSProperties } from "react";
 import Grid from "@mui/material/Grid2";
-import { spacing, funFont1 } from "../styles";
+import {
+  spacing,
+  funFont1,
+  paperMobileStyles,
+  tabletAndGreaterStyles,
+  isMobileWidth,
+  istabletAndGreaterWidth,
+} from "../styles";
 import Typography from "@mui/material/Typography";
 import useMediaQuery from "@mui/material/useMediaQuery";
 import Box from "@mui/material/Box";
+import { Paper } from "@mui/material";
 
 interface AboutContentProps {
   link?: string;
@@ -22,9 +30,11 @@ interface AboutContentProps {
 }
 
 const AboutPageContent: React.FC<AboutContentProps> = ({ point }) => {
-  const isMobile = useMediaQuery("(max-width:850px)");
+  const isMobile = useMediaQuery(isMobileWidth);
+  const tabletAndGreater = useMediaQuery(istabletAndGreaterWidth);
   const bodyTextStyles: CSSProperties = {
     textAlign: "left",
+    color: "#000000",
   };
 
   const contentStyles = {
@@ -47,6 +57,17 @@ const AboutPageContent: React.FC<AboutContentProps> = ({ point }) => {
     fontSize: "1.5rem",
     paddingBottom: spacing.sm + "rem",
     margin: "auto",
+    textAlign: "center",
+  };
+
+  const paperStyles = {
+    fontFamily: "Fredoka, sans-serif",
+    whiteSpace: "break-spaces",
+    borderRadius: "5px",
+    background: "linear-gradient(90deg, #edf9f9 0%, #ffe0b2 100%)",
+    width: "100%",
+    border: "2px solid black",
+    ...(tabletAndGreater ? tabletAndGreaterStyles : paperMobileStyles),
   };
 
   return (
@@ -58,71 +79,105 @@ const AboutPageContent: React.FC<AboutContentProps> = ({ point }) => {
     >
       {/* The three problems numbered list  */}
       {point.bullets && (
-        <ul
-          style={{
-            listStyleType: "none",
-            paddingLeft: spacing.md,
-            margin: "0",
-          }}
-        >
-          {point.bullets.map((bullet, index) => (
-            <li
-              key={index}
-              style={{
-                display: "flex",
-                alignItems: isMobile ? "start" : "center",
-                marginBottom: isMobile ? spacing.sm + "rem" : 0,
-              }}
-            >
-              <Box className="number" sx={funFont1}>
-                <div style={numberStyles}>{point.numbers?.[index]}</div>
-              </Box>
-              <Box>
-                <Typography
-                  variant="body2"
-                  sx={{ ...bodyTextStyles, marginBottom: "0 !important" }}
-                >
-                  {bullet}
-                </Typography>
-              </Box>
-            </li>
-          ))}
-        </ul>
+        <Paper className="about-content--list">
+          <ul
+            className="about-content--bullets"
+            style={{
+              ...paperStyles,
+              listStyleType: "none",
+              paddingLeft: spacing.md,
+              margin: "0",
+            }}
+          >
+            {point.bullets.map((bullet, index) => (
+              <li
+                className="about-content--bullet"
+                key={index}
+                style={{
+                  display: "flex",
+                  alignItems: isMobile ? "start" : "center",
+                  marginBottom: isMobile ? spacing.sm + "rem" : 0,
+                }}
+              >
+                <Box className="number" sx={funFont1}>
+                  <div style={numberStyles}>{point.numbers?.[index]}</div>
+                </Box>
+                <Box>
+                  <Typography
+                    variant="body2"
+                    sx={{ ...bodyTextStyles, marginBottom: "0 !important" }}
+                  >
+                    {bullet}
+                  </Typography>
+                </Box>
+              </li>
+            ))}
+          </ul>
+        </Paper>
       )}
 
       {point.highlight && (
-        <Box sx={blockquoteStyles}>
+        <Box className="about-content--highlight" sx={blockquoteStyles}>
           <blockquote>{point.highlight}</blockquote>
         </Box>
       )}
-      <Typography variant="body2" style={bodyTextStyles}>
-        {point.p}
-      </Typography>
 
-      <Typography variant="body2" style={bodyTextStyles}>
-        {point.p1}
-      </Typography>
-
-      <Typography variant="body2" style={bodyTextStyles}>
-        {point.p2}
-      </Typography>
-
-      {point.p3 && (
-        <Typography variant="body2" style={bodyTextStyles}>
-          {point.p3}
-        </Typography>
+      {point.p && (
+        <Paper sx={{ ...paperStyles, marginBottom: spacing.xs + "rem" }}>
+          <Typography variant="body2" sx={bodyTextStyles}>
+            {point.p}
+          </Typography>
+        </Paper>
       )}
 
+      {point.p1 && (
+        <Paper
+          className="about-content--paper"
+          sx={{ ...paperStyles, marginBottom: spacing.xs + "rem" }}
+        >
+          <Typography variant="body2" sx={bodyTextStyles}>
+            {point.p1}
+          </Typography>
+        </Paper>
+      )}
+
+      {point.p2 && (
+        <Paper
+          className="about-content--paper"
+          sx={{ ...paperStyles, marginBottom: spacing.xs + "rem" }}
+        >
+          <Typography variant="body2" sx={bodyTextStyles}>
+            {point.p2}
+          </Typography>
+        </Paper>
+      )}
+      {point.p3 && (
+        <Paper
+          className="about-content--paper"
+          sx={{ ...paperStyles, marginBottom: spacing.xs + "rem" }}
+        >
+          <Typography variant="body2" sx={bodyTextStyles}>
+            {point.p3}
+          </Typography>
+        </Paper>
+      )}
       {point.p4 && (
-        <Typography variant="body2" style={bodyTextStyles}>
-          {point.p4}
-        </Typography>
+        <Paper
+          className="about-content--paper"
+          sx={{ ...paperStyles, marginBottom: spacing.xs + "rem" }}
+        >
+          <Typography variant="body2" sx={bodyTextStyles}>
+            {point.p4}
+          </Typography>
+        </Paper>
       )}
 
       {point.p5 && (
-        <Typography variant="body2" style={bodyTextStyles}>
-          {point.p5}
-        </Typography>
+        <Paper sx={{ ...paperStyles, marginBottom: spacing.xs + "rem" }}>
+          <Typography variant="body2" sx={bodyTextStyles}>
+            {point.p5}
+          </Typography>
+        </Paper>
       )}
     </Grid>
   );

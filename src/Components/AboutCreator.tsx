@@ -3,12 +3,22 @@ import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import Paper from "@mui/material/Paper";
 import useMediaQuery from "@mui/material/useMediaQuery";
-import { paperMobileStyles, tabletAndGreaterStyles } from "../styles";
+import {
+  paperMobileStyles,
+  tabletAndGreaterStyles,
+  istabletAndGreaterWidth,
+} from "../styles";
 
 const PHOTO_URL = "https://avatars.githubusercontent.com/u/27731576?v=4";
 
-const AboutCreator: React.FC = () => {
-  const tabletAndGreater = useMediaQuery("(min-width:812px)");
+import { CSSProperties } from "react";
+
+interface AboutCreatorProps {
+  paperStyles?: CSSProperties;
+}
+
+const AboutCreator: React.FC<AboutCreatorProps> = ({ paperStyles }) => {
+  const tabletAndGreater = useMediaQuery(istabletAndGreaterWidth);
 
   const aboutCreatorParagraphs = [
     {
@@ -37,11 +47,7 @@ const AboutCreator: React.FC = () => {
     <Paper
       elevation={3}
       sx={{
-        fontFamily: "Fredoka, sans-serif",
-        whiteSpace: "break-spaces",
-        borderRadius: "5px",
-        background: "linear-gradient(90deg, #edf9f9 0%, #ffe0b2 100%)",
-        width: "100%",
+        ...paperStyles,
         ...(tabletAndGreater ? tabletAndGreaterStyles : paperMobileStyles),
       }}
     >

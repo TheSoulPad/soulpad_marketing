@@ -1,7 +1,14 @@
 import * as React from "react";
 import type { HeadFC } from "gatsby";
 import BaseLayout from "../BaseLayout";
-import { spacing } from "../styles";
+import {
+  spacing,
+  paperMobileStyles,
+  tabletAndGreaterStyles,
+  isMobileWidth,
+  istabletAndGreaterWidth,
+  MAX_MOBILE_WIDTH,
+} from "../styles";
 
 import Grid from "@mui/material/Grid2";
 import { Strings } from "../resources/strings";
@@ -9,6 +16,7 @@ import useMediaQuery from "@mui/material/useMediaQuery";
 import AboutPageContent from "../Components/AboutPageContent";
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
+import FundraisingBanner from "../Components/FundraisingComp";
 
 const strings = Strings.about;
 const headStrings = Strings.metaData.about;
@@ -23,16 +31,20 @@ const person11Path = "/images/people_hp/p11.svg";
 const person13Path = "/images/people_hp/p13.svg";
 
 const AboutPage = () => {
-  const isMobile = useMediaQuery("(max-width: 600px)");
-
+  const isMobile = useMediaQuery(isMobileWidth);
+  const tabletAndGreater = useMediaQuery(istabletAndGreaterWidth);
   const isTablet = useMediaQuery(
     "(min-width: 759px)" + " and (max-width: 1024px)",
   );
+  const isMobileContentWidth = "310px";
+  const finalContentWidth = isMobile ? isMobileContentWidth : "600px";
 
   const containerStyles = {
     color: "#232129",
     padding: `${isMobile ? spacing.sm : 0}em`,
     width: "100%",
+    maxWidth: isMobile ? MAX_MOBILE_WIDTH : "1200px",
+    margin: isMobile ? "1rem" : "auto",
   };
 
   const columnStyles = {
@@ -42,11 +54,21 @@ const AboutPage = () => {
     gap: spacing.sm + "rem",
     maxWidth: "300px",
     width: "100%",
-    padding: spacing.xs + "rem",
+
     ".col--img": {
       width: "100%",
       backgroundSize: "cover",
     },
+  };
+
+  const paperStyles = {
+    fontFamily: "Fredoka, sans-serif",
+    whiteSpace: "break-spaces",
+    borderRadius: "5px",
+    background: "linear-gradient(90deg, #edf9f9 0%, #ffe0b2 100%)",
+    width: "100%",
+    border: "2px solid black",
+    ...(tabletAndGreater ? tabletAndGreaterStyles : paperMobileStyles),
   };
 
   return (
@@ -62,7 +84,15 @@ const AboutPage = () => {
       >
         {/* IMG COLUMN 1   */}
 
-        <Grid className="about--column" sx={columnStyles}>
+        <Grid
+          className="about--column"
+          sx={{
+            ...columnStyles,
+            zIndex: 0,
+            position: "relative",
+            left: "4rem ",
+          }}
+        >
           <Box
             className="col--img img1"
             sx={{
@@ -71,27 +101,27 @@ const AboutPage = () => {
             }}
           />
           <Box
+            className="col--img img2"
             sx={{
               backgroundImage: `url(${person5Path})`,
               minHeight: "158px",
             }}
-            className="col--img img2"
           />
 
           <Box
+            className="col--img img3"
             sx={{
               backgroundImage: `url(${person10Path})`,
-              minHeight: "250px",
+              minHeight: "266px",
             }}
-            className="col--img img3"
           />
 
           <Box
+            className="col--img img4"
             sx={{
               backgroundImage: `url(${person11Path})`,
-              minHeight: "276px",
+              minHeight: "286px",
             }}
-            className="col--img img4"
           />
         </Grid>
 
@@ -103,17 +133,18 @@ const AboutPage = () => {
           flexDirection="column"
           mt={6}
           sx={{
-            maxWidth: isTablet ? "450px" : "100%",
+            maxWidth: finalContentWidth,
             width: "100%",
+            zIndex: 2,
           }}
         >
           <Typography
+            className="about--intro"
             sx={{
               paddingBottom: spacing.sm + "rem",
               margin: "auto",
-              maxWidth: "700px",
+              textAlign: "center",
               width: "100%",
-
               fontSize: "1.5rem",
             }}
             variant="body2"
@@ -137,6 +168,7 @@ const AboutPage = () => {
             <AboutPageContent point={content.point3} />
             <AboutPageContent point={content.point4} />
             <AboutPageContent point={content.point5} />
+            <FundraisingBanner paperStyles={paperStyles} />
           </Box>
         </Grid>
 
@@ -146,41 +178,41 @@ const AboutPage = () => {
           sx={{
             ...columnStyles,
             display: isTablet || isMobile ? "none" : "flex",
+            zIndex: 3,
+            position: "relative",
           }}
         >
           <Box
-            className="col--img col--img2 img4"
+            className="col--img col--img img5"
             sx={{
               backgroundImage: `url(${person7Path})`,
-              minHeight: "220px",
+              minHeight: "235px",
             }}
           ></Box>
           <Box
+            className="col--img img6"
             sx={{
               backgroundImage: `url(${person8Path})`,
-              minHeight: "281px",
+              minHeight: "306px",
             }}
-            className="col--img img5"
           ></Box>
           <Box
+            className="col--img img7"
             sx={{
               backgroundImage: `url(${person9Path})`,
-              minHeight: "285px",
+              minHeight: "301px",
               backgroundPositionX: "45px",
             }}
-            className="col--img img6"
           ></Box>
           <Box
+            className="col--img img8"
             sx={{
               backgroundImage: `url(${person13Path})`,
-              minHeight: "270px",
+              minHeight: "290px",
             }}
-            className="col--img img7"
           ></Box>
         </Grid>
       </Grid>
-
-      {/********************* Post TWO *********** */}
     </BaseLayout>
   );
 };

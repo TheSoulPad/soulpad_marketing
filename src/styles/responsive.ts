@@ -1,18 +1,15 @@
-export const MAX_WIDTH = "350px";
+export const MAX_MOBILE_WIDTH = "335px";
+export const isMobileWidth = "(max-width:600px)";
+export const istabletAndGreaterWidth = "(min-width:757px)";
 
 export const paperMobileStyles = {
-  maxWidth: "unset",
-  margin: "1rem 0",
-  padding: "0",
-  border: "none",
+  maxWidth: MAX_MOBILE_WIDTH,
+  margin: "1rem auto",
+  padding: "1rem",
 };
 
 export const tabletAndGreaterStyles = {
   maxWidth: "800px",
   margin: "2rem auto",
   padding: "2rem",
-  border: "2px solid black",
 };
-
-export const isMobileWidth = "(max-width:600px)";
-export const tabletAndGreaterWidth = "(min-width:812px)";

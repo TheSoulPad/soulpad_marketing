@@ -6,6 +6,8 @@ import Typography from "@mui/material/Typography";
 import { useTheme } from "../hooks/useTheme";
 import { RichTextType, PaperType, CardType } from "./types";
 import { about } from "../styles/about/comps";
+import useMediaQuery from "@mui/material/useMediaQuery";
+import { isMobileWidth, MAX_MOBILE_WIDTH } from "../styles";
 
 //hardcode thes styles for now
 interface CardProps {
@@ -25,7 +27,8 @@ const CustomCard: React.FC<CardProps> = ({
   renderItem,
   children,
 }) => {
-  //change this to  customCard and update in useTheme
+  const isMobile = useMediaQuery(isMobileWidth);
+  const mobileWidth = "335px";
   const [card, setCardTheme] = useState<CardType>(about.card);
   const [customCard, setCustomCardTheme] = useState<RichTextType>(
     about.customCard,
@@ -59,13 +62,13 @@ const CustomCard: React.FC<CardProps> = ({
   }, [themeType]);
 
   const smallSize = {
-    maxWidth: "400px",
+    maxWidth: isMobile ? MAX_MOBILE_WIDTH : "415px",
     maxHeight: "1000px",
     width: "100%",
   };
 
   const largeSize = {
-    maxWidth: "800px",
+    maxWidth: isMobile ? MAX_MOBILE_WIDTH : "800px",
     minHeight: "200px",
   };
 

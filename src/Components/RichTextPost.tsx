@@ -1,21 +1,12 @@
 import React, { useEffect, useState } from "react";
 import { Box, Paper, SxProps, Theme } from "@mui/material";
-import CloseIcon from "@mui/icons-material/Close";
-import CropSquareIcon from "@mui/icons-material/CropSquare";
-import MinimizeIcon from "@mui/icons-material/Minimize";
-import { spacing } from "../styles";
+import { spacing, isMobileWidth, MAX_MOBILE_WIDTH } from "../styles";
 import styled from "styled-components";
 import useMediaQuery from "@mui/material/useMediaQuery";
 import Typography from "@mui/material/Typography";
 import { about } from "../styles/about/comps";
 import { useTheme } from "../hooks/useTheme";
-import {
-  RichTextType,
-  PaperType,
-  MenuType,
-  IconsType,
-  CardType,
-} from "./types";
+import { RichTextType, PaperType, MenuType, CardType } from "./types";
 
 // in the future
 // addDate?: boolean;
@@ -28,15 +19,6 @@ interface RichTextPostProps {
   themeType: string;
 }
 
-const ActionMenuWrapper = styled.div`
-  display: flex;
-  justify-content: flex-end;
-  align-items: center;
-  margin-left: auto;
-  font-weight: bold;
-  cursor: pointer;
-`;
-
 const RichTextPost: React.FC<RichTextPostProps> = ({
   themeType,
   title,
@@ -48,13 +30,11 @@ const RichTextPost: React.FC<RichTextPostProps> = ({
   );
   const [card, setCardTheme] = useState<CardType>(about.card);
   const [paper, setPaperTheme] = useState<PaperType>(about.paper);
-  const [icons, setIconsTheme] = useState<IconsType>(about.icons);
 
   const setDefault = () => {
     setCompTheme(about.richTextPost);
     setCardTheme(about.card);
     setPaperTheme(about.paper);
-    setIconsTheme(about.icons);
   };
 
   const getAndSetComp = () => {
@@ -64,12 +44,11 @@ const RichTextPost: React.FC<RichTextPostProps> = ({
       const paperStyles = themeInfoStyles.paper;
       const cardStyles = themeInfoStyles.card;
       const compStyles = themeInfoStyles.richText;
-      const iconsStyles = themeInfoStyles.icons;
 
       setCardTheme(cardStyles);
       setCompTheme(compStyles);
       setPaperTheme(paperStyles);
-      setIconsTheme(iconsStyles);
+
       return;
     }
     setDefault();
@@ -81,15 +60,15 @@ const RichTextPost: React.FC<RichTextPostProps> = ({
 
   const { content, header } = compTheme;
 
-  const isMobile = useMediaQuery("(max-width:600px)");
+  const isMobile = useMediaQuery(isMobileWidth);
+
   const postSize = size === "small" ? "600px" : "900px";
-  const mobileSpacing = spacing.xs * 0.5;
-  const mobilePadding = ` 0 ${mobileSpacing}em ${spacing.lg}em`;
+  const postSizeFinal = isMobile ? MAX_MOBILE_WIDTH : postSize;
   const desktopPadding = ` ${spacing.sm}em ${spacing.xs}em`;
 
   const allPaperStyles = {
     ...paper,
-    maxWidth: postSize,
+    maxWidth: postSizeFinal,
   };
 
   const HeaderStyles = {
@@ -100,7 +79,7 @@ const RichTextPost: React.FC<RichTextPostProps> = ({
 
   const contentStylesResponsive = {
     ...content,
-    padding: isMobile ? mobilePadding : desktopPadding,
+    padding: isMobile ? "14px" : desktopPadding,
   };
 
   return (
