@@ -90,6 +90,7 @@ const Gallery: React.FC = () => {
     width: "100%",
     margin: spacing.xs + "rem",
     justifyContent: "center",
+    flexDirection: "column",
   };
 
   const listItems = [
@@ -119,7 +120,15 @@ const Gallery: React.FC = () => {
 
   return (
     <BaseLayout>
-      <Typography className="gallery-header" variant="h1">
+      <Typography
+        className="gallery-header"
+        variant="h1"
+        mb={4}
+        sx={{
+          textAlign: "center",
+          fontSize: isMobile ? "2rem" : "xxx-large",
+        }}
+      >
         {strings.header}
       </Typography>
 
@@ -131,8 +140,12 @@ const Gallery: React.FC = () => {
         flexDirection="column"
         spacing={5}
         height="100%"
+        justifyContent={"center"}
         sx={{
-          minWidth: "1200px",
+          minWidth: isMobile ? "335px" : "1200px",
+          margin: isMobile ? "16px auto" : "initial",
+          minHeight: "1400px",
+          marginBottom: spacing.md + "rem",
         }}
       >
         {/************ INFO - MENU SECTION ******************/}
@@ -168,10 +181,7 @@ const Gallery: React.FC = () => {
         <Grid
           container
           className="gallery-row"
-          spacing={isMobile ? 5 : 2}
-          rowGap={2}
-          columnGap={2}
-          justifyContent="center"
+          justifyContent="space-evenly"
           sx={
             isMobile
               ? mobileGridStyles
@@ -179,6 +189,7 @@ const Gallery: React.FC = () => {
                   display: "flex",
                   alignItems: "start",
                   margin: "auto",
+                  maxWidth: "900px",
                 }
           }
         >

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { CSSProperties } from "react";
 import Box from "@mui/material/Box";
 import Paper from "@mui/material/Paper";
 import Typography from "@mui/material/Typography";
@@ -8,11 +8,15 @@ import { FUNDRAISER_URL } from "../const";
 import {
   paperMobileStyles,
   tabletAndGreaterStyles,
-  tabletAndGreaterWidth,
+  istabletAndGreaterWidth,
 } from "../styles";
 
-const FundraisingBanner: React.FC = () => {
-  const tabletAndGreater = useMediaQuery(tabletAndGreaterWidth);
+interface FundraisingProps {
+  paperStyles?: CSSProperties;
+}
+
+const FundraisingBanner: React.FC<FundraisingProps> = ({ paperStyles }) => {
+  const tabletAndGreater = useMediaQuery(istabletAndGreaterWidth);
 
   const STRINGS = {
     header: "Help SoulPad Reach Our $10,000 Fundraising Goal!",
@@ -27,11 +31,7 @@ const FundraisingBanner: React.FC = () => {
     <Paper
       className="home-page--fundraising"
       sx={{
-        fontFamily: "Fredoka, sans-serif",
-        whiteSpace: "break-spaces",
-        borderRadius: "5px",
-        background: "linear-gradient(90deg, #edf9f9 0%, #ffe0b2 100%)",
-        width: "100%",
+        ...paperStyles,
         ...(tabletAndGreater ? tabletAndGreaterStyles : paperMobileStyles),
       }}
     >
@@ -56,7 +56,11 @@ const FundraisingBanner: React.FC = () => {
         <Typography
           className="fundraising--description"
           variant="body2"
-          sx={{ marginBottom: "1.5rem", px: tabletAndGreater ? 0 : 2 }}
+          sx={{
+            marginBottom: "1.5rem",
+            px: tabletAndGreater ? 0 : 2,
+            textAlign: "center",
+          }}
         >
           {STRINGS.description}
         </Typography>
@@ -74,6 +78,7 @@ const FundraisingBanner: React.FC = () => {
             padding: "0.75rem 2rem",
             borderRadius: "8px",
             fontFamily: "Fredoka, sans-serif",
+            textAlign: "center",
             margin: "auto",
             "&:hover": {
               backgroundColor: "#fff",
@@ -89,6 +94,7 @@ const FundraisingBanner: React.FC = () => {
             marginTop: "1.5rem",
             color: "#333",
             px: tabletAndGreater ? 0 : 2,
+            textAlign: "center",
           }}
         >
           {STRINGS.thankYou}

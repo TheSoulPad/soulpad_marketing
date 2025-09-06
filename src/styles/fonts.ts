@@ -29,6 +29,7 @@ const headline2Font: CSSProperties = {
 const body1Styles: CSSProperties = {
   fontWeight: "500",
   fontSize: "1rem", // 16px
+  color: "#000000",
 };
 
 const funFont1: CSSProperties = {

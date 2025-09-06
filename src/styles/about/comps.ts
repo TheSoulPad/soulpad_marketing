@@ -152,6 +152,7 @@ const richTextPost: RichTextType = {
     fontWeight: "400",
     textShadow: "none",
     margin: "unset",
+    padding: `${s.xs}rem`,
   },
   header: {
     styles: header,

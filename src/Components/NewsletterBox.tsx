@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { CSSProperties, useState } from "react";
 import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
 import TextField from "@mui/material/TextField";
@@ -13,7 +13,11 @@ import useMediaQuery from "@mui/material/useMediaQuery";
 import { useForm, ValidationError } from "@formspree/react";
 import { FORMSPREEENDPOINT } from "../const";
 
-const NewsletterBanner: React.FC = () => {
+interface NewsLetterProps {
+  paperStyles?: CSSProperties;
+}
+
+const NewsletterBanner: React.FC<NewsLetterProps> = ({ paperStyles }) => {
   const [submitted, setSubmitted] = useState(false);
   const isMobile = useMediaQuery(isMobileWidth);
   const [state, handleSubmit] = useForm(FORMSPREEENDPOINT);
@@ -40,11 +44,7 @@ const NewsletterBanner: React.FC = () => {
     <Paper
       className="home-page--newsletter"
       sx={{
-        fontFamily: "Fredoka, sans-serif",
-        whiteSpace: "break-spaces",
-        borderRadius: "5px",
-        background: "linear-gradient(90deg, #edf9f9 0%, #ffe0b2 100%)",
-        width: "100%",
+        ...paperStyles,
         ...(isMobile ? paperMobileStyles : tabletAndGreaterStyles),
       }}
     >

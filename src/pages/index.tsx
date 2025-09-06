@@ -22,7 +22,7 @@
  */
 
 import * as React from "react";
-import type { HeadFC, PageProps } from "gatsby";
+import type { HeadFC } from "gatsby";
 import { CSSProperties } from "react";
 import BaseLayout from "../BaseLayout";
 import { spacing } from "../styles";
@@ -36,6 +36,11 @@ import useMediaQuery from "@mui/material/useMediaQuery";
 import Newsletter from "../Components/NewsletterBox";
 import Fundraising from "../Components/FundraisingComp";
 import AboutCreator from "../Components/AboutCreator";
+import {
+  istabletAndGreaterWidth,
+  paperMobileStyles,
+  tabletAndGreaterStyles,
+} from "../styles";
 
 //later: add svg support
 
@@ -72,9 +77,19 @@ const subTitle: CSSProperties = {
 };
 
 const Home = () => {
-  const tabletAndGreater = useMediaQuery("(min-width:812px)");
+  const tabletAndGreater = useMediaQuery(istabletAndGreaterWidth);
   const maxWidthSubHeader = tabletAndGreater ? "525px" : "368px";
   const maxWidthContent = "600px";
+
+  const paperStyles = {
+    fontFamily: "Fredoka, sans-serif",
+    whiteSpace: "break-spaces",
+    borderRadius: "5px",
+    background: "linear-gradient(90deg, #edf9f9 0%, #ffe0b2 100%)",
+    width: "100%",
+    border: "2px solid black",
+    ...(tabletAndGreater ? tabletAndGreaterStyles : paperMobileStyles),
+  };
 
   const homePageStyles = {
     maxHeight: `${tabletAndGreater ? "529px" : "auto"}`,
@@ -239,9 +254,9 @@ const Home = () => {
           ></Box>
         </Grid>
       </Grid>
-      <AboutCreator />
-      <Newsletter />
-      <Fundraising />
+      <AboutCreator paperStyles={paperStyles} />
+      <Newsletter paperStyles={paperStyles} />
+      <Fundraising paperStyles={paperStyles} />
     </BaseLayout>
   );
 };
