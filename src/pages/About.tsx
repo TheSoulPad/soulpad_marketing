@@ -90,7 +90,7 @@ const AboutPage = () => {
             ...columnStyles,
             zIndex: 0,
             position: "relative",
-            left: "4rem ",
+            left: "4rem",
           }}
         >
           <Box
