@@ -76,6 +76,12 @@ const subTitle: CSSProperties = {
   fontSize: "1.3rem",
 };
 
+const standInBox = {
+  height: "300px",
+  width: "300px",
+  border: "1px solid tranparent",
+};
+
 const Home = () => {
   const tabletAndGreater = useMediaQuery(istabletAndGreaterWidth);
   const maxWidthSubHeader = tabletAndGreater ? "525px" : "368px";
@@ -117,7 +123,9 @@ const Home = () => {
               top: "0px",
             }}
             className="home-page--person-img person-img-box person-img-1"
-          ></Box>
+          >
+            <Box className="image-standin" sx={standInBox}></Box>
+          </Box>
           <Box
             className="home-page--person-img person-img-box person-img-3"
             sx={{
@@ -127,7 +135,10 @@ const Home = () => {
               bottom: "-8px",
               backgroundPositionX: "25px",
             }}
-          ></Box>
+          >
+            {" "}
+            <Box className="image-standin" sx={standInBox}></Box>
+          </Box>
         </Grid>
 
         {/* Home Page Content Col 2 */}
@@ -240,7 +251,10 @@ const Home = () => {
               right: "49px",
               top: "0px",
             }}
-          ></Box>
+          >
+            {" "}
+            <Box className="image-standin" sx={standInBox}></Box>
+          </Box>
           <Box
             className="home-page--person-img person-img-box person-img-4"
             sx={{
@@ -251,7 +265,10 @@ const Home = () => {
               bottom: "-9px",
               right: "30px",
             }}
-          ></Box>
+          >
+            {" "}
+            <Box className="image-standin" sx={standInBox}></Box>
+          </Box>
         </Grid>
       </Grid>
       <AboutCreator paperStyles={paperStyles} />
