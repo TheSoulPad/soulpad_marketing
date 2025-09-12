@@ -46,10 +46,10 @@ import {
 
 const strings = Strings.homePage;
 const headStrings = Strings.metaData.home;
-const person1Path = "/images/people_hp/soulperson1.svg";
-const person2Path = "/images/people_hp/soulperson2.svg";
-const person3Path = "/images/people_hp/soulperson3.svg";
-const person4Path = "/images/people_hp/soulperson4.svg";
+const person1Path = "/soulperson1.svg";
+const person2Path = "/soulperson2.svg";
+const person3Path = "/soulperson3.svg";
+const person4Path = "/soulperson4.svg";
 const videoPath = "/media/soulpadVideo.mp4";
 
 const imgBoxContainer = {
