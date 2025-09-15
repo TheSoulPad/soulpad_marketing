@@ -85,7 +85,7 @@ const standInBox = {
 };
 
 const Home = () => {
-  // Track if the page has mounted
+  // Track if the page has mounted for image loading
   const [hasMounted, setHasMounted] = React.useState(false);
   React.useEffect(() => {
     setHasMounted(true);
