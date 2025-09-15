@@ -41,6 +41,7 @@ import {
   paperMobileStyles,
   tabletAndGreaterStyles,
 } from "../styles";
+import Card from "@mui/material/Card";
 
 //later: add svg support
 
@@ -79,10 +80,16 @@ const subTitle: CSSProperties = {
 const standInBox = {
   height: "300px",
   width: "300px",
-  border: "1px solid tranparent",
+  border: "1px solid transparent",
+  backgroundColor: "transparent",
 };
 
 const Home = () => {
+  // Track if the page has mounted
+  const [hasMounted, setHasMounted] = React.useState(false);
+  React.useEffect(() => {
+    setHasMounted(true);
+  }, []);
   const tabletAndGreater = useMediaQuery(istabletAndGreaterWidth);
   const maxWidthSubHeader = tabletAndGreater ? "525px" : "368px";
   const maxWidthContent = "600px";
@@ -124,7 +131,9 @@ const Home = () => {
             }}
             className="home-page--person-img person-img-box person-img-1"
           >
-            <Box className="image-standin" sx={standInBox}></Box>
+            {!hasMounted && (
+              <Card className="image-standin" sx={standInBox}></Card>
+            )}
           </Box>
           <Box
             className="home-page--person-img person-img-box person-img-3"
@@ -137,7 +146,9 @@ const Home = () => {
             }}
           >
             {" "}
-            <Box className="image-standin" sx={standInBox}></Box>
+            {!hasMounted && (
+              <Card className="image-standin" sx={standInBox}></Card>
+            )}
           </Box>
         </Grid>
 
@@ -253,7 +264,9 @@ const Home = () => {
             }}
           >
             {" "}
-            <Box className="image-standin" sx={standInBox}></Box>
+            {!hasMounted && (
+              <Card className="image-standin" sx={standInBox}></Card>
+            )}
           </Box>
           <Box
             className="home-page--person-img person-img-box person-img-4"
@@ -267,7 +280,9 @@ const Home = () => {
             }}
           >
             {" "}
-            <Box className="image-standin" sx={standInBox}></Box>
+            {!hasMounted && (
+              <Card className="image-standin" sx={standInBox}></Card>
+            )}
           </Box>
         </Grid>
       </Grid>
