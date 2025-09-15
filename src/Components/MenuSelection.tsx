@@ -4,7 +4,7 @@ import List from "@mui/material/List";
 import Box from "@mui/material/Box";
 import ListItem from "@mui/material/ListItem";
 import Typography from "@mui/material/Typography";
-import { about } from "../styles/about/comps";
+import aboutTheme from "../styles/aboutTheme/comps";
 import { SxProps, Theme } from "@mui/system";
 import { useTheme } from "../hooks/useTheme";
 import { MenuType, CardType, PaperType } from "./types";
@@ -33,23 +33,27 @@ const MenuSelection: React.FC<MenuSelectionProps> = ({
   onThemeChange,
 }) => {
   const isMobile = useMediaQuery(isMobileWidth);
-  const [compTheme, setCompTheme] = useState<MenuType>(about.menuSelection);
-  const [card, setCardTheme] = useState<CardType>(about.card);
-  const [paper, setPaperTheme] = useState<PaperType>(about.paper);
+  const [compTheme, setCompTheme] = useState<MenuType>(
+    aboutTheme.MenuSelection,
+  );
+  const [card, setCardTheme] = useState<CardType>(aboutTheme.Card);
+  const [paper, setPaperTheme] = useState<PaperType>(aboutTheme.Paper);
 
   const setDefault = () => {
-    setCompTheme(about.menuSelection);
-    setCardTheme(about.card);
-    setPaperTheme(about.paper);
+    setCompTheme(aboutTheme.MenuSelection);
+    setCardTheme(aboutTheme.Card);
+    setPaperTheme(aboutTheme.Paper);
   };
 
   const getAndSetComp = () => {
     const themeInfoStyles = useTheme(themeType);
 
     if (themeInfoStyles) {
-      const paperStyles = themeInfoStyles.paper;
-      const cardStyles = themeInfoStyles.card;
-      const compStyles = themeInfoStyles.menu;
+      // Use PascalCase for themeInfoStyles and aboutTheme
+      const paperStyles = themeInfoStyles.Paper || aboutTheme.Paper;
+      const cardStyles = themeInfoStyles.Card || aboutTheme.Card;
+      const compStyles =
+        themeInfoStyles.MenuSelection || aboutTheme.MenuSelection;
 
       setCompTheme(compStyles);
       setCardTheme(cardStyles);

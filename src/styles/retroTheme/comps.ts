@@ -231,20 +231,18 @@ const buttons: ButtonType = {
   custom: baseButton,
 };
 
-export const retro = {
-  ID: 2,
-  themeID: "RETRO",
-  buttons,
-  card,
-  customCard,
-  content: defaultContent,
-  hover: c.mainBg02,
-  icons: {
+const retroTheme = {
+  Button: buttons,
+  Card: card,
+  CustomCard: customCard,
+  Content: defaultContent,
+  Hover: c.mainBg02,
+  Icons: {
     iconClose: icons,
     primary: icons,
     secondary: icons,
   },
-  listBox: {
+  ListBox: {
     header: purpleHeader,
     content: {
       ...contentText,
@@ -252,14 +250,14 @@ export const retro = {
       backgroundColor: c.icon,
     },
   },
-  menuSelection,
-  paper,
-  poll: {
+  MenuSelection: menuSelection,
+  Paper: paper,
+  Poll: {
     ...h,
     ...cardBorder,
     backgroundColor: c.mainBg00,
   },
-  progressBar: {
+  ProgressBar: {
     header: {
       ...purpleHeader,
     },
@@ -271,14 +269,17 @@ export const retro = {
       padding: `${spacing.xs}em`,
     },
   },
-  richTextPost,
-  text: {
+  RichTextPost: richTextPost,
+  Text: {
     ...b,
     color: c.text01,
   },
-  wordSticker: {
+  WordSticker: {
     ...b,
     ...cardBorder,
     backgroundColor: c.mainBg00,
   },
+  ThemeID: "RETRO",
 };
+
+export default retroTheme;

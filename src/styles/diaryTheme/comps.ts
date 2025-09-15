@@ -183,20 +183,18 @@ const buttons: ButtonType = {
   custom: allButtons,
 };
 
-export const diary = {
-  ID: 1,
-  themeID: "DIARY",
-  buttons,
-  card,
-  customCard,
-  content,
-  hover: c.mainBg03,
-  icons: {
+const diaryTheme = {
+  Button: buttons,
+  Card: card,
+  CustomCard: customCard,
+  Content: content,
+  Hover: c.mainBg03,
+  Icons: {
     iconClose: icons,
     primary: icons,
     secondary: icons,
   },
-  listBox: {
+  ListBox: {
     ...content,
     ...h,
     display: "block",
@@ -204,10 +202,13 @@ export const diary = {
     backgroundColor: c.mainBg03,
     textShadow: purpleShadow,
   },
-  menuSelection,
-  paper,
-  poll: {},
-  progressBar: {},
-  richTextPost,
-  wordSticker: {},
+  MenuSelection: menuSelection,
+  Paper: paper,
+  Poll: {},
+  ProgressBar: {},
+  RichTextPost: richTextPost,
+  ThemeID: "DIARY",
+  WordSticker: {},
 };
+
+export default diaryTheme;

@@ -74,14 +74,14 @@ const AboutPageContent: React.FC<AboutContentProps> = ({ point }) => {
     <Grid
       container
       flexDirection="column"
-      className="about-content"
+      className="aboutTheme-content"
       sx={contentStyles}
     >
       {/* The three problems numbered list  */}
       {point.bullets && (
-        <Paper className="about-content--list" sx={paperStyles}>
+        <Paper className="aboutTheme-content--list" sx={paperStyles}>
           <ul
-            className="about-content--bullets"
+            className="aboutTheme-content--bullets"
             style={{
               listStyleType: "none",
               paddingLeft: spacing.md,
@@ -90,7 +90,7 @@ const AboutPageContent: React.FC<AboutContentProps> = ({ point }) => {
           >
             {point.bullets.map((bullet, index) => (
               <li
-                className="about-content--bullet"
+                className="aboutTheme-content--bullet"
                 key={index}
                 style={{
                   display: "flex",
@@ -116,7 +116,7 @@ const AboutPageContent: React.FC<AboutContentProps> = ({ point }) => {
       )}
 
       {point.highlight && (
-        <Box className="about-content--highlight" sx={blockquoteStyles}>
+        <Box className="aboutTheme-content--highlight" sx={blockquoteStyles}>
           <blockquote>{point.highlight}</blockquote>
         </Box>
       )}
@@ -131,7 +131,7 @@ const AboutPageContent: React.FC<AboutContentProps> = ({ point }) => {
 
       {point.p1 && (
         <Paper
-          className="about-content--paper"
+          className="aboutTheme-content--paper"
           sx={{ ...paperStyles, marginBottom: spacing.xs + "rem" }}
         >
           <Typography variant="body2" sx={bodyTextStyles}>
@@ -142,7 +142,7 @@ const AboutPageContent: React.FC<AboutContentProps> = ({ point }) => {
 
       {point.p2 && (
         <Paper
-          className="about-content--paper"
+          className="aboutTheme-content--paper"
           sx={{ ...paperStyles, marginBottom: spacing.xs + "rem" }}
         >
           <Typography variant="body2" sx={bodyTextStyles}>
@@ -152,7 +152,7 @@ const AboutPageContent: React.FC<AboutContentProps> = ({ point }) => {
       )}
       {point.p3 && (
         <Paper
-          className="about-content--paper"
+          className="aboutTheme-content--paper"
           sx={{ ...paperStyles, marginBottom: spacing.xs + "rem" }}
         >
           <Typography variant="body2" sx={bodyTextStyles}>
@@ -162,7 +162,7 @@ const AboutPageContent: React.FC<AboutContentProps> = ({ point }) => {
       )}
       {point.p4 && (
         <Paper
-          className="about-content--paper"
+          className="aboutTheme-content--paper"
           sx={{ ...paperStyles, marginBottom: spacing.xs + "rem" }}
         >
           <Typography variant="body2" sx={bodyTextStyles}>

@@ -201,24 +201,25 @@ const buttons: ButtonType = {
   custom: buttonStyles,
 };
 
-export const videoGame = {
-  ID: 3,
-  themeID: "VIDEOGAME",
-  buttons,
-  card,
-  customCard,
-  content: {
+const videoGameTheme = {
+  Button: buttons,
+  Card: card,
+  CustomCard: customCard,
+  Content: {
     ...content,
   },
-  hover: "",
-  icons: {
+  Hover: "",
+  Icons: {
     iconClose: icons,
     primary: icons,
     secondary: icons,
   },
-  menuSelection,
-  paper,
-  poll: {},
-  richTextPost,
-  wordSticker: {},
+  MenuSelection: menuSelection,
+  Paper: paper,
+  Poll: {},
+  RichTextPost: richTextPost,
+  WordSticker: {},
+  ThemeID: "VIDEOGAME",
 };
+
+export default videoGameTheme;

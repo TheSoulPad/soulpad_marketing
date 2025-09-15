@@ -4,7 +4,7 @@ import { spacing, isMobileWidth, MAX_MOBILE_WIDTH } from "../styles";
 import styled from "styled-components";
 import useMediaQuery from "@mui/material/useMediaQuery";
 import Typography from "@mui/material/Typography";
-import { about } from "../styles/about/comps";
+import aboutTheme from "../styles/aboutTheme/comps";
 import { useTheme } from "../hooks/useTheme";
 import { RichTextType, PaperType, MenuType, CardType } from "./types";
 
@@ -26,24 +26,26 @@ const RichTextPost: React.FC<RichTextPostProps> = ({
   size,
 }) => {
   const [compTheme, setCompTheme] = useState<RichTextType | MenuType>(
-    about.richTextPost,
+    aboutTheme.RichTextPost,
   );
-  const [card, setCardTheme] = useState<CardType>(about.card);
-  const [paper, setPaperTheme] = useState<PaperType>(about.paper);
+  const [card, setCardTheme] = useState<CardType>(aboutTheme.Card);
+  const [paper, setPaperTheme] = useState<PaperType>(aboutTheme.Paper);
 
   const setDefault = () => {
-    setCompTheme(about.richTextPost);
-    setCardTheme(about.card);
-    setPaperTheme(about.paper);
+    setCompTheme(aboutTheme.RichTextPost);
+    setCardTheme(aboutTheme.Card);
+    setPaperTheme(aboutTheme.Paper);
   };
 
   const getAndSetComp = () => {
     const themeInfoStyles = useTheme(themeType);
 
     if (themeInfoStyles) {
-      const paperStyles = themeInfoStyles.paper;
-      const cardStyles = themeInfoStyles.card;
-      const compStyles = themeInfoStyles.richText;
+      // Use camelCase for themeInfoStyles, PascalCase for aboutTheme fallback
+      const paperStyles = themeInfoStyles.Paper || aboutTheme.Paper;
+      const cardStyles = themeInfoStyles.Card || aboutTheme.Card;
+      const compStyles =
+        themeInfoStyles.RichTextPost || aboutTheme.RichTextPost;
 
       setCardTheme(cardStyles);
       setCompTheme(compStyles);

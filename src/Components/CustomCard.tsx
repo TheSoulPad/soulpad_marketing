@@ -5,7 +5,7 @@ import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import { useTheme } from "../hooks/useTheme";
 import { RichTextType, PaperType, CardType } from "./types";
-import { about } from "../styles/about/comps";
+import aboutTheme from "../styles/aboutTheme/comps";
 import useMediaQuery from "@mui/material/useMediaQuery";
 import { isMobileWidth, MAX_MOBILE_WIDTH } from "../styles";
 
@@ -29,25 +29,27 @@ const CustomCard: React.FC<CardProps> = ({
 }) => {
   const isMobile = useMediaQuery(isMobileWidth);
   const mobileWidth = "335px";
-  const [card, setCardTheme] = useState<CardType>(about.card);
+  const [card, setCardTheme] = useState<CardType>(aboutTheme.Card);
   const [customCard, setCustomCardTheme] = useState<RichTextType>(
-    about.customCard,
+    aboutTheme.CustomCard,
   );
-  const [paper, setPaperTheme] = useState<PaperType>(about.paper);
+  const [paper, setPaperTheme] = useState<PaperType>(aboutTheme.Paper);
 
   const setDefault = () => {
-    setCardTheme(about.card);
-    setCustomCardTheme(about.customCard);
-    setPaperTheme(about.paper);
+    setCardTheme(aboutTheme.Card);
+    setCustomCardTheme(aboutTheme.CustomCard);
+    setPaperTheme(aboutTheme.Paper);
   };
 
   const getAndSetComp = () => {
     const themeInfoStyles = useTheme(themeType);
 
     if (themeInfoStyles) {
-      const customCardStyles = themeInfoStyles.customCard || about.customCard;
-      const paperStyles = themeInfoStyles.paper;
-      const cardStyles = themeInfoStyles.card;
+      // Use PascalCase for themeInfoStyles and aboutTheme
+      const customCardStyles =
+        themeInfoStyles.CustomCard || aboutTheme.CustomCard;
+      const paperStyles = themeInfoStyles.Paper || aboutTheme.Paper;
+      const cardStyles = themeInfoStyles.Card || aboutTheme.Card;
 
       setCardTheme(cardStyles);
       setCustomCardTheme(customCardStyles as RichTextType);

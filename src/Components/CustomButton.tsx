@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import Button from "@mui/material/Button";
 import { ButtonType } from "./types";
-import { about } from "../styles/about/comps";
+import aboutTheme from "../styles/aboutTheme/comps";
 import { useTheme } from "../hooks/useTheme";
 
 interface ButtonProps {
@@ -23,16 +23,16 @@ const CustomButton: React.FC<ButtonProps> = ({
   textColor,
   bgColor,
 }) => {
-  const [buttons, setButtons] = useState<ButtonType>(about.buttons);
+  const [buttons, setButtons] = useState<ButtonType>(aboutTheme.Button);
 
   const setDefault = () => {
-    setButtons(about.buttons);
+    setButtons(aboutTheme.Button);
   };
 
   const getAndSetComp = () => {
     const themeInfoStyles = useTheme(themeType);
     if (themeInfoStyles) {
-      const buttonStyles = themeInfoStyles.buttons;
+      const buttonStyles = themeInfoStyles.Button;
       setButtons(buttonStyles);
       return;
     }
