@@ -58,7 +58,7 @@ const BaseLayout: React.FC<LayoutProps> = ({ children, isHomePage }) => {
   const boxStylesToCenter = {
     width: "100%",
     height: "100%",
-    backgroundImage: `url(/images/SoulPad.svg)`,
+    backgroundImage: `url(/SoulPad.svg)`,
     backgroundSize: "cover",
     color: "transparent",
     backgroundPositionX: "10px",
