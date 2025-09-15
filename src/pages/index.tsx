@@ -42,6 +42,7 @@ import {
   tabletAndGreaterStyles,
 } from "../styles";
 import Card from "@mui/material/Card";
+import { ClipLoader } from "react-spinners";
 
 //later: add svg support
 
@@ -85,7 +86,7 @@ const standInBox = {
 };
 
 const Home = () => {
-  // Track if the page has mounted
+  // Track if the page has mounted for image loading
   const [hasMounted, setHasMounted] = React.useState(false);
   React.useEffect(() => {
     setHasMounted(true);
@@ -132,7 +133,16 @@ const Home = () => {
             className="home-page--person-img person-img-box person-img-1"
           >
             {!hasMounted && (
-              <Card className="image-standin" sx={standInBox}></Card>
+              <Card className="image-standin" sx={standInBox}>
+                <Box
+                  display="flex"
+                  justifyContent="center"
+                  alignItems="center"
+                  height="100%"
+                >
+                  <ClipLoader color="#888" loading={true} size={48} />
+                </Box>
+              </Card>
             )}
           </Box>
           <Box
@@ -147,7 +157,16 @@ const Home = () => {
           >
             {" "}
             {!hasMounted && (
-              <Card className="image-standin" sx={standInBox}></Card>
+              <Card className="image-standin" sx={standInBox}>
+                <Box
+                  display="flex"
+                  justifyContent="center"
+                  alignItems="center"
+                  height="100%"
+                >
+                  <ClipLoader color="#888" loading={true} size={48} />
+                </Box>
+              </Card>
             )}
           </Box>
         </Grid>
@@ -265,7 +284,16 @@ const Home = () => {
           >
             {" "}
             {!hasMounted && (
-              <Card className="image-standin" sx={standInBox}></Card>
+              <Card className="image-standin" sx={standInBox}>
+                <Box
+                  display="flex"
+                  justifyContent="center"
+                  alignItems="center"
+                  height="100%"
+                >
+                  <ClipLoader color="#888" loading={true} size={48} />
+                </Box>
+              </Card>
             )}
           </Box>
           <Box
@@ -281,7 +309,16 @@ const Home = () => {
           >
             {" "}
             {!hasMounted && (
-              <Card className="image-standin" sx={standInBox}></Card>
+              <Card className="image-standin" sx={standInBox}>
+                <Box
+                  display="flex"
+                  justifyContent="center"
+                  alignItems="center"
+                  height="100%"
+                >
+                  <ClipLoader color="#888" loading={true} size={48} />
+                </Box>
+              </Card>
             )}
           </Box>
         </Grid>
