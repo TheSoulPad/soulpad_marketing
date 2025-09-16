@@ -28,40 +28,23 @@ const CustomCard: React.FC<CardProps> = ({
   children,
 }) => {
   const isMobile = useMediaQuery(isMobileWidth);
-  const mobileWidth = "335px";
-  const [card, setCardTheme] = useState<CardType>(aboutTheme.Card);
-  const [customCard, setCustomCardTheme] = useState<RichTextType>(
-    aboutTheme.CustomCard,
+  const themeInfoStyles = useTheme(themeType);
+  const [card, setCardTheme] = useState<CardType>(
+    themeInfoStyles.Card || aboutTheme.Card,
   );
-  const [paper, setPaperTheme] = useState<PaperType>(aboutTheme.Paper);
-
-  const setDefault = () => {
-    setCardTheme(aboutTheme.Card);
-    setCustomCardTheme(aboutTheme.CustomCard);
-    setPaperTheme(aboutTheme.Paper);
-  };
-
-  const getAndSetComp = () => {
-    const themeInfoStyles = useTheme(themeType);
-
-    if (themeInfoStyles) {
-      // Use PascalCase for themeInfoStyles and aboutTheme
-      const customCardStyles =
-        themeInfoStyles.CustomCard || aboutTheme.CustomCard;
-      const paperStyles = themeInfoStyles.Paper || aboutTheme.Paper;
-      const cardStyles = themeInfoStyles.Card || aboutTheme.Card;
-
-      setCardTheme(cardStyles);
-      setCustomCardTheme(customCardStyles as RichTextType);
-      setPaperTheme(paperStyles);
-      return;
-    }
-    setDefault();
-  };
+  const [customCard, setCustomCardTheme] = useState<RichTextType>(
+    themeInfoStyles.CustomCard || aboutTheme.CustomCard,
+  );
+  const [paper, setPaperTheme] = useState<PaperType>(
+    themeInfoStyles.Paper || aboutTheme.Paper,
+  );
 
   useEffect(() => {
-    getAndSetComp();
-  }, [themeType]);
+    // Update state when themeInfoStyles or themeType changes
+    setCardTheme(themeInfoStyles.Card || aboutTheme.Card);
+    setCustomCardTheme(themeInfoStyles.CustomCard || aboutTheme.CustomCard);
+    setPaperTheme(themeInfoStyles.Paper || aboutTheme.Paper);
+  }, [themeInfoStyles, themeType]);
 
   const smallSize = {
     maxWidth: isMobile ? MAX_MOBILE_WIDTH : "415px",

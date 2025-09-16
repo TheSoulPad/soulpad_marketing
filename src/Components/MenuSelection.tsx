@@ -33,43 +33,25 @@ const MenuSelection: React.FC<MenuSelectionProps> = ({
   onThemeChange,
 }) => {
   const isMobile = useMediaQuery(isMobileWidth);
+  const themeInfoStyles = useTheme(themeType);
   const [compTheme, setCompTheme] = useState<MenuType>(
-    aboutTheme.MenuSelection,
+    themeInfoStyles.MenuSelection || aboutTheme.MenuSelection,
   );
-  const [card, setCardTheme] = useState<CardType>(aboutTheme.Card);
-  const [paper, setPaperTheme] = useState<PaperType>(aboutTheme.Paper);
-
-  const setDefault = () => {
-    setCompTheme(aboutTheme.MenuSelection);
-    setCardTheme(aboutTheme.Card);
-    setPaperTheme(aboutTheme.Paper);
-  };
-
-  const getAndSetComp = () => {
-    const themeInfoStyles = useTheme(themeType);
-
-    if (themeInfoStyles) {
-      // Use PascalCase for themeInfoStyles and aboutTheme
-      const paperStyles = themeInfoStyles.Paper || aboutTheme.Paper;
-      const cardStyles = themeInfoStyles.Card || aboutTheme.Card;
-      const compStyles =
-        themeInfoStyles.MenuSelection || aboutTheme.MenuSelection;
-
-      setCompTheme(compStyles);
-      setCardTheme(cardStyles);
-      setPaperTheme(paperStyles);
-    } else {
-      setDefault();
-    }
-  };
+  const [card, setCardTheme] = useState<CardType>(
+    themeInfoStyles.Card || aboutTheme.Card,
+  );
+  const [paper, setPaperTheme] = useState<PaperType>(
+    themeInfoStyles.Paper || aboutTheme.Paper,
+  );
 
   useEffect(() => {
-    getAndSetComp();
-  }, [themeType]);
+    setCompTheme(themeInfoStyles.MenuSelection || aboutTheme.MenuSelection);
+    setCardTheme(themeInfoStyles.Card || aboutTheme.Card);
+    setPaperTheme(themeInfoStyles.Paper || aboutTheme.Paper);
+  }, [themeInfoStyles, themeType]);
 
   const { header, text, content } = compTheme;
-  //fix how you tag the active state styles
-  //make the list styles describe only the DEFAULT list styles
+
   const listStyles = {
     display: `${horizontal ? "flex" : "block"}`,
     justifyContent: "center",

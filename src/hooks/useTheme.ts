@@ -12,7 +12,6 @@ interface ThemeInfoType {
   RichTextPost: any;
   Paper: any;
   ThemeID: string;
-  Icons: any;
   Button: any;
   // Add other keys as needed for your theme structure
 }

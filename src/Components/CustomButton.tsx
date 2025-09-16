@@ -23,25 +23,14 @@ const CustomButton: React.FC<ButtonProps> = ({
   textColor,
   bgColor,
 }) => {
-  const [buttons, setButtons] = useState<ButtonType>(aboutTheme.Button);
-
-  const setDefault = () => {
-    setButtons(aboutTheme.Button);
-  };
-
-  const getAndSetComp = () => {
-    const themeInfoStyles = useTheme(themeType);
-    if (themeInfoStyles) {
-      const buttonStyles = themeInfoStyles.Button;
-      setButtons(buttonStyles);
-      return;
-    }
-    setDefault();
-  };
+  const themeInfoStyles = useTheme(themeType);
+  const [buttons, setButtons] = useState<ButtonType>(
+    themeInfoStyles.Button || aboutTheme.Button,
+  );
 
   useEffect(() => {
-    getAndSetComp();
-  }, [themeType]);
+    setButtons(themeInfoStyles.Button || aboutTheme.Button);
+  }, [themeInfoStyles, themeType]);
 
   const buttonSize = "32px";
 

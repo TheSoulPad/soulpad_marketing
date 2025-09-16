@@ -1,7 +1,6 @@
 import { colors as c } from "./colors";
 import { spacing as s } from "../spacing";
-import { headerText as f } from "./fonts";
-import { bodyText as f2 } from "./fonts";
+
 import {
   PaperType,
   CardType,
@@ -9,6 +8,22 @@ import {
   RichTextType,
   ButtonType,
 } from "../../Components/types";
+
+export const headerText = {
+  fontFamily: "Turret Road, sans-serif",
+  fontWeight: "800",
+  textAlign: "center",
+  color: c.text00,
+  fontSize: "2rem",
+};
+
+export const bodyText = {
+  fontFamily: `Quantico, sans-serif`,
+  textAlign: "left",
+  fontWeight: "300",
+  color: c.text01,
+  fontSize: "1.25rem",
+};
 
 const blackShadow = `-1px 2px 0px ${c.black}`;
 const whiteShadow = `-1px 2px 0px ${c.white}`;
@@ -40,7 +55,7 @@ const threeDBtnSecShadow = {
 // };
 
 const content = {
-  ...f2,
+  ...bodyText,
   ...threeDContentShadow,
   backgroundColor: c.mainBg00,
   border: `3px solid ${c.contentBorder}`,
@@ -57,13 +72,6 @@ const header = {
   boxShadow: "inset 0 -10px 0 #a2d3e4",
   margin: "0 auto",
   zIndex: 100,
-};
-
-const icons = {
-  backgroundColor: c.iconBg,
-  color: c.icon,
-  borderRadius: `${s.xs * 0.5}rem`,
-  marginRight: `${s.sm}rem`,
 };
 
 const card: CardType = {
@@ -111,7 +119,7 @@ const customCard: RichTextType = {
   },
   header: {
     styles: {
-      ...f,
+      ...headerText,
       ...header,
       display: "block",
       padding: `0.1rem`,
@@ -139,7 +147,7 @@ const menuSelection: MenuType = {
     styles: header,
 
     text: {
-      ...f,
+      ...headerText,
       textShadow: whiteShadow,
       margin: 0,
       textAlign: "center",
@@ -150,7 +158,7 @@ const menuSelection: MenuType = {
   text: {
     //regular text styles
     list: {
-      ...f,
+      ...headerText,
       textAlign: "center",
       color: c.text01,
       fontSize: "1.25rem", // 20px
@@ -166,7 +174,7 @@ const menuSelection: MenuType = {
     },
     //active text styles
     active: {
-      ...f,
+      ...headerText,
       ...buttonPrimary,
       background: c.buttonPrimary,
       fontSize: "1.25rem", // 20px
@@ -189,7 +197,7 @@ const richTextPost: RichTextType = {
   header: {
     styles: header,
     text: {
-      ...f,
+      ...headerText,
       textShadow: whiteShadow,
     },
   },
@@ -208,17 +216,9 @@ const videoGameTheme = {
   Content: {
     ...content,
   },
-  Hover: "",
-  Icons: {
-    iconClose: icons,
-    primary: icons,
-    secondary: icons,
-  },
   MenuSelection: menuSelection,
   Paper: paper,
-  Poll: {},
   RichTextPost: richTextPost,
-  WordSticker: {},
   ThemeID: "VIDEOGAME",
 };
 

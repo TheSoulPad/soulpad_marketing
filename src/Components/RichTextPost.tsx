@@ -25,40 +25,22 @@ const RichTextPost: React.FC<RichTextPostProps> = ({
   children,
   size,
 }) => {
+  const themeInfoStyles = useTheme(themeType);
   const [compTheme, setCompTheme] = useState<RichTextType | MenuType>(
-    aboutTheme.RichTextPost,
+    themeInfoStyles.RichTextPost || aboutTheme.RichTextPost,
   );
-  const [card, setCardTheme] = useState<CardType>(aboutTheme.Card);
-  const [paper, setPaperTheme] = useState<PaperType>(aboutTheme.Paper);
-
-  const setDefault = () => {
-    setCompTheme(aboutTheme.RichTextPost);
-    setCardTheme(aboutTheme.Card);
-    setPaperTheme(aboutTheme.Paper);
-  };
-
-  const getAndSetComp = () => {
-    const themeInfoStyles = useTheme(themeType);
-
-    if (themeInfoStyles) {
-      // Use camelCase for themeInfoStyles, PascalCase for aboutTheme fallback
-      const paperStyles = themeInfoStyles.Paper || aboutTheme.Paper;
-      const cardStyles = themeInfoStyles.Card || aboutTheme.Card;
-      const compStyles =
-        themeInfoStyles.RichTextPost || aboutTheme.RichTextPost;
-
-      setCardTheme(cardStyles);
-      setCompTheme(compStyles);
-      setPaperTheme(paperStyles);
-
-      return;
-    }
-    setDefault();
-  };
+  const [card, setCardTheme] = useState<CardType>(
+    themeInfoStyles.Card || aboutTheme.Card,
+  );
+  const [paper, setPaperTheme] = useState<PaperType>(
+    themeInfoStyles.Paper || aboutTheme.Paper,
+  );
 
   useEffect(() => {
-    getAndSetComp();
-  }, [themeType]);
+    setCompTheme(themeInfoStyles.RichTextPost || aboutTheme.RichTextPost);
+    setCardTheme(themeInfoStyles.Card || aboutTheme.Card);
+    setPaperTheme(themeInfoStyles.Paper || aboutTheme.Paper);
+  }, [themeInfoStyles, themeType]);
 
   const { content, header } = compTheme;
 

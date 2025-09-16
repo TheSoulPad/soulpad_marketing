@@ -1,6 +1,15 @@
 import { colors as c } from "./colors";
 import { spacing as s } from "../spacing";
-import { titleText as f, bodyText as f2 } from "./fonts";
+
+const titleText = {
+  fontFamily: "Galindo, sans-serif",
+  textAlign: "left",
+};
+
+const bodyText = {
+  fontfamily: "Roboto, sans-serif",
+  color: c.text00,
+};
 
 // Common style fragments
 const borderRadiusSm = `${s.sm}rem`;
@@ -9,7 +18,7 @@ const redOrangeShadow = `7px 6px 1px ${c.redOrange}`;
 const yellowShadow = `7px 6px 0px 0px ${c.yellow}`;
 
 const baseButton = {
-  ...f,
+  ...titleText,
   boxShadow: darkBrownShadow,
   borderRadius: borderRadiusSm,
   fontSize: "1.25rem",
@@ -38,7 +47,7 @@ const baseHeader = {
 };
 
 const baseHeaderText = {
-  ...f,
+  ...titleText,
   margin: "0",
   color: c.text01,
 };
@@ -74,7 +83,7 @@ const aboutTheme = {
     custom: baseButton,
   },
   Card: {
-    ...f2,
+    ...bodyText,
     borderRadius: borderRadiusSm,
     display: "block",
     backgroundColor: c.mainBg00,
@@ -99,26 +108,11 @@ const aboutTheme = {
   },
   Content: {
     ...baseContent,
-    ...f2,
+    ...bodyText,
     fontSize: "1rem",
     backgroundColor: c.mainBg00,
     border: `1px solid ${c.contentBorder}`,
   },
-  Icons: {
-    primary: {
-      ...baseIconsClass,
-      backgroundColor: c.iconPrimary,
-    },
-    secondary: {
-      ...baseIconsClass,
-      backgroundColor: c.iconSecondary,
-    },
-    iconClose: {
-      ...baseIconsClass,
-      backgroundColor: c.iconClose,
-    },
-  },
-  ListBox: {},
   MenuSelection: {
     activeStyles: {
       border: "none",
@@ -140,7 +134,7 @@ const aboutTheme = {
         color: c.text00,
       },
       list: {
-        ...f,
+        ...titleText,
         backgroundColor: "transparent",
         borderRadius: borderRadiusSm,
         color: c.text00,
@@ -163,12 +157,10 @@ const aboutTheme = {
     boxShadow: `10px 10px 0px 0px ${c.paperShadow}`,
     backgroundColor: c.mainBg00,
   },
-  Poll: {},
-  ProgressBar: {},
   RichTextPost: {
     content: {
       ...baseContent,
-      ...f2,
+      ...bodyText,
       fontSize: "1.25rem",
       fontWeight: "400",
       textShadow: "none",

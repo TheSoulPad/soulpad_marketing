@@ -47,24 +47,7 @@ const aboutSoulExchange = {
 const Gallery: React.FC = () => {
   const isMobile = useMediaQuery(isMobileWidth);
   const [themeType, setThemeType] = useState("SOULPAD");
-  const useThemeStyles = (themeType: string) => {
-    switch (themeType) {
-      case "SOULPAD":
-        setThemeType("SOULPAD");
-        break;
-      case "DIARY":
-        setThemeType("DIARY");
-        break;
-      case "RETRO":
-        setThemeType("RETRO");
-        break;
-      case "VIDEOGAME":
-        setThemeType("VIDEOGAME");
-        break;
-      default:
-        console.log("Default");
-    }
-  };
+  // Directly use setThemeType for theme switching
 
   const menuItems = [
     {
@@ -170,7 +153,7 @@ const Gallery: React.FC = () => {
           </CustomCard>
           <MenuSelection
             themeType={themeType}
-            onThemeChange={useThemeStyles}
+            onThemeChange={setThemeType}
             horizontal={false}
             title="Select a theme"
             items={menuItems}

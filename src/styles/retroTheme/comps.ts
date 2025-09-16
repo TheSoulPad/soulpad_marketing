@@ -1,6 +1,4 @@
 import { colors as c } from "./colors";
-import { headerText as h } from "./fonts";
-import { bodyText as b } from "./fonts";
 import { spacing } from "../spacing";
 import {
   PaperType,
@@ -9,6 +7,21 @@ import {
   RichTextType,
   ButtonType,
 } from "../../Components/types";
+
+export const headerText = {
+  color: c.text02, //lightgrey
+  fontFamily: `Quantico, sans-serif`,
+  fontSize: "1.5rem",
+  textAlign: "left",
+  textShadow: `0px 0px 1px ${c.text01}`,
+};
+
+export const bodyText = {
+  color: c.text01, //purple
+  fontFamily: `Quantico, sans-serif`,
+  fontSize: "1.25rem",
+  textShadow: `0px 0px 1px ${c.text01}`,
+};
 
 const getBorder = (
   color: string,
@@ -42,7 +55,7 @@ const buttonBorder = getBorder(
 );
 
 const baseButton = {
-  ...b,
+  ...bodyText,
   ...buttonBorder,
   cursor: "pointer",
   padding: `${spacing.xs * 0.5}rem`,
@@ -89,7 +102,7 @@ const richTextContentBorder = getBorder(
 );
 
 const purpleHeader = {
-  ...h,
+  ...headerText,
   backgroundColor: c.mainBg02,
   color: c.text02,
   margin: 0,
@@ -101,25 +114,8 @@ const purpleHeader = {
   height: "100%",
 };
 
-const headerIconBorder = getBorder(
-  c.shine,
-  c.shine,
-  c.contentBorder,
-  c.contentBorder,
-  "solid",
-  "inset",
-  "inset",
-  "inset",
-);
-
-const icons = {
-  ...headerIconBorder,
-  backgroundColor: c.icon,
-  color: "#000000",
-};
-
 const contentText = {
-  ...b,
+  ...bodyText,
   padding: `${spacing.xs}em`,
 };
 
@@ -181,7 +177,7 @@ const menuSelection: MenuType = {
   },
   header: {
     styles: purpleHeader,
-    text: { ...h, marginLeft: spacing.sm, textAlign: "center" },
+    text: { ...headerText, marginLeft: spacing.sm, textAlign: "center" },
   },
   text: {
     active: {
@@ -211,7 +207,7 @@ const richTextPost: RichTextType = {
   },
   header: {
     styles: purpleHeader,
-    text: { ...h, marginLeft: spacing.sm },
+    text: { ...headerText, marginLeft: spacing.sm },
   },
 };
 
@@ -237,11 +233,7 @@ const retroTheme = {
   CustomCard: customCard,
   Content: defaultContent,
   Hover: c.mainBg02,
-  Icons: {
-    iconClose: icons,
-    primary: icons,
-    secondary: icons,
-  },
+
   ListBox: {
     header: purpleHeader,
     content: {
@@ -253,7 +245,7 @@ const retroTheme = {
   MenuSelection: menuSelection,
   Paper: paper,
   Poll: {
-    ...h,
+    ...headerText,
     ...cardBorder,
     backgroundColor: c.mainBg00,
   },
@@ -271,11 +263,11 @@ const retroTheme = {
   },
   RichTextPost: richTextPost,
   Text: {
-    ...b,
+    ...bodyText,
     color: c.text01,
   },
   WordSticker: {
-    ...b,
+    ...bodyText,
     ...cardBorder,
     backgroundColor: c.mainBg00,
   },
