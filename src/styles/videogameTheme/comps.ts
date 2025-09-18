@@ -21,7 +21,7 @@ export const bodyText = {
   fontFamily: `Quantico, sans-serif`,
   textAlign: "left",
   fontWeight: "300",
-  color: c.text01,
+  color: `${c.text01} !important`,
   fontSize: "1.25rem",
 };
 
@@ -213,9 +213,7 @@ const videoGameTheme = {
   Button: buttons,
   Card: card,
   CustomCard: customCard,
-  Content: {
-    ...content,
-  },
+  Content: content,
   MenuSelection: menuSelection,
   Paper: paper,
   RichTextPost: richTextPost,

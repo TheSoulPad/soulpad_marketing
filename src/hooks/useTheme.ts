@@ -3,6 +3,7 @@ import aboutTheme from "../styles/aboutTheme/comps";
 import diaryTheme from "../styles/diaryTheme/comps";
 import retroTheme from "../styles/retroTheme/comps";
 import videoGameTheme from "../styles/videogameTheme/comps";
+import dreamyTheme from "../styles/dreamyTheme/comps";
 
 // Define the theme info type here for clarity and to avoid import errors
 interface ThemeInfoType {
@@ -21,6 +22,7 @@ const THEME_REGISTRY: Record<string, ThemeInfoType> = {
   DIARY: diaryTheme,
   RETRO: retroTheme,
   VIDEOGAME: videoGameTheme,
+  DREAMY: dreamyTheme,
 };
 
 export const useTheme = (themeType: string): ThemeInfoType => {

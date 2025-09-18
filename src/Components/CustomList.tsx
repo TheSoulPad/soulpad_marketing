@@ -31,16 +31,13 @@ const CustomList: React.FC<CustomListProps> = ({
             maxWidth: 360,
             bgcolor: "transparent",
             maxHeight: 300,
-            "& ul": { padding: 0 },
+            textDecoration: "none",
+            fontSize: "1.5rem",
           }}
         >
-          <ul>
-            {items.map((item) => (
-              <ListItem key={item.id}>
-                <ListItemText primary={`${item.label}`} />
-              </ListItem>
-            ))}
-          </ul>
+          {items.map((item) => (
+            <li key={item.id}>{item.label}</li>
+          ))}
         </List>
       </div>
     </CustomCard>

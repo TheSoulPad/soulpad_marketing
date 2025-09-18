@@ -148,6 +148,7 @@ const paperBorder = getBorder(
 const paper: PaperType = {
   ...paperBorder,
   backgroundColor: c.mainBg01,
+  height: "100%",
 };
 
 const customCard: RichTextType = {

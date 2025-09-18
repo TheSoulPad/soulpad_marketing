@@ -12,6 +12,7 @@ import CustomMediaPlayer from "../Components/CustomMediaPlayer";
 import CustomList from "../Components/CustomList";
 import useMediaQuery from "@mui/material/useMediaQuery";
 import Typography from "@mui/material/Typography";
+import theme from "../theme";
 
 const strings = Strings.galleryPage;
 const headStrings = Strings.metaData.gallery;
@@ -67,6 +68,10 @@ const Gallery: React.FC = () => {
       galleryName: "Video game",
       themeType: "VIDEOGAME",
     },
+    {
+      galleryName: "Dreamy",
+      themeType: "DREAMY",
+    },
   ];
 
   const mobileGridStyles: CSSProperties = {
@@ -100,6 +105,13 @@ const Gallery: React.FC = () => {
     },
     { type: "custom", label: "Custom 2", textColor: "#ffffff", bgColor: "red" },
   ];
+
+  const isWhiteText = () => {
+    if (themeType === "VIDEOGAME") {
+      return true;
+    }
+    return false;
+  };
 
   return (
     <BaseLayout>
@@ -147,9 +159,17 @@ const Gallery: React.FC = () => {
             size="large"
             themeType={themeType}
           >
-            <Typography variant="body1">{aboutSoulExchange.p01}</Typography>
-            <Typography variant="body1">{aboutSoulExchange.p02}</Typography>
-            <Typography variant="body1">{aboutSoulExchange.p03}</Typography>
+            {Object.values(aboutSoulExchange).map((paragraph, idx) => (
+              <Typography
+                key={idx}
+                sx={{
+                  color: themeType === "VIDEOGAME" ? "#ffffff" : "#000000",
+                }}
+                variant="body1"
+              >
+                {paragraph}
+              </Typography>
+            ))}
           </CustomCard>
           <MenuSelection
             themeType={themeType}

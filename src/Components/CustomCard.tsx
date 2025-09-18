@@ -49,7 +49,7 @@ const CustomCard: React.FC<CardProps> = ({
   const smallSize = {
     maxWidth: isMobile ? MAX_MOBILE_WIDTH : "415px",
     maxHeight: "1000px",
-    width: "100%",
+
   };
 
   const largeSize = {
@@ -64,6 +64,7 @@ const CustomCard: React.FC<CardProps> = ({
   const paperStyles = {
     ...paper,
     ...cardSize,
+      width: "100%",
   };
 
   const cardStyles = {
