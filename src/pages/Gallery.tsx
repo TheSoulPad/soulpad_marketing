@@ -12,6 +12,7 @@ import CustomMediaPlayer from "../Components/CustomMediaPlayer";
 import CustomList from "../Components/CustomList";
 import useMediaQuery from "@mui/material/useMediaQuery";
 import Typography from "@mui/material/Typography";
+import theme from "../theme";
 
 const strings = Strings.galleryPage;
 const headStrings = Strings.metaData.gallery;
@@ -47,24 +48,7 @@ const aboutSoulExchange = {
 const Gallery: React.FC = () => {
   const isMobile = useMediaQuery(isMobileWidth);
   const [themeType, setThemeType] = useState("SOULPAD");
-  const useThemeStyles = (themeType: string) => {
-    switch (themeType) {
-      case "SOULPAD":
-        setThemeType("SOULPAD");
-        break;
-      case "DIARY":
-        setThemeType("DIARY");
-        break;
-      case "RETRO":
-        setThemeType("RETRO");
-        break;
-      case "VIDEOGAME":
-        setThemeType("VIDEOGAME");
-        break;
-      default:
-        console.log("Default");
-    }
-  };
+  // Directly use setThemeType for theme switching
 
   const menuItems = [
     {
@@ -83,6 +67,10 @@ const Gallery: React.FC = () => {
     {
       galleryName: "Video game",
       themeType: "VIDEOGAME",
+    },
+    {
+      galleryName: "Dreamy",
+      themeType: "DREAMY",
     },
   ];
 
@@ -117,6 +105,13 @@ const Gallery: React.FC = () => {
     },
     { type: "custom", label: "Custom 2", textColor: "#ffffff", bgColor: "red" },
   ];
+
+  const isWhiteText = () => {
+    if (themeType === "VIDEOGAME") {
+      return true;
+    }
+    return false;
+  };
 
   return (
     <BaseLayout>
@@ -164,13 +159,21 @@ const Gallery: React.FC = () => {
             size="large"
             themeType={themeType}
           >
-            <Typography variant="body1">{aboutSoulExchange.p01}</Typography>
-            <Typography variant="body1">{aboutSoulExchange.p02}</Typography>
-            <Typography variant="body1">{aboutSoulExchange.p03}</Typography>
+            {Object.values(aboutSoulExchange).map((paragraph, idx) => (
+              <Typography
+                key={idx}
+                sx={{
+                  color: themeType === "VIDEOGAME" ? "#ffffff" : "#000000",
+                }}
+                variant="body1"
+              >
+                {paragraph}
+              </Typography>
+            ))}
           </CustomCard>
           <MenuSelection
             themeType={themeType}
-            onThemeChange={useThemeStyles}
+            onThemeChange={setThemeType}
             horizontal={false}
             title="Select a theme"
             items={menuItems}

@@ -29,6 +29,10 @@ const person9Path = "/images/people_hp/p9.svg";
 const person10Path = "/images/people_hp/p10.svg";
 const person11Path = "/images/people_hp/p11.svg";
 const person13Path = "/images/people_hp/p13.svg";
+const person14Path = "/images/people_hp/p14.svg";
+const person15Path = "/images/people_hp/p15.svg";
+const person16Path = "/images/people_hp/p16.svg";
+const person17Path = "/images/people_hp/p17.svg";
 
 const AboutPage = () => {
   const isMobile = useMediaQuery(isMobileWidth);
@@ -37,13 +41,13 @@ const AboutPage = () => {
     "(min-width: 759px)" + " and (max-width: 1024px)",
   );
   const isMobileContentWidth = "310px";
-  const finalContentWidth = isMobile ? isMobileContentWidth : "600px";
+  const finalContentWidth = isMobile ? isMobileContentWidth : "700px";
 
   const containerStyles = {
     color: "#232129",
     padding: `${isMobile ? spacing.sm : 0}em`,
     width: "100%",
-    maxWidth: isMobile ? MAX_MOBILE_WIDTH : "1200px",
+    maxWidth: isMobile ? MAX_MOBILE_WIDTH : "1250px",
     margin: isMobile ? "1rem" : "auto",
   };
 
@@ -123,6 +127,22 @@ const AboutPage = () => {
               minHeight: "286px",
             }}
           />
+
+          <Box
+            className="col--img img5"
+            sx={{
+              backgroundImage: `url(${person14Path})`,
+              minHeight: "286px",
+            }}
+          />
+
+          <Box
+            className="col--img img6"
+            sx={{
+              backgroundImage: `url(${person16Path})`,
+              minHeight: "286px",
+            }}
+          />
         </Grid>
 
         {/******  CONTENT *****/}
@@ -183,7 +203,7 @@ const AboutPage = () => {
           }}
         >
           <Box
-            className="col--img col--img img5"
+            className="col--img img5"
             sx={{
               backgroundImage: `url(${person7Path})`,
               minHeight: "235px",
@@ -209,6 +229,22 @@ const AboutPage = () => {
             sx={{
               backgroundImage: `url(${person13Path})`,
               minHeight: "290px",
+            }}
+          ></Box>
+          <Box
+            className="col--img img9"
+            sx={{
+              backgroundImage: `url(${person15Path})`,
+              minHeight: "290px",
+            }}
+          ></Box>
+
+          <Box
+            className="col--img img10"
+            sx={{
+              backgroundImage: `url(${person17Path})`,
+              minHeight: "290px",
+              marginLeft: spacing.xs + "rem",
             }}
           ></Box>
         </Grid>

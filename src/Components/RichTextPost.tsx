@@ -4,7 +4,7 @@ import { spacing, isMobileWidth, MAX_MOBILE_WIDTH } from "../styles";
 import styled from "styled-components";
 import useMediaQuery from "@mui/material/useMediaQuery";
 import Typography from "@mui/material/Typography";
-import { about } from "../styles/about/comps";
+import aboutTheme from "../styles/aboutTheme/comps";
 import { useTheme } from "../hooks/useTheme";
 import { RichTextType, PaperType, MenuType, CardType } from "./types";
 
@@ -25,38 +25,22 @@ const RichTextPost: React.FC<RichTextPostProps> = ({
   children,
   size,
 }) => {
+  const themeInfoStyles = useTheme(themeType);
   const [compTheme, setCompTheme] = useState<RichTextType | MenuType>(
-    about.richTextPost,
+    themeInfoStyles.RichTextPost || aboutTheme.RichTextPost,
   );
-  const [card, setCardTheme] = useState<CardType>(about.card);
-  const [paper, setPaperTheme] = useState<PaperType>(about.paper);
-
-  const setDefault = () => {
-    setCompTheme(about.richTextPost);
-    setCardTheme(about.card);
-    setPaperTheme(about.paper);
-  };
-
-  const getAndSetComp = () => {
-    const themeInfoStyles = useTheme(themeType);
-
-    if (themeInfoStyles) {
-      const paperStyles = themeInfoStyles.paper;
-      const cardStyles = themeInfoStyles.card;
-      const compStyles = themeInfoStyles.richText;
-
-      setCardTheme(cardStyles);
-      setCompTheme(compStyles);
-      setPaperTheme(paperStyles);
-
-      return;
-    }
-    setDefault();
-  };
+  const [card, setCardTheme] = useState<CardType>(
+    themeInfoStyles.Card || aboutTheme.Card,
+  );
+  const [paper, setPaperTheme] = useState<PaperType>(
+    themeInfoStyles.Paper || aboutTheme.Paper,
+  );
 
   useEffect(() => {
-    getAndSetComp();
-  }, [themeType]);
+    setCompTheme(themeInfoStyles.RichTextPost || aboutTheme.RichTextPost);
+    setCardTheme(themeInfoStyles.Card || aboutTheme.Card);
+    setPaperTheme(themeInfoStyles.Paper || aboutTheme.Paper);
+  }, [themeInfoStyles, themeType]);
 
   const { content, header } = compTheme;
 

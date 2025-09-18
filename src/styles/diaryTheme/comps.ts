@@ -1,7 +1,5 @@
 import { colors as c } from "./colors";
 import { spacing as s } from "../spacing";
-import { headerText as h } from "./fonts";
-import { bodyText as b } from "./fonts";
 import {
   PaperType,
   CardType,
@@ -10,12 +8,26 @@ import {
   ButtonType,
 } from "../../Components/types";
 
+export const headerText = {
+  fontFamily: `Gaegu, serif`,
+  textAlign: "left",
+  color: c.text01, //softwhite
+  fontSize: "2rem",
+};
+
+export const bodyText = {
+  fontFamily: `Gaegu, serif`,
+  textAlign: "left",
+  color: c.text02, //purple
+  fontSize: "1.25rem",
+};
+
 const purpleShadow = `1px 1px 1px ${c.text02}`;
 const pinkShadow = `1px 1px 1px ${c.text03}`;
 const whiteShadow = `1px 1px 1px ${c.text01}`;
 const borderRadius = `${s.xs * 0.5}rem`;
 const allButtons = {
-  ...h,
+  ...bodyText,
   borderRadius,
   width: "100%",
   textAlign: "center",
@@ -35,7 +47,7 @@ const secondaryButton = {
 };
 
 const content = {
-  ...b,
+  ...bodyText,
   backgroundColor: c.mainBg00,
   border: `1px solid ${c.contentBorder}`,
   borderRadius,
@@ -44,7 +56,7 @@ const content = {
 };
 
 const header = {
-  ...h,
+  ...headerText,
   borderRadius,
   display: "flex",
   justifyContent: "space-between",
@@ -52,20 +64,9 @@ const header = {
   textAlign: "left",
 };
 
-const icons = {
-  backgroundColor: c.mainBg01,
-  color: c.icon,
-  borderRadius: `${s.xs * 0.5}rem`,
-};
-
 const purpleHeader = {
   ...header,
   backgroundColor: c.headerBg02,
-};
-
-const pinkHeader = {
-  ...header,
-  backgroundColor: c.headerBg00,
 };
 
 const card: CardType = {
@@ -75,7 +76,7 @@ const card: CardType = {
 };
 
 const paper: PaperType = {
-  ...h,
+  ...bodyText,
   borderRadius,
   boxShadow: "",
   backgroundColor: "",
@@ -122,7 +123,7 @@ const menuSelection: MenuType = {
     },
 
     text: {
-      ...h,
+      ...headerText,
       textShadow: purpleShadow,
       margin: 0,
       textAlign: "center",
@@ -131,7 +132,7 @@ const menuSelection: MenuType = {
 
   text: {
     list: {
-      ...h,
+      ...bodyText,
       textAlign: "center",
       color: c.text02,
       textShadow: whiteShadow,
@@ -159,7 +160,7 @@ const richTextPost: RichTextType = {
   header: {
     styles: purpleHeader,
     text: {
-      ...h,
+      ...headerText,
       textShadow: purpleShadow,
     },
   },
@@ -183,31 +184,24 @@ const buttons: ButtonType = {
   custom: allButtons,
 };
 
-export const diary = {
-  ID: 1,
-  themeID: "DIARY",
-  buttons,
-  card,
-  customCard,
-  content,
-  hover: c.mainBg03,
-  icons: {
-    iconClose: icons,
-    primary: icons,
-    secondary: icons,
-  },
-  listBox: {
+const diaryTheme = {
+  Button: buttons,
+  Card: card,
+  CustomCard: customCard,
+  Content: content,
+  Hover: c.mainBg03,
+  ListBox: {
     ...content,
-    ...h,
+    ...bodyText,
     display: "block",
     border: "unset",
     backgroundColor: c.mainBg03,
     textShadow: purpleShadow,
   },
-  menuSelection,
-  paper,
-  poll: {},
-  progressBar: {},
-  richTextPost,
-  wordSticker: {},
+  MenuSelection: menuSelection,
+  Paper: paper,
+  RichTextPost: richTextPost,
+  ThemeID: "DIARY",
 };
+
+export default diaryTheme;

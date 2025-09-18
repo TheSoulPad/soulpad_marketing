@@ -4,7 +4,7 @@ import List from "@mui/material/List";
 import Box from "@mui/material/Box";
 import ListItem from "@mui/material/ListItem";
 import Typography from "@mui/material/Typography";
-import { about } from "../styles/about/comps";
+import aboutTheme from "../styles/aboutTheme/comps";
 import { SxProps, Theme } from "@mui/system";
 import { useTheme } from "../hooks/useTheme";
 import { MenuType, CardType, PaperType } from "./types";
@@ -33,39 +33,25 @@ const MenuSelection: React.FC<MenuSelectionProps> = ({
   onThemeChange,
 }) => {
   const isMobile = useMediaQuery(isMobileWidth);
-  const [compTheme, setCompTheme] = useState<MenuType>(about.menuSelection);
-  const [card, setCardTheme] = useState<CardType>(about.card);
-  const [paper, setPaperTheme] = useState<PaperType>(about.paper);
-
-  const setDefault = () => {
-    setCompTheme(about.menuSelection);
-    setCardTheme(about.card);
-    setPaperTheme(about.paper);
-  };
-
-  const getAndSetComp = () => {
-    const themeInfoStyles = useTheme(themeType);
-
-    if (themeInfoStyles) {
-      const paperStyles = themeInfoStyles.paper;
-      const cardStyles = themeInfoStyles.card;
-      const compStyles = themeInfoStyles.menu;
-
-      setCompTheme(compStyles);
-      setCardTheme(cardStyles);
-      setPaperTheme(paperStyles);
-    } else {
-      setDefault();
-    }
-  };
+  const themeInfoStyles = useTheme(themeType);
+  const [compTheme, setCompTheme] = useState<MenuType>(
+    themeInfoStyles.MenuSelection || aboutTheme.MenuSelection,
+  );
+  const [card, setCardTheme] = useState<CardType>(
+    themeInfoStyles.Card || aboutTheme.Card,
+  );
+  const [paper, setPaperTheme] = useState<PaperType>(
+    themeInfoStyles.Paper || aboutTheme.Paper,
+  );
 
   useEffect(() => {
-    getAndSetComp();
-  }, [themeType]);
+    setCompTheme(themeInfoStyles.MenuSelection || aboutTheme.MenuSelection);
+    setCardTheme(themeInfoStyles.Card || aboutTheme.Card);
+    setPaperTheme(themeInfoStyles.Paper || aboutTheme.Paper);
+  }, [themeInfoStyles, themeType]);
 
   const { header, text, content } = compTheme;
-  //fix how you tag the active state styles
-  //make the list styles describe only the DEFAULT list styles
+
   const listStyles = {
     display: `${horizontal ? "flex" : "block"}`,
     justifyContent: "center",

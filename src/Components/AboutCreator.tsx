@@ -9,7 +9,7 @@ import {
   istabletAndGreaterWidth,
 } from "../styles";
 
-const PHOTO_URL = "https://avatars.githubusercontent.com/u/27731576?v=4";
+const PHOTO_URL = "https://lh3.googleusercontent.com/a/ACg8ocJ8CZr_VZ3CU_OHvG85ccqMz645LH8WuA3YnxQmyckQjtQU7p3X=s96-c";
 
 import { CSSProperties } from "react";
 

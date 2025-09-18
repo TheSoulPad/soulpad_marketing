@@ -105,6 +105,9 @@ export interface PaperType {
   borderBottom?: string;
   marginBottom?: string;
   marginTop?: string;
+  height?: string;
+  maxWidth?: string;
+  width?: string;
 }
 
 export interface ButtonType {
