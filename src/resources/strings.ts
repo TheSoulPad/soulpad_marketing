@@ -23,7 +23,7 @@ export const Strings = {
       point2: {
         highlight: "1. The Feed vs. Real Profiles",
         p: `When was the last time you explored a friend’s profile for more than a few minutes? Chances are, not often. That’s because most profiles look the same — plain, predictable, and, if we're being honest, somewhat boring.`,
-        p1: `Instead, we find ourselves lost in an endless stream of videos, ads, and sponsored posts. Apps are designed this way to keep us scrolling! TikTok even figured out it takes about 250 videos to get someone hooked. That’s why most of our energy goes into consuming content from strangers instead of appreciating and participating in the lives of the people we actually know.`,
+        p1: `Instead, we find ourselves lost in an endless stream of videos, ads, and sponsored posts. These apps are designed this way to keep us scrolling! TikTok even figured out it takes about 250 videos to get someone hooked. That’s why most of our energy goes into consuming content from strangers instead of appreciating and participating in the lives of the people we actually know.`,
       },
       point3: {
         highlight: "2. The Numbers Game",
@@ -35,7 +35,7 @@ export const Strings = {
         highlight: "3. No Room for Creativity",
         p: `Here’s the biggest missed opportunity: freedom.`,
         p1: `Most platforms give us cookie-cutter profiles with little to no room for creativity. That might have worked years ago, but now, people crave individuality. We’re not just “users” — we’re people with hobbies, talents, passions, and unique personalities. We are more than content for social media feeds. Our souls are akin to universes, expanding and changing.`,
-        p2: `So why shouldn’t our profiles reflect that? Imagine if we could design our profiles exactly how we wanted, with our own colors, fonts, assets, and layout. Imagine owning a space on the internet that truly reflects who we are vs another template everyone uses.`,
+        p2: `So why shouldn’t our profiles reflect that? Imagine if we could design our profiles exactly how we wanted, with our own colors, fonts, assets, and layout. Imagine owning a space on the internet that truly reflects who we are vs. another template everyone uses.`,
       },
       point5: {
         highlight: "Enter SoulPad",
