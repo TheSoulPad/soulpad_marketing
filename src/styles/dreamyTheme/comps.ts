@@ -1,5 +1,13 @@
 import { colors as c } from "./colors";
 import { spacing as s } from "../spacing";
+import {
+  PaperType,
+  CardType,
+  MenuType,
+  RichTextType,
+  ButtonType,
+} from "../../Components/types";
+
 export const headerText = {
   fontFamily: `Gaegu, serif`,
   textAlign: "left",
@@ -13,13 +21,6 @@ export const bodyText = {
   color: c.text02,
   fontSize: "1.25rem",
 };
-import {
-  PaperType,
-  CardType,
-  MenuType,
-  RichTextType,
-  ButtonType,
-} from "../../Components/types";
 
 const borderRadius = `50px`;
 const softShadow = `1px 1px 1px ${c.text02}`;

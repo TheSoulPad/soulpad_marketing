@@ -21,7 +21,7 @@ export const bodyText = {
   fontFamily: `Quantico, sans-serif`,
   textAlign: "left",
   fontWeight: "300",
-  color: `${c.text01} !important`,
+  color: `${c.text01}`,
   fontSize: "1.25rem",
 };
 

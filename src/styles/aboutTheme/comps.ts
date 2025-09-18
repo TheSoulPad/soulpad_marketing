@@ -7,7 +7,7 @@ const titleText = {
 };
 
 const bodyText = {
-  fontfamily: "Roboto, sans-serif",
+  fontFamily: "Roboto, sans-serif",
   color: c.text00,
 };
 
