@@ -12,7 +12,7 @@ import CustomMediaPlayer from "../Components/CustomMediaPlayer";
 import CustomList from "../Components/CustomList";
 import useMediaQuery from "@mui/material/useMediaQuery";
 import Typography from "@mui/material/Typography";
-import theme from "../theme";
+import ProfileSection from "../Components/ProfileSection";
 
 const strings = Strings.galleryPage;
 const headStrings = Strings.metaData.gallery;
@@ -177,6 +177,20 @@ const Gallery: React.FC = () => {
             horizontal={false}
             title="Select a theme"
             items={menuItems}
+          />
+        </Grid>
+        <Grid display="flex" justifyContent="center" mt={4}>
+          <ProfileSection
+            name="Kala S."
+            profilePicture="/path/to/image.jpg"
+            bio="Writer and dev."
+            age={28}
+            starSign="Aries"
+            personalityType="INFP"
+            location="San Diego, CA"
+            likes={["Gaming", "Music", "Festivals"]}
+            dislikes={["Telephone ring", "Bad vibes", "rude people"]}
+            themeType={themeType}
           />
         </Grid>
 
