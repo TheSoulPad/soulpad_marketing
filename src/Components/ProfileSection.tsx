@@ -57,7 +57,7 @@ const ProfileSection: React.FC<ProfileSectionProps> = ({
     themeInfoStyles.Paper || aboutTheme.Paper,
   );
 
-  const maxWidth = isMobile ? "100%" : 900;
+  const maxWidth = isMobile ? "100%" : 920;
   const minHeight = isMobile ? "100%" : 500;
 
   // Update theme styles when themeType changes, just like in CustomCard
@@ -72,16 +72,15 @@ const ProfileSection: React.FC<ProfileSectionProps> = ({
         ...paperTheme,
         width: "100%",
         maxWidth,
-        minHeight,
       },
       container: {
         ...cardTheme,
         display: "flex",
         width: "100%",
         maxWidth,
+        backgroundColor: "transparent",
 
         flexDirection: isMobile ? "column" : "row",
-        rowGap: 5,
         padding: isMobile ? 2 : 3,
       },
       leftCol: {
@@ -96,7 +95,7 @@ const ProfileSection: React.FC<ProfileSectionProps> = ({
         flex: 1,
         display: "flex",
         flexDirection: "column",
-        justifyContent: "space-between",
+        justifyContent: "space-around",
       },
       bioRow: {
         display: "flex",
@@ -135,29 +134,35 @@ const ProfileSection: React.FC<ProfileSectionProps> = ({
       <Box sx={styles.rightCol} className="right-column">
         {/* Top Row: Bio */}
         <Box
+          className="bio-row"
           sx={{
             maxWidth: "600px",
             width: "100%",
             display: "flex",
-            justifyContent: "center",
+            justifyContent: "start",
           }}
         >
-          <CustomCard title="About Me" themeType={themeType} size="small">
-            <Typography variant="body1" sx={styles.infoItem}>
-              <strong>Bio:</strong> {bio}
-            </Typography>
-            <Typography variant="body2" sx={styles.infoItem}>
-              <strong>Age:</strong> {age}
-            </Typography>
-            <Typography variant="body2" sx={styles.infoItem}>
-              <strong>Star Sign:</strong> {starSign}
-            </Typography>
-            <Typography variant="body2">
-              <strong>Personality:</strong> {personalityType}
-            </Typography>
-            <Typography variant="body2" sx={styles.infoItem}>
-              <strong>Location:</strong> {location}
-            </Typography>
+          <CustomCard title="About Me" themeType={themeType} size="large">
+            <ul
+              className="bio-list"
+              style={{ padding: "8px", width: "100%", listStyleType: "none" }}
+            >
+              <li>
+                <strong>Name:</strong> {name}
+              </li>
+              <li>
+                <strong>Age:</strong> {age}
+              </li>
+              <li>
+                <strong>Star Sign:</strong> {starSign}
+              </li>
+              <li>
+                <strong>Personality:</strong> {personalityType}
+              </li>
+              <li>
+                <strong>Location:</strong> {location}
+              </li>
+            </ul>
           </CustomCard>
         </Box>
 
@@ -168,12 +173,12 @@ const ProfileSection: React.FC<ProfileSectionProps> = ({
             sx={{
               maxWidth: isMobile ? "100%" : 280,
               width: "100%",
+              paddingLeft: "1rem",
             }}
           >
             <CustomCard title="Likes" themeType={themeType} size="small">
               <ul
                 style={{
-                  padding: 0,
                   width: "100%",
                 }}
               >
@@ -196,7 +201,6 @@ const ProfileSection: React.FC<ProfileSectionProps> = ({
             <CustomCard title="Dislikes" themeType={themeType} size="small">
               <ul
                 style={{
-                  padding: 0,
                   width: "100%",
                 }}
               >

@@ -188,8 +188,14 @@ const Gallery: React.FC = () => {
             starSign="Aries"
             personalityType="INFP"
             location="San Diego, CA"
-            likes={["Gaming", "Music", "Festivals"]}
-            dislikes={["Telephone ring", "Bad vibes", "rude people"]}
+            likes={["Gaming", "Music", "Festivals", "Bali", "Dancing"]}
+            dislikes={[
+              "Telephone ring",
+              "Bad vibes",
+              "rude people",
+              "waiting",
+              "mean people",
+            ]}
             themeType={themeType}
           />
         </Grid>
