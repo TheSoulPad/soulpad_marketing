@@ -13,7 +13,7 @@ import { isMobileWidth, MAX_MOBILE_WIDTH } from "../styles";
 interface CardProps {
   children?: React.ReactNode;
   imageUrl?: string;
-  size: "small" | "large";
+  size: "small" | "large" | "xSmall" | "xLarge";
   text?: string;
   title: string;
   themeType: string;
@@ -46,6 +46,11 @@ const CustomCard: React.FC<CardProps> = ({
     setPaperTheme(themeInfoStyles.Paper || aboutTheme.Paper);
   }, [themeInfoStyles, themeType]);
 
+  const extraSmallSize = {
+    maxWidth: isMobile ? MAX_MOBILE_WIDTH : "281px",
+    maxHeight: "1000px",
+  };
+
   const smallSize = {
     maxWidth: isMobile ? MAX_MOBILE_WIDTH : "415px",
     maxHeight: "1000px",
@@ -56,7 +61,28 @@ const CustomCard: React.FC<CardProps> = ({
     minHeight: "200px",
   };
 
-  const cardSize = size === "small" ? smallSize : largeSize;
+  const xLargeSize = {
+    maxWidth: isMobile ? MAX_MOBILE_WIDTH : "100%",
+  };
+
+  let cardSize;
+
+  switch (size) {
+    case "small":
+      cardSize = smallSize;
+      break;
+    case "large":
+      cardSize = largeSize;
+      break;
+    case "xSmall":
+      cardSize = extraSmallSize;
+      break;
+    case "xLarge":
+      cardSize = xLargeSize;
+      break;
+    default:
+      cardSize = largeSize;
+  }
 
   const titleStyles = customCard.header.styles;
 

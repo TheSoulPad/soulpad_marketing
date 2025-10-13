@@ -37,7 +37,7 @@ const getBorder = (
     borderTop: `2px ${opt} ${color}`,
     borderLeft: `2px ${opt2} ${color2}`,
     borderRight: `2px ${opt3} ${color3}`,
-    borderBottom: `2px ${opt4} ${color4}`,
+    borderBottom: `1.5px ${opt4} ${color4}`,
     borderRadius: "0px",
   };
   return borderStyles;

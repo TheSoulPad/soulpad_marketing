@@ -113,6 +113,22 @@ const Gallery: React.FC = () => {
     return false;
   };
 
+  type FavoriteThings = {
+    food: string;
+    music: string;
+    country: string;
+    animal: string;
+    place: string;
+  };
+
+  const favoriteThings: FavoriteThings = {
+    food: "Tacos",
+    music: "EDM",
+    country: "Bali",
+    animal: "Cats",
+    place: "Beach",
+  };
+
   return (
     <BaseLayout>
       <Typography
@@ -138,7 +154,7 @@ const Gallery: React.FC = () => {
         justifyContent={"center"}
         sx={{
           minWidth: isMobile ? "335px" : "1200px",
-          margin: isMobile ? "16px auto" : "initial",
+          // margin: isMobile ? "16px auto" : "0",
           minHeight: "1400px",
           marginBottom: spacing.md + "rem",
         }}
@@ -196,6 +212,7 @@ const Gallery: React.FC = () => {
               "waiting",
               "mean people",
             ]}
+            favoriteThings={favoriteThings}
             themeType={themeType}
           />
         </Grid>
@@ -252,30 +269,6 @@ const Gallery: React.FC = () => {
             textLocation="top"
             videoType="mp4"
             videoUrl="https://www.quickpickdeal.com/videos/sample-mp4-video.mp4"
-          />
-          <CustomCard
-            size="small"
-            title="Custom Card"
-            themeType={themeType}
-            renderItem={
-              <span className="loren">
-                Welcome to SoulPad! I hope you enjoy your stay. This is a test
-                of the post component. Lorem ipsum dolor sit amet, consectetur
-                adipiscing elit. Sed do eiusmod tempor incididunt ut labore et
-                dolore magna aliqua. Welcome to SoulPad! I hope you enjoy your
-                stay. This is a test of the post component. Lorem ipsum dolor
-                sit amet, consectetur adipiscing elit. Sed do eiusmod tempor
-                incididunt ut labore et dolore magna aliqua. Welcome to SoulPad!
-                I hope you enjoy your stay. This is a test of the post
-                component. Lorem ipsum dolor sit amet, consectetur
-              </span>
-            }
-          />
-          <CustomList
-            items={listItems}
-            themeType={themeType}
-            size="small"
-            title="Custom List"
           />
         </Grid>
       </Grid>

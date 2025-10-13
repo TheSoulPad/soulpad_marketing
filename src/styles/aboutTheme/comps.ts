@@ -1,5 +1,6 @@
 import { colors as c } from "./colors";
 import { spacing as s } from "../spacing";
+import { text } from "stream/consumers";
 
 const titleText = {
   fontFamily: "Galindo, sans-serif",
@@ -14,17 +15,18 @@ const bodyText = {
 // Common style fragments
 const borderRadiusSm = `${s.sm}rem`;
 const darkBrownShadow = `7px 6px 0px 0px ${c.darkBrown}`;
-const redOrangeShadow = `7px 6px 1px ${c.redOrange}`;
+const redOrangeShadow = `5px 8px 0px 0px ${c.redOrange}`;
 const yellowShadow = `7px 6px 0px 0px ${c.yellow}`;
 
 const baseButton = {
   ...titleText,
   boxShadow: darkBrownShadow,
   borderRadius: borderRadiusSm,
-  fontSize: "1.25rem",
-  padding: `${s.xs * 0.5}rem`,
+  fontSize: "1rem",
   textAlign: "center",
   width: "100%",
+  padding: `${s.xs}rem`,
+  textTransform: "lowercase",
 };
 
 const baseContent = {
@@ -50,12 +52,6 @@ const baseHeaderText = {
   ...titleText,
   margin: "0",
   color: c.text01,
-};
-
-const baseIconsClass = {
-  color: c.text00,
-  fontSize: "1.25rem",
-  borderRadius: borderRadiusSm,
 };
 
 const aboutTheme = {
@@ -138,10 +134,11 @@ const aboutTheme = {
         backgroundColor: "transparent",
         borderRadius: borderRadiusSm,
         color: c.text00,
-        fontSize: "1.25rem",
+        fontSize: "1rem",
         padding: `${s.xs * 0.5}rem`,
         textAlign: "center",
         width: "100%",
+        textTransform: "lowercase",
         "&:hover": {
           backgroundColor: c.buttonPrimary,
           boxShadow: darkBrownShadow,
@@ -154,7 +151,7 @@ const aboutTheme = {
     borderRadius: borderRadiusSm,
     display: "block",
     padding: "unset",
-    boxShadow: `10px 10px 0px 0px ${c.paperShadow}`,
+    boxShadow: `7px 8px 0px 0px ${c.paperShadow}`,
     backgroundColor: c.mainBg00,
   },
   RichTextPost: {
