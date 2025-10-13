@@ -1,4 +1,4 @@
-export const MAX_MOBILE_WIDTH = "335px";
+export const MAX_MOBILE_WIDTH = "90%";
 export const isMobileWidth = "(max-width:600px)";
 export const istabletAndGreaterWidth = "(min-width:757px)";
 

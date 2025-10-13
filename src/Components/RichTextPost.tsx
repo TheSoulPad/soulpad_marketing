@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Box, Paper, SxProps, Theme } from "@mui/material";
 import { spacing, isMobileWidth, MAX_MOBILE_WIDTH } from "../styles";
-import styled from "styled-components";
 import useMediaQuery from "@mui/material/useMediaQuery";
 import Typography from "@mui/material/Typography";
 import aboutTheme from "../styles/aboutTheme/comps";

@@ -94,7 +94,6 @@ const CustomCard: React.FC<CardProps> = ({
 
   const cardStyles = {
     ...card,
-    ...cardSize,
   };
 
   const contentStyles = {

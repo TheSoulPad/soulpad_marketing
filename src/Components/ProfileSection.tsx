@@ -3,12 +3,7 @@ import { useTheme } from "../hooks/useTheme";
 import {
   Box,
   Typography,
-  Avatar,
   useMediaQuery,
-  Theme,
-  Link,
-  Card,
-  Paper,
   IconButton,
   Modal,
   Fade,
@@ -18,8 +13,6 @@ import CloseIcon from "@mui/icons-material/Close";
 import aboutTheme from "../styles/aboutTheme/comps";
 import { isMobileWidth } from "../styles";
 import CustomCard from "./CustomCard";
-import PhotoUpload from "./PhotoUpload";
-import { RichTextType } from "./types";
 
 interface ProfileSectionProps {
   name: string;
@@ -43,8 +36,6 @@ interface ProfileSectionProps {
 
 const ProfileSection: React.FC<ProfileSectionProps> = ({
   name,
-  profilePicture,
-  bio,
   age,
   starSign,
   personalityType,
@@ -64,9 +55,6 @@ const ProfileSection: React.FC<ProfileSectionProps> = ({
   const { food, music, country, animal, place } = favoriteThings;
   const isMobile = useMediaQuery(isMobileWidth);
   const [styles, setStyles] = useState<Record<string, React.CSSProperties>>({});
-  // const [uploadedPhotos, setUploadedPhotos] = useState<File[]>([]);
-  // const [photoUrls, setPhotoUrls] = useState<string[]>([]);
-  // const [photoPublicIds, setPhotoPublicIds] = useState<string[]>([]);
 
   const [modalOpen, setModalOpen] = useState<boolean>(false);
   const [selectedPhoto, setSelectedPhoto] = useState<string>("");
@@ -172,15 +160,18 @@ const ProfileSection: React.FC<ProfileSectionProps> = ({
         maxWidth,
         backgroundColor: "transparent",
         flexDirection: isMobile ? "column" : "row",
-        padding: isMobile ? 2 : 3,
+        padding: isMobile ? 1 : 3,
         columnGap: isMobile ? 0 : 1,
+        rowGap: isMobile ? "12px" : 0,
         flexWrap: "wrap",
+        alignItems: isMobile ? "center" : "center",
       },
       leftCol: {
         width: "100%",
-        display: "block",
+        display: "flex",
+        justifyContent: isMobile ? "center" : "flex-start",
         maxWidth: isMobile ? "100%" : 300,
-        padding: isMobile ? "16px" : "0spx",
+        padding: isMobile ? "8px 0" : "0px",
         borderRadius: "8px",
       },
       rightCol: {
@@ -189,17 +180,24 @@ const ProfileSection: React.FC<ProfileSectionProps> = ({
         display: "flex",
         flexDirection: "column",
         justifyContent: "center",
+        alignItems: isMobile ? "center" : "unset",
       },
       bioRow: {
+        width: "100%",
         display: "flex",
-        justifyContent: "space-around",
-        marginBottom: "16px",
+        flexDirection: isMobile ? "column" : "row",
+        alignItems: isMobile ? "center" : "flex-start",
+        justifyContent: isMobile ? "center" : "space-around",
+        marginBottom: isMobile ? "12px" : "16px",
+        rowGap: isMobile ? 2 : 0,
       },
       bottomRow: {
         display: "flex",
         flexDirection: isMobile ? "column" : "row",
+        alignItems: isMobile ? "center" : "flex-start",
         justifyContent: "space-around",
         width: "100%",
+        gap: isMobile ? "12px" : 0,
       },
       listCol: {
         flex: 1,
@@ -319,7 +317,7 @@ const ProfileSection: React.FC<ProfileSectionProps> = ({
         className="photo-gallery-section"
         sx={{
           width: "100%",
-          marginTop: "24px",
+          marginTop: isMobile ? "16px" : "24px",
           display: "flex",
           justifyContent: "center", // Ensure centering of the entire section
         }}

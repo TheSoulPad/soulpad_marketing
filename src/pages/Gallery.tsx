@@ -75,17 +75,10 @@ const Gallery: React.FC = () => {
 
   const mobileGridStyles: CSSProperties = {
     width: "100%",
-    margin: spacing.xs + "rem",
     justifyContent: "center",
-    flexDirection: "column",
+    flexDirection: "column-reverse",
+    alignContent: "center",
   };
-
-  const listItems = [
-    { id: 1, label: "Pizza" },
-    { id: 2, label: "Ice cream" },
-    { id: 3, label: "Peanut butter" },
-    { id: 4, label: "Chocolate" },
-  ];
 
   const buttonTypes: {
     type?: "primary" | "secondary" | "custom";
@@ -187,7 +180,13 @@ const Gallery: React.FC = () => {
             items={menuItems}
           />
         </Grid>
-        <Grid display="flex" justifyContent="center" mt={4}>
+        <Grid
+          className="profile-grid"
+          display="flex"
+          justifyContent="center"
+          mt={isMobile ? 0 : 4}
+          sx={{ width: "100%" }}
+        >
           <ProfileSection
             name="Kala S."
             profilePicture="/path/to/image.jpg"
@@ -225,9 +224,12 @@ const Gallery: React.FC = () => {
               ? mobileGridStyles
               : {
                   display: "flex",
-                  alignItems: "start",
+                  alignItems: "center",
                   margin: "auto",
                   maxWidth: "900px",
+                  width: "100%",
+                  justifyContent: "center",
+                  alignContent: "center",
                 }
           }
         >
