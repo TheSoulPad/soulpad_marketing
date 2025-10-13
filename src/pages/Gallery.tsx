@@ -114,11 +114,11 @@ const Gallery: React.FC = () => {
   };
 
   const favoriteThings: FavoriteThings = {
-    food: "tacos",
+    food: "Tacos",
     music: "EDM",
     country: "Bali",
-    animal: "cats",
-    place: "beaches",
+    animal: "Cats",
+    place: "Beaches",
   };
 
   return (
@@ -192,17 +192,23 @@ const Gallery: React.FC = () => {
             name="Kala S."
             profilePicture="/path/to/image.jpg"
             bio="Writer and dev."
-            age={28}
+            age={"Shhh... it's a secret"}
             starSign="Aries"
             personalityType="INFP"
             location="San Diego, CA"
-            likes={["Gaming", "Music", "Festivals", "Bali", "Dancing"]}
+            likes={[
+              "Video games",
+              "Chess",
+              "Music Festivals",
+              "Adventures hiking",
+              "Dancing",
+            ]}
             dislikes={[
-              "telephone ring",
-              "bad vibes",
-              "rude people",
-              "waiting",
-              "mean people",
+              "Telephone ringing",
+              "Bad vibes",
+              "Rude or mean people",
+              "Waiting",
+              "Long lines",
             ]}
             favoriteThings={favoriteThings}
             themeType={themeType}
@@ -228,19 +234,26 @@ const Gallery: React.FC = () => {
           {/********** RICH TEXT POST **************/}
           <RichTextPost
             size="large"
-            title="Let's talk about life"
+            title="Let's talk about life a little"
             themeType={themeType}
           >
-            <span className="loren">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do
-              eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem
-              ipsum dolor sit amet, consectetur Lorem ipsum dolor sit amet,
-              consectetur Lorem ipsum dolor sit amet, consectetur adipiscing
-              elit. Sed do eiusmod tempor incididunt ut labore et dolore magna
-              aliqua. Welcome to SoulPad! I hope you enjoy your stay. This is a
-              test of the post component. Lorem ipsum dolor sit amet,
-              consectetur
-            </span>
+            <Typography variant="body1" className="about life">
+              Every failure and left-field surprise became part of my training
+              ground. When plans cracked, I didn’t pretend it didn’t hurt—I took
+              a breath, named the lesson, and carried it forward. I learned to
+              fail forward, to treat detours as data, and to keep promises to
+              myself even on the days motivation went missing. Instead of
+              waiting for perfect conditions, I stacked small, unglamorous wins:
+              one email, one draft, one uncomfortable conversation at a time.
+              Life kept moving the goalposts, so I got better at adjusting my
+              stance—less rigid, more resourceful. I chose discipline over
+              drama, progress over perfection, and curiosity over fear. Little
+              by little, the setbacks that once felt like verdicts turned into
+              scaffolding. And with every step, I proved to myself that dreams
+              don’t arrive fully formed—they’re built, patiently, through grit,
+              grace, and the stubborn belief that I can start again and still
+              get there.
+            </Typography>
           </RichTextPost>
           <CustomCard
             size="small"

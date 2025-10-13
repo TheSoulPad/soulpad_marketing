@@ -19,12 +19,13 @@ import aboutTheme from "../styles/aboutTheme/comps";
 import { isMobileWidth } from "../styles";
 import CustomCard from "./CustomCard";
 import PhotoUpload from "./PhotoUpload";
+import { RichTextType } from "./types";
 
 interface ProfileSectionProps {
   name: string;
   profilePicture: string;
   bio: string;
-  age: number;
+  age: string;
   starSign: string;
   personalityType: string;
   location: string;
@@ -53,14 +54,20 @@ const ProfileSection: React.FC<ProfileSectionProps> = ({
   themeType,
   favoriteThings,
 }) => {
-  // Use the themeType parameter with useTheme, just like CustomCard
-  const { food, music, country, animal, place } = favoriteThings;
   const themeInfoStyles = useTheme(themeType);
+  const [profileTheme, setProfileTheme] = useState(
+    themeInfoStyles.CustomCard || aboutTheme.CustomCard,
+  );
+  const [cardTheme, setCardTheme] = useState(
+    themeInfoStyles.Card || aboutTheme.Card,
+  );
+  const { food, music, country, animal, place } = favoriteThings;
   const isMobile = useMediaQuery(isMobileWidth);
   const [styles, setStyles] = useState<Record<string, React.CSSProperties>>({});
   // const [uploadedPhotos, setUploadedPhotos] = useState<File[]>([]);
   // const [photoUrls, setPhotoUrls] = useState<string[]>([]);
   // const [photoPublicIds, setPhotoPublicIds] = useState<string[]>([]);
+
   const [modalOpen, setModalOpen] = useState<boolean>(false);
   const [selectedPhoto, setSelectedPhoto] = useState<string>("");
 
@@ -149,12 +156,6 @@ const ProfileSection: React.FC<ProfileSectionProps> = ({
   const profilePictureUrl =
     "https://res.cloudinary.com/dd4qvmhqx/image/upload/v1760373551/IMG_1823_ukgia6.jpg";
   // Following the CustomCard pattern, create a profile-specific theme state
-  const [profileTheme, setProfileTheme] = useState(
-    themeInfoStyles.CustomCard || aboutTheme.CustomCard,
-  );
-  const [cardTheme, setCardTheme] = useState(
-    themeInfoStyles.Card || aboutTheme.Card,
-  );
 
   const maxWidth = isMobile ? "100%" : 920;
 
@@ -248,8 +249,8 @@ const ProfileSection: React.FC<ProfileSectionProps> = ({
                 { label: "Location", value: location },
               ].map(({ label, value }) => (
                 <li key={label}>
-                  <Typography variant="body2">
-                    <strong>{label}:</strong> {value}
+                  <Typography variant="body2" sx={cardTheme.content}>
+                    {label}: {""} {value}
                   </Typography>
                 </li>
               ))}
@@ -269,8 +270,8 @@ const ProfileSection: React.FC<ProfileSectionProps> = ({
                 { label: "Place", value: place },
               ].map(({ label, value }) => (
                 <li key={label}>
-                  <Typography variant="body2">
-                    <strong>{label}:</strong> {value}
+                  <Typography variant="body2" sx={cardTheme.content}>
+                    {label}: {""} {value}
                   </Typography>
                 </li>
               ))}
@@ -288,7 +289,9 @@ const ProfileSection: React.FC<ProfileSectionProps> = ({
             >
               {likes.map((like, idx) => (
                 <li key={idx}>
-                  <Typography variant="body2">{like}</Typography>
+                  <Typography variant="body2" sx={cardTheme.content}>
+                    {like}
+                  </Typography>
                 </li>
               ))}
             </ul>
@@ -302,7 +305,9 @@ const ProfileSection: React.FC<ProfileSectionProps> = ({
             >
               {dislikes.map((dislike, idx) => (
                 <li color="white" key={idx}>
-                  <Typography variant="body2">{dislike}</Typography>
+                  <Typography sx={cardTheme.content} variant="body2">
+                    {dislike}
+                  </Typography>
                 </li>
               ))}
             </ul>

@@ -154,6 +154,7 @@ const paper: PaperType = {
 const customCard: RichTextType = {
   content: {
     ...defaultContent,
+        backgroundColor: c.contentBg,
   },
   header: {
     styles: {

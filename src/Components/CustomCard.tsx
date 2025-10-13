@@ -120,19 +120,6 @@ const CustomCard: React.FC<CardProps> = ({
         >
           {renderItem || children}
         </Box>
-
-        {/*
-        {imageUrl && (
-          <Box className="card-image">
-            <img src={imageUrl} alt={title} className="card-image" />
-          </Box>
-        )}
-
-        {text && (
-          <Typography variant="h4" className="card-text">
-            {text}
-          </Typography>
-        )} */}
       </Card>
     </Paper>
   );
