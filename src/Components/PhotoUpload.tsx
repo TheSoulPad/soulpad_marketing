@@ -16,7 +16,6 @@ import CloudUploadIcon from "@mui/icons-material/CloudUpload";
 import { useTheme } from "../hooks/useTheme";
 import aboutTheme from "../styles/aboutTheme/comps";
 import { uploadPhotos } from "../services/photoUploadService";
-import { Widgets } from "@mui/icons-material";
 
 interface PhotoUploadProps {
   themeType: string;
@@ -300,12 +299,14 @@ const PhotoUpload: React.FC<PhotoUploadProps> = ({
 
           <Grid container spacing={2}>
             {previews.map((preview, index) => (
-              <Grid key={index} xs={6} sm={4} md={2.4} sx={{ padding: 1 }}>
+              <Grid key={index} sx={{ padding: 1 }}>
                 <Box
                   sx={{
                     position: "relative",
                     borderRadius: "4px",
                     overflow: "hidden",
+                    maxWidth: "300px",
+                    width: "100%",
                   }}
                 >
                   <img

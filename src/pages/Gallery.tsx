@@ -9,7 +9,6 @@ import CustomButton from "../Components/CustomButton";
 import RichTextPost from "../Components/RichTextPost";
 import CustomCard from "../Components/CustomCard";
 import CustomMediaPlayer from "../Components/CustomMediaPlayer";
-import CustomList from "../Components/CustomList";
 import useMediaQuery from "@mui/material/useMediaQuery";
 import Typography from "@mui/material/Typography";
 import ProfileSection from "../Components/ProfileSection";
@@ -106,13 +105,6 @@ const Gallery: React.FC = () => {
     { type: "custom", label: "Custom 2", textColor: "#ffffff", bgColor: "red" },
   ];
 
-  const isWhiteText = () => {
-    if (themeType === "VIDEOGAME") {
-      return true;
-    }
-    return false;
-  };
-
   type FavoriteThings = {
     food: string;
     music: string;
@@ -122,11 +114,11 @@ const Gallery: React.FC = () => {
   };
 
   const favoriteThings: FavoriteThings = {
-    food: "Tacos",
+    food: "tacos",
     music: "EDM",
     country: "Bali",
-    animal: "Cats",
-    place: "Beach",
+    animal: "cats",
+    place: "beaches",
   };
 
   return (
@@ -206,8 +198,8 @@ const Gallery: React.FC = () => {
             location="San Diego, CA"
             likes={["Gaming", "Music", "Festivals", "Bali", "Dancing"]}
             dislikes={[
-              "Telephone ring",
-              "Bad vibes",
+              "telephone ring",
+              "bad vibes",
               "rude people",
               "waiting",
               "mean people",
@@ -234,7 +226,11 @@ const Gallery: React.FC = () => {
           }
         >
           {/********** RICH TEXT POST **************/}
-          <RichTextPost size="large" title="Custom Post" themeType={themeType}>
+          <RichTextPost
+            size="large"
+            title="Let's talk about life"
+            themeType={themeType}
+          >
             <span className="loren">
               Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do
               eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem
@@ -248,7 +244,7 @@ const Gallery: React.FC = () => {
           </RichTextPost>
           <CustomCard
             size="small"
-            title="Custom Card"
+            title="Buttons"
             themeType={themeType}
             renderItem={buttonTypes.map((item, index) => (
               <CustomButton
@@ -265,7 +261,7 @@ const Gallery: React.FC = () => {
           <CustomMediaPlayer
             themeType={themeType}
             size="small"
-            title="Custom Media Player"
+            title="Media Player"
             textLocation="top"
             videoType="mp4"
             videoUrl="https://www.quickpickdeal.com/videos/sample-mp4-video.mp4"
