@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Box, Paper, SxProps, Theme } from "@mui/material";
-import { spacing, isMobileWidth } from "../styles";
+import { spacing, isMobileWidth, MAX_MOBILE_WIDTH } from "../styles";
 import useMediaQuery from "@mui/material/useMediaQuery";
 import Typography from "@mui/material/Typography";
 import aboutTheme from "../styles/aboutTheme/comps";
@@ -24,7 +24,6 @@ const RichTextPost: React.FC<RichTextPostProps> = ({
   children,
   size,
 }) => {
-  const MAX_MOBILE_WIDTH = "90%";
   const themeInfoStyles = useTheme(themeType);
   const [compTheme, setCompTheme] = useState<RichTextType | MenuType>(
     themeInfoStyles.RichTextPost || aboutTheme.RichTextPost,

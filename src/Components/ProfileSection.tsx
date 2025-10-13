@@ -13,7 +13,6 @@ import CloseIcon from "@mui/icons-material/Close";
 import aboutTheme from "../styles/aboutTheme/comps";
 import { isMobileWidth } from "../styles";
 import CustomCard from "./CustomCard";
-import { spacing } from "../styles/spacing";
 
 interface ProfileSectionProps {
   name: string;

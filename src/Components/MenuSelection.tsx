@@ -10,6 +10,7 @@ import { useTheme } from "../hooks/useTheme";
 import { MenuType, CardType, PaperType } from "./types";
 import useMediaQuery from "@mui/material/useMediaQuery";
 import { isMobileWidth } from "../styles";
+import { MAX_MOBILE_WIDTH } from "../styles";
 
 //this a temporary interface
 interface MenuItem {
@@ -70,7 +71,7 @@ const MenuSelection: React.FC<MenuSelectionProps> = ({
     ...paper,
     maxWidth: horizontal ? (isMobile ? "90%" : "600px") : "600px",
     height: "100%",
-    width: isMobile ? "90%" : "35%",
+    width: isMobile ? MAX_MOBILE_WIDTH : "35%",
   };
 
   return (

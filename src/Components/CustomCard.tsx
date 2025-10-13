@@ -7,7 +7,7 @@ import { useTheme } from "../hooks/useTheme";
 import { RichTextType, PaperType, CardType } from "./types";
 import aboutTheme from "../styles/aboutTheme/comps";
 import useMediaQuery from "@mui/material/useMediaQuery";
-import { isMobileWidth } from "../styles";
+import { isMobileWidth, MAX_MOBILE_WIDTH } from "../styles";
 
 //hardcode thes styles for now
 interface CardProps {
@@ -45,8 +45,6 @@ const CustomCard: React.FC<CardProps> = ({
     setCustomCardTheme(themeInfoStyles.CustomCard || aboutTheme.CustomCard);
     setPaperTheme(themeInfoStyles.Paper || aboutTheme.Paper);
   }, [themeInfoStyles, themeType]);
-
-  const MAX_MOBILE_WIDTH = "90%";
 
   const extraSmallSize = {
     maxWidth: isMobile ? MAX_MOBILE_WIDTH : "281px",
@@ -96,7 +94,6 @@ const CustomCard: React.FC<CardProps> = ({
 
   const cardStyles = {
     ...card,
-    // ...cardSize,
   };
 
   const contentStyles = {
