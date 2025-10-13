@@ -9,10 +9,9 @@ import CustomButton from "../Components/CustomButton";
 import RichTextPost from "../Components/RichTextPost";
 import CustomCard from "../Components/CustomCard";
 import CustomMediaPlayer from "../Components/CustomMediaPlayer";
-import CustomList from "../Components/CustomList";
 import useMediaQuery from "@mui/material/useMediaQuery";
 import Typography from "@mui/material/Typography";
-import theme from "../theme";
+import ProfileSection from "../Components/ProfileSection";
 
 const strings = Strings.galleryPage;
 const headStrings = Strings.metaData.gallery;
@@ -106,11 +105,20 @@ const Gallery: React.FC = () => {
     { type: "custom", label: "Custom 2", textColor: "#ffffff", bgColor: "red" },
   ];
 
-  const isWhiteText = () => {
-    if (themeType === "VIDEOGAME") {
-      return true;
-    }
-    return false;
+  type FavoriteThings = {
+    food: string;
+    music: string;
+    country: string;
+    animal: string;
+    place: string;
+  };
+
+  const favoriteThings: FavoriteThings = {
+    food: "Tacos",
+    music: "EDM",
+    country: "Bali",
+    animal: "Cats",
+    place: "Beaches",
   };
 
   return (
@@ -138,7 +146,7 @@ const Gallery: React.FC = () => {
         justifyContent={"center"}
         sx={{
           minWidth: isMobile ? "335px" : "1200px",
-          margin: isMobile ? "16px auto" : "initial",
+          // margin: isMobile ? "16px auto" : "0",
           minHeight: "1400px",
           marginBottom: spacing.md + "rem",
         }}
@@ -179,6 +187,33 @@ const Gallery: React.FC = () => {
             items={menuItems}
           />
         </Grid>
+        <Grid display="flex" justifyContent="center" mt={4}>
+          <ProfileSection
+            name="Kala S."
+            profilePicture="/path/to/image.jpg"
+            bio="Writer and dev."
+            age={"Shhh... it's a secret"}
+            starSign="Aries"
+            personalityType="INFP"
+            location="San Diego, CA"
+            likes={[
+              "Video games",
+              "Chess",
+              "Music Festivals",
+              "Adventures hiking",
+              "Dancing",
+            ]}
+            dislikes={[
+              "Telephone ringing",
+              "Bad vibes",
+              "Rude or mean people",
+              "Waiting",
+              "Long lines",
+            ]}
+            favoriteThings={favoriteThings}
+            themeType={themeType}
+          />
+        </Grid>
 
         {/********** GALLERY **************/}
         <Grid
@@ -197,21 +232,32 @@ const Gallery: React.FC = () => {
           }
         >
           {/********** RICH TEXT POST **************/}
-          <RichTextPost size="large" title="Custom Post" themeType={themeType}>
-            <span className="loren">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do
-              eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem
-              ipsum dolor sit amet, consectetur Lorem ipsum dolor sit amet,
-              consectetur Lorem ipsum dolor sit amet, consectetur adipiscing
-              elit. Sed do eiusmod tempor incididunt ut labore et dolore magna
-              aliqua. Welcome to SoulPad! I hope you enjoy your stay. This is a
-              test of the post component. Lorem ipsum dolor sit amet,
-              consectetur
-            </span>
+          <RichTextPost
+            size="large"
+            title="Let's talk about life a little"
+            themeType={themeType}
+          >
+            <Typography variant="body1" className="about life">
+              Every failure and left-field surprise became part of my training
+              ground. When plans cracked, I didn’t pretend it didn’t hurt—I took
+              a breath, named the lesson, and carried it forward. I learned to
+              fail forward, to treat detours as data, and to keep promises to
+              myself even on the days motivation went missing. Instead of
+              waiting for perfect conditions, I stacked small, unglamorous wins:
+              one email, one draft, one uncomfortable conversation at a time.
+              Life kept moving the goalposts, so I got better at adjusting my
+              stance—less rigid, more resourceful. I chose discipline over
+              drama, progress over perfection, and curiosity over fear. Little
+              by little, the setbacks that once felt like verdicts turned into
+              scaffolding. And with every step, I proved to myself that dreams
+              don’t arrive fully formed—they’re built, patiently, through grit,
+              grace, and the stubborn belief that I can start again and still
+              get there.
+            </Typography>
           </RichTextPost>
           <CustomCard
             size="small"
-            title="Custom Card"
+            title="Buttons"
             themeType={themeType}
             renderItem={buttonTypes.map((item, index) => (
               <CustomButton
@@ -228,34 +274,10 @@ const Gallery: React.FC = () => {
           <CustomMediaPlayer
             themeType={themeType}
             size="small"
-            title="Custom Media Player"
+            title="Media Player"
             textLocation="top"
             videoType="mp4"
             videoUrl="https://www.quickpickdeal.com/videos/sample-mp4-video.mp4"
-          />
-          <CustomCard
-            size="small"
-            title="Custom Card"
-            themeType={themeType}
-            renderItem={
-              <span className="loren">
-                Welcome to SoulPad! I hope you enjoy your stay. This is a test
-                of the post component. Lorem ipsum dolor sit amet, consectetur
-                adipiscing elit. Sed do eiusmod tempor incididunt ut labore et
-                dolore magna aliqua. Welcome to SoulPad! I hope you enjoy your
-                stay. This is a test of the post component. Lorem ipsum dolor
-                sit amet, consectetur adipiscing elit. Sed do eiusmod tempor
-                incididunt ut labore et dolore magna aliqua. Welcome to SoulPad!
-                I hope you enjoy your stay. This is a test of the post
-                component. Lorem ipsum dolor sit amet, consectetur
-              </span>
-            }
-          />
-          <CustomList
-            items={listItems}
-            themeType={themeType}
-            size="small"
-            title="Custom List"
           />
         </Grid>
       </Grid>

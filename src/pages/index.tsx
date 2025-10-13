@@ -48,11 +48,16 @@ import { ClipLoader } from "react-spinners";
 
 const strings = Strings.homePage;
 const headStrings = Strings.metaData.home;
-const person1Path = "/soulperson1.svg";
-const person2Path = "/soulperson2.svg";
-const person3Path = "/soulperson3.svg";
-const person4Path = "/soulperson4.svg";
-const videoPath = "/media/soulpadVideo.mp4";
+const person1Path =
+  "https://res.cloudinary.com/dd4qvmhqx/image/upload/v1760373815/soulperson1_zdxgrj.svg";
+const person2Path =
+  "https://res.cloudinary.com/dd4qvmhqx/image/upload/v1760373816/soulperson2_yiw1zp.svg";
+const person3Path =
+  "https://res.cloudinary.com/dd4qvmhqx/image/upload/v1760373816/soulperson3_hvgc9z.svg";
+const person4Path =
+  "https://res.cloudinary.com/dd4qvmhqx/image/upload/v1760373816/soulperson4_u6ebqh.svg";
+const videoPath =
+  "https://res.cloudinary.com/dd4qvmhqx/video/upload/v1760374008/soulpadVideo_dxorcc.mp4";
 
 const imgBoxContainer = {
   width: "300px",

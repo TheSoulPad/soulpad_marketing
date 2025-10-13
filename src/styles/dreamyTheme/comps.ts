@@ -22,7 +22,7 @@ export const bodyText = {
   fontSize: "1.25rem",
 };
 
-const borderRadius = `50px`;
+const borderRadius = `30px`;
 const softShadow = `1px 1px 1px ${c.text02}`;
 const subtleShadow = `1px 1px 1px ${c.text03}`;
 
@@ -74,7 +74,7 @@ const paper: PaperType = {
   borderRadius,
   boxShadow: "",
   backgroundColor: c.mainBg01,
-  border: `1px solid ${c.contentBorder}`,
+  // border: `1px solid ${c.contentBorder}`,
   display: "block",
   padding: "unset",
   height: "100%",
