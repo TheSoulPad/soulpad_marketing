@@ -6,14 +6,19 @@
  */
 
 // Cloudinary configuration
+function requireEnvVar(name: string): string {
+  const value = process.env[name];
+  if (!value) {
+    throw new Error(`Missing required environment variable: ${name}`);
+  }
+  return value;
+}
+
 export const cloudinaryConfig = {
-  cloudName: process.env.REACT_APP_CLOUDINARY_CLOUD_NAME || "dd4qvmhqx",
-  apiKey: process.env.REACT_APP_CLOUDINARY_API_KEY || "195413651933294",
-  apiSecret:
-    process.env.REACT_APP_CLOUDINARY_API_SECRET ||
-    "fLlQ63Z-ap4NNnZKIxmfVkhSddM",
-  uploadPreset:
-    process.env.REACT_APP_CLOUDINARY_UPLOAD_PRESET || "soulpad_uploads",
+  cloudName: requireEnvVar("REACT_APP_CLOUDINARY_CLOUD_NAME"),
+  apiKey: requireEnvVar("REACT_APP_CLOUDINARY_API_KEY"),
+  apiSecret: requireEnvVar("REACT_APP_CLOUDINARY_API_SECRET"),
+  uploadPreset: requireEnvVar("REACT_APP_CLOUDINARY_UPLOAD_PRESET"),
 };
 
 /**
