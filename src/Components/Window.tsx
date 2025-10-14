@@ -18,7 +18,7 @@ const Windows: React.FC<WindowProps> = ({
 }) => {
   const windowStyles = {
     cursor: "pointer",
-    backgroundImage: `url(/images/pencilwindow.svg)`,
+    backgroundImage: `url('https://res.cloudinary.com/dd4qvmhqx/image/upload/v1760470821/pencilwindow_icrhfu.svg')`,
     backgroundSize: "cover",
     backgroundPositionY: "0px",
     backgroundPositionX: "0px",
@@ -51,7 +51,7 @@ const Windows: React.FC<WindowProps> = ({
   };
 
   const arrowStyles = {
-    backgroundImage: `url(/images/soulpadarrow.svg)`,
+    backgroundImage: `url('https://res.cloudinary.com/dd4qvmhqx/image/upload/v1760471168/soulpadarrow_mqikdd.svg')`,
     backgroundRepeat: "no-repeat",
     backgroundPositionX: "13px",
     width: "85px",
@@ -68,7 +68,7 @@ const Windows: React.FC<WindowProps> = ({
     "&:hover": {
       animation: "arrow-move 0s",
       left: "25px",
-      backgroundImage: `url(/images/arrow_hover.svg)`,
+      backgroundImage: `url('https://res.cloudinary.com/dd4qvmhqx/image/upload/v1760471042/arrow_hover_waybwn.svg')`,
     },
   };
 

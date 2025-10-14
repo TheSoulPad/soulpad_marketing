@@ -9,7 +9,8 @@ import {
   istabletAndGreaterWidth,
 } from "../styles";
 
-const PHOTO_URL = "https://lh3.googleusercontent.com/a/ACg8ocJ8CZr_VZ3CU_OHvG85ccqMz645LH8WuA3YnxQmyckQjtQU7p3X=s96-c";
+const PHOTO_URL =
+  "https://res.cloudinary.com/dd4qvmhqx/image/upload/v1760373551/IMG_1823_ukgia6.jpg";
 
 import { CSSProperties } from "react";
 
@@ -66,10 +67,10 @@ const AboutCreator: React.FC<AboutCreatorProps> = ({ paperStyles }) => {
               src={PHOTO_URL}
               alt="Kala, creator of SoulPad"
               style={{
-                width: 120,
-                height: 120,
+                width: 150,
+                height: 200,
                 objectFit: "cover",
-                borderRadius: "50%",
+                borderRadius: "5%",
                 boxShadow: "0 2px 8px rgba(0,0,0,0.12)",
                 border: "3px solid #ffcc80",
               }}
