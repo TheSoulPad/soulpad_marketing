@@ -21,18 +21,30 @@ import FundraisingBanner from "../Components/FundraisingComp";
 const strings = Strings.about;
 const headStrings = Strings.metaData.about;
 const content = Strings.about.content;
-const person5Path = "/images/people_hp/p5.svg";
-const person6Path = "/images/people_hp/p6.svg";
-const person7Path = "/images/people_hp/p7.svg";
-const person8Path = "/images/people_hp/p8.svg";
-const person9Path = "/images/people_hp/p9.svg";
-const person10Path = "/images/people_hp/p10.svg";
-const person11Path = "/images/people_hp/p11.svg";
-const person13Path = "/images/people_hp/p13.svg";
-const person14Path = "/images/people_hp/p14.svg";
-const person15Path = "/images/people_hp/p15.svg";
-const person16Path = "/images/people_hp/p16.svg";
-const person17Path = "/images/people_hp/p17.svg";
+const person5Path =
+  "https://res.cloudinary.com/dd4qvmhqx/image/upload/v1760469818/p5_nwjyjg.svg";
+const person6Path =
+  "https://res.cloudinary.com/dd4qvmhqx/image/upload/v1760373678/p6_emcdud.svg";
+const person7Path =
+  "https://res.cloudinary.com/dd4qvmhqx/image/upload/v1760373678/p7_p7kvjd.svg";
+const person8Path =
+  "https://res.cloudinary.com/dd4qvmhqx/image/upload/v1760373678/p8_pigapx.svg";
+const person9Path =
+  "https://res.cloudinary.com/dd4qvmhqx/image/upload/v1760373678/p9_bo7yom.svg";
+const person10Path =
+  "https://res.cloudinary.com/dd4qvmhqx/image/upload/v1760373678/p10_c4u7le.svg";
+const person11Path =
+  "https://res.cloudinary.com/dd4qvmhqx/image/upload/v1760373679/p11_kxoc1i.svg";
+const person13Path =
+  "https://res.cloudinary.com/dd4qvmhqx/image/upload/v1760373680/p13_za6lcw.svg";
+const person14Path =
+  "https://res.cloudinary.com/dd4qvmhqx/image/upload/v1760373680/p14_qs8mrg.svg";
+const person15Path =
+  "https://res.cloudinary.com/dd4qvmhqx/image/upload/v1760373680/p15_xltzg8.svg";
+const person16Path =
+  "https://res.cloudinary.com/dd4qvmhqx/image/upload/v1760373680/p16_wbod13.svg";
+const person17Path =
+  "https://res.cloudinary.com/dd4qvmhqx/image/upload/v1760373681/p17_uv5hpe.svg";
 
 const AboutPage = () => {
   const isMobile = useMediaQuery(isMobileWidth);
