@@ -32,9 +32,13 @@
     "@testing-library/dom": "^10.4.0",
     "ajv": "^8.17.1",
     "ajv-keywords": "^5.1.0",
+    "axios": "^1.12.2",
     "babel-plugin-styled-components": "^2.1.4",
+    "buffer": "^6.0.3",
     "cloudinary": "^2.7.0",
+    "crypto-browserify": "^3.12.1",
     "dotenv": "^17.2.3",
+    "framer-motion": "^12.23.24",
     "gatsby": "^5.13.7",
     "gatsby-omni-font-loader": "^2.0.2",
     "gatsby-plugin-google-fonts": "^1.0.1",
@@ -48,6 +52,7 @@
     "react-dom": "^18.2.0",
     "react-helmet": "^6.1.0",
     "react-spinners": "^0.17.0",
+    "stream-browserify": "^3.0.0",
     "styled-components": "^6.1.13"
   },
   "devDependencies": {

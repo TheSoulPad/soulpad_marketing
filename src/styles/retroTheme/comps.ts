@@ -19,7 +19,7 @@ export const headerText = {
 export const bodyText = {
   color: c.text01, //purple
   fontFamily: `Quantico, sans-serif`,
-  fontSize: "1.25rem",
+  fontSize: "1rem",
   textShadow: `0px 0px 1px ${c.text01}`,
 };
 
@@ -154,7 +154,7 @@ const paper: PaperType = {
 const customCard: RichTextType = {
   content: {
     ...defaultContent,
-        backgroundColor: c.contentBg,
+    backgroundColor: c.contentBg,
   },
   header: {
     styles: {
@@ -184,14 +184,12 @@ const menuSelection: MenuType = {
   text: {
     active: {
       ...primaryButton,
-      fontSize: "1.5rem",
       border: `2px dashed ${c.buttonHover}`,
     },
     list: {
       ...primaryButton,
       backgroundColor: "transparent",
       border: "none",
-      fontSize: "1.5rem",
       "&:hover": {
         backgroundColor: c.button,
         border: `2px dashed ${c.buttonHover}`,
