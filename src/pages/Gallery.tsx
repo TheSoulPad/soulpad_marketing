@@ -8,7 +8,7 @@ import MenuSelection from "../Components/MenuSelection";
 import CustomButton from "../Components/CustomButton";
 import RichTextPost from "../Components/RichTextPost";
 import CustomCard from "../Components/CustomCard";
-import CustomMediaPlayer from "../Components/CustomMediaPlayer";
+import CustomMediaPlayer from "../Components/CustomMusicPlayer";
 import useMediaQuery from "@mui/material/useMediaQuery";
 import Typography from "@mui/material/Typography";
 import ProfileSection from "../Components/ProfileSection";
@@ -276,10 +276,9 @@ const Gallery: React.FC = () => {
           <CustomMediaPlayer
             themeType={themeType}
             size="small"
-            title="Media Player"
+            title="My Spotify Playlist"
             textLocation="top"
-            videoType="mp4"
-            videoUrl="https://www.quickpickdeal.com/videos/sample-mp4-video.mp4"
+            mediaType="spotify"
           />
         </Grid>
       </Grid>

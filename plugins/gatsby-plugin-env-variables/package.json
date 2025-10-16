@@ -1,0 +1,8 @@
+{
+  "name": "gatsby-plugin-env-variables",
+  "version": "1.0.0",
+  "description": "Custom Gatsby plugin to ensure environment variables are correctly loaded",
+  "main": "gatsby-node.js",
+  "author": "Carla Severe",
+  "license": "MIT"
+}

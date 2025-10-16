@@ -4,6 +4,14 @@ import dotenv from "dotenv";
 // Load environment variables from .env file
 dotenv.config();
 
+// Check if Spotify environment variables are loaded
+const spotifyClientId = process.env.GATSBY_SPOTIFY_CLIENT_ID;
+if (!spotifyClientId) {
+  console.warn(
+    "Warning: GATSBY_SPOTIFY_CLIENT_ID is not defined in environment variables",
+  );
+}
+
 const config: GatsbyConfig = {
   siteMetadata: {
     title: `SoulPadBeta`,
@@ -13,7 +21,16 @@ const config: GatsbyConfig = {
   // If you use VSCode you can also use the GraphQL plugin
   // Learn more at: https://gatsby.dev/graphql-typegen
   graphqlTypegen: true,
+  // Add environment variables explicitly to make them available at build time
+  flags: {
+    PRESERVE_FILE_DOWNLOAD_CACHE: true,
+    FAST_DEV: true,
+  },
   plugins: [
+    // Add our custom environment variables plugin first
+    {
+      resolve: require.resolve(`./plugins/gatsby-plugin-env-variables`),
+    },
     "gatsby-plugin-netlify-cms",
     "gatsby-plugin-styled-components",
     "gatsby-transformer-remark",
