@@ -19,7 +19,7 @@ export const bodyText = {
   fontFamily: `Gaegu, serif`,
   textAlign: "left",
   color: c.text02,
-  fontSize: "1.25rem",
+  fontSize: "1rem",
 };
 
 const borderRadius = `30px`;
@@ -27,7 +27,7 @@ const softShadow = `1px 1px 1px ${c.text02}`;
 const subtleShadow = `1px 1px 1px ${c.text03}`;
 
 const allButtons = {
-  ...headerText,
+  ...bodyText,
   borderRadius,
   width: "100%",
   textAlign: "center",
@@ -135,6 +135,7 @@ const menuSelection: MenuType = {
       borderRadius,
       width: "100%",
       padding: `0 ${s.xs}rem 0 0`,
+      fontSize: "1rem",
       "&:hover": {
         backgroundColor: c.button,
         color: `${c.text01}`,
