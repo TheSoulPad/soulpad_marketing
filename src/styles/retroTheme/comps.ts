@@ -10,7 +10,7 @@ import {
 
 export const headerText = {
   color: c.text02, //lightgrey
-  fontFamily: `Quantico, sans-serif`,
+  fontFamily: `'Quantico Local', Quantico, sans-serif`,
   fontSize: "1.5rem",
   textAlign: "left",
   textShadow: `0px 0px 1px ${c.text01}`,
@@ -18,7 +18,7 @@ export const headerText = {
 
 export const bodyText = {
   color: c.text01, //purple
-  fontFamily: `Quantico, sans-serif`,
+  fontFamily: `'Quantico Local', Quantico, sans-serif`,
   fontSize: "1rem",
   textShadow: `0px 0px 1px ${c.text01}`,
 };

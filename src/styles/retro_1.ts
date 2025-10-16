@@ -38,7 +38,7 @@ const retroPostHeader: CSSProperties = {
   borderRight: `2px inset ${retroColors.contentBorderColor}`,
   borderRadius: "0px",
   color: "#ffffff",
-  fontFamily: `Quantico, sans-serif`,
+  fontFamily: `'Quantico Local', Quantico, sans-serif`,
   fontWeight: 400,
 };
 
@@ -51,7 +51,7 @@ const retroMenuStyles: CSSProperties = {
   borderBottom: `2px inset ${retroColors.contentBorderColor}`,
   borderRight: `2px inset ${retroColors.contentBorderColor}`,
   textAlign: `left`,
-  fontFamily: `Quantico, sans-serif`,
+  fontFamily: `'Quantico Local', Quantico, sans-serif`,
   fontWeight: 400,
   borderRadius: "0px",
 };

@@ -78,7 +78,7 @@ const subTitle: CSSProperties = {
   letterSpacing: "0.15rem",
   textShadow: "1px 1px 0px rgba(255,97,5,0.6)",
   fontWeight: 500,
-  fontFamily: "Fredoka, sans-serif",
+  fontFamily: "'Fredoka Local', Fredoka, sans-serif",
   textAlign: "center",
   fontSize: "1.3rem",
 };

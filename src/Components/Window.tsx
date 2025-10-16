@@ -34,7 +34,7 @@ const Windows: React.FC<WindowProps> = ({
     color: "#000",
     fontWeight: 400,
     fontSize: "1rem",
-    fontFamily: "Fredoka, sans-serif",
+    fontFamily: "'Fredoka Local', Fredoka, sans-serif",
     textDecoration: "none",
     display: "block",
     margin: "auto",

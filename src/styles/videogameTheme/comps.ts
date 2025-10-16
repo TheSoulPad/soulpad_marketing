@@ -10,7 +10,7 @@ import {
 } from "../../Components/types";
 
 export const headerText = {
-  fontFamily: "Turret Road, sans-serif",
+  fontFamily: "'Turret Road Local', Turret Road, sans-serif",
   fontWeight: "800",
   textAlign: "center",
   color: c.text00,
@@ -18,7 +18,7 @@ export const headerText = {
 };
 
 export const bodyText = {
-  fontFamily: `Quantico, sans-serif`,
+  fontFamily: `'Quantico Local', Quantico, sans-serif`,
   textAlign: "left",
   fontWeight: "300",
   color: `${c.text01}`,

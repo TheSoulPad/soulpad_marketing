@@ -77,7 +77,7 @@ const FundraisingBanner: React.FC<FundraisingProps> = ({ paperStyles }) => {
             fontSize: "1rem",
             padding: "0.75rem 2rem",
             borderRadius: "8px",
-            fontFamily: "Fredoka, sans-serif",
+            fontFamily: "'Fredoka Local', Fredoka, sans-serif",
             textAlign: "center",
             margin: "auto",
             "&:hover": {

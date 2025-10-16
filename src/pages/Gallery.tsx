@@ -12,6 +12,7 @@ import CustomMediaPlayer from "../Components/CustomMusicPlayer";
 import useMediaQuery from "@mui/material/useMediaQuery";
 import Typography from "@mui/material/Typography";
 import ProfileSection from "../Components/ProfileSection";
+import { TestComments } from "../Components/TestComments";
 
 const strings = Strings.galleryPage;
 const headStrings = Strings.metaData.gallery;
@@ -21,7 +22,7 @@ const aboutSoulExchange = {
     <>
       The <strong>Soul Exchange</strong> is SoulPad’s marketplace for themes,
       animations, stickers, and other unique assets created by individual
-      sellers. It will provide a wide range of tools and content to help make
+      creatives. The store will provide a wide range of content to help make
       your SoulPad reflect your inner world.
     </>
   ),
@@ -31,15 +32,16 @@ const aboutSoulExchange = {
       Transactions can be made using SoulPad’s in-app currency,
       <i>Soul Coins</i>, or through direct trades—one asset for another.
       Artists, designers, game developers, and other creatives can showcase
-      their work, sell it, or trade with fellow <i>Soul Padders</i>.
+      their work, sell it, or trade with fellow <i>SoulPadders</i>.
     </>
   ),
   p03: (
     <>
-      In this micro view of the Soul Exchange below, users can browse a gallery
-      of free SoulPad themes and add them directly to their asset drawer for use
-      on their canvas. We aim to add hundreds of themes and assets with the full
-      launch of SoulPad.
+      In this micro view of a sample, barebones SoulPad below, a SoulPadder can
+      browse a gallery of free themes from their canvas toolbar and add them to
+      their SoulPad. We aim to make available dozens of themes and assets with
+      the full launch of SoulPad, and eventually hundreds over the course of
+      time.
     </>
   ),
 };
@@ -131,7 +133,6 @@ const Gallery: React.FC = () => {
       <Grid
         className="gallery-wrapper"
         container
-        mt={5}
         mb={4}
         flexDirection="column"
         spacing={5}
@@ -166,7 +167,7 @@ const Gallery: React.FC = () => {
                 sx={{
                   color: themeType === "VIDEOGAME" ? "#ffffff" : "#000000",
                 }}
-                variant="body1"
+                variant="body2"
               >
                 {paragraph}
               </Typography>
@@ -259,19 +260,9 @@ const Gallery: React.FC = () => {
           </RichTextPost>
           <CustomCard
             size="small"
-            title="Buttons"
+            title="Messages"
             themeType={themeType}
-            renderItem={buttonTypes.map((item, index) => (
-              <CustomButton
-                themeType={themeType}
-                key={index}
-                buttonType={item.type || "primary"}
-                label={item.label}
-                textColor={item.textColor}
-                bgColor={item.bgColor}
-                onClick={() => console.log("Button Clicked")}
-              />
-            ))}
+            renderItem={<TestComments />}
           />
           <CustomMediaPlayer
             themeType={themeType}

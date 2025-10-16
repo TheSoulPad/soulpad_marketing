@@ -1,0 +1,9 @@
+@font-face {
+  font-family: "Turret Road Local";
+  src: url("/fonts/turret-road/woff2/turret-road-regular.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Usage: font-family: 'Turret Road Local', sans-serif; */

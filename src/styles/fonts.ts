@@ -10,7 +10,7 @@ const mobileHeadline2Font: CSSProperties = {
 
 //official title font
 const headline1Font: CSSProperties = {
-  fontFamily: "Fredoka, sans-serif",
+  fontFamily: "'Fredoka Local', Fredoka, sans-serif",
   fontWeight: "600",
   textAlign: "center",
   fontSize: "3rem", // 40px
@@ -19,7 +19,7 @@ const headline1Font: CSSProperties = {
 };
 const headline2Font: CSSProperties = {
   margin: "auto",
-  fontFamily: "Fredoka, sans-serif",
+  fontFamily: "'Fredoka Local', Fredoka, sans-serif",
   fontSize: "1.5rem", // 24px
   fontWeight: "500",
   textAlign: "center",
@@ -27,12 +27,13 @@ const headline2Font: CSSProperties = {
 };
 
 const body1Styles: CSSProperties = {
+  fontFamily: "'Fredoka Local', Fredoka, sans-serif",
   fontWeight: "500",
   fontSize: "1rem", // 16px
 };
 
 const funFont1: CSSProperties = {
-  fontFamily: "Galindo, sans-serif",
+  fontFamily: "'Galindo Local', Galindo, sans-serif",
   fontSize: "1.5rem", // 24px
   lineHeight: "1.5",
   display: "inline",

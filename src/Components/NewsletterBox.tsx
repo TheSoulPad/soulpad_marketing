@@ -67,7 +67,7 @@ const NewsletterBanner: React.FC<NewsLetterProps> = ({ paperStyles }) => {
             sx={{
               marginTop: isMobile ? "1rem" : "0",
               marginBottom: "1rem",
-              fontFamily: "Fredoka, sans-serif",
+              fontFamily: "'Fredoka Local', Fredoka, sans-serif",
               fontWeight: 600,
             }}
           >
@@ -159,7 +159,7 @@ const NewsletterBanner: React.FC<NewsLetterProps> = ({ paperStyles }) => {
               variant="contained"
               sx={{
                 backgroundColor: "rgba(255,97,5,0.6)",
-                fontFamily: "Fredoka, sans-serif",
+                fontFamily: "'Fredoka Local', Fredoka, sans-serif",
                 color: "black",
                 "&:hover": {
                   backgroundColor: "white",

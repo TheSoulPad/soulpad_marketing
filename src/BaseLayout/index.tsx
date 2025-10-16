@@ -28,7 +28,7 @@ const BaseLayout: React.FC<LayoutProps> = ({ children, isHomePage }) => {
     minHeight: isMobile ? "932px" : "900px",
     height: "100%",
     maxWidth: "1400px",
-    margin: "0 auto",
+    margin: "auto",
     overflowX: "hidden",
   };
 

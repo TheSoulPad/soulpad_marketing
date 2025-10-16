@@ -1,24 +1,27 @@
 import { colors as c } from "./colors";
 import { spacing as s } from "../spacing";
+import { text } from "stream/consumers";
+import { orange, red } from "@mui/material/colors";
+
+const borderRadiusSm = `${s.sm}rem`;
+const darkBrownShadow = `1px 3px 1px ${c.darkBrown}`;
+const redOrangeShadow = `1px 3px 1px ${c.redOrange}`;
+const yellowShadow = `1px 3px 1px ${c.yellow}`;
 
 const titleText = {
-  fontFamily: "Galindo, sans-serif",
+  fontFamily: "'Galindo Local', Galindo, sans-serif",
   textAlign: "left",
+  textShadow: redOrangeShadow,
 };
 
 const bodyText = {
-  fontFamily: "Roboto, sans-serif",
+  fontFamily: "'Fredoka Local', Fredoka, sans-serif",
   color: c.text00,
 };
 
-// Common style fragments
-const borderRadiusSm = `${s.sm}rem`;
-const darkBrownShadow = `7px 6px 0px 0px ${c.darkBrown}`;
-const redOrangeShadow = `5px 8px 0px 0px ${c.redOrange}`;
-const yellowShadow = `7px 6px 0px 0px ${c.yellow}`;
-
 const baseButton = {
-  ...titleText,
+  fontFamily: "'Galindo Local', Galindo, sans-serif",
+  textShadow: darkBrownShadow,
   boxShadow: darkBrownShadow,
   borderRadius: borderRadiusSm,
   fontSize: "1rem",
@@ -93,7 +96,7 @@ const aboutTheme = {
       styles: {
         ...baseHeader,
         ...baseHeaderText,
-        textShadow: darkBrownShadow,
+        textShadow: redOrangeShadow,
         padding: `${s.xs}rem`,
         color: c.text01,
         textAlign: "center",
@@ -127,9 +130,9 @@ const aboutTheme = {
         ...baseButton,
         backgroundColor: c.buttonPrimary,
         color: c.text00,
+        textShadow: "none",
       },
       list: {
-        ...titleText,
         backgroundColor: "transparent",
         borderRadius: borderRadiusSm,
         color: c.text00,

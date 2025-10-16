@@ -9,14 +9,14 @@ import {
 } from "../../Components/types";
 
 export const headerText = {
-  fontFamily: `Gaegu, serif`,
+  fontFamily: `'Gaegu Local', Gaegu, serif`,
   textAlign: "left",
   color: c.text01, //softwhite
-  fontSize: "2rem",
+  fontSize: "1.5rem",
 };
 
 export const bodyText = {
-  fontFamily: `Gaegu, serif`,
+  fontFamily: `'Gaegu Local', Gaegu, serif`,
   textAlign: "left",
   color: c.text02, //purple
   fontSize: "1.25rem",

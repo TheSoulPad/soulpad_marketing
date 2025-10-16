@@ -1,0 +1,9 @@
+@font-face {
+  font-family: "Galindo Local";
+  src: url("/fonts/galindo/woff2/galindo-regular.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Usage: font-family: 'Galindo Local', serif; */

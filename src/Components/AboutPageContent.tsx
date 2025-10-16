@@ -48,11 +48,11 @@ const AboutPageContent: React.FC<AboutContentProps> = ({ point }) => {
 
   const numberStyles = {
     paddingRight: `${spacing.sm / 2}em`,
-    fontFamily: "Fredoka, sans-serif",
+    fontFamily: "'Fredoka Local', Fredoka, sans-serif",
   };
 
   const blockquoteStyles: CSSProperties = {
-    fontFamily: "Fredoka, sans-serif",
+    fontFamily: "'Fredoka Local', Fredoka, sans-serif",
     fontWeight: "500",
     fontSize: "1.5rem",
     paddingBottom: spacing.sm + "rem",
@@ -61,7 +61,7 @@ const AboutPageContent: React.FC<AboutContentProps> = ({ point }) => {
   };
 
   const paperStyles = {
-    fontFamily: "Fredoka, sans-serif",
+    fontFamily: "'Fredoka Local', Fredoka, sans-serif",
     whiteSpace: "break-spaces",
     borderRadius: "5px",
     background: "linear-gradient(90deg, #edf9f9 0%, #ffe0b2 100%)",

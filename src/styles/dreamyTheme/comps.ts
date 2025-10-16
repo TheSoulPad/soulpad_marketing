@@ -7,24 +7,27 @@ import {
   RichTextType,
   ButtonType,
 } from "../../Components/types";
+import { text } from "stream/consumers";
 
-export const headerText = {
-  fontFamily: `Gaegu, serif`,
-  textAlign: "left",
-  color: c.text01,
-  fontSize: "2rem",
-};
-
-export const bodyText = {
-  fontFamily: `Gaegu, serif`,
-  textAlign: "left",
-  color: c.text02,
-  fontSize: "1rem",
-};
-
+//#781acd
 const borderRadius = `30px`;
 const softShadow = `1px 1px 1px ${c.text02}`;
 const subtleShadow = `1px 1px 1px ${c.text03}`;
+
+export const headerText = {
+  fontFamily: `'Gaegu Local', Gaegu, serif`,
+  textAlign: "left",
+  color: c.text01,
+  fontSize: "1.5rem",
+  // textShadow: softShadow,
+};
+
+export const bodyText = {
+  fontFamily: `'Fredoka Local', Fredoka, sans-serif`,
+  textAlign: "left",
+  color: c.text02,
+  fontSize: "1.25rem",
+};
 
 const allButtons = {
   ...bodyText,
@@ -135,7 +138,7 @@ const menuSelection: MenuType = {
       borderRadius,
       width: "100%",
       padding: `0 ${s.xs}rem 0 0`,
-      fontSize: "1rem",
+      fontSize: "1.25rem",
       "&:hover": {
         backgroundColor: c.button,
         color: `${c.text01}`,

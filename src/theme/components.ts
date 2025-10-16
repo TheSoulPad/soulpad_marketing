@@ -50,7 +50,7 @@ const components = {
       },
       body2: {
         ...body1Styles,
-        fontFamily: "Fredoka, sans-serif",
+        fontFamily: "'Fredoka Local', Fredoka, sans-serif",
         fontWeight: 400,
         fontSize: "1.1rem",
       },

@@ -1,0 +1,9 @@
+@font-face {
+  font-family: "Afacad Flux Local";
+  src: url("/fonts/afacad-flux/woff2/afacad-flux-regular.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Usage: font-family: 'Afacad Flux Local', sans-serif; */
