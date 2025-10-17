@@ -100,14 +100,17 @@ export const TestComments: React.FC<{ comments?: Comment[] }> = ({
                 alignItems: "baseline",
               }}
             >
-              <Typography variant="subtitle1" sx={{ fontWeight: 600 }}>
+              <Typography
+                variant="subtitle1"
+                sx={{ fontWeight: 600, fontSize: "1.1rem" }}
+              >
                 {c.personName}
               </Typography>
               <Typography variant="caption" color="text.secondary">
                 {c.date}
               </Typography>
             </Box>
-            <Typography variant="body2" sx={{ mt: 0.5 }}>
+            <Typography variant="body2" sx={{ mt: 0.5, fontSize: "0.95rem" }}>
               {c.comment}
             </Typography>
           </Box>
