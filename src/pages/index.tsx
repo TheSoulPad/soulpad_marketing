@@ -233,7 +233,7 @@ const Home = () => {
               ))}
           </Box>
 
-          <Box
+          {/* <Box
             className="home-page--media-container"
             display="flex"
             justifyContent="center"
@@ -265,7 +265,7 @@ const Home = () => {
                 aria-label="SoulPad introduction video"
               ></video>
             </Box>
-          </Box>
+          </Box> */}
         </Grid>
 
         {/* People Imgs Col 3 */}
