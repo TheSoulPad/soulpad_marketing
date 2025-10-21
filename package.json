@@ -18,7 +18,7 @@
     "api": "node api/server.js",
     "netlify:dev": "netlify dev",
     "export-themes": "node scripts/exportThemes.js",
-    "typecheck": "tsc --noEmit",
+    "tsc": "tsc --noEmit",
     "format": "prettier --write \"src/**/*.{js,jsx,ts,tsx,json,md}\"",
     "tests": "jest",
     "fix": "npm run typecheck && npm run format && npm run test"

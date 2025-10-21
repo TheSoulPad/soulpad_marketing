@@ -2,7 +2,7 @@ import { useMemo } from "react";
 import aboutTheme from "../styles/aboutTheme/comps";
 import diaryTheme from "../styles/diaryTheme/comps";
 import retroTheme from "../styles/retroTheme/comps";
-import videoGameTheme from "../styles/videoGameTheme/comps";
+import { videogameTheme } from "../styles/videoGameTheme/comps";
 import dreamyTheme from "../styles/dreamyTheme/comps";
 
 // Define the theme info type here for clarity and to avoid import errors
@@ -21,7 +21,7 @@ const THEME_REGISTRY: Record<string, ThemeInfoType> = {
   SOULPAD: aboutTheme,
   DIARY: diaryTheme,
   RETRO: retroTheme,
-  VIDEOGAME: videoGameTheme,
+  VIDEOGAME: videogameTheme,
   DREAMY: dreamyTheme,
 };
 
