@@ -56,7 +56,7 @@ const baseHeaderText = {
   color: c.text01,
 };
 
-const aboutTheme = {
+export const aboutTheme = {
   Button: {
     primary: {
       ...baseButton,

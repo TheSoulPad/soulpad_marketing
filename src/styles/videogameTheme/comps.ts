@@ -209,7 +209,7 @@ const buttons: ButtonType = {
   custom: buttonStyles,
 };
 
-const videoGameTheme = {
+export const videogameTheme = {
   Button: buttons,
   Card: card,
   CustomCard: customCard,
@@ -219,5 +219,3 @@ const videoGameTheme = {
   RichTextPost: richTextPost,
   ThemeID: "VIDEOGAME",
 };
-
-export default videoGameTheme;

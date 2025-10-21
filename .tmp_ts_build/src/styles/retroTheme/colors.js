@@ -1,0 +1,33 @@
+var keyColors = {
+    paleWhiteBlue: "#bee9e9",
+    purple: "#781acd",
+    lightBlue: "#bfebec",
+    darkGreen: "#137574",
+    lightGreenishBlue: "#00d5d5",
+    lightOliveGreen: "#92bdbc",
+    lightestBlue: "#beecea",
+    lightGrey: "#f0f0f0",
+    navyBlue: "#000080",
+    lightBlue2: "#3db5d9",
+};
+var paleWhiteBlue = keyColors.paleWhiteBlue, purple = keyColors.purple, lightBlue = keyColors.lightBlue, lightBlue2 = keyColors.lightBlue2, darkGreen = keyColors.darkGreen, lightGreenishBlue = keyColors.lightGreenishBlue, lightOliveGreen = keyColors.lightOliveGreen, lightestBlue = keyColors.lightestBlue, lightGrey = keyColors.lightGrey, navyBlue = keyColors.navyBlue;
+export var colors = {
+    button: paleWhiteBlue,
+    buttonBorder: purple,
+    buttonHover: purple,
+    buttonText: purple,
+    contentBg: lightBlue,
+    contentBorder: darkGreen,
+    headerBg00: purple,
+    headerBg01: lightGreenishBlue,
+    headerBorder: lightBlue2,
+    icon: lightestBlue,
+    mainBg00: lightOliveGreen,
+    mainBg01: lightGreenishBlue,
+    mainBg02: purple,
+    shine: lightGrey,
+    text01: purple,
+    text02: lightGrey,
+    text03: paleWhiteBlue,
+    navyBlue: navyBlue,
+};

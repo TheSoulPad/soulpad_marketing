@@ -227,21 +227,12 @@ const buttons: ButtonType = {
   custom: baseButton,
 };
 
-const retroTheme = {
+export const retroTheme = {
   Button: buttons,
   Card: card,
   CustomCard: customCard,
   Content: defaultContent,
   Hover: c.mainBg02,
-
-  ListBox: {
-    header: purpleHeader,
-    content: {
-      ...contentText,
-      ...richTextContentBorder,
-      backgroundColor: c.icon,
-    },
-  },
   MenuSelection: menuSelection,
   Paper: paper,
   Poll: {

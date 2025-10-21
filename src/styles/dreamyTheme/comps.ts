@@ -183,7 +183,7 @@ const buttons: ButtonType = {
   custom: allButtons,
 };
 
-const dreamyTheme = {
+export const dreamyTheme = {
   Button: buttons,
   Card: card,
   CustomCard: customCard,
