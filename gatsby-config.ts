@@ -17,7 +17,7 @@ const config: GatsbyConfig = {
   plugins: [
     // Add our custom environment variables plugin first
     {
-      resolve: require.resolve(`./plugins/gatsby-plugin-env-variables`),
+      resolve: "./plugins/gatsby-plugin-env-variables",
     },
     "gatsby-plugin-netlify-cms",
     "gatsby-plugin-styled-components",
