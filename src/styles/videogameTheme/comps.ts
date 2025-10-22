@@ -219,3 +219,5 @@ export const videoGameTheme = {
   RichTextPost: richTextPost,
   ThemeID: "VIDEOGAME",
 };
+
+export default videoGameTheme;
