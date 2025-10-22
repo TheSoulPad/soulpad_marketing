@@ -137,7 +137,8 @@ const Home = () => {
             }}
             className="home-page--person-img person-img-box person-img-1"
           >
-            <Card className="image-standin" sx={{ opacity: 0 }}>
+            {/* FAKE BOX */}
+            <Card className="image-standin" sx={{ opacity: 0, width: "100%" }}>
               <Box
                 display="flex"
                 justifyContent="center"
@@ -171,7 +172,8 @@ const Home = () => {
               backgroundPositionX: "25px",
             }}
           >
-            <Card className="image-standin" sx={{ opacity: 0 }}>
+            {/* FAKE BOX */}
+            <Card className="image-standin" sx={{ opacity: 0, width: "100%" }}>
               <Box
                 display="flex"
                 justifyContent="center"
@@ -181,6 +183,7 @@ const Home = () => {
                 <ClipLoader color="#888" loading={true} size={48} />
               </Box>
             </Card>
+            {/* FAKE BOX */}
             {!hasMounted && (
               <Card className="image-standin" sx={standInBox}>
                 <Box
@@ -282,7 +285,8 @@ const Home = () => {
               top: "0px",
             }}
           >
-            <Card className="image-standin" sx={{ opacity: 0 }}>
+            {/* FAKE BOX */}
+            <Card className="image-standin" sx={{ opacity: 0, width: "100%" }}>
               <Box
                 display="flex"
                 justifyContent="center"
@@ -292,6 +296,7 @@ const Home = () => {
                 <ClipLoader color="#888" loading={true} size={48} />
               </Box>
             </Card>
+            {/* FAKE BOX */}
             {!hasMounted && (
               <Card className="image-standin" sx={standInBox}>
                 <Box
@@ -316,7 +321,18 @@ const Home = () => {
               right: "30px",
             }}
           >
-            {" "}
+            {/* FAKE BOX */}
+            <Card className="image-standin" sx={{ opacity: 0, width: "100%" }}>
+              <Box
+                display="flex"
+                justifyContent="center"
+                alignItems="center"
+                height="100%"
+              >
+                <ClipLoader color="#888" loading={true} size={48} />
+              </Box>
+            </Card>
+            {/* FAKE BOX */}
             {!hasMounted && (
               <Card className="image-standin" sx={standInBox}>
                 <Box
