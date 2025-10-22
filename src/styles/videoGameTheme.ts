@@ -1,4 +1,4 @@
-export { videoGameTheme } from "./videoGameTheme/comps";
+export { videoGameTheme } from "./videoGameTheme/index";
 
 // This shim ensures imports like `./videoGameTheme` (folder-style imports)
 // resolve consistently for TypeScript's NodeNext module resolution and
