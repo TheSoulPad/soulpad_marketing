@@ -15,9 +15,10 @@
     "build": "gatsby build",
     "serve": "gatsby serve",
     "clean": "gatsby clean",
-    "tsc": "tsc --noEmit",
+    "tsc": "tsc --noEmit -p tsconfig.cli.json",
     "format": "prettier --write \"src/**/*.{js,jsx,ts,tsx,json,md}\"",
     "tests": "jest",
+    "test:module-resolution": "jest src/__tests__/themeModuleResolution.test.ts --runInBand --colors",
     "fix": "npm run typecheck && npm run format && npm run test"
   },
   "dependencies": {
