@@ -4,14 +4,6 @@ import dotenv from "dotenv";
 // Load environment variables from .env file
 dotenv.config();
 
-// Check if Spotify environment variables are loaded
-const spotifyClientId = process.env.GATSBY_SPOTIFY_CLIENT_ID;
-if (!spotifyClientId) {
-  console.warn(
-    "Warning: GATSBY_SPOTIFY_CLIENT_ID is not defined in environment variables",
-  );
-}
-
 const config: GatsbyConfig = {
   siteMetadata: {
     title: `SoulPadBeta`,
