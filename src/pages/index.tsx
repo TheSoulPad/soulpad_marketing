@@ -137,6 +137,17 @@ const Home = () => {
             }}
             className="home-page--person-img person-img-box person-img-1"
           >
+            <Card className="image-standin" sx={{ opacity: 0 }}>
+              <Box
+                display="flex"
+                justifyContent="center"
+                alignItems="center"
+                height="100%"
+              >
+                <ClipLoader color="#888" loading={true} size={48} />
+              </Box>
+            </Card>
+
             {!hasMounted && (
               <Card className="image-standin" sx={standInBox}>
                 <Box
@@ -160,7 +171,17 @@ const Home = () => {
               backgroundPositionX: "25px",
             }}
           >
-            {" "}
+            <Card className="image-standin" sx={{ opacity: 0 }}>
+              <Box
+                display="flex"
+                justifyContent="center"
+                alignItems="center"
+                height="100%"
+              >
+                <ClipLoader color="#888" loading={true} size={48} />
+              </Box>
+            </Card>
+
             {!hasMounted && (
               <Card className="image-standin" sx={standInBox}>
                 <Box
@@ -232,40 +253,6 @@ const Home = () => {
                 />
               ))}
           </Box>
-
-          {/* <Box
-            className="home-page--media-container"
-            display="flex"
-            justifyContent="center"
-            sx={{
-              maxWidth: "600px",
-              width: "100%",
-            }}
-          >
-            <Box
-              sx={{
-                maxWidth: "265px",
-                maxHeight: "190px",
-                width: "100%",
-                height: "100%",
-                border: "2px solid black",
-                borderRadius: "5px",
-              }}
-            >
-              <Typography
-                variant="body2"
-                sx={{ textAlign: "center", padding: spacing.xs + "rem" }}
-              >
-                Watch the SoulPad Video
-              </Typography>
-              <video
-                controls
-                width="100%"
-                src={videoPath}
-                aria-label="SoulPad introduction video"
-              ></video>
-            </Box>
-          </Box> */}
         </Grid>
 
         {/* People Imgs Col 3 */}
@@ -275,7 +262,6 @@ const Home = () => {
           className="home-page--imgs col3"
           pr={3}
         >
-          {" "}
           <Box
             className="home-page--person-img person-img-box person-img-2"
             sx={{
@@ -287,7 +273,16 @@ const Home = () => {
               top: "0px",
             }}
           >
-            {" "}
+            <Card className="image-standin" sx={{ opacity: 0 }}>
+              <Box
+                display="flex"
+                justifyContent="center"
+                alignItems="center"
+                height="100%"
+              >
+                <ClipLoader color="#888" loading={true} size={48} />
+              </Box>
+            </Card>
             {!hasMounted && (
               <Card className="image-standin" sx={standInBox}>
                 <Box
@@ -312,7 +307,16 @@ const Home = () => {
               right: "30px",
             }}
           >
-            {" "}
+            <Card className="image-standin" sx={{ opacity: 0 }}>
+              <Box
+                display="flex"
+                justifyContent="center"
+                alignItems="center"
+                height="100%"
+              >
+                <ClipLoader color="#888" loading={true} size={48} />
+              </Box>
+            </Card>
             {!hasMounted && (
               <Card className="image-standin" sx={standInBox}>
                 <Box

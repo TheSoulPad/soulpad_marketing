@@ -184,7 +184,7 @@ const buttons: ButtonType = {
   custom: allButtons,
 };
 
-const diaryTheme = {
+export const diaryTheme = {
   Button: buttons,
   Card: card,
   CustomCard: customCard,

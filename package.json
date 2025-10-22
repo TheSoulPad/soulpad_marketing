@@ -15,7 +15,13 @@
     "build": "gatsby build",
     "serve": "gatsby serve",
     "clean": "gatsby clean",
-    "typecheck": "tsc --noEmit",
+    "api": "node api/server.js",
+    "netlify:dev": "netlify dev",
+    "netlify": "netlify build",
+    "deploy": "netlify deploy",
+    "deploy:prod": "netlify deploy --prod",
+    "export-themes": "node scripts/exportThemes.js",
+    "tsc": "tsc --noEmit",
     "format": "prettier --write \"src/**/*.{js,jsx,ts,tsx,json,md}\"",
     "tests": "jest",
     "fix": "npm run typecheck && npm run format && npm run test"
@@ -74,6 +80,7 @@
     "prettier": "3.3.3",
     "react-test-renderer": "^18.3.1",
     "ts-jest": "^29.2.5",
-    "typescript": "^5.3.3"
+    "typescript": "^5.3.3",
+    "ts-node": "^10.9.1"
   }
 }

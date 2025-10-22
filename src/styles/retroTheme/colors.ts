@@ -44,5 +44,3 @@ export const colors = {
   text03: paleWhiteBlue,
   navyBlue,
 };
-
-// 10 colors for the theme palette

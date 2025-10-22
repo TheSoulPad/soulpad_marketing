@@ -27,9 +27,9 @@ const config: GatsbyConfig = {
     FAST_DEV: true,
   },
   plugins: [
-    // Add our custom environment variables plugin first
+    // Add our custom environment variables plugin first (use string resolve to avoid build-time transform issues)
     {
-      resolve: require.resolve(`./plugins/gatsby-plugin-env-variables`),
+      resolve: "./plugins/gatsby-plugin-env-variables",
     },
     "gatsby-plugin-netlify-cms",
     "gatsby-plugin-styled-components",

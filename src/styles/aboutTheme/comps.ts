@@ -1,7 +1,5 @@
 import { colors as c } from "./colors";
 import { spacing as s } from "../spacing";
-import { text } from "stream/consumers";
-import { orange, red } from "@mui/material/colors";
 
 const borderRadiusSm = `${s.sm}rem`;
 const darkBrownShadow = `1px 3px 1px ${c.darkBrown}`;
@@ -56,7 +54,7 @@ const baseHeaderText = {
   color: c.text01,
 };
 
-const aboutTheme = {
+export const aboutTheme = {
   Button: {
     primary: {
       ...baseButton,
