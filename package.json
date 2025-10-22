@@ -15,7 +15,7 @@
     "build": "gatsby build",
     "serve": "gatsby serve",
     "clean": "gatsby clean",
-    "typecheck": "tsc --noEmit",
+    "tsc": "tsc --noEmit",
     "format": "prettier --write \"src/**/*.{js,jsx,ts,tsx,json,md}\"",
     "tests": "jest",
     "fix": "npm run typecheck && npm run format && npm run test"
@@ -29,6 +29,7 @@
     "@mui/icons-material": "^6.1.3",
     "@mui/material": "^6.1.3",
     "@mui/styled-engine-sc": "^6.1.3",
+    "@parcel/watcher": "^2.5.1",
     "@testing-library/dom": "^10.4.0",
     "ajv": "^8.17.1",
     "ajv-keywords": "^5.1.0",
