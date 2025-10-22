@@ -1,6 +1,5 @@
 import React from "react";
 import CustomCard from "./CustomCard";
-import SpotifyPlayer from "./SpotifyPlayer";
 
 // Supports video and Spotify content types
 interface CardProps {
