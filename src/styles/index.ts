@@ -7,6 +7,6 @@ export * from "./retro_1";
 export * from "./responsive";
 export { dreamyTheme } from "./dreamyTheme";
 export { diaryTheme } from "./diaryTheme";
-export { videogameTheme } from "./videoGameTheme";
+export { videoGameTheme } from "./videoGameTheme";
 export { aboutTheme } from "./aboutTheme";
 export { retroTheme } from "./retroTheme";

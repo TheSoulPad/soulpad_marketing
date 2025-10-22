@@ -17,6 +17,7 @@
     "clean": "gatsby clean",
     "api": "node api/server.js",
     "netlify:dev": "netlify dev",
+    "netlify": "netlify build",
     "export-themes": "node scripts/exportThemes.js",
     "tsc": "tsc --noEmit",
     "format": "prettier --write \"src/**/*.{js,jsx,ts,tsx,json,md}\"",
