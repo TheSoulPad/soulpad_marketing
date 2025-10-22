@@ -209,7 +209,7 @@ const buttons: ButtonType = {
   custom: buttonStyles,
 };
 
-export const videoGameTheme = {
+const videoGameTheme = {
   Button: buttons,
   Card: card,
   CustomCard: customCard,
