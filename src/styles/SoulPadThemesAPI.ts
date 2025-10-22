@@ -2,7 +2,7 @@ import { aboutTheme } from "./aboutTheme";
 import { diaryTheme } from "./diaryTheme";
 import { retroTheme } from "./retroTheme";
 import { dreamyTheme } from "./dreamyTheme";
-import { videoGameTheme } from "./videoGameTheme";
+import { videoGameTheme } from "./videoGameTheme-shim";
 
 const SoulPadThemesAPI = {
   about: aboutTheme,

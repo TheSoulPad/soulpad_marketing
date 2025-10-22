@@ -1,4 +1,4 @@
-import { videoGameTheme } from "../styles/videoGameTheme";
+import { videoGameTheme } from "../styles/videoGameTheme-shim";
 import * as stylesIndex from "../styles";
 
 describe("Theme module resolution", () => {
