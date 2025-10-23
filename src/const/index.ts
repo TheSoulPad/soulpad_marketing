@@ -17,12 +17,12 @@ export const homePageLinks = {
     url: "/Gallery",
     type: "link",
   },
-  demo: {
-    id: "demo",
-    label: "Try the Demo",
-    url: "https://thesoulpaddemo.com/",
-    type: "link",
-  },
+  // demo: {
+  //   id: "demo",
+  //   label: "Try the Demo",
+  //   url: "https://thesoulpaddemo.com/",
+  //   type: "link",
+  // },
   video: {
     id: "video",
     label: "Watch the SoulPad Video",
