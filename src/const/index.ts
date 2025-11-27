@@ -32,4 +32,5 @@ export const homePageLinks = {
 };
 
 export const FORMSPREEENDPOINT = "xdklakod";
-export const FUNDRAISER_URL = "https://gofund.me/4351b380";
+export const FUNDRAISER_URL =
+  "https://www.gofundme.com/f/support-kalas-vision-for-soulpad/cl/o?utm_campaign=fp_sharesheet&utm_content=amp17_tb&utm_medium=customer&utm_source=copy_link&lang=en_US&attribution_id=sl%3Acd281148-6bae-4062-9517-9185bcf4f7a1&ts=1764264404";
