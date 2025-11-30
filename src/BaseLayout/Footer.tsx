@@ -26,11 +26,15 @@ const Footer: React.FC = () => {
         display: "flex",
         flexWrap: "wrap",
         gap: 2,
-        width: isMobile ? "100%" : "auto",
+        maxHeight: "30px",
         height: "100%",
-        minHeight: "100px",
         alignContent: isMobile ? "start" : "end",
         flexDirection: isMobile ? "column" : "row",
+        position: "fixed",
+        bottom: 0,
+        width: "100%",
+        overflowX: "auto",
+        zIndex: 1000,
       }}
     >
       {Object.entries(homePageLinks).map(([key, link]) => (
@@ -42,7 +46,12 @@ const Footer: React.FC = () => {
           </Typography>
         </Box>
       ))}
-      <Typography variant="body2" color="black">
+      <Typography
+        className="footer--copyright"
+        variant="body2"
+        color="black"
+        sx={{ marginRight: "2rem" }}
+      >
         &copy; {new Date().getFullYear()} SoulPad. All rights reserved.
       </Typography>
     </Box>

@@ -113,7 +113,7 @@ const Home = () => {
   const homePageStyles = {
     maxHeight: `${tabletAndGreater ? "529px" : "auto"}`,
     overflow: "hidden",
-    position: "relative",
+    // position: "relative",
     justifyContent: tabletAndGreater ? "center" : "flex-start",
   };
 
@@ -129,13 +129,13 @@ const Home = () => {
           pl={3}
         >
           <Box
+            className="home-page--person-img person-img-box person-img-1"
             sx={{
               ...imgBoxContainer,
               backgroundImage: `url(${person1Path})`,
               left: "55px",
-              top: "0px",
+              top: "40px",
             }}
-            className="home-page--person-img person-img-box person-img-1"
           >
             {/* FAKE BOX */}
             <Card className="image-standin" sx={{ opacity: 0, width: "100%" }}>
@@ -168,7 +168,7 @@ const Home = () => {
               ...imgBoxContainer,
               backgroundImage: `url(${person3Path})`,
               left: "30px",
-              bottom: "-8px",
+              bottom: "40px",
               backgroundPositionX: "25px",
             }}
           >
@@ -205,7 +205,8 @@ const Home = () => {
           sx={{
             maxWidth: maxWidthContent,
             width: { xs: "unset", md: "100%" },
-            margin: { xs: "2rem", md: "auto" },
+            margin: "auto",
+            // margin: { xs: "2rem", md: "auto" },
           }}
           flexDirection="column"
           alignItems={"center"}
@@ -281,8 +282,8 @@ const Home = () => {
               backgroundImage: `url(${person2Path})`,
               backgroundPositionY: "10px",
               backgroundPositionX: "30px",
-              right: "49px",
-              top: "0px",
+              right: "85px",
+              top: "40px",
             }}
           >
             {/* FAKE BOX */}
@@ -317,7 +318,7 @@ const Home = () => {
               backgroundImage: `url(${person4Path})`,
               position: "absolute",
               backgroundPositionX: "10px",
-              bottom: "-9px",
+              bottom: "40px",
               right: "30px",
             }}
           >
