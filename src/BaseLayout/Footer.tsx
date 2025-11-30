@@ -27,7 +27,6 @@ const Footer: React.FC = () => {
         flexWrap: "wrap",
         gap: 2,
         maxHeight: "30px",
-        height: "100%",
         alignContent: isMobile ? "start" : "end",
         flexDirection: isMobile ? "column" : "row",
         position: "sticky",
