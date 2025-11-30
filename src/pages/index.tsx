@@ -204,8 +204,8 @@ const Home = () => {
           className="home-page--content window-container col-2"
           sx={{
             maxWidth: maxWidthContent,
-            width: tabletAndGreater ? "100%" : "unset",
-            margin: tabletAndGreater ? "auto" : "2rem",
+            width: { xs: "unset", md: "100%" },
+            margin: { xs: "2rem", md: "auto" },
           }}
           flexDirection="column"
           alignItems={"center"}
