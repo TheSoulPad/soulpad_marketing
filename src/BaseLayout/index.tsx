@@ -1,5 +1,4 @@
 import React, { CSSProperties } from "react";
-import GlobalStyles from "../GlobalStyles";
 import Grid from "@mui/material/Grid2";
 import { colors, isMobileWidth, istabletAndGreaterWidth } from "../styles";
 import Footer from "./Footer";
@@ -68,7 +67,6 @@ const BaseLayout: React.FC<LayoutProps> = ({ children, isHomePage }) => {
 
   return (
     <ThemeProvider theme={theme}>
-      <GlobalStyles />
       <Grid
         className={isHomePage ? `base-layout--home` : "base-layout--not-home"}
         container

@@ -33,6 +33,7 @@ const FundraisingBanner: React.FC<FundraisingProps> = ({ paperStyles }) => {
       sx={{
         ...paperStyles,
         ...(tabletAndGreater ? tabletAndGreaterStyles : paperMobileStyles),
+        marginBottom: "3rem",
       }}
     >
       <Box

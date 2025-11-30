@@ -17,18 +17,18 @@ export const homePageLinks = {
     url: "/Gallery",
     type: "link",
   },
-  // demo: {
-  //   id: "demo",
-  //   label: "Try the Demo",
-  //   url: "https://thesoulpaddemo.com/",
-  //   type: "link",
-  // },
-  video: {
-    id: "video",
-    label: "Watch the SoulPad Video",
-    url: "https://res.cloudinary.com/dd4qvmhqx/video/upload/v1760374008/soulpadVideo_dxorcc.mp4",
-    type: "video",
+  demo: {
+    id: "demo",
+    label: "Try the Demo",
+    url: "https://trysoulpaddemo.com/",
+    type: "link",
   },
+  // video: {
+  //   id: "video",
+  //   label: "Watch the SoulPad Video",
+  //   url: "https://res.cloudinary.com/dd4qvmhqx/video/upload/v1760374008/soulpadVideo_dxorcc.mp4",
+  //   type: "video",
+  // },
 };
 
 export const FORMSPREEENDPOINT = "xdklakod";
