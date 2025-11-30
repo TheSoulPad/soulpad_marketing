@@ -30,11 +30,10 @@ const Footer: React.FC = () => {
         height: "100%",
         alignContent: isMobile ? "start" : "end",
         flexDirection: isMobile ? "column" : "row",
-        position: "fixed",
+        position: "sticky",
         bottom: 0,
         width: "100%",
         overflowX: "auto",
-        zIndex: 1000,
       }}
     >
       {Object.entries(homePageLinks).map(([key, link]) => (
