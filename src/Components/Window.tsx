@@ -208,6 +208,7 @@ const Windows: React.FC<WindowProps> = ({
                 component="iframe"
                 src={getYouTubeEmbedUrl(link)}
                 title="SoulPad Video"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                 sx={{
                   position: "absolute",
                   top: 0,
