@@ -34,7 +34,9 @@ function Footer() {
         width: "100%",
       }}
     >
-      {Object.entries(homePageLinks).map(([key, link]) => (
+      {Object.entries(homePageLinks)
+        .filter(([, link]) => link.type === "link")
+        .map(([key, link]) => (
         <Box key={key}>
           <Typography variant="body2">
             <a href={link.url} style={{ color: "black", textDecoration: "none" }}>

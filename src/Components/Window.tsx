@@ -97,63 +97,58 @@ const Windows: React.FC<WindowProps> = ({
     }
   };
 
-  const content = (
-    <>
-      {isVideoLink ? (
-        <Box
-          component="span"
-          onClick={handleVideoClick}
-          sx={{ cursor: "pointer", display: "contents" }}
-        >
-          <Box className="home-selection--text" sx={linkStyles}>
-            {title}
-          </Box>
-        </Box>
-      ) : isInternalLink(link) ? (
-        <Link component={GatsbyLink} to={link} underline="none">
-          <Box className="home-selection--text" sx={linkStyles}>
-            {title}
-          </Box>
-        </Link>
-      ) : (
-        <Link href={link} target="_blank" rel="noopener noreferrer" component="a" underline="none">
-          <Box className="home-selection--text" sx={linkStyles}>
-            {title}
-          </Box>
-        </Link>
-      )}
-    </>
-  );
+  function LinkWrapper({
+    children,
+    transparent,
+  }: {
+    children: React.ReactNode;
+    transparent?: boolean;
+  }) {
+    const linkSx = transparent ? { color: "transparent" as const } : undefined;
+    const videoSx = {
+      cursor: "pointer" as const,
+      ...(transparent && { color: "transparent" as const }),
+      display: "contents" as const,
+    };
 
-  const arrowContent = isVideoLink ? (
-    <Box
-      component="span"
-      onClick={handleVideoClick}
-      sx={{ cursor: "pointer", color: "transparent", display: "contents" }}
-    >
-      <Box className="home-selection--arrow" sx={arrowStyles} />
-    </Box>
-  ) : isInternalLink(link) ? (
-    <Link component={GatsbyLink} to={link} underline="none" sx={{ color: "transparent" }}>
-      <Box className="home-selection--arrow" sx={arrowStyles} />
-    </Link>
-  ) : (
-    <Link
-      href={link}
-      component="a"
-      underline="none"
-      sx={{ color: "transparent" }}
-      target="_blank"
-      rel="noopener noreferrer"
-    >
-      <Box className="home-selection--arrow" sx={arrowStyles} />
-    </Link>
-  );
+    if (isVideoLink) {
+      return (
+        <Box component="span" onClick={handleVideoClick} sx={videoSx}>
+          {children}
+        </Box>
+      );
+    }
+    if (isInternalLink(link)) {
+      return (
+        <Link component={GatsbyLink} to={link} underline="none" sx={linkSx}>
+          {children}
+        </Link>
+      );
+    }
+    return (
+      <Link
+        href={link}
+        component="a"
+        underline="none"
+        sx={linkSx}
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        {children}
+      </Link>
+    );
+  }
 
   return (
     <Box className="home-selection--window" sx={windowStyles}>
-      {content}
-      {arrowContent}
+      <LinkWrapper>
+        <Box className="home-selection--text" sx={linkStyles}>
+          {title}
+        </Box>
+      </LinkWrapper>
+      <LinkWrapper transparent>
+        <Box className="home-selection--arrow" sx={arrowStyles} />
+      </LinkWrapper>
 
       {isVideoLink && (
       <Modal
@@ -208,7 +203,8 @@ const Windows: React.FC<WindowProps> = ({
                 component="iframe"
                 src={getYouTubeEmbedUrl(link)}
                 title="SoulPad Video"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; fullscreen; gyroscope; picture-in-picture"
                 sx={{
                   position: "absolute",
                   top: 0,
