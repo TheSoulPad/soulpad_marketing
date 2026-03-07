@@ -20,6 +20,56 @@ function getYouTubeEmbedUrl(url: string): string {
   return match ? `https://www.youtube.com/embed/${match[1]}?autoplay=1` : url;
 }
 
+interface LinkWrapperProps {
+  children: React.ReactNode;
+  transparent?: boolean;
+  isVideoLink: boolean;
+  link: string;
+  onVideoClick: () => void;
+}
+
+function LinkWrapper({
+  children,
+  transparent,
+  isVideoLink,
+  link,
+  onVideoClick,
+}: LinkWrapperProps) {
+  const linkSx = transparent ? { color: "transparent" as const } : undefined;
+  const videoSx = {
+    cursor: "pointer" as const,
+    ...(transparent && { color: "transparent" as const }),
+    display: "contents" as const,
+  };
+
+  if (isVideoLink) {
+    return (
+      <Box component="span" onClick={onVideoClick} sx={videoSx}>
+        {children}
+      </Box>
+    );
+  }
+  if (isInternalLink(link)) {
+    return (
+      <Link component={GatsbyLink} to={link} underline="none" sx={linkSx}>
+        {children}
+      </Link>
+    );
+  }
+  return (
+    <Link
+      href={link}
+      component="a"
+      underline="none"
+      sx={linkSx}
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      {children}
+    </Link>
+  );
+}
+
 interface WindowProps {
   title: string;
   link: string;
@@ -97,56 +147,20 @@ const Windows: React.FC<WindowProps> = ({
     }
   };
 
-  function LinkWrapper({
-    children,
-    transparent,
-  }: {
-    children: React.ReactNode;
-    transparent?: boolean;
-  }) {
-    const linkSx = transparent ? { color: "transparent" as const } : undefined;
-    const videoSx = {
-      cursor: "pointer" as const,
-      ...(transparent && { color: "transparent" as const }),
-      display: "contents" as const,
-    };
-
-    if (isVideoLink) {
-      return (
-        <Box component="span" onClick={handleVideoClick} sx={videoSx}>
-          {children}
-        </Box>
-      );
-    }
-    if (isInternalLink(link)) {
-      return (
-        <Link component={GatsbyLink} to={link} underline="none" sx={linkSx}>
-          {children}
-        </Link>
-      );
-    }
-    return (
-      <Link
-        href={link}
-        component="a"
-        underline="none"
-        sx={linkSx}
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        {children}
-      </Link>
-    );
-  }
+  const linkWrapperProps = {
+    isVideoLink,
+    link,
+    onVideoClick: handleVideoClick,
+  };
 
   return (
     <Box className="home-selection--window" sx={windowStyles}>
-      <LinkWrapper>
+      <LinkWrapper {...linkWrapperProps}>
         <Box className="home-selection--text" sx={linkStyles}>
           {title}
         </Box>
       </LinkWrapper>
-      <LinkWrapper transparent>
+      <LinkWrapper {...linkWrapperProps} transparent>
         <Box className="home-selection--arrow" sx={arrowStyles} />
       </LinkWrapper>
 
