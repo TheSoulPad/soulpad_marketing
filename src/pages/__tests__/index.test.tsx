@@ -13,10 +13,9 @@ describe("HomePage", () => {
     ).toBeInTheDocument();
   });
 
-  it("should render the SoulPad introduction video", () => {
+  it("should render the SoulPad video window", () => {
     render(<Home />);
-    const video = screen.getByLabelText("SoulPad introduction video");
-    expect(video).toBeInTheDocument();
+    expect(screen.getAllByText(/Watch the SoulPad Video/i).length).toBeGreaterThan(0);
   });
 
   it("should render the newsletter banner", () => {

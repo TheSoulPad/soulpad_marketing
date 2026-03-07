@@ -13,7 +13,7 @@ describe("Gallery Page", () => {
     expect(screen.getAllByText(/SoulPad/i)[0]).toBeInTheDocument();
     expect(screen.getByText(/Diary/i)).toBeInTheDocument();
     expect(screen.getByText(/Retrowave/i)).toBeInTheDocument();
-    expect(screen.getByText(/Video game/i)).toBeInTheDocument();
+    expect(screen.getByText("Video game")).toBeInTheDocument();
   });
 
   it("switches between themes when a theme button is clicked", async () => {
@@ -25,8 +25,8 @@ describe("Gallery Page", () => {
     expect(await findByText(/Diary/i)).toBeInTheDocument();
   });
 
-  it("renders the Custom List", () => {
+  it("renders the Messages card", () => {
     render(<Gallery />);
-    expect(screen.getByText(/Custom List/i)).toBeInTheDocument();
+    expect(screen.getByText(/Messages/i)).toBeInTheDocument();
   });
 });
