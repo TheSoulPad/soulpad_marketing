@@ -13,10 +13,8 @@ function isInternalLink(url: string): boolean {
   return url.startsWith("/") && !url.startsWith("//");
 }
 
-const VIDEO_TITLE = "Watch the SoulPad Video";
-
 function getYouTubeEmbedUrl(url: string): string {
-  const match = url.match(/(?:youtube\.com\/watch\?v=|youtu\.be\/)([^&]+)/);
+  const match = url.match(/(?:youtube\.com\/watch\?v=|youtu\.be\/)([^&?]+)/);
   return match ? `https://www.youtube.com/embed/${match[1]}?autoplay=1` : url;
 }
 
@@ -43,8 +41,21 @@ function LinkWrapper({
   };
 
   if (isVideoLink) {
+    const handleKeyDown = (e: React.KeyboardEvent) => {
+      if (e.key === "Enter" || e.key === " ") {
+        e.preventDefault();
+        onVideoClick();
+      }
+    };
     return (
-      <Box component="span" onClick={onVideoClick} sx={videoSx}>
+      <Box
+        component="span"
+        role="button"
+        tabIndex={0}
+        onClick={onVideoClick}
+        onKeyDown={handleKeyDown}
+        sx={videoSx}
+      >
         {children}
       </Box>
     );
@@ -73,6 +84,7 @@ function LinkWrapper({
 interface WindowProps {
   title: string;
   link: string;
+  type?: "link" | "video";
   maxWidth: string;
   minHeight: string;
 }
@@ -80,11 +92,12 @@ interface WindowProps {
 const Windows: React.FC<WindowProps> = ({
   title,
   link,
+  type = "link",
   maxWidth,
   minHeight,
 }) => {
   const [videoModalOpen, setVideoModalOpen] = useState(false);
-  const isVideoLink = title === VIDEO_TITLE;
+  const isVideoLink = type === "video";
   const windowStyles = {
     cursor: "pointer",
     backgroundImage: `url('https://res.cloudinary.com/dd4qvmhqx/image/upload/v1760470821/pencilwindow_icrhfu.svg')`,
