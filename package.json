@@ -22,7 +22,7 @@
     "fix": "npm run typecheck && npm run format && npm run test"
   },
   "dependencies": {
-    "@cloudinary/react": "^1.14.3",
+    "@cloudinary/react": "^1.14.4",
     "@cloudinary/url-gen": "^1.22.0",
     "@emotion/core": "^11.0.0",
     "@emotion/styled": "^11.13.0",
