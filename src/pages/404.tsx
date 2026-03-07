@@ -1,5 +1,5 @@
 import * as React from "react";
-import { Link, HeadFC, PageProps } from "gatsby";
+import { HeadFC, PageProps } from "gatsby";
 
 const pageStyles = {
   color: "#232129",
@@ -38,7 +38,7 @@ const NotFoundPage: React.FC<PageProps> = () => {
           </>
         ) : null}
         <br />
-        <Link to="/">Go home</Link>.
+        <a href="/">Go home</a>.
       </p>
     </main>
   );

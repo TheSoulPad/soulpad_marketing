@@ -23,12 +23,12 @@ export const homePageLinks = {
     url: "https://trysoulpaddemo.com/",
     type: "link",
   },
-  // video: {
-  //   id: "video",
-  //   label: "Watch the SoulPad Video",
-  //   url: "https://res.cloudinary.com/dd4qvmhqx/video/upload/v1760374008/soulpadVideo_dxorcc.mp4",
-  //   type: "video",
-  // },
+  video: {
+    id: "video",
+    label: "Watch the SoulPad Video",
+    url: "https://www.youtube.com/watch?v=1FEM6XuE5Qs",
+    type: "video",
+  },
 };
 
 export const FORMSPREEENDPOINT = "xdklakod";
