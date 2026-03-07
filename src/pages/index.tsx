@@ -251,6 +251,7 @@ const Home = () => {
                   key={key}
                   title={item.label}
                   link={item.url}
+                  type={item.type as "link" | "video"}
                   maxWidth="300px"
                   minHeight="180px"
                 />

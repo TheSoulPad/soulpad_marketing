@@ -6,7 +6,6 @@ import { ThemeProvider } from "@mui/material/styles";
 import theme from "../theme";
 import useMediaQuery from "@mui/material/useMediaQuery";
 import Box from "@mui/material/Box";
-import { Link } from "gatsby";
 
 interface LayoutProps {
   children: React.ReactNode;
@@ -82,12 +81,12 @@ const BaseLayout: React.FC<LayoutProps> = ({ children, isHomePage }) => {
             maxWidth: "100%",
           }}
         >
-          <Link to="/">
+          <a href="/">
             <Box sx={setHeaderStyles} className="header--wrapper">
               {/* need to create a unique logo*/}
               <Box sx={boxStylesToCenter} />
             </Box>
-          </Link>
+          </a>
         </Grid>
 
         {children}

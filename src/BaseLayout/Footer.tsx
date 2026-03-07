@@ -1,5 +1,5 @@
 import React from "react";
-import { Box, Typography, Link } from "@mui/material";
+import { Box, Typography } from "@mui/material";
 import { colors } from "../styles";
 import useMediaQuery from "@mui/material/useMediaQuery";
 
@@ -9,7 +9,7 @@ import { homePageLinks } from "../const";
 
 const { officialBackgroundColor } = colors;
 
-const Footer: React.FC = () => {
+function Footer() {
   const isMobile = useMediaQuery("(max-width:758px)");
   return (
     <Box
@@ -26,20 +26,22 @@ const Footer: React.FC = () => {
         display: "flex",
         flexWrap: "wrap",
         gap: 2,
-        maxHeight: "30px",
+        maxHeight: isMobile ? "none" : "30px",
         alignContent: isMobile ? "start" : "end",
-        flexDirection: "row",
+        flexDirection: isMobile ? "column" : "row",
         position: "sticky",
         bottom: 0,
         width: "100%",
       }}
     >
-      {Object.entries(homePageLinks).map(([key, link]) => (
+      {Object.entries(homePageLinks)
+        .filter(([, link]) => link.type === "link")
+        .map(([key, link]) => (
         <Box key={key}>
           <Typography variant="body2">
-            <Link href={link.url} color="black" underline="none">
+            <a href={link.url} style={{ color: "black", textDecoration: "none" }}>
               {link.label}
-            </Link>
+            </a>
           </Typography>
         </Box>
       ))}
