@@ -1,7 +1,19 @@
-import React from "react";
+import React, { useState } from "react";
 import { spacing } from "../styles";
 import Box from "@mui/material/Box";
-import { Link } from "gatsby";
+import Link from "@mui/material/Link";
+import Modal from "@mui/material/Modal";
+import Fade from "@mui/material/Fade";
+import Backdrop from "@mui/material/Backdrop";
+import IconButton from "@mui/material/IconButton";
+import CloseIcon from "@mui/icons-material/Close";
+
+const VIDEO_TITLE = "Watch the SoulPad Video";
+
+function getYouTubeEmbedUrl(url: string): string {
+  const match = url.match(/(?:youtube\.com\/watch\?v=|youtu\.be\/)([^&]+)/);
+  return match ? `https://www.youtube.com/embed/${match[1]}?autoplay=1` : url;
+}
 
 interface WindowProps {
   title: string;
@@ -16,6 +28,8 @@ const Windows: React.FC<WindowProps> = ({
   maxWidth,
   minHeight,
 }) => {
+  const [videoModalOpen, setVideoModalOpen] = useState(false);
+  const isVideoLink = title === VIDEO_TITLE;
   const windowStyles = {
     cursor: "pointer",
     backgroundImage: `url('https://res.cloudinary.com/dd4qvmhqx/image/upload/v1760470821/pencilwindow_icrhfu.svg')`,
@@ -72,17 +86,127 @@ const Windows: React.FC<WindowProps> = ({
     },
   };
 
+  const handleVideoClick = () => {
+    if (isVideoLink) {
+      setVideoModalOpen(true);
+    }
+  };
+
+  const content = (
+    <>
+      {isVideoLink ? (
+        <Box
+          component="span"
+          onClick={handleVideoClick}
+          sx={{ cursor: "pointer", display: "contents" }}
+        >
+          <Box className="home-selection--text" sx={linkStyles}>
+            {title}
+          </Box>
+        </Box>
+      ) : (
+        <Link href={link} target="_blank" rel="noopener noreferrer" component="a" underline="none">
+          <Box className="home-selection--text" sx={linkStyles}>
+            {title}
+          </Box>
+        </Link>
+      )}
+    </>
+  );
+
+  const arrowContent = isVideoLink ? (
+    <Box
+      component="span"
+      onClick={handleVideoClick}
+      sx={{ cursor: "pointer", color: "transparent", display: "contents" }}
+    >
+      <Box className="home-selection--arrow" sx={arrowStyles} />
+    </Box>
+  ) : (
+    <Link
+      href={link}
+      component="a"
+      underline="none"
+      sx={{ color: "transparent" }}
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      <Box className="home-selection--arrow" sx={arrowStyles} />
+    </Link>
+  );
+
   return (
     <Box className="home-selection--window" sx={windowStyles}>
-      <Link to={link}>
-        <Box className="home-selection--text" sx={linkStyles}>
-          {title}
-        </Box>
-      </Link>
+      {content}
+      {arrowContent}
 
-      <Link style={{ color: "transparent" }} to={link}>
-        <Box className="home-selection--arrow" sx={arrowStyles} />
-      </Link>
+      {isVideoLink && (
+      <Modal
+        open={videoModalOpen}
+        onClose={() => setVideoModalOpen(false)}
+        closeAfterTransition
+        slots={{ backdrop: Backdrop }}
+        slotProps={{
+          backdrop: {
+            timeout: 500,
+            style: { backgroundColor: "rgba(0, 0, 0, 0.85)" },
+          },
+        }}
+      >
+        <Fade in={videoModalOpen}>
+          <Box
+            sx={{
+              position: "absolute",
+              top: "50%",
+              left: "50%",
+              transform: "translate(-50%, -50%)",
+              width: "90vw",
+              maxWidth: 900,
+              outline: "none",
+              p: 1,
+            }}
+          >
+            <IconButton
+              aria-label="close"
+              onClick={() => setVideoModalOpen(false)}
+              sx={{
+                position: "absolute",
+                right: 8,
+                top: 8,
+                color: "white",
+                backgroundColor: "rgba(0, 0, 0, 0.5)",
+                "&:hover": { backgroundColor: "rgba(0, 0, 0, 0.7)" },
+                zIndex: 1,
+              }}
+            >
+              <CloseIcon />
+            </IconButton>
+            <Box
+              sx={{
+                position: "relative",
+                paddingBottom: "56.25%",
+                height: 0,
+                overflow: "hidden",
+              }}
+            >
+              <Box
+                component="iframe"
+                src={getYouTubeEmbedUrl(link)}
+                title="SoulPad Video"
+                sx={{
+                  position: "absolute",
+                  top: 0,
+                  left: 0,
+                  width: "100%",
+                  height: "100%",
+                  border: "none",
+                }}
+              />
+            </Box>
+          </Box>
+        </Fade>
+      </Modal>
+      )}
     </Box>
   );
 };
