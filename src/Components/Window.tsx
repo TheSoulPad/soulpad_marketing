@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link as GatsbyLink } from "gatsby";
 import { spacing } from "../styles";
 import Box from "@mui/material/Box";
 import Link from "@mui/material/Link";
@@ -7,6 +8,10 @@ import Fade from "@mui/material/Fade";
 import Backdrop from "@mui/material/Backdrop";
 import IconButton from "@mui/material/IconButton";
 import CloseIcon from "@mui/icons-material/Close";
+
+function isInternalLink(url: string): boolean {
+  return url.startsWith("/") && !url.startsWith("//");
+}
 
 const VIDEO_TITLE = "Watch the SoulPad Video";
 
@@ -104,6 +109,12 @@ const Windows: React.FC<WindowProps> = ({
             {title}
           </Box>
         </Box>
+      ) : isInternalLink(link) ? (
+        <Link component={GatsbyLink} to={link} underline="none">
+          <Box className="home-selection--text" sx={linkStyles}>
+            {title}
+          </Box>
+        </Link>
       ) : (
         <Link href={link} target="_blank" rel="noopener noreferrer" component="a" underline="none">
           <Box className="home-selection--text" sx={linkStyles}>
@@ -122,6 +133,10 @@ const Windows: React.FC<WindowProps> = ({
     >
       <Box className="home-selection--arrow" sx={arrowStyles} />
     </Box>
+  ) : isInternalLink(link) ? (
+    <Link component={GatsbyLink} to={link} underline="none" sx={{ color: "transparent" }}>
+      <Box className="home-selection--arrow" sx={arrowStyles} />
+    </Link>
   ) : (
     <Link
       href={link}
