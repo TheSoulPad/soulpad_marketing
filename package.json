@@ -29,7 +29,7 @@
     "@formspree/react": "^3.0.0",
     "@mui/icons-material": "^6.5.0",
     "@mui/material": "^6.5.0",
-    "@mui/styled-engine-sc": "^6.1.3",
+    "@mui/styled-engine-sc": "^6.4.9",
     "@parcel/watcher": "^2.5.1",
     "@testing-library/dom": "^10.4.0",
     "ajv": "^8.18.0",
