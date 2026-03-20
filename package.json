@@ -19,7 +19,7 @@
     "format": "prettier --write \"src/**/*.{js,jsx,ts,tsx,json,md}\"",
     "tests": "jest",
     "test:module-resolution": "jest src/__tests__/themeModuleResolution.test.ts --runInBand --colors",
-    "fix": "npm run typecheck && npm run format && npm run test"
+    "fix": "npm run tsc && npm run format && npm run tests"
   },
   "dependencies": {
     "@cloudinary/react": "^1.14.4",
