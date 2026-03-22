@@ -20,7 +20,7 @@ export const homePageLinks = {
   demo: {
     id: "demo",
     label: "Try the Demo",
-    url: "https://trysoulpaddemo.com/",
+    url: "https://thesoulpad.com/",
     type: "link",
   },
   video: {

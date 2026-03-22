@@ -178,73 +178,73 @@ const Windows: React.FC<WindowProps> = ({
       </LinkWrapper>
 
       {isVideoLink && (
-      <Modal
-        open={videoModalOpen}
-        onClose={() => setVideoModalOpen(false)}
-        closeAfterTransition
-        slots={{ backdrop: Backdrop }}
-        slotProps={{
-          backdrop: {
-            timeout: 500,
-            style: { backgroundColor: "rgba(0, 0, 0, 0.85)" },
-          },
-        }}
-      >
-        <Fade in={videoModalOpen}>
-          <Box
-            sx={{
-              position: "absolute",
-              top: "50%",
-              left: "50%",
-              transform: "translate(-50%, -50%)",
-              width: "90vw",
-              maxWidth: 900,
-              outline: "none",
-              p: 1,
-            }}
-          >
-            <IconButton
-              aria-label="close"
-              onClick={() => setVideoModalOpen(false)}
-              sx={{
-                position: "absolute",
-                right: 8,
-                top: 8,
-                color: "white",
-                backgroundColor: "rgba(0, 0, 0, 0.5)",
-                "&:hover": { backgroundColor: "rgba(0, 0, 0, 0.7)" },
-                zIndex: 1,
-              }}
-            >
-              <CloseIcon />
-            </IconButton>
+        <Modal
+          open={videoModalOpen}
+          onClose={() => setVideoModalOpen(false)}
+          closeAfterTransition
+          slots={{ backdrop: Backdrop }}
+          slotProps={{
+            backdrop: {
+              timeout: 500,
+              style: { backgroundColor: "rgba(0, 0, 0, 0.85)" },
+            },
+          }}
+        >
+          <Fade in={videoModalOpen}>
             <Box
               sx={{
-                position: "relative",
-                paddingBottom: "56.25%",
-                height: 0,
-                overflow: "hidden",
+                position: "absolute",
+                top: "50%",
+                left: "50%",
+                transform: "translate(-50%, -50%)",
+                width: "90vw",
+                maxWidth: 900,
+                outline: "none",
+                p: 1,
               }}
             >
-              <Box
-                component="iframe"
-                src={getYouTubeEmbedUrl(link)}
-                title="SoulPad Video"
-                allowFullScreen
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; fullscreen; gyroscope; picture-in-picture"
+              <IconButton
+                aria-label="close"
+                onClick={() => setVideoModalOpen(false)}
                 sx={{
                   position: "absolute",
-                  top: 0,
-                  left: 0,
-                  width: "100%",
-                  height: "100%",
-                  border: "none",
+                  right: 8,
+                  top: 8,
+                  color: "white",
+                  backgroundColor: "rgba(0, 0, 0, 0.5)",
+                  "&:hover": { backgroundColor: "rgba(0, 0, 0, 0.7)" },
+                  zIndex: 1,
                 }}
-              />
+              >
+                <CloseIcon />
+              </IconButton>
+              <Box
+                sx={{
+                  position: "relative",
+                  paddingBottom: "56.25%",
+                  height: 0,
+                  overflow: "hidden",
+                }}
+              >
+                <Box
+                  component="iframe"
+                  src={getYouTubeEmbedUrl(link)}
+                  title="SoulPad Video"
+                  allowFullScreen
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; fullscreen; gyroscope; picture-in-picture"
+                  sx={{
+                    position: "absolute",
+                    top: 0,
+                    left: 0,
+                    width: "100%",
+                    height: "100%",
+                    border: "none",
+                  }}
+                />
+              </Box>
             </Box>
-          </Box>
-        </Fade>
-      </Modal>
+          </Fade>
+        </Modal>
       )}
     </Box>
   );

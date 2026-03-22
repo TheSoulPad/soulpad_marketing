@@ -15,7 +15,9 @@ describe("HomePage", () => {
 
   it("should render the SoulPad video window", () => {
     render(<Home />);
-    expect(screen.getAllByText(/Watch the SoulPad Video/i).length).toBeGreaterThan(0);
+    expect(
+      screen.getAllByText(/Watch the SoulPad Video/i).length,
+    ).toBeGreaterThan(0);
   });
 
   it("should render the newsletter banner", () => {

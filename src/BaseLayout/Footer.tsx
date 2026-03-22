@@ -37,14 +37,17 @@ function Footer() {
       {Object.entries(homePageLinks)
         .filter(([, link]) => link.type === "link")
         .map(([key, link]) => (
-        <Box key={key}>
-          <Typography variant="body2">
-            <a href={link.url} style={{ color: "black", textDecoration: "none" }}>
-              {link.label}
-            </a>
-          </Typography>
-        </Box>
-      ))}
+          <Box key={key}>
+            <Typography variant="body2">
+              <a
+                href={link.url}
+                style={{ color: "black", textDecoration: "none" }}
+              >
+                {link.label}
+              </a>
+            </Typography>
+          </Box>
+        ))}
       <Typography
         className="footer--copyright"
         variant="body2"
@@ -55,6 +58,6 @@ function Footer() {
       </Typography>
     </Box>
   );
-};
+}
 
 export default Footer;
