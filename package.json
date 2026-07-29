@@ -35,7 +35,7 @@
     "ajv": "^8.20.0",
     "ajv-keywords": "^5.1.0",
     "axios": "^1.18.1",
-    "babel-plugin-styled-components": "^2.1.4",
+    "babel-plugin-styled-components": "^2.3.0",
     "buffer": "^6.0.3",
     "cloudinary": "^2.10.0",
     "crypto-browserify": "^3.12.1",
