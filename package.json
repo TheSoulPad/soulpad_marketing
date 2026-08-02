@@ -56,7 +56,7 @@
     "react-helmet": "^6.1.0",
     "react-spinners": "^0.17.0",
     "stream-browserify": "^3.0.0",
-    "styled-components": "^6.1.13"
+    "styled-components": "^6.4.4"
   },
   "devDependencies": {
     "@babel/preset-typescript": "^7.29.7",
