@@ -8,14 +8,10 @@ import Fade from "@mui/material/Fade";
 import Backdrop from "@mui/material/Backdrop";
 import IconButton from "@mui/material/IconButton";
 import CloseIcon from "@mui/icons-material/Close";
+import { getYouTubeEmbedUrl, isYouTubeUrl } from "../utils/youtubeEmbed";
 
 function isInternalLink(url: string): boolean {
   return url.startsWith("/") && !url.startsWith("//");
-}
-
-function getYouTubeEmbedUrl(url: string): string {
-  const match = url.match(/(?:youtube\.com\/watch\?v=|youtu\.be\/)([^&?]+)/);
-  return match ? `https://www.youtube.com/embed/${match[1]}?autoplay=1` : url;
 }
 
 interface LinkWrapperProps {
@@ -98,6 +94,13 @@ const Windows: React.FC<WindowProps> = ({
 }) => {
   const [videoModalOpen, setVideoModalOpen] = useState(false);
   const isVideoLink = type === "video";
+  const videoEmbedUrl =
+    videoModalOpen && isYouTubeUrl(link)
+      ? getYouTubeEmbedUrl(
+          link,
+          typeof window !== "undefined" ? window.location.origin : undefined,
+        )
+      : null;
   const windowStyles = {
     cursor: "pointer",
     backgroundImage: `url('https://res.cloudinary.com/dd4qvmhqx/image/upload/v1760470821/pencilwindow_icrhfu.svg')`,
@@ -227,21 +230,24 @@ const Windows: React.FC<WindowProps> = ({
                   overflow: "hidden",
                 }}
               >
-                <Box
-                  component="iframe"
-                  src={getYouTubeEmbedUrl(link)}
-                  title="SoulPad Video"
-                  allowFullScreen
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; fullscreen; gyroscope; picture-in-picture"
-                  sx={{
-                    position: "absolute",
-                    top: 0,
-                    left: 0,
-                    width: "100%",
-                    height: "100%",
-                    border: "none",
-                  }}
-                />
+                {videoEmbedUrl && (
+                  <Box
+                    component="iframe"
+                    src={videoEmbedUrl}
+                    title="SoulPad Video"
+                    allowFullScreen
+                    referrerPolicy="strict-origin-when-cross-origin"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; fullscreen; gyroscope; picture-in-picture; web-share"
+                    sx={{
+                      position: "absolute",
+                      top: 0,
+                      left: 0,
+                      width: "100%",
+                      height: "100%",
+                      border: "none",
+                    }}
+                  />
+                )}
               </Box>
             </Box>
           </Fade>
