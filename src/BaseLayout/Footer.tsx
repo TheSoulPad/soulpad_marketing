@@ -52,7 +52,7 @@ function Footer() {
         color="black"
         sx={{ marginRight: "2rem" }}
       >
-        &copy; {new Date().getFullYear()} SoulPad. All rights reserved.
+        &copy; 2025-2026 SoulPad. All rights reserved.
       </Typography>
     </Box>
   );
