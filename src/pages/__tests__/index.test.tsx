@@ -13,6 +13,15 @@ describe("HomePage", () => {
     ).toBeInTheDocument();
   });
 
+  it("should render the How SoulPad Works window", () => {
+    render(<Home />);
+    const links = screen.getAllByRole("link", { name: /How SoulPad Works/i });
+    expect(links.length).toBeGreaterThan(0);
+    expect(links.some((link) => link.getAttribute("href") === "/HowSoulPadWorks")).toBe(
+      true,
+    );
+  });
+
   it("should render the SoulPad video window", () => {
     render(<Home />);
     expect(

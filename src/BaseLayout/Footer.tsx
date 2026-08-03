@@ -5,8 +5,6 @@ import useMediaQuery from "@mui/material/useMediaQuery";
 
 import { homePageLinks } from "../const";
 
-//fix header in gallery page
-
 const { officialBackgroundColor } = colors;
 
 function Footer() {
