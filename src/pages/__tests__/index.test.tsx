@@ -17,9 +17,9 @@ describe("HomePage", () => {
     render(<Home />);
     const links = screen.getAllByRole("link", { name: /How SoulPad Works/i });
     expect(links.length).toBeGreaterThan(0);
-    expect(links.some((link) => link.getAttribute("href") === "/HowSoulPadWorks")).toBe(
-      true,
-    );
+    expect(
+      links.some((link) => link.getAttribute("href") === "/HowSoulPadWorks"),
+    ).toBe(true);
   });
 
   it("should render the SoulPad video window", () => {

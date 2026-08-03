@@ -17,6 +17,8 @@ describe("Footer", () => {
 
   it("does not render the old Gallery link label", () => {
     render(<Footer />);
-    expect(screen.queryByText(/See the Soul Exchange/i)).not.toBeInTheDocument();
+    expect(
+      screen.queryByText(/See the Soul Exchange/i),
+    ).not.toBeInTheDocument();
   });
 });

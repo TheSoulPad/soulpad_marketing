@@ -125,7 +125,8 @@ const Windows: React.FC<WindowProps> = ({
     padding: `0 ${spacing.xs}rem`,
     position: "absolute",
     top: "38%",
-    left: title === "About SoulPad" || title === "Check out SoulPad" ? "22%" : "5%",
+    left:
+      title === "About SoulPad" || title === "Check out SoulPad" ? "22%" : "5%",
     "&:hover": {
       color: "#ff6105",
       fontWeight: "600",

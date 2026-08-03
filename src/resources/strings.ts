@@ -75,7 +75,8 @@ export const Strings = {
           "Canvas Studio is your creative workspace. Draw, sketch, and build on an infinite canvas using tldraw tools, custom cards, emojis, and stickers from your pantry. Save your work, export drawings, and place images from My Pantry directly onto the canvas. It is where ideas start and where your SoulPad comes to life.",
         image:
           "https://res.cloudinary.com/dd4qvmhqx/image/upload/v1785713504/canvas_studio_hfmgik.png",
-        imageAlt: "Canvas Studio screenshot showing the SoulPad drawing workspace",
+        imageAlt:
+          "Canvas Studio screenshot showing the SoulPad drawing workspace",
       },
       {
         title: "My Pantry",
