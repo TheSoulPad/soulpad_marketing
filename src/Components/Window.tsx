@@ -8,7 +8,7 @@ import Fade from "@mui/material/Fade";
 import Backdrop from "@mui/material/Backdrop";
 import IconButton from "@mui/material/IconButton";
 import CloseIcon from "@mui/icons-material/Close";
-import { getYouTubeEmbedUrl, isYouTubeUrl } from "../utils/youtubeEmbed";
+import { getYouTubeEmbedUrl } from "../utils/youtubeEmbed";
 
 function isInternalLink(url: string): boolean {
   return url.startsWith("/") && !url.startsWith("//");
@@ -94,13 +94,12 @@ const Windows: React.FC<WindowProps> = ({
 }) => {
   const [videoModalOpen, setVideoModalOpen] = useState(false);
   const isVideoLink = type === "video";
-  const videoEmbedUrl =
-    videoModalOpen && isYouTubeUrl(link)
-      ? getYouTubeEmbedUrl(
-          link,
-          typeof window !== "undefined" ? window.location.origin : undefined,
-        )
-      : null;
+  const videoEmbedUrl = videoModalOpen
+    ? getYouTubeEmbedUrl(
+        link,
+        typeof window !== "undefined" ? window.location.origin : undefined,
+      )
+    : null;
   const windowStyles = {
     cursor: "pointer",
     backgroundImage: `url('https://res.cloudinary.com/dd4qvmhqx/image/upload/v1760470821/pencilwindow_icrhfu.svg')`,
