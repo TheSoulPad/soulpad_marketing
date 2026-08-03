@@ -1,4 +1,5 @@
-import React, { CSSProperties } from "react";
+import React from "react";
+import type { CSSObject } from "@mui/material/styles";
 import Box from "@mui/material/Box";
 import Paper from "@mui/material/Paper";
 import Typography from "@mui/material/Typography";
@@ -12,7 +13,7 @@ import {
 } from "../styles";
 
 interface FundraisingProps {
-  paperStyles?: CSSProperties;
+  paperStyles?: CSSObject;
 }
 
 const FundraisingBanner: React.FC<FundraisingProps> = ({ paperStyles }) => {

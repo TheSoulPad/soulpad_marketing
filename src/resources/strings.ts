@@ -3,7 +3,6 @@ export const Strings = {
     home: "SoulPad - Home",
     about: "SoulPad - About",
     howSoulPadWorks: "SoulPad - How SoulPad Works",
-    demo: "SoulPad - Demo",
   },
 
   about: {
@@ -54,16 +53,6 @@ export const Strings = {
     subHeader: "A soul is a universe. Expand your digital world.",
   },
 
-  createPage: {
-    header: "Create your SoulPad",
-    subHeader: "Let's get started.",
-  },
-
-  loginPage: {
-    header: "Enter your SoulPad",
-    subHeader: "Welcome back.",
-  },
-
   howSoulPadWorksPage: {
     header: "How SoulPad Works",
     intro:
@@ -111,10 +100,5 @@ export const Strings = {
         imageAlt: "The Soul Exchange screenshot showing the asset marketplace",
       },
     ],
-  },
-
-  demoPage: {
-    header: "Demo",
-    subHeader: "See SoulPad in action.",
   },
 };

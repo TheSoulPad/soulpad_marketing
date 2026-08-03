@@ -9,7 +9,7 @@ describe("HomePage", () => {
   it("should render the subheader", () => {
     render(<Home />);
     expect(
-      screen.getByText(/A soul is a universe, not a feed/i),
+      screen.getByText(/A soul is a universe\. Expand your digital world\./i),
     ).toBeInTheDocument();
   });
 

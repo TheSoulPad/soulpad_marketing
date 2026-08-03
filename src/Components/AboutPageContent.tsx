@@ -1,4 +1,5 @@
-import React, { CSSProperties } from "react";
+import React from "react";
+import type { CSSObject } from "@mui/material/styles";
 import Grid from "@mui/material/Grid2";
 import {
   spacing,
@@ -32,7 +33,7 @@ interface AboutContentProps {
 const AboutPageContent: React.FC<AboutContentProps> = ({ point }) => {
   const isMobile = useMediaQuery(isMobileWidth);
   const tabletAndGreater = useMediaQuery(istabletAndGreaterWidth);
-  const bodyTextStyles: CSSProperties = {
+  const bodyTextStyles: CSSObject = {
     textAlign: "left",
     color: "#000000",
   };
@@ -51,7 +52,7 @@ const AboutPageContent: React.FC<AboutContentProps> = ({ point }) => {
     fontFamily: "'Fredoka Local', Fredoka, sans-serif",
   };
 
-  const blockquoteStyles: CSSProperties = {
+  const blockquoteStyles: CSSObject = {
     fontFamily: "'Fredoka Local', Fredoka, sans-serif",
     fontWeight: "500",
     fontSize: "1.5rem",

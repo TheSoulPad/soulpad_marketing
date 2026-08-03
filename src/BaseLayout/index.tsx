@@ -1,4 +1,5 @@
-import React, { CSSProperties } from "react";
+import React, { type CSSProperties } from "react";
+import type { CSSObject } from "@mui/material/styles";
 import Grid from "@mui/material/Grid2";
 import { colors, isMobileWidth, istabletAndGreaterWidth } from "../styles";
 import Footer from "./Footer";
@@ -30,7 +31,7 @@ const BaseLayout: React.FC<LayoutProps> = ({ children, isHomePage }) => {
     overflowX: "hidden",
   };
 
-  const headerStyles: CSSProperties = {
+  const headerStyles: CSSObject = {
     display: "flex",
     justifyContent: "center",
     alignItems: "center",
@@ -43,7 +44,7 @@ const BaseLayout: React.FC<LayoutProps> = ({ children, isHomePage }) => {
     width: isMobile ? "75%" : "100%",
   };
 
-  const notHomeHeaderStyles: CSSProperties = {
+  const notHomeHeaderStyles: CSSObject = {
     ...headerStyles,
     justifyContent: isMobile ? "center" : "start",
     alignItems: "center",
