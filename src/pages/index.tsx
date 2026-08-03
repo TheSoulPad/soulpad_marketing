@@ -97,7 +97,7 @@ const Home = () => {
     setHasMounted(true);
   }, []);
   const tabletAndGreater = useMediaQuery(istabletAndGreaterWidth);
-  const maxWidthSubHeader = tabletAndGreater ? "525px" : "368px";
+  const maxWidthSubHeader = tabletAndGreater ? "625px" : "68px";
   const maxWidthContent = "600px";
 
   const paperStyles = {
