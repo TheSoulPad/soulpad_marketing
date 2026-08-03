@@ -50,46 +50,12 @@ const config: GatsbyConfig = {
         /* Self-hosted fonts config. Add font files and font CSS files to "static" folder */
         custom: [
           {
-            /* Use Font Awesome from CDN to avoid requiring local files */
-            name: ["Font Awesome 5 Brands", "Font Awesome 5 Free"],
-            file: "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css",
-          },
-          {
-            /* Local Fredoka font (self-hosted) */
             name: "Fredoka Local",
             file: "/fonts/fredoka/css/fredoka.css",
           },
           {
-            name: "Spicy Rice Local",
-            file: "/fonts/spicy-rice/css/spicy-rice.css",
-          },
-          {
-            name: "Gaegu Local",
-            file: "/fonts/gaegu/css/gaegu.css",
-          },
-          {
-            name: "Quantico Local",
-            file: "/fonts/quantico/css/quantico.css",
-          },
-          {
-            name: "Turret Road Local",
-            file: "/fonts/turret-road/css/turret-road.css",
-          },
-          {
             name: "Galindo Local",
             file: "/fonts/galindo/css/galindo.css",
-          },
-          {
-            name: "Staatliches Local",
-            file: "/fonts/staatliches/css/staatliches.css",
-          },
-          {
-            name: "Waterlily Local",
-            file: "/fonts/waterlily/css/waterlily.css",
-          },
-          {
-            name: "Afacad Flux Local",
-            file: "/fonts/afacad-flux/css/afacad-flux.css",
           },
         ],
 

@@ -23,7 +23,7 @@
 
 import * as React from "react";
 import type { HeadFC } from "gatsby";
-import { CSSProperties } from "react";
+import type { CSSObject } from "@mui/material/styles";
 import BaseLayout from "../BaseLayout";
 import { spacing } from "../styles";
 import Typography from "@mui/material/Typography";
@@ -71,7 +71,7 @@ const imgBoxContainer = {
   position: "absolute",
 };
 
-const subTitle: CSSProperties = {
+const subTitle: CSSObject = {
   borderRadius: "5px",
   width: "100%",
   color: "rgba(0,0,0,0.87)",
@@ -97,7 +97,7 @@ const Home = () => {
     setHasMounted(true);
   }, []);
   const tabletAndGreater = useMediaQuery(istabletAndGreaterWidth);
-  const maxWidthSubHeader = tabletAndGreater ? "525px" : "368px";
+  const maxWidthSubHeader = tabletAndGreater ? "625px" : "68px";
   const maxWidthContent = "600px";
 
   const paperStyles = {

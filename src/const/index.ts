@@ -1,3 +1,5 @@
+import { Strings } from "../resources/strings";
+
 export const homePageLinks = {
   home: {
     id: "home",
@@ -11,15 +13,15 @@ export const homePageLinks = {
     url: "/About",
     type: "link",
   },
-  gallery: {
-    id: "gallery",
-    label: "See the Soul Exchange",
-    url: "/Gallery",
+  howSoulPadWorks: {
+    id: "howSoulPadWorks",
+    label: Strings.howSoulPadWorksPage.header,
+    url: "/HowSoulPadWorks",
     type: "link",
   },
   demo: {
     id: "demo",
-    label: "Try the Demo",
+    label: "Check out SoulPad",
     url: "https://thesoulpad.com/",
     type: "link",
   },

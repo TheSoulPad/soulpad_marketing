@@ -8,14 +8,10 @@ import Fade from "@mui/material/Fade";
 import Backdrop from "@mui/material/Backdrop";
 import IconButton from "@mui/material/IconButton";
 import CloseIcon from "@mui/icons-material/Close";
+import { getYouTubeEmbedUrl } from "../utils/youtubeEmbed";
 
 function isInternalLink(url: string): boolean {
   return url.startsWith("/") && !url.startsWith("//");
-}
-
-function getYouTubeEmbedUrl(url: string): string {
-  const match = url.match(/(?:youtube\.com\/watch\?v=|youtu\.be\/)([^&?]+)/);
-  return match ? `https://www.youtube.com/embed/${match[1]}?autoplay=1` : url;
 }
 
 interface LinkWrapperProps {
@@ -98,6 +94,12 @@ const Windows: React.FC<WindowProps> = ({
 }) => {
   const [videoModalOpen, setVideoModalOpen] = useState(false);
   const isVideoLink = type === "video";
+  const videoEmbedUrl = videoModalOpen
+    ? getYouTubeEmbedUrl(
+        link,
+        typeof window !== "undefined" ? window.location.origin : undefined,
+      )
+    : null;
   const windowStyles = {
     cursor: "pointer",
     backgroundImage: `url('https://res.cloudinary.com/dd4qvmhqx/image/upload/v1760470821/pencilwindow_icrhfu.svg')`,
@@ -119,13 +121,14 @@ const Windows: React.FC<WindowProps> = ({
     fontFamily: "'Fredoka Local', Fredoka, sans-serif",
     textDecoration: "none",
     display: "block",
-    margin: "auto",
     cursor: "pointer",
-    transform: "translateX(15%)",
+    textAlign: "center",
     padding: `0 ${spacing.xs}rem`,
     position: "absolute",
     top: "38%",
-    left: title === "About SoulPad" || title === "Try the Demo" ? "22%" : "5%",
+    left: "50%",
+    transform: "translateX(-50%)",
+    width: "78%",
     "&:hover": {
       color: "#ff6105",
       fontWeight: "600",
@@ -139,17 +142,18 @@ const Windows: React.FC<WindowProps> = ({
     width: "85px",
     height: "30px",
     top: "65%",
+    left: "50%",
     position: "absolute",
-    transition: "left 0.3s ease",
-    transform: "translateX(100%)",
+    transition: "transform 0.3s ease",
+    transform: "translateX(-50%)",
     animation: "arrow-move 2s infinite alternate",
     "@keyframes arrow-move": {
-      from: { left: "0px" },
-      to: { left: "15px" },
+      from: { transform: "translateX(calc(-50% - 8px))" },
+      to: { transform: "translateX(calc(-50% + 8px))" },
     },
     "&:hover": {
       animation: "arrow-move 0s",
-      left: "25px",
+      transform: "translateX(calc(-50% + 12px))",
       backgroundImage: `url('https://res.cloudinary.com/dd4qvmhqx/image/upload/v1760471042/arrow_hover_waybwn.svg')`,
     },
   };
@@ -226,21 +230,24 @@ const Windows: React.FC<WindowProps> = ({
                   overflow: "hidden",
                 }}
               >
-                <Box
-                  component="iframe"
-                  src={getYouTubeEmbedUrl(link)}
-                  title="SoulPad Video"
-                  allowFullScreen
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; fullscreen; gyroscope; picture-in-picture"
-                  sx={{
-                    position: "absolute",
-                    top: 0,
-                    left: 0,
-                    width: "100%",
-                    height: "100%",
-                    border: "none",
-                  }}
-                />
+                {videoEmbedUrl && (
+                  <Box
+                    component="iframe"
+                    src={videoEmbedUrl}
+                    title="SoulPad Video"
+                    allowFullScreen
+                    referrerPolicy="strict-origin-when-cross-origin"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; fullscreen; gyroscope; picture-in-picture; web-share"
+                    sx={{
+                      position: "absolute",
+                      top: 0,
+                      left: 0,
+                      width: "100%",
+                      height: "100%",
+                      border: "none",
+                    }}
+                  />
+                )}
               </Box>
             </Box>
           </Fade>

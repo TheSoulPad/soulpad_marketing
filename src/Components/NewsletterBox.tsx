@@ -1,4 +1,5 @@
-import React, { CSSProperties, useState } from "react";
+import React, { useState } from "react";
+import type { CSSObject } from "@mui/material/styles";
 import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
 import TextField from "@mui/material/TextField";
@@ -14,7 +15,7 @@ import { useForm, ValidationError } from "@formspree/react";
 import { FORMSPREEENDPOINT } from "../const";
 
 interface NewsLetterProps {
-  paperStyles?: CSSProperties;
+  paperStyles?: CSSObject;
 }
 
 const NewsletterBanner: React.FC<NewsLetterProps> = ({ paperStyles }) => {

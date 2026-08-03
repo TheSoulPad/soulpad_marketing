@@ -2,8 +2,7 @@ export const Strings = {
   metaData: {
     home: "SoulPad - Home",
     about: "SoulPad - About",
-    gallery: "SoulPad - Soul Exchange",
-    demo: "SoulPad - Demo",
+    howSoulPadWorks: "SoulPad - How SoulPad Works",
   },
 
   about: {
@@ -41,8 +40,7 @@ export const Strings = {
         highlight: "Enter SoulPad",
         p: `SoulPad flips the script. Instead of endless feeds and cookie-cutter profiles, we focus on you. Your creativity. Your individuality. Your way of sharing and connecting. What makes SoulPad different is the absence of metrics: no likes, no followers, no endless feeds. There are no ads, sponsored content, and no algorithms to get you addicted to the app. The primary goals are authentic self-expression through the joy of art and deeper interactions with your connections.`,
         p1: `SoulPad is a new kind of social space. It is a canvas playground where creativity and connection intertwine. It’s your personal studio for building the profile of your dreams, with every detail reflecting your style, your voice, and your vision.`,
-        p2: `Design and customize your SoulPad with complete freedom. Add whatever inspires you: comment boxes, polls, sketchpads for your guests, even mini-games. Play with these interactive features to turn your page into a living, breathing expression of you. Adding images, themes, and personal assets is as simple as drag-and-drop, yet as flexible as a sketchbook that grows alongside your imagination.`,
-        p3: `An AI collaborator is present to help spark ideas, answer questions about SoulPad’s controls, and help bring new elements to life. `,
+        p2: `Design and customize your SoulPad with complete freedom. Add whatever inspires you: comment boxes, videsos, sketches, stickers, and more. Play with these interactive features to turn your page into a living, breathing expression of you. Adding images, themes, and personal assets is as simple as drag-and-drop, yet as flexible as a sketchbook that grows alongside your imagination.`,
         p4: `You and your connections can interact directly within your SoulPad, or explore someone else’s SoulPad where real-time interaction comes to life. Keep your space private as a personal retreat, share it with close friends, or open it up for the world to experience how you see and shape it.`,
         p5: `It’s time for social networks to be creative and fun again. Let’s bring the focus back to self-expression and genuine connection with SoulPad. Support SoulPad today, and together we can build the kind of online world we’ve been missing: authentic, empowering, and truly our own.`,
       },
@@ -52,26 +50,55 @@ export const Strings = {
   homePage: {
     header: "SoulPad",
     subHeader0: "Break the rules",
-    subHeader: "A soul is a universe, not a feed.",
+    subHeader: "A soul is a universe. Expand your digital world.",
   },
 
-  createPage: {
-    header: "Create your SoulPad",
-    subHeader: "Let's get started.",
-  },
-
-  loginPage: {
-    header: "Enter your SoulPad",
-    subHeader: "Welcome back.",
-  },
-
-  galleryPage: {
-    header: "The Soul Exchange",
-    subHeader: "Explore SoulPad themes.",
-  },
-
-  demoPage: {
-    header: "Demo",
-    subHeader: "See SoulPad in action.",
+  howSoulPadWorksPage: {
+    header: "How SoulPad Works",
+    intro:
+      "SoulPad is built around five main pages. Each one plays a different role in creating, customizing, sharing, and collecting the assets that make your SoulPad yours.",
+    sections: [
+      {
+        title: "Canvas Studio",
+        description:
+          "Canvas Studio is your creative workspace. Draw, sketch, and build on an infinite canvas using tldraw tools, custom cards, emojis, and stickers from your pantry. Save your work, export drawings, and place images from My Pantry directly onto the canvas. It is where ideas start and where your SoulPad comes to life.",
+        image:
+          "https://res.cloudinary.com/dd4qvmhqx/image/upload/v1785713504/canvas_studio_hfmgik.png",
+        imageAlt:
+          "Canvas Studio screenshot showing the SoulPad drawing workspace",
+      },
+      {
+        title: "My Pantry",
+        description:
+          "My Pantry is your personal image library. Upload and manage up to sixteen images in a simple grid, then use them in Canvas Studio or on your SoulPad page. Drag images onto the canvas on desktop, or tap to select and place them on mobile. It keeps your favorite visuals organized and ready whenever inspiration strikes.",
+        image:
+          "https://res.cloudinary.com/dd4qvmhqx/image/upload/v1785713504/My_pantry_gr60t9.png",
+        imageAlt: "My Pantry screenshot showing uploaded image slots",
+      },
+      {
+        title: "Edit SoulPad",
+        description:
+          "Edit SoulPad is where you design the profile you share with the world. Customize your profile picture, body title, layout, colors, fonts, and content boxes for images, video, audio, text, and media players. Use assets from My Pantry or the Soul Exchange to shape a page that reflects your style, voice, and vision.",
+        image:
+          "https://res.cloudinary.com/dd4qvmhqx/image/upload/v1785713504/EditSoulPad_wedgya.png",
+        imageAlt: "Edit SoulPad screenshot showing the profile editor",
+      },
+      {
+        title: "The SoulPad Page",
+        description:
+          "The SoulPad page is what friends and visitors see when they visit you online. It brings together your profile, body content, media, and optional guest book in a read-only view shaped by your privacy settings. Share it publicly, keep it friends-only, or make it a private retreat just for you.",
+        image:
+          "https://res.cloudinary.com/dd4qvmhqx/image/upload/v1785714156/soulpadpage_rfafq7.png",
+        imageAlt: "SoulPad page screenshot showing a published profile",
+      },
+      {
+        title: "The Soul Exchange",
+        description:
+          "The Soul Exchange is SoulPad’s marketplace for backgrounds, stickers, characters, and other creative assets. Browse themed collections, purchase items with Soul Coins, and apply what you own to Canvas Studio or Edit SoulPad. It is where individual creatives showcase their work and where SoulPadders find new ways to express themselves.",
+        image:
+          "https://res.cloudinary.com/dd4qvmhqx/image/upload/v1785713504/TheSoulExchange_qaiivb.png",
+        imageAlt: "The Soul Exchange screenshot showing the asset marketplace",
+      },
+    ],
   },
 };

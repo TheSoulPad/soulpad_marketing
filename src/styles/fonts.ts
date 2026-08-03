@@ -1,15 +1,7 @@
-import { CSSProperties } from "react";
-
-const mobileHeadline1Font: CSSProperties = {
-  fontSize: "1.3125rem", // 21px
-};
-
-const mobileHeadline2Font: CSSProperties = {
-  fontSize: "1.125rem", // 18px
-};
+import type { CSSObject } from "@mui/material/styles";
 
 //official title font
-const headline1Font: CSSProperties = {
+const headline1Font: CSSObject = {
   fontFamily: "'Fredoka Local', Fredoka, sans-serif",
   fontWeight: "600",
   textAlign: "center",
@@ -17,7 +9,7 @@ const headline1Font: CSSProperties = {
   fontStyle: "normal",
   fontOpticalSizing: "auto",
 };
-const headline2Font: CSSProperties = {
+const headline2Font: CSSObject = {
   margin: "auto",
   fontFamily: "'Fredoka Local', Fredoka, sans-serif",
   fontSize: "1.5rem", // 24px
@@ -26,13 +18,13 @@ const headline2Font: CSSProperties = {
   width: "100%",
 };
 
-const body1Styles: CSSProperties = {
+const body1Styles: CSSObject = {
   fontFamily: "'Fredoka Local', Fredoka, sans-serif",
   fontWeight: "500",
   fontSize: "1rem", // 16px
 };
 
-const funFont1: CSSProperties = {
+const funFont1: CSSObject = {
   fontFamily: "'Galindo Local', Galindo, sans-serif",
   fontSize: "1.5rem", // 24px
   lineHeight: "1.5",
@@ -41,11 +33,4 @@ const funFont1: CSSProperties = {
   margin: "0",
 };
 
-export {
-  headline1Font,
-  headline2Font,
-  body1Styles,
-  funFont1,
-  mobileHeadline1Font,
-  mobileHeadline2Font,
-};
+export { headline1Font, headline2Font, body1Styles, funFont1 };

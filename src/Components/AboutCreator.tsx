@@ -12,10 +12,10 @@ import {
 const PHOTO_URL =
   "https://res.cloudinary.com/dd4qvmhqx/image/upload/v1760373551/IMG_1823_ukgia6.jpg";
 
-import { CSSProperties } from "react";
+import type { CSSObject } from "@mui/material/styles";
 
 interface AboutCreatorProps {
-  paperStyles?: CSSProperties;
+  paperStyles?: CSSObject;
 }
 
 const AboutCreator: React.FC<AboutCreatorProps> = ({ paperStyles }) => {
