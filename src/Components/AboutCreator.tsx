@@ -24,15 +24,15 @@ const AboutCreator: React.FC<AboutCreatorProps> = ({ paperStyles }) => {
   const aboutCreatorParagraphs = [
     {
       key: "intro",
-      text: "Hi there, I’m Kala, the creator of SoulPad. My professional journey in web technologies began seven years ago, but my love for online communities goes back much further. I grew up immersed in platforms like LiveJournal, GaiaOnline, Blogger, WordPress, and of course, MySpace. As a teenager and young adult, these sites offered a refuge from my chaotic home life. They gave me space to express myself freely, connect with other creatives, and build meaningful online communities rooted in shared passions and creative exchange.",
+      text: "Hi there, I’m Kala, the creator of SoulPad. My professional journey in web technologies began seven years ago, but my love for online communities goes back much further. I grew up immersed in platforms like LiveJournal, GaiaOnline, Blogger, WordPress, and of course, MySpace. As a teenager and young adult, these sites offered a refuge to express myself freely, connect with other creatives, and build meaningful online communities rooted in shared passions and creative exchange.",
     },
     {
       key: "nostalgia",
-      text: "Today, I find myself longing for that kind of social networking experience again—one centered on individuality, expression, and creativity, rather than the polished performances we see on Instagram or TikTok.",
+      text: "Today, I find myself longing for that kind of social networking experience again—one centered on individuality, expression, and creativity, rather than the polished images and performances we see on Instagram or TikTok.",
     },
     {
       key: "origin",
-      text: "The idea for SoulPad came after I shared a collection of photos from a hike at San Diego’s Torrey Pines on Instagram. I was frustrated—not only by the limited controls the platform offered, but also by how constrained I felt in presenting my perspective. I wanted to showcase my photos in a way that reflected my creativity, but the platform’s format didn’t allow it. That frustration became inspiration.",
+      text: "The idea for SoulPad came after I shared a collection of photos from a hike at San Diego’s Torrey Pines on Instagram. I was frustrated by the limited controls the platform offered in presenting my perspective. I wanted to showcase my photos in a way that reflected my creativity, but the platform’s format didn’t allow it. So, that frustration became inspiration.",
     },
     {
       key: "vision",
@@ -40,7 +40,7 @@ const AboutCreator: React.FC<AboutCreatorProps> = ({ paperStyles }) => {
     },
     {
       key: "mission",
-      text: "My vision for SoulPad is to create a hub where people can gather and share their lives without the intrusive noise of ads, endless feeds, or sponsored content dominating today’s platforms. My team is designing SoulPad to be a genuine creative refuge—an open space where expression comes first and community thrives naturally. Support SoulPad today, and together we can build the kind of online world we’ve been missing: authentic, empowering, and truly our own.",
+      text: "My vision for SoulPad is to create a hub where people can gather and share their lives without the intrusive noise of ads, endless feeds, AI, or sponsored content dominating today’s online platforms. My team is designing SoulPad to be a genuine creative refuge, an open space where self-expression comes first and community thrives naturally. Support SoulPad today, and together we can build the kind of online world we’ve been missing: authentic, empowering, and truly our own.",
     },
   ];
 

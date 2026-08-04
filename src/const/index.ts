@@ -7,16 +7,16 @@ export const homePageLinks = {
     url: "/",
     type: "link",
   },
-  about: {
-    id: "about",
-    label: "Learn about SoulPad",
-    url: "/About",
-    type: "link",
-  },
   howSoulPadWorks: {
     id: "howSoulPadWorks",
     label: Strings.howSoulPadWorksPage.header,
     url: "/HowSoulPadWorks",
+    type: "link",
+  },
+  about: {
+    id: "about",
+    label: "Learn about SoulPad",
+    url: "/About",
     type: "link",
   },
   demo: {
