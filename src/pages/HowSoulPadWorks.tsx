@@ -4,6 +4,7 @@ import BaseLayout from "../BaseLayout";
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import Paper from "@mui/material/Paper";
+import Button from "@mui/material/Button";
 import useMediaQuery from "@mui/material/useMediaQuery";
 import {
   isMobileWidth,
@@ -14,6 +15,7 @@ import {
   tabletAndGreaterStyles,
 } from "../styles";
 import { Strings } from "../resources/strings";
+import { homePageLinks } from "../const";
 
 const strings = Strings.howSoulPadWorksPage;
 const headStrings = Strings.metaData.howSoulPadWorks;
@@ -118,6 +120,47 @@ const HowSoulPadWorks: React.FC = () => {
               />
             </Paper>
           ))}
+        </Box>
+
+        <Box
+          component="section"
+          aria-labelledby="how-soulpad-works-cta"
+          sx={{
+            textAlign: "center",
+            marginTop: spacing.xl + "rem",
+            maxWidth: "560px",
+            marginInline: "auto",
+          }}
+        >
+          <Typography
+            id="how-soulpad-works-cta"
+            variant="body1"
+            sx={{ marginBottom: spacing.md + "rem", lineHeight: 1.7 }}
+          >
+            {strings.ctaText}
+          </Typography>
+          <Button
+            variant="contained"
+            color="primary"
+            size="large"
+            href={homePageLinks.demo.url}
+            target="_blank"
+            rel="noopener noreferrer"
+            sx={{
+              backgroundColor: "rgba(255,97,5,0.6)",
+              fontWeight: 700,
+              fontSize: "1rem",
+              padding: "0.75rem 2rem",
+              borderRadius: "8px",
+              fontFamily: "'Fredoka Local', Fredoka, sans-serif",
+              "&:hover": {
+                backgroundColor: "#fff",
+                color: "rgba(255,97,5,0.6)",
+              },
+            }}
+          >
+            {strings.ctaButton}
+          </Button>
         </Box>
       </Box>
     </BaseLayout>

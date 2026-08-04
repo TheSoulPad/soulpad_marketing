@@ -100,5 +100,8 @@ export const Strings = {
         imageAlt: "The Soul Exchange screenshot showing the asset marketplace",
       },
     ],
+    ctaText:
+      "Now that you've seen how SoulPad works, the best way to experience it is to try it yourself. Jump in and start building your space today.",
+    ctaButton: "Try SoulPad",
   },
 };
