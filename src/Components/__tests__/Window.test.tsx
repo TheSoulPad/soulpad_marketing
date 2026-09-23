@@ -17,13 +17,17 @@ describe("Window video modal", () => {
       />,
     );
 
-    fireEvent.click(screen.getByRole("button", { name: /Watch the SoulPad Video/i }));
+    fireEvent.click(
+      screen.getByRole("button", { name: /Watch the SoulPad Video/i }),
+    );
 
     const iframe = screen.getByTitle("SoulPad Video");
     expect(iframe).toBeInTheDocument();
     expect(iframe).toHaveAttribute(
       "src",
-      expect.stringContaining("https://www.youtube-nocookie.com/embed/1FEM6XuE5Qs"),
+      expect.stringContaining(
+        "https://www.youtube-nocookie.com/embed/1FEM6XuE5Qs",
+      ),
     );
     expect(iframe).toHaveAttribute(
       "referrerpolicy",
@@ -44,7 +48,9 @@ describe("Window video modal", () => {
       />,
     );
 
-    fireEvent.click(screen.getByRole("button", { name: /Watch the SoulPad Video/i }));
+    fireEvent.click(
+      screen.getByRole("button", { name: /Watch the SoulPad Video/i }),
+    );
 
     const iframe = screen.getByTitle("SoulPad Video");
     expect(iframe).toHaveAttribute("src", embedUrl);

@@ -6,12 +6,12 @@ import {
 
 describe("youtubeEmbed", () => {
   it("extracts video IDs from supported YouTube URLs", () => {
-    expect(getYouTubeVideoId("https://www.youtube.com/watch?v=1FEM6XuE5Qs")).toBe(
-      "1FEM6XuE5Qs",
-    );
-    expect(getYouTubeVideoId("https://youtu.be/1FEM6XuE5Qs?si=sharetoken")).toBe(
-      "1FEM6XuE5Qs",
-    );
+    expect(
+      getYouTubeVideoId("https://www.youtube.com/watch?v=1FEM6XuE5Qs"),
+    ).toBe("1FEM6XuE5Qs");
+    expect(
+      getYouTubeVideoId("https://youtu.be/1FEM6XuE5Qs?si=sharetoken"),
+    ).toBe("1FEM6XuE5Qs");
   });
 
   it("builds a privacy-enhanced embed URL with origin", () => {
