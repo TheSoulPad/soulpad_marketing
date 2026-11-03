@@ -1,13 +1,8 @@
 import * as React from "react";
 import Box from "@mui/material/Box";
-import { marketingDoodles } from "../../const/uiAssets";
-import { useThemeMode } from "../../contexts/ThemeModeContext";
 
-/** Decorative doodle layer behind the top of the page (#87). */
+/** Decorative doodle layer — follows `html[data-theme]` via `--doodles` in theme-tokens.css. */
 export function MarketingDoodles() {
-  const { mode } = useThemeMode();
-  const src = marketingDoodles[mode];
-
   return (
     <Box
       aria-hidden
@@ -20,7 +15,7 @@ export function MarketingDoodles() {
         width: "100vw",
         maxWidth: "100%",
         height: 900,
-        backgroundImage: `url(${src})`,
+        backgroundImage: "var(--doodles)",
         backgroundRepeat: "no-repeat",
         backgroundSize: "cover",
         backgroundPosition: "center top",

@@ -5,6 +5,7 @@ import type {
 } from "../theme/themePreference";
 import {
   applyDocumentThemeMode,
+  readDocumentThemeMode,
   readStoredThemePreference,
   readSystemThemeMode,
   resolveThemeMode,
@@ -21,16 +22,6 @@ const ThemeModeContext = React.createContext<ThemeModeContextValue | null>(
   null,
 );
 
-function readInitialMode(): ThemeMode {
-  if (typeof document !== "undefined") {
-    const attr = document.documentElement.getAttribute("data-theme");
-    if (attr === "light" || attr === "dark") {
-      return attr;
-    }
-  }
-  return resolveThemeMode(readStoredThemePreference());
-}
-
 export const ThemeModeProvider: React.FC<{ children: React.ReactNode }> = ({
   children,
 }) => {
@@ -38,7 +29,19 @@ export const ThemeModeProvider: React.FC<{ children: React.ReactNode }> = ({
     React.useState<StoredThemePreference>(() => {
       return readStoredThemePreference() ?? "system";
     });
-  const [mode, setMode] = React.useState<ThemeMode>(readInitialMode);
+  const [mode, setMode] = React.useState<ThemeMode>(() => {
+    return (
+      readDocumentThemeMode() ??
+      resolveThemeMode(readStoredThemePreference())
+    );
+  });
+
+  React.useLayoutEffect(() => {
+    const fromDocument = readDocumentThemeMode();
+    if (fromDocument) {
+      setMode(fromDocument);
+    }
+  }, []);
 
   React.useEffect(() => {
     const resolved = resolveThemeMode(preference);

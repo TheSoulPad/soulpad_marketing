@@ -1,19 +1,13 @@
 import * as React from "react";
 import Box from "@mui/material/Box";
-import {
-  marketingLogos,
-  SOULPAD_LOGO_ASPECT_RATIO,
-} from "../../const/uiAssets";
 import { SOULPAD_APP_URL } from "../../const/marketingHomeCards";
 import { homePageLinks } from "../../const";
 import { SoulPadIcon } from "./SoulPadIcon";
 import { VideoModal } from "./VideoModal";
-import { useThemeMode } from "../../contexts/ThemeModeContext";
+import { MarketingHeroLogo } from "./MarketingHeroLogo";
 
 export function MarketingHero() {
   const [videoOpen, setVideoOpen] = React.useState(false);
-  const { isDark } = useThemeMode();
-  const logoSrc = isDark ? marketingLogos.darkPng : marketingLogos.ogBrandSvg;
 
   return (
     <>
@@ -31,18 +25,7 @@ export function MarketingHero() {
           mx: "auto",
         }}
       >
-        <Box
-          component="img"
-          src={logoSrc}
-          alt="SoulPad"
-          sx={{
-            width: "100%",
-            maxWidth: { xs: 280, sm: 400 },
-            height: "auto",
-            aspectRatio: SOULPAD_LOGO_ASPECT_RATIO,
-            objectFit: "contain",
-          }}
-        />
+        <MarketingHeroLogo />
         <Box
           component="h1"
           sx={{

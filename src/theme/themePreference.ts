@@ -54,4 +54,16 @@ export function applyDocumentThemeMode(mode: ThemeMode): void {
   document.documentElement.setAttribute("data-theme", mode);
 }
 
+/** Theme already applied by the before-paint script (SSR-safe sync for React). */
+export function readDocumentThemeMode(): ThemeMode | null {
+  if (typeof document === "undefined") {
+    return null;
+  }
+  const attr = document.documentElement.getAttribute("data-theme");
+  if (attr === "light" || attr === "dark") {
+    return attr;
+  }
+  return null;
+}
+
 export const THEME_BEFORE_PAINT_SCRIPT = `(function(){try{var k=${JSON.stringify(THEME_MODE_STORAGE_KEY)};var p=localStorage.getItem(k);var m=(p==='light'||p==='dark')?p:(window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light');document.documentElement.setAttribute('data-theme',m);}catch(e){document.documentElement.setAttribute('data-theme','light');}})();`;

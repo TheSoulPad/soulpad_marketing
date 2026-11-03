@@ -12,6 +12,10 @@ export const SOULPAD_OG_BRAND_LOGO_URL =
 /** From `soulpadlogo_final` viewBox (315 × 187.5). */
 export const SOULPAD_LOGO_ASPECT_RATIO = "315 / 187.5";
 
+/** Hero wordmark frame — matches `soulpad-logo-dark.png` artboard (796 × 460). */
+export const MARKETING_HERO_LOGO_ASPECT_RATIO = "796 / 460";
+export const MARKETING_HERO_LOGO_MAX_WIDTH = { xs: 280, sm: 400 } as const;
+
 export const marketingLogos = {
   /** Prefer for light theme hero when SVG quality matters. */
   ogBrandSvg: SOULPAD_OG_BRAND_LOGO_URL,
