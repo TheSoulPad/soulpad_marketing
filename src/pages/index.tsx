@@ -24,5 +24,10 @@ export const Head: HeadFC = () => (
       href="https://avatars.githubusercontent.com/u/226777579?s=200&v=4"
       type="image/x-icon"
     />
+    <link rel="stylesheet" href="/ui_assets/theme-tokens.css" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Nunito:wght@600;700;800;900&display=swap"
+    />
   </>
 );

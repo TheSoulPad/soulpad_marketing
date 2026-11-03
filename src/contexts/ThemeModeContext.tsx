@@ -29,19 +29,14 @@ export const ThemeModeProvider: React.FC<{ children: React.ReactNode }> = ({
     React.useState<StoredThemePreference>(() => {
       return readStoredThemePreference() ?? "system";
     });
-  const [mode, setMode] = React.useState<ThemeMode>(() => {
-    return (
-      readDocumentThemeMode() ??
-      resolveThemeMode(readStoredThemePreference())
-    );
-  });
+  /** Match SSR (always light) to avoid hydration mismatch; sync before paint via layout effect. */
+  const [mode, setMode] = React.useState<ThemeMode>("light");
 
   React.useLayoutEffect(() => {
-    const fromDocument = readDocumentThemeMode();
-    if (fromDocument) {
-      setMode(fromDocument);
-    }
-  }, []);
+    const resolved =
+      readDocumentThemeMode() ?? resolveThemeMode(preference);
+    setMode(resolved);
+  }, [preference]);
 
   React.useEffect(() => {
     const resolved = resolveThemeMode(preference);

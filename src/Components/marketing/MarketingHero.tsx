@@ -107,7 +107,11 @@ export function MarketingHero() {
               },
             }}
           >
-            <SoulPadIcon name="sparkle" size={18} color="var(--text)" />
+            <SoulPadIcon
+              name="sparkle"
+              size={18}
+              color="var(--label-on-gradient)"
+            />
             Check out SoulPad
           </Box>
           <Box

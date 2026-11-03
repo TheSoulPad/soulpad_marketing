@@ -1,7 +1,12 @@
 import React from "react";
 import { THEME_BEFORE_PAINT_SCRIPT } from "./src/theme/themePreference";
+import { isMarketingHomePath } from "./src/theme/marketingThemeDocument";
 
-export const onRenderBody = ({ setHeadComponents }) => {
+export const onRenderBody = ({ pathname, setHeadComponents }) => {
+  if (!isMarketingHomePath(pathname)) {
+    return;
+  }
+
   setHeadComponents([
     <script
       key="soulpad-theme-before-paint"

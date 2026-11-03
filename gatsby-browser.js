@@ -8,6 +8,11 @@
 
 import React from "react";
 import GlobalStyles from "./src/GlobalStyles";
+import {
+  clearMarketingDocumentTheme,
+  isMarketingHomePath,
+  syncMarketingDocumentTheme,
+} from "./src/theme/marketingThemeDocument";
 
 // Apply global styles at the root element level to prevent FOUC
 export const wrapRootElement = ({ element }) => (
@@ -16,3 +21,19 @@ export const wrapRootElement = ({ element }) => (
     {element}
   </>
 );
+
+function syncMarketingThemeForPath(pathname) {
+  if (isMarketingHomePath(pathname)) {
+    syncMarketingDocumentTheme();
+  } else {
+    clearMarketingDocumentTheme();
+  }
+}
+
+export const onInitialClientRender = () => {
+  syncMarketingThemeForPath(window.location.pathname);
+};
+
+export const onRouteUpdate = ({ location }) => {
+  syncMarketingThemeForPath(location.pathname);
+};
