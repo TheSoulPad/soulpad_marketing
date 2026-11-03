@@ -7,6 +7,7 @@ import { ThemeProvider } from "@mui/material/styles";
 import theme from "../theme";
 import useMediaQuery from "@mui/material/useMediaQuery";
 import Box from "@mui/material/Box";
+import { SOULPAD_OG_BRAND_LOGO_URL } from "../const/uiAssets";
 
 interface LayoutProps {
   children: React.ReactNode;
@@ -57,7 +58,7 @@ const BaseLayout: React.FC<LayoutProps> = ({ children, isHomePage }) => {
   const boxStylesToCenter = {
     width: "100%",
     height: "100%",
-    backgroundImage: `url('https://res.cloudinary.com/dd4qvmhqx/image/upload/v1760470328/SoulPad_e95cvu.svg')`,
+    backgroundImage: `url('${SOULPAD_OG_BRAND_LOGO_URL}')`,
     backgroundSize: "cover",
     color: "transparent",
     backgroundPositionX: "10px",
