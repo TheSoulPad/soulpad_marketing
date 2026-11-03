@@ -1,24 +1,28 @@
 import React from "react";
 import { fireEvent, render, screen, cleanup } from "@testing-library/react";
 import "@testing-library/jest-dom";
-import Window from "../Window";
+import { BrowserWindowCard } from "../marketing/BrowserWindowCard";
+import { marketingExploreCards } from "../../const/marketingHomeCards";
+import { ThemeModeProvider } from "../../contexts/ThemeModeContext";
+
+const videoCard = marketingExploreCards.find((c) => c.kind === "video")!;
+
+function renderVideoCard() {
+  return render(
+    <ThemeModeProvider>
+      <BrowserWindowCard card={videoCard} />
+    </ThemeModeProvider>,
+  );
+}
 
 afterEach(cleanup);
 
-describe("Window video modal", () => {
+describe("BrowserWindowCard video modal", () => {
   it("opens an embedded YouTube player instead of linking out", () => {
-    render(
-      <Window
-        title="Watch the SoulPad Video"
-        link="https://www.youtube.com/watch?v=1FEM6XuE5Qs"
-        type="video"
-        maxWidth="300px"
-        minHeight="180px"
-      />,
-    );
+    renderVideoCard();
 
     fireEvent.click(
-      screen.getByRole("button", { name: /Watch the SoulPad Video/i }),
+      screen.getByRole("link", { name: /Watch the SoulPad Video/i }),
     );
 
     const iframe = screen.getByTitle("SoulPad Video");
@@ -37,19 +41,16 @@ describe("Window video modal", () => {
 
   it("embeds non-YouTube video URLs directly in the iframe", () => {
     const embedUrl = "https://player.vimeo.com/video/123456789";
+    const card = { ...videoCard, href: embedUrl };
 
     render(
-      <Window
-        title="Watch the SoulPad Video"
-        link={embedUrl}
-        type="video"
-        maxWidth="300px"
-        minHeight="180px"
-      />,
+      <ThemeModeProvider>
+        <BrowserWindowCard card={card} />
+      </ThemeModeProvider>,
     );
 
     fireEvent.click(
-      screen.getByRole("button", { name: /Watch the SoulPad Video/i }),
+      screen.getByRole("link", { name: /Watch the SoulPad Video/i }),
     );
 
     const iframe = screen.getByTitle("SoulPad Video");

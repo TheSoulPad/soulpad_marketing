@@ -1,4 +1,5 @@
 module.exports = {
+  setupFilesAfterEnv: ["<rootDir>/jest.setup.js"],
   transform: {
     "^.+\\.[jt]sx?$": "<rootDir>/jest-preprocess.js",
   },

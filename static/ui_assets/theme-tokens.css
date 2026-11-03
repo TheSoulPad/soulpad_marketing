@@ -1,0 +1,85 @@
+/* SoulPad theme tokens (marketing site)
+   Usage: set data-theme="light" | "dark" on <html>. Values match the app. */
+
+:root,
+:root[data-theme="light"] {
+  color-scheme: light;
+
+  /* Core */
+  --bg: #FFF8F5;
+  --surface: #FFFFFF;
+  --raised: #F6F3FF;
+  --divider: #F3E6EC;
+  --text: #3D2C4E;
+  --text-secondary: #5E4E72;
+  --placeholder: #8A7B9C;
+  --focus-ring: #9D8DF1;
+  --label-on-gradient: #3D2C4E;
+  --link: #6E5ED6;
+  --accent-text: #6E5ED6;
+
+  /* Tints */
+  --lavender-border: #CFC6FA; --lavender-bubble: #EEEAFE; --lavender-icon: #6E5ED6; --lavender-bar: #F6F3FF;
+  --rose-border: #F2B8C8;     --rose-bubble: #FCE8EE;     --rose-icon: #B5516E;     --rose-bar: #FFF3F6;
+  --peach-border: #FFCDBB;    --peach-bubble: #FFEDE6;    --peach-icon: #C0603F;    --peach-bar: #FFF6F2;
+  --mint-border: #B9E3D3;     --mint-bubble: #E3F5EE;     --mint-icon: #3E8C70;     --mint-bar: #F0FAF6;
+
+  /* Card offset (sticker) shadows */
+  --shadow-lavender: #CFC6FA;
+  --shadow-rose: #E8A0B4;
+  --shadow-peach: #FFB59E;
+  --shadow-mint: #A8DCC8;
+
+  /* Shadows */
+  --shadow-sm: 0 4px 12px rgba(61,44,78,0.08);
+  --shadow-md: 0 8px 18px rgba(61,44,78,0.16);
+  --shadow-primary: 0 4px 12px rgba(61,44,78,0.18);
+  --gradient-highlight: rgba(255,255,255,0.7);
+
+  /* Assets */
+  --doodles: url("/ui_assets/doodles/soulpad-doodles-light.svg");
+}
+
+:root[data-theme="dark"] {
+  color-scheme: dark;
+
+  --bg: #1E1729;
+  --surface: #2A2138;
+  --raised: #33294A;
+  --divider: #3E3352;
+  --text: #F4EEFF;
+  --text-secondary: #C2B6D6;
+  --placeholder: #9A8DB0;
+  --focus-ring: #C7BCFF;
+  --label-on-gradient: #2A1F3D;
+  --link: #C7BCFF;
+  --accent-text: #C7BCFF;
+
+  --lavender-border: #5B4E8F; --lavender-bubble: #3B3160; --lavender-icon: #C7BCFF; --lavender-bar: #33294A;
+  --rose-border: #7A4459;     --rose-bubble: #4A2A3A;     --rose-icon: #F5AFC5;     --rose-bar: #3A2633;
+  --peach-border: #7F4E3F;    --peach-bubble: #4A3029;    --peach-icon: #FFC2AA;    --peach-bar: #3A2A2E;
+  --mint-border: #3E6E5E;     --mint-bubble: #22413A;     --mint-icon: #A8E3CC;     --mint-bar: #263832;
+
+  --shadow-lavender: #5B4E8F;
+  --shadow-rose: #E8A0B4;
+  --shadow-peach: #FFB59E;
+  --shadow-mint: #A8DCC8;
+
+  --shadow-sm: 0 4px 12px rgba(0,0,0,0.20);
+  --shadow-md: 0 8px 18px rgba(0,0,0,0.40);
+  --shadow-primary: 0 4px 16px rgba(157,141,241,0.30);
+  --gradient-highlight: rgba(255,255,255,0.5);
+
+  --doodles: url("/ui_assets/doodles/soulpad-doodles-dark.svg");
+}
+
+/* Theme-invariant (same in both themes) */
+:root {
+  --gradient-primary: linear-gradient(180deg, #B8ACF6 0%, #9D8DF1 100%);
+  --gradient-reward: linear-gradient(180deg, #FFD0BE 0%, #FFB59E 100%);
+  --dot-rose: #E8A0B4;
+  --dot-peach: #FFB59E;
+  --dot-mint: #A8DCC8;
+  --sparkle: #9D8DF1;
+  --heart: #E8A0B4;
+}
