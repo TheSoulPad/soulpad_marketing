@@ -14,8 +14,10 @@ Design reference: https://claude.ai/artifact/Atyo5zDMJYptNqKArH4rDc
 ## Contents
 
 ### theme-tokens.css
-All light and dark color tokens, shadows, gradients, and the doodle background path.
+All light and dark color tokens, shadows, gradients, and the doodle background path (#88).
 Set `data-theme="light"` or `data-theme="dark"` on `<html>`.
+
+Implementation guide: [`src/theme/README.md`](../../src/theme/README.md).
 
 ### logo/
 | File | Use |
