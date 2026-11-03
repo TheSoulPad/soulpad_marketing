@@ -14,6 +14,9 @@ import {
 
 type ThemeModeContextValue = {
   mode: ThemeMode;
+  /** Stored preference including `system` (matches main app). */
+  preference: StoredThemePreference;
+  setPreference: (preference: StoredThemePreference) => void;
   toggleDarkMode: () => void;
   isDark: boolean;
 };
@@ -58,19 +61,27 @@ export const ThemeModeProvider: React.FC<{ children: React.ReactNode }> = ({
     return () => mq.removeEventListener("change", onChange);
   }, [preference]);
 
+  const setPreference = React.useCallback(
+    (next: StoredThemePreference) => {
+      writeStoredThemePreference(next);
+      setPreferenceState(next);
+    },
+    [],
+  );
+
   const toggleDarkMode = React.useCallback(() => {
-    const next = mode === "dark" ? "light" : "dark";
-    writeStoredThemePreference(next);
-    setPreferenceState(next);
-  }, [mode]);
+    setPreference(mode === "dark" ? "light" : "dark");
+  }, [mode, setPreference]);
 
   const value = React.useMemo(
     (): ThemeModeContextValue => ({
       mode,
+      preference,
+      setPreference,
       toggleDarkMode,
       isDark: mode === "dark",
     }),
-    [mode, toggleDarkMode],
+    [mode, preference, setPreference, toggleDarkMode],
   );
 
   return (

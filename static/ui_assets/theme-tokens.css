@@ -35,6 +35,7 @@
   --shadow-md: 0 8px 18px rgba(61,44,78,0.16);
   --shadow-primary: 0 4px 12px rgba(61,44,78,0.18);
   --gradient-highlight: rgba(255,255,255,0.7);
+  --theme-switch-knob: #ffffff;
 
   /* Assets */
   --doodles: url("/ui_assets/doodles/soulpad-doodles-light.svg");
@@ -69,6 +70,7 @@
   --shadow-md: 0 8px 18px rgba(0,0,0,0.40);
   --shadow-primary: 0 4px 16px rgba(157,141,241,0.30);
   --gradient-highlight: rgba(255,255,255,0.5);
+  --theme-switch-knob: #f4eeff;
 
   --doodles: url("/ui_assets/doodles/soulpad-doodles-dark.svg");
 }
